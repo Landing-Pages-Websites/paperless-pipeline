@@ -17,9 +17,24 @@ const bricolage = Bricolage_Grotesque({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://paperless-pipeline-three.vercel.app"),
   title: "Paperless Pipeline — Real Estate Transaction Management",
   description:
     "Paperless Pipeline is the real estate transaction management SaaS built for brokers, teams, and transaction coordinators who need clarity, control, and predictable costs as they grow.",
+  openGraph: {
+    type: "website",
+    siteName: "Paperless Pipeline",
+    title: "Paperless Pipeline — Real Estate Transaction Management",
+    description:
+      "Paperless Pipeline is the real estate transaction management SaaS built for brokers, teams, and transaction coordinators who need clarity, control, and predictable costs as they grow.",
+    url: "https://paperless-pipeline-three.vercel.app",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Paperless Pipeline — Real Estate Transaction Management",
+    description:
+      "Paperless Pipeline is the real estate transaction management SaaS built for brokers, teams, and transaction coordinators who need clarity, control, and predictable costs as they grow.",
+  },
 };
 
 export default function RootLayout({
