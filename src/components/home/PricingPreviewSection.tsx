@@ -1,165 +1,195 @@
 import Link from "next/link";
-import { Check, ArrowRight } from "lucide-react";
 
-const tiers = [
-  {
-    name: "Starter",
-    price: "$49",
-    period: "/mo",
-    description: "Perfect for solo agents and small teams just getting started.",
-    features: [
-      "Up to 20 transactions/mo",
-      "Unlimited users",
-      "Document storage",
-      "Task checklists",
-      "Email support",
-    ],
-    cta: "Start Free Trial",
-    href: "/signup",
-    featured: false,
-  },
-  {
-    name: "Pro",
-    price: "$99",
-    period: "/mo",
-    description: "For growing teams that need more volume and advanced tools.",
-    features: [
-      "Up to 75 transactions/mo",
-      "Unlimited users",
-      "Pipeline eSign included",
-      "Automated workflows",
-      "Commissions management",
-      "Priority support",
-    ],
-    cta: "Start Free Trial",
-    href: "/signup",
-    featured: true,
-  },
-  {
-    name: "Enterprise",
-    price: "Custom",
-    period: "",
-    description: "High-volume brokerages with custom needs and dedicated support.",
-    features: [
-      "Unlimited transactions",
-      "Unlimited users",
-      "All Pro features",
-      "Custom integrations",
-      "Dedicated account manager",
-      "SLA guarantee",
-    ],
-    cta: "Contact Sales",
-    href: "/contact",
-    featured: false,
-  },
+function CheckIcon() {
+  return (
+    <svg
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      className="flex-shrink-0"
+    >
+      <rect width="24" height="24" rx="12" fill="#EEF4FF" />
+      <path
+        d="M7.5 12L10.5 15L16.5 9"
+        stroke="#0063EB"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
+function FeatureList({ features }: { features: string[] }) {
+  return (
+    <div className="flex flex-col gap-3 p-4">
+      <span className="text-[#333333] font-semibold text-[14px] leading-[24px]">
+        Includes:
+      </span>
+      <div className="flex flex-col">
+        {features.map((feature, i) => (
+          <div key={i}>
+            <div className="flex items-center gap-2 py-3">
+              <CheckIcon />
+              <span className="text-[#000000] font-medium text-[14px] leading-[24px]">
+                {feature}
+              </span>
+            </div>
+            {i < features.length - 1 && (
+              <div className="border-t border-[#F2F2F2]" />
+            )}
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+const corePricingFeatures = [
+  "Custom checklists by deal type",
+  "Clear visibility into every transaction",
+  "Built-in compliance and audit tracking",
+  "Deadlines, documents, and tasks in one place",
+];
+
+const eSignFeatures = [
+  "Reusable forms with auto-fill",
+  "Send requests in seconds",
+  "Track status in real time",
+  "Signed docs saved automatically",
+];
+
+const commissionFeatures = [
+  "Custom commission plans and splits",
+  "Automatic calculations",
+  "Auto-generated CDAs for every deal",
+  "Export-ready reports when you need them",
 ];
 
 export default function PricingPreviewSection() {
   return (
-    <section className="py-20 md:py-28 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-14">
-          <h2 className="text-3xl md:text-4xl font-semibold text-[#030712] mb-4">
-            Pay for What Matters
-          </h2>
-          <p className="text-lg text-[#4F4F4F] max-w-2xl mx-auto">
-            No per-seat fees. No surprise charges. Just one simple price based on
-            how many transactions you close each month.
+    <section className="bg-white py-[80px] md:py-[120px] px-5 md:px-[80px]">
+      <div className="max-w-[1440px] mx-auto flex flex-col items-center gap-12 md:gap-[55px]">
+        {/* Section header */}
+        <div className="flex flex-col items-center gap-3 w-full max-w-[836px]">
+          <p className="text-[#0063EB] font-medium text-[14px] leading-[24px] tracking-[0.0893em] uppercase text-center">
+            Pay for what matters
           </p>
+          <div className="flex flex-col items-center gap-6 w-full">
+            <h2 className="text-[#000000] font-semibold text-[32px] md:text-[48px] leading-tight text-center">
+              Flexible. Modular. Pay for what you need.
+            </h2>
+            <p className="text-[#4F4F4F] font-normal text-[16px] leading-[150%] text-center">
+              Everything you need to manage transactions, with optional tools
+              when you&apos;re ready.
+            </p>
+          </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-7 mb-10">
-          {tiers.map((tier) => (
-            <div
-              key={tier.name}
-              className={`rounded-2xl p-8 flex flex-col ${
-                tier.featured
-                  ? "bg-[#0063EB] text-white shadow-xl ring-2 ring-[#0063EB]"
-                  : "bg-white border border-gray-200 shadow-sm"
-              }`}
-            >
-              {tier.featured && (
-                <span className="inline-block bg-[#FFE95B] text-[#030712] text-xs font-semibold px-3 py-1 rounded-full mb-4 self-start">
-                  Most Popular
-                </span>
-              )}
-              <div className="mb-5">
-                <h3
-                  className={`text-lg font-semibold mb-1 ${
-                    tier.featured ? "text-white" : "text-[#030712]"
-                  }`}
-                >
-                  {tier.name}
-                </h3>
-                <div className="flex items-baseline gap-1">
-                  <span
-                    className={`text-4xl font-bold ${
-                      tier.featured ? "text-white" : "text-[#030712]"
-                    }`}
-                  >
-                    {tier.price}
-                  </span>
-                  {tier.period && (
-                    <span
-                      className={`text-sm ${
-                        tier.featured ? "text-blue-200" : "text-[#6C757D]"
-                      }`}
-                    >
-                      {tier.period}
-                    </span>
-                  )}
-                </div>
-                <p
-                  className={`text-sm mt-2 ${
-                    tier.featured ? "text-blue-100" : "text-[#4F4F4F]"
-                  }`}
-                >
-                  {tier.description}
-                </p>
-              </div>
-
-              <ul className="space-y-2.5 flex-1 mb-7">
-                {tier.features.map((f) => (
-                  <li key={f} className="flex items-start gap-2.5">
-                    <Check
-                      size={15}
-                      className={`flex-shrink-0 mt-0.5 ${
-                        tier.featured ? "text-blue-200" : "text-emerald-500"
-                      }`}
-                    />
-                    <span
-                      className={`text-sm ${
-                        tier.featured ? "text-blue-50" : "text-[#4F4F4F]"
-                      }`}
-                    >
-                      {f}
-                    </span>
-                  </li>
-                ))}
-              </ul>
-
-              <Link
-                href={tier.href}
-                className={`block text-center text-sm font-semibold px-6 py-3 rounded-lg transition-colors ${
-                  tier.featured
-                    ? "bg-white text-[#0063EB] hover:bg-blue-50"
-                    : "bg-[#0063EB] hover:bg-[#046EFF] text-white"
-                }`}
-              >
-                {tier.cta}
-              </Link>
+        {/* Pricing cards */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full max-w-[1280px]">
+          {/* Card 1 – Core Product */}
+          <div className="bg-white border-2 border-[#F2F2F2] rounded-[24px] p-6 flex flex-col gap-6">
+            <div className="self-start bg-[#0063EB] rounded-full px-4 py-2">
+              <span className="text-white font-semibold text-[12px] leading-[16px] uppercase">
+                Core Product
+              </span>
             </div>
-          ))}
+            <div className="flex flex-col">
+              <div className="flex flex-col gap-3 p-4">
+                <div className="flex flex-col">
+                  <span className="text-[#808080] font-normal text-[16px] leading-[24px]">
+                    Pricing Starts at
+                  </span>
+                  <div className="flex items-end gap-1">
+                    <span className="text-[#000000] font-medium text-[48px] md:text-[64px] leading-[72px] tracking-[-0.03em]">
+                      $65
+                    </span>
+                    <span className="text-[#808080] font-normal text-[16px] leading-[24px] pb-3">
+                      /month
+                    </span>
+                  </div>
+                </div>
+                <h3 className="text-[#000000] font-semibold text-[18px] leading-[32px] tracking-[-0.02em]">
+                  Transaction Management
+                </h3>
+              </div>
+              <FeatureList features={corePricingFeatures} />
+            </div>
+          </div>
+
+          {/* Card 2 – Pipeline eSign (Optional Add-on) */}
+          <div className="bg-white border-2 border-[#F2F2F2] rounded-[24px] p-6 flex flex-col gap-6">
+            <div className="self-start bg-[#FFE95B] rounded-full px-4 py-2">
+              <span className="text-[#1E1E1E] font-semibold text-[12px] leading-[16px] uppercase">
+                Optional Add-on
+              </span>
+            </div>
+            <div className="flex flex-col flex-1">
+              <div className="flex flex-col gap-3 p-4">
+                <div className="flex items-end gap-1">
+                  <span className="text-[#000000] font-medium text-[48px] md:text-[64px] leading-[72px] tracking-[-0.03em]">
+                    $0.70
+                  </span>
+                  <span className="text-[#808080] font-normal text-[16px] leading-[24px] pb-3">
+                    /signature request
+                  </span>
+                </div>
+                <h3 className="text-[#000000] font-semibold text-[18px] leading-[32px] tracking-[-0.02em]">
+                  Pipeline eSign
+                </h3>
+              </div>
+              <FeatureList features={eSignFeatures} />
+            </div>
+            <p className="text-[#0063EB] font-medium text-[16px] leading-[32px] tracking-[-0.0113em]">
+              Cheaper than DocuSign*
+            </p>
+          </div>
+
+          {/* Card 3 – Commission Module (Optional Add-on) */}
+          <div className="bg-white border-2 border-[#F2F2F2] rounded-[24px] p-6 flex flex-col gap-6">
+            <div className="self-start bg-[#FFE95B] rounded-full px-4 py-2">
+              <span className="text-[#1E1E1E] font-semibold text-[12px] leading-[16px] uppercase">
+                Optional Add-on
+              </span>
+            </div>
+            <div className="flex flex-col">
+              <div className="flex flex-col gap-3 p-4">
+                <div className="flex flex-col">
+                  <span className="text-[#808080] font-normal text-[16px] leading-[24px]">
+                    Pricing Starts at
+                  </span>
+                  <div className="flex items-end gap-1">
+                    <span className="text-[#000000] font-medium text-[48px] md:text-[64px] leading-[72px] tracking-[-0.03em]">
+                      $54
+                    </span>
+                    <span className="text-[#808080] font-normal text-[16px] leading-[24px] pb-3">
+                      /month
+                    </span>
+                  </div>
+                </div>
+                <h3 className="text-[#000000] font-semibold text-[18px] leading-[32px] tracking-[-0.02em]">
+                  Commission Module
+                </h3>
+              </div>
+              <FeatureList features={commissionFeatures} />
+            </div>
+          </div>
         </div>
 
-        <div className="text-center">
-          <Link
-            href="/pricing"
-            className="inline-flex items-center gap-2 text-sm font-medium text-[#0063EB] hover:gap-3 transition-all"
-          >
-            View Plans and Pricing <ArrowRight size={15} />
-          </Link>
-        </div>
+        {/* CTA button */}
+        <Link
+          href="/pricing"
+          className="inline-flex items-center gap-2 text-white font-medium text-[14px] leading-[24px] bg-[#0063EB] hover:bg-[#046EFF] transition-colors rounded-lg px-3 py-1.5"
+          style={{
+            boxShadow:
+              "0px 0px 0px 1px rgba(4, 110, 255, 1), 0px 1px 2px 0px rgba(4, 110, 255, 0.64)",
+          }}
+        >
+          View plans and pricing →
+        </Link>
       </div>
     </section>
   );
