@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 const painItems = [
   {
     title: "The fit breaks down",
@@ -16,21 +18,28 @@ const painItems = [
 const stats = [
   { number: "10+", label: "Hours lost each week" },
   { number: "3–5", label: "Separate tools" },
-  { number: "$$$", label: "Software spend that's hard to tie back to real productivity" },
+  {
+    number: "$$$",
+    label: "Software spend that's hard to tie back to real productivity",
+  },
 ];
 
 export default function PainPointsSection() {
   return (
     <section className="bg-white py-[120px] px-[80px] max-md:py-16 max-md:px-4">
       <div className="flex flex-col gap-6">
-        {/* Main content row: background image container with left white card */}
-        {/* Container bg is a Figma background image (fill_PGVVQG); using dark-secondary as placeholder */}
-        <div
-          className="flex flex-col lg:flex-row gap-4 p-4 rounded-3xl bg-[#23272E]"
-          style={{ minHeight: "520px" }}
-        >
+        {/* Top section: painpoints-image.png as bg, white card on left */}
+        <div className="relative rounded-3xl overflow-hidden flex flex-row p-4 gap-2 min-h-[520px]">
+          <Image
+            src="/images/figma/painpoints-image.png"
+            alt=""
+            fill
+            className="object-cover"
+            aria-hidden="true"
+          />
+
           {/* Left white card — 593px wide on desktop */}
-          <div className="bg-white rounded-2xl p-8 flex flex-col gap-12 lg:w-[593px] lg:flex-shrink-0 max-md:p-6">
+          <div className="relative z-10 bg-white rounded-2xl p-8 flex flex-col gap-12 lg:w-[593px] lg:flex-shrink-0 w-full max-md:p-6">
             {/* Header */}
             <div className="flex flex-col gap-3">
               <span className="font-sans font-medium text-[14px] leading-[24px] tracking-[0.0893em] uppercase text-[#D92D20]">
@@ -54,7 +63,6 @@ export default function PainPointsSection() {
                   key={item.title}
                   className="flex flex-col gap-6 border border-[#F0EDEA] rounded-lg p-4"
                 >
-                  {/* Icon placeholder — SVG in Figma */}
                   <div className="w-6 h-6 rounded-sm bg-[#F0EDEA]" />
                   <div className="flex flex-col gap-1">
                     <span className="font-sans font-semibold text-[16px] leading-[24px] tracking-[-0.0113em] text-[#393837]">

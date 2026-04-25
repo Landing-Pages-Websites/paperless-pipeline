@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { Building2, Users, ClipboardList } from "lucide-react";
 
@@ -10,7 +11,7 @@ const roles = [
     tabLabel: "For brokers",
     tabSubtitle: "Close deals faster",
     href: "/how-it-works/brokers",
-    cardHeading: "For brokers",
+    cardHeading: "Get full visibility into every transaction",
     cardDescription:
       "Get full visibility into every transaction in your brokerage. Track agent production, manage compliance, and scale without adding overhead.",
     Icon: Building2,
@@ -20,7 +21,7 @@ const roles = [
     tabLabel: "For teams",
     tabSubtitle: "Seamless collaboration",
     href: "/how-it-works/teams",
-    cardHeading: "For teams",
+    cardHeading: "Coordinate agents and close more deals",
     cardDescription:
       "Coordinate agents, coordinators, and support staff in one shared workspace. Standardize your process and close more deals with less back-and-forth.",
     Icon: Users,
@@ -84,7 +85,6 @@ export default function RolesSection() {
                       : {}
                   }
                 >
-                  {/* Icon + text row */}
                   <div className="flex flex-row items-center gap-4">
                     <div
                       className="flex items-center justify-center p-4 rounded-full shrink-0"
@@ -105,14 +105,11 @@ export default function RolesSection() {
                       </span>
                     </div>
                   </div>
-                  {/* Slider bar */}
                   <div
                     className="w-full h-0.5 rounded-full"
                     style={{
                       backgroundColor: "#ECEEF2",
-                      border: isActive
-                        ? "none"
-                        : "0.5px solid #D5D9E2",
+                      border: isActive ? "none" : "0.5px solid #D5D9E2",
                     }}
                   />
                 </button>
@@ -120,58 +117,62 @@ export default function RolesSection() {
             })}
           </div>
 
-          {/* Content panel */}
-          <div
-            className="relative rounded-3xl border border-[#D5D9E2] p-4 overflow-hidden min-h-[520px]"
-            style={{
-              background:
-                "linear-gradient(135deg, #030712 0%, #061a42 50%, #0a2870 100%)",
-            }}
-          >
-            {/* Product screenshot — left, absolute on desktop */}
-            <div className="hidden md:block absolute left-[66px] top-[80px] w-[606px] h-[360px] rounded-xl overflow-hidden bg-[#1a2744] opacity-80">
-              {/* Placeholder — replace with next/image when asset is available */}
-              <div className="w-full h-full bg-gradient-to-br from-[#1a2744] to-[#0a1628] flex items-center justify-center">
-                <div className="w-full h-full opacity-40 bg-[url('/file.svg')] bg-center bg-no-repeat" />
-              </div>
+          {/* Content panel — dark-gradient-bg.png as background */}
+          <div className="relative rounded-3xl border border-[#D5D9E2] overflow-hidden min-h-[520px]">
+            {/* Background image */}
+            <Image
+              src="/images/figma/dark-gradient-bg.png"
+              alt=""
+              fill
+              className="object-cover"
+              aria-hidden="true"
+            />
+
+            {/* Product screenshot — absolutely positioned on the left */}
+            <div className="hidden md:block absolute left-[66px] top-[80px] w-[606px] h-[360px] rounded-xl overflow-hidden">
+              <Image
+                src="/images/figma/roles-screenshot.png"
+                alt="Paperless Pipeline product UI"
+                fill
+                className="object-cover"
+              />
             </div>
 
             {/* White card — right-aligned */}
-            <div
-              className="relative z-10 ml-auto flex flex-col justify-between bg-white rounded-2xl p-8 w-full md:w-[526px] md:h-[488px]"
-              style={{
-                boxShadow: "0px 1px 2px 0px rgba(35,39,46,0.08)",
-              }}
-            >
-              <div className="flex flex-col gap-6">
-                {/* Icon */}
-                <div className="w-8 h-8 flex items-center justify-center">
-                  <active.Icon size={32} className="text-[#0063EB]" />
-                </div>
-                {/* Text */}
-                <div className="flex flex-col gap-2">
-                  <h3
-                    className="font-semibold text-[24px] leading-[40px] text-[#1E1E1E]"
-                    style={{ letterSpacing: "-0.0208em" }}
-                  >
-                    {active.cardHeading}
-                  </h3>
-                  <p className="font-normal text-xl leading-8 text-[#4F4F4F]">
-                    {active.cardDescription}
-                  </p>
-                </div>
-              </div>
-              {/* CTA button */}
-              <Link
-                href={active.href}
-                className="inline-flex items-center gap-2 bg-[#0063EB] text-white font-medium text-sm leading-6 px-3 py-1.5 rounded-lg self-start"
+            <div className="relative z-10 flex justify-end p-4">
+              <div
+                className="flex flex-col justify-between bg-white rounded-2xl p-8 w-full md:w-[526px] md:h-[488px]"
                 style={{
-                  boxShadow:
-                    "0px 0px 0px 1px rgba(4,110,255,1), 0px 1px 2px 0px rgba(4,110,255,0.64)",
+                  boxShadow: "0px 1px 2px 0px rgba(35,39,46,0.08)",
                 }}
               >
-                Try Now →
-              </Link>
+                <div className="flex flex-col gap-6">
+                  <div className="w-8 h-8 flex items-center justify-center">
+                    <active.Icon size={32} className="text-[#0063EB]" />
+                  </div>
+                  <div className="flex flex-col gap-2">
+                    <h3
+                      className="font-semibold text-[24px] leading-[40px] text-[#1E1E1E]"
+                      style={{ letterSpacing: "-0.0208em" }}
+                    >
+                      {active.cardHeading}
+                    </h3>
+                    <p className="font-normal text-xl leading-8 text-[#4F4F4F]">
+                      {active.cardDescription}
+                    </p>
+                  </div>
+                </div>
+                <Link
+                  href={active.href}
+                  className="inline-flex items-center gap-2 bg-[#0063EB] text-white font-medium text-sm leading-6 px-3 py-1.5 rounded-lg self-start"
+                  style={{
+                    boxShadow:
+                      "0px 0px 0px 1px rgba(4,110,255,1), 0px 1px 2px 0px rgba(4,110,255,0.64)",
+                  }}
+                >
+                  Try Now →
+                </Link>
+              </div>
             </div>
           </div>
         </div>

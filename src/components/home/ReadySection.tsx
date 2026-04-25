@@ -1,24 +1,25 @@
+import Image from "next/image";
+
 export default function ReadySection() {
   return (
     <section className="bg-white py-[120px] px-[80px] max-md:py-16 max-md:px-4">
-      <div className="max-w-[1280px] mx-auto flex flex-col md:flex-row items-center gap-12">
+      <div className="max-w-[1280px] mx-auto flex flex-col md:flex-row items-stretch gap-12">
 
-        {/* Left: testimonial card with background image */}
-        <div
-          className="w-full md:flex-1 rounded-[24px] border border-[#F0EDEA] overflow-hidden flex flex-col justify-end p-4 min-h-[340px] md:min-h-[420px]"
-          style={{
-            background:
-              "linear-gradient(155deg, #0d47c1 0%, #1a2a6c 40%, #0a0a1a 100%)",
-          }}
-        >
+        {/* Left: dark card with dark-gradient-bg.png, white inner quote card at bottom */}
+        <div className="relative w-full md:flex-1 rounded-[24px] border border-[#F0EDEA] overflow-hidden flex flex-col justify-end p-4 min-h-[420px]">
+          <Image
+            src="/images/figma/dark-gradient-bg.png"
+            alt=""
+            fill
+            className="object-cover"
+            aria-hidden="true"
+          />
+
           {/* White quote box */}
-          <div className="bg-white rounded-[16px] p-4 flex flex-col gap-2">
+          <div className="relative z-10 bg-white rounded-[16px] p-4 flex flex-col gap-2">
             <p
               className="text-[#393837] text-base leading-[20px]"
-              style={{
-                fontWeight: 500,
-                letterSpacing: "-0.005em",
-              }}
+              style={{ fontWeight: 500, letterSpacing: "-0.005em" }}
             >
               With many systems, you need a couple of hours of training… but
               with this system, it&apos;s so intuitive that it&apos;s hard to
