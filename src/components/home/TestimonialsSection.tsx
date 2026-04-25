@@ -1,92 +1,164 @@
-import { Star } from "lucide-react";
+const CARD_GRADIENT =
+  "linear-gradient(250deg, rgba(255,233,91,1) 0%, rgba(13,71,193,1) 100%)";
 
 const testimonials = [
   {
-    quote:
-      "We manage over 200 transactions a year across a team of 12 agents. Paperless Pipeline cut our admin time in half and our TCs finally stopped missing deadlines. I honestly don't know how we ran without it.",
-    name: "Sarah Mitchell",
-    role: "Broker/Owner",
-    company: "Mitchell Realty Group",
-    initials: "SM",
-    bgColor: "bg-[#0063EB]",
-  },
-  {
-    quote:
-      "The pricing model sold me immediately — we pay for transactions, not per user. Our whole brokerage is on it and the monthly bill is still lower than what we were paying for just a document tool before.",
-    name: "James Okafor",
-    role: "Team Lead",
-    company: "Okafor Properties",
-    initials: "JO",
-    bgColor: "bg-emerald-600",
-  },
-  {
-    quote:
-      "As a transaction coordinator juggling 30 active files, I need a system I can trust. Paperless Pipeline keeps everything organized, sends reminders before I even think to ask, and my agents actually use it — which is half the battle.",
-    name: "Tara Lindqvist",
+    name: "Megan Walz",
+    company: "Avenue Transactions",
     role: "Transaction Coordinator",
-    company: "Summit Escrow Services",
-    initials: "TL",
-    bgColor: "bg-purple-600",
+    initials: "MW",
+    avatarBg: "#0D47C1",
+    quote:
+      "I've tried everything. Paperless Pipeline makes the most financial sense and it was the easiest platform to onboard agents.",
+    quoteSize: 24,
+    quoteFontWeight: 400,
+    quoteLineHeight: "32px",
+    quoteLetterSpacing: "-0.0208em",
+    companyColor: "#4F4F4F",
+    profileGap: "16px",
+    height: 480,
+  },
+  {
+    name: "Kesha Kennedy",
+    company: "Legacy South Real Estate Group",
+    role: "Broker in Charge",
+    initials: "KK",
+    avatarBg: "#7B3FBE",
+    quote:
+      "When I opened my brokerage I heard other software was better. But now I’m back because of the ease of Paperless Pipeline. I’ve used it for years and I love it.",
+    quoteSize: 32,
+    quoteFontWeight: 500,
+    quoteLineHeight: "40px",
+    quoteLetterSpacing: "-0.0156em",
+    companyColor: "#737373",
+    profileGap: "24px",
+    height: null,
+  },
+  {
+    name: "Reed Wilson",
+    company: "The Wilson Group",
+    role: "Broker / Owner",
+    initials: "RW",
+    avatarBg: "#D97706",
+    quote:
+      "I thought an all-in-one platform would keep everything in one hub. What I learned was that agents weren’t using it, and it didn’t work the way I expected.",
+    quoteSize: 24,
+    quoteFontWeight: 400,
+    quoteLineHeight: "32px",
+    quoteLetterSpacing: "-0.0208em",
+    companyColor: "#4F4F4F",
+    profileGap: "16px",
+    height: 480,
   },
 ];
 
 export default function TestimonialsSection() {
   return (
-    <section className="py-20 md:py-28 bg-[#ECEEF2]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-14">
-          <h2 className="text-3xl md:text-4xl font-semibold text-[#030712] mb-4">
-            Trusted by Teams Like Yours
-          </h2>
-          <p className="text-lg text-[#4F4F4F] max-w-2xl mx-auto">
-            Real estate professionals across the country rely on Paperless
-            Pipeline to keep their transactions on track.
-          </p>
+    <section className="bg-white py-[120px] px-[80px] max-md:py-16 max-md:px-4">
+      <div className="mx-auto flex flex-col gap-[55px]">
+
+        {/* Header */}
+        <div className="flex flex-col gap-3 max-w-[836px] mx-auto text-center">
+          <span
+            className="text-[#0063EB] text-[14px] leading-[24px] uppercase"
+            style={{ fontWeight: 500, letterSpacing: "0.0893em" }}
+          >
+            Trusted by teams like yours
+          </span>
+          <div className="flex flex-col gap-2">
+            <h2
+              className="text-black text-[48px] leading-tight max-md:text-4xl"
+              style={{ fontWeight: 600 }}
+            >
+              For those who have outgrown the &lsquo;all-in-one&rsquo; promise
+            </h2>
+            <p
+              className="text-[#4F4F4F] text-base leading-[150%]"
+              style={{ fontWeight: 400 }}
+            >
+              Real experiences from professionals who needed more than what
+              &ldquo;all-in-one&rdquo; tools could offer.
+            </p>
+          </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-7">
+        {/* Cards row */}
+        <div className="flex flex-col md:flex-row items-center gap-8">
           {testimonials.map((t) => (
             <div
               key={t.name}
-              className="bg-white rounded-2xl shadow-sm border border-gray-100 p-8 flex flex-col"
+              className="w-full md:flex-1 rounded-[16px] p-8 flex flex-col justify-between max-md:h-auto"
+              style={{
+                background: CARD_GRADIENT,
+                height: t.height ? `${t.height}px` : undefined,
+              }}
             >
-              {/* Stars */}
-              <div className="flex items-center gap-0.5 mb-5">
-                {[...Array(5)].map((_, i) => (
-                  <Star
-                    key={i}
-                    size={14}
-                    className="fill-yellow-400 text-yellow-400"
-                  />
-                ))}
+              {/* Top: profile + quote */}
+              <div className="flex flex-col gap-8">
+                {/* Profile row */}
+                <div
+                  className="flex items-center"
+                  style={{ gap: t.profileGap }}
+                >
+                  {/* Avatar */}
+                  <div
+                    className="rounded-full p-2 shrink-0 flex items-center justify-center"
+                    style={{ background: t.avatarBg }}
+                  >
+                    <span
+                      className="text-white text-sm w-8 h-8 flex items-center justify-center"
+                      style={{ fontWeight: 600 }}
+                    >
+                      {t.initials}
+                    </span>
+                  </div>
+
+                  {/* Name + company */}
+                  <div className="flex flex-col gap-1">
+                    <span
+                      className="text-[#1E1E1E] text-base leading-[24px]"
+                      style={{ fontWeight: 500 }}
+                    >
+                      {t.name}
+                    </span>
+                    <span
+                      className="text-[14px] leading-[20px]"
+                      style={{ fontWeight: 400, color: t.companyColor }}
+                    >
+                      {t.company}
+                    </span>
+                  </div>
+                </div>
+
+                {/* Quote */}
+                <p
+                  className="text-[#1E1E1E]"
+                  style={{
+                    fontSize: t.quoteSize,
+                    fontWeight: t.quoteFontWeight,
+                    lineHeight: t.quoteLineHeight,
+                    letterSpacing: t.quoteLetterSpacing,
+                  }}
+                >
+                  &ldquo;
+                  <br />
+                  {t.quote}
+                </p>
               </div>
 
-              {/* Quote */}
-              <blockquote className="text-sm text-[#4F4F4F] leading-relaxed flex-1 mb-6">
-                &ldquo;{t.quote}&rdquo;
-              </blockquote>
-
-              {/* Author */}
-              <div className="flex items-center gap-3">
-                <div
-                  className={`w-10 h-10 ${t.bgColor} rounded-full flex items-center justify-center flex-shrink-0`}
+              {/* Bottom: role */}
+              <div className="mt-6">
+                <span
+                  className="text-[#1E1E1E] text-[14px] leading-[20px]"
+                  style={{ fontWeight: 400 }}
                 >
-                  <span className="text-xs font-semibold text-white">
-                    {t.initials}
-                  </span>
-                </div>
-                <div>
-                  <div className="text-sm font-semibold text-[#030712]">
-                    {t.name}
-                  </div>
-                  <div className="text-xs text-[#6C757D]">
-                    {t.role}, {t.company}
-                  </div>
-                </div>
+                  {t.role}
+                </span>
               </div>
             </div>
           ))}
         </div>
+
       </div>
     </section>
   );
