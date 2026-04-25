@@ -18,8 +18,9 @@ export default function HomePage() {
       <RolesSection />
       <PainPointsSection />
       <CTABanner
-        heading="Don't let another deal fall through the cracks."
-        subtext="Paperless Pipeline keeps your entire team on the same page from contract to close."
+        variant="cta"
+        heading="Switching doesn't mean starting over"
+        subtext="We'll help you get set up without disrupting active deals."
       />
       <ReadySection />
       <TransparencySection />

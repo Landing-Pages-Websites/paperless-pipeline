@@ -1,31 +1,72 @@
 import Link from "next/link";
 
 type CTABannerProps = {
+  variant?: "quote" | "cta";
+  quote?: string;
+  eyebrow?: string;
   heading?: string;
   subtext?: string;
+  buttonText?: string;
+  buttonHref?: string;
 };
 
 export default function CTABanner({
-  heading = "Ready to simplify your real estate transactions?",
-  subtext = "Join thousands of agents, brokers, and transaction coordinators who close deals faster with Paperless Pipeline.",
+  variant = "quote",
+  quote = "One system to manage transactions, documents, and compliance — without forcing agents to change how they work.",
+  eyebrow = "CALL TO ACTION",
+  heading = "Switching doesn't mean starting over",
+  subtext = "We'll help you get set up without disrupting active deals.",
+  buttonText = "Start My 14-Day Free Trial →",
+  buttonHref = "/signup",
 }: CTABannerProps) {
   return (
-    <section className="py-16 md:py-20 bg-[#0063EB]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <h2 className="text-3xl md:text-4xl font-semibold text-white mb-4 max-w-2xl mx-auto">
-          {heading}
-        </h2>
-        {subtext && (
-          <p className="text-blue-100 text-lg mb-8 max-w-xl mx-auto">
-            {subtext}
-          </p>
-        )}
-        <Link
-          href="/signup"
-          className="inline-block bg-white hover:bg-blue-50 text-[#0063EB] font-semibold px-8 py-3.5 rounded-lg transition-colors text-sm"
-        >
-          Start Free Trial
-        </Link>
+    <section className="px-5 py-5">
+      <div
+        className="max-w-[1400px] mx-auto rounded-3xl py-12 px-6 md:py-20 md:px-20"
+        style={{
+          background:
+            "linear-gradient(135deg, #030712 0%, #061a42 50%, #0a2870 100%)",
+        }}
+      >
+        <div className="max-w-[1280px] mx-auto flex flex-col items-center">
+          {variant === "quote" ? (
+            <div className="max-w-[1068px] w-full px-0 md:px-10 text-center">
+              <p className="text-white font-semibold text-2xl md:text-[40px] leading-tight md:leading-[48px]">
+                {quote}
+              </p>
+            </div>
+          ) : (
+            <div className="max-w-[1068px] w-full px-0 md:px-10 flex flex-col items-center gap-6 text-center">
+              <div className="flex flex-col items-center gap-4">
+                <p
+                  className="text-white font-medium text-sm leading-6 uppercase"
+                  style={{ letterSpacing: "0.0893em" }}
+                >
+                  {eyebrow}
+                </p>
+                <h2 className="text-white font-semibold text-3xl md:text-[40px] leading-tight md:leading-[48px]">
+                  {heading}
+                </h2>
+                <p
+                  className="text-white font-normal text-lg md:text-xl md:leading-8"
+                  style={{ letterSpacing: "-0.01em" }}
+                >
+                  {subtext}
+                </p>
+              </div>
+              <Link
+                href={buttonHref}
+                className="inline-flex items-center gap-2 bg-white text-[#0063EB] font-medium text-sm leading-6 px-3 py-1.5 rounded-lg whitespace-nowrap"
+                style={{
+                  boxShadow:
+                    "0px 0px 0px 1px rgba(255,255,255,1), 0px 1px 2px 0px rgba(255,255,255,0.64)",
+                }}
+              >
+                {buttonText}
+              </Link>
+            </div>
+          )}
+        </div>
       </div>
     </section>
   );
