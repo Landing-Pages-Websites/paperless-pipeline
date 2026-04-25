@@ -8,7 +8,7 @@ import { navItems, type NavItem } from "@/data/navigation";
 function DropdownMenu({ item }: { item: NavItem }) {
   return (
     <div className="relative group">
-      <button className="flex items-center gap-1 text-sm font-medium text-[#4F4F4F] hover:text-[#0063EB] transition-colors py-2">
+      <button className="flex items-center gap-1 text-sm font-normal text-[#000000] hover:text-[#0063EB] transition-colors py-2">
         {item.label}
         <ChevronDown size={14} className="transition-transform group-hover:rotate-180" />
       </button>
@@ -18,7 +18,7 @@ function DropdownMenu({ item }: { item: NavItem }) {
             <Link
               key={child.href}
               href={child.href}
-              className="block px-4 py-2.5 text-sm text-[#4F4F4F] hover:bg-[#EEF4FF] hover:text-[#0063EB] transition-colors"
+              className="block px-4 py-2.5 text-sm text-[#000000] hover:bg-[#EEF4FF] hover:text-[#0063EB] transition-colors"
             >
               {child.label}
             </Link>
@@ -57,8 +57,22 @@ export default function Header() {
         scrolled ? "shadow-md" : "shadow-sm"
       }`}
     >
+      {/* Announcement banner */}
+      <div className="bg-[#0063EB] flex items-center justify-center gap-3 px-4 py-2">
+        <p className="text-sm font-normal text-white leading-6 text-center">
+          See our AI Roadmap for Transaction Management
+        </p>
+        <a
+          href="#"
+          className="shrink-0 text-xs font-normal text-white bg-[#292929] rounded-[6px] px-2 py-0.5 leading-6 hover:bg-black/70 transition-colors"
+        >
+          Learn More
+        </a>
+      </div>
+
+      {/* Main nav bar — 96px tall */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
+        <div className="flex items-center justify-between h-24">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2.5 flex-shrink-0">
             <div className="w-8 h-8 bg-[#0063EB] rounded flex items-center justify-center">
@@ -71,8 +85,8 @@ export default function Header() {
             </span>
           </Link>
 
-          {/* Desktop Nav */}
-          <nav className="hidden lg:flex items-center gap-6" aria-label="Main navigation">
+          {/* Desktop nav */}
+          <nav className="hidden lg:flex items-center gap-3" aria-label="Main navigation">
             {navItems.map((item) =>
               item.children ? (
                 <DropdownMenu key={item.href} item={item} />
@@ -80,7 +94,7 @@ export default function Header() {
                 <Link
                   key={item.href}
                   href={item.href}
-                  className="text-sm font-medium text-[#4F4F4F] hover:text-[#0063EB] transition-colors py-2"
+                  className="text-sm font-normal text-[#000000] hover:text-[#0063EB] transition-colors py-2"
                 >
                   {item.label}
                 </Link>
@@ -88,19 +102,30 @@ export default function Header() {
             )}
           </nav>
 
-          {/* Desktop CTA */}
-          <div className="hidden lg:flex items-center gap-4">
+          {/* Desktop CTA buttons */}
+          <div className="hidden lg:flex items-center gap-2">
+            {/* Log In — white bg, subtle shadow */}
             <Link
               href="/login"
-              className="text-sm font-medium text-[#4F4F4F] hover:text-[#0063EB] transition-colors"
+              className="inline-flex items-center text-sm font-medium text-[#000000] hover:text-[#0063EB] bg-white px-3 py-1.5 rounded-lg transition-colors"
+              style={{
+                boxShadow:
+                  "0px 0px 0px 1px rgba(0, 0, 0, 0.06), 0px 1px 2px 0px rgba(0, 0, 0, 0.06)",
+              }}
             >
-              Login
+              Log In
             </Link>
+            {/* Try It Free — primary blue, ring shadow */}
             <Link
               href="/signup"
-              className="bg-[#0063EB] hover:bg-[#046EFF] text-white text-sm font-medium px-5 py-2.5 rounded-lg transition-colors"
+              className="inline-flex items-center text-sm font-medium text-white bg-[#0063EB] hover:bg-[#046EFF] px-2 py-1 rounded-lg transition-colors"
+              style={{
+                border: "1px solid rgba(255, 255, 255, 0.4)",
+                boxShadow:
+                  "0px 0px 0px 1px rgba(4, 110, 255, 1), 0px 1px 2px 0px rgba(4, 110, 255, 0.56)",
+              }}
             >
-              Start Free Trial
+              Try It Free
             </Link>
           </div>
 
@@ -116,7 +141,7 @@ export default function Header() {
         </div>
       </div>
 
-      {/* Mobile menu overlay */}
+      {/* Mobile overlay */}
       {mobileOpen && (
         <div
           className="fixed inset-0 bg-black/30 z-40 lg:hidden"
@@ -170,7 +195,7 @@ export default function Header() {
                         <Link
                           key={child.href}
                           href={child.href}
-                          className="block py-2 text-sm text-[#4F4F4F] hover:text-[#0063EB] transition-colors"
+                          className="block py-2 text-sm text-[#000000] hover:text-[#0063EB] transition-colors"
                           onClick={() => setMobileOpen(false)}
                         >
                           {child.label}
@@ -195,17 +220,21 @@ export default function Header() {
         <div className="px-5 py-5 border-t border-gray-100 flex flex-col gap-3">
           <Link
             href="/login"
-            className="text-center text-sm font-medium text-[#4F4F4F] hover:text-[#0063EB] py-2.5 transition-colors"
+            className="text-center text-sm font-medium text-[#000000] hover:text-[#0063EB] py-2.5 transition-colors"
             onClick={() => setMobileOpen(false)}
           >
-            Login
+            Log In
           </Link>
           <Link
             href="/signup"
-            className="text-center bg-[#0063EB] hover:bg-[#046EFF] text-white text-sm font-medium px-5 py-3 rounded-lg transition-colors"
+            className="text-center text-sm font-medium text-white bg-[#0063EB] hover:bg-[#046EFF] px-5 py-3 rounded-lg transition-colors"
+            style={{
+              boxShadow:
+                "0px 0px 0px 1px rgba(4, 110, 255, 1), 0px 1px 2px 0px rgba(4, 110, 255, 0.56)",
+            }}
             onClick={() => setMobileOpen(false)}
           >
-            Start Free Trial
+            Try It Free
           </Link>
         </div>
       </div>

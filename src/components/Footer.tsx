@@ -1,140 +1,140 @@
 import Link from "next/link";
 
-const footerLinks = {
-  Product: [
-    { label: "Pipeline eSign", href: "/features/pipeline-esign" },
-    { label: "Transaction Management", href: "/features/transaction-management" },
-    { label: "Commissions Management", href: "/features/commissions-management" },
+const footerColumns: Record<string, { label: string; href: string }[]> = {
+  COMPANY: [
+    { label: "Schedule a Demo", href: "/schedule-demo" },
+    { label: "Contact Us", href: "/contact" },
     { label: "Pricing", href: "/pricing" },
-  ],
-  Resources: [
-    { label: "Blog", href: "/blog" },
-    { label: "Case Studies", href: "/case-studies" },
     { label: "FAQs", href: "/faqs" },
-    { label: "Savings Calculator", href: "/savings-calculator" },
-    { label: "Commission Calculator", href: "/commission-calculator" },
   ],
-  Company: [
-    { label: "About", href: "/about" },
-    { label: "Contact", href: "/contact" },
+  FEATURES: [
+    { label: "Transaction Management", href: "/features/transaction-management" },
+    { label: "Pipeline eSign", href: "/features/pipeline-esign" },
+    { label: "Commission Module", href: "/features/commissions-management" },
   ],
-  Legal: [
-    { label: "Privacy Policy", href: "/privacy-policy" },
-    { label: "Cookie Policy", href: "/cookie-policy" },
-    { label: "Terms of Service", href: "/terms-of-service" },
+  RESOURCES: [
+    { label: "Blogs", href: "/blog" },
+  ],
+  "FREE GUIDES": [
+    { label: "Recruiting Real Estate Agents", href: "/guides/recruiting-real-estate-agents" },
+    { label: "Real Estate Transaction Process", href: "/guides/real-estate-transaction-process" },
+    { label: "Real Estate Checklist Template", href: "/guides/real-estate-checklist-template" },
+    { label: "How to Start a Real Estate Brokerage", href: "/guides/how-to-start-a-real-estate-brokerage" },
   ],
 };
 
-function TwitterIcon() {
-  return (
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-      <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
-    </svg>
-  );
-}
-
-function LinkedInIcon() {
-  return (
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-      <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
-    </svg>
-  );
-}
-
-function FacebookIcon() {
-  return (
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-      <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
-    </svg>
-  );
-}
-
 export default function Footer() {
-  const year = new Date().getFullYear();
-
   return (
-    <footer className="bg-[#030712] text-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-10">
-          {/* Brand column */}
-          <div className="lg:col-span-2">
-            <Link href="/" className="flex items-center gap-2.5 mb-4">
-              <div className="w-8 h-8 bg-[#0063EB] rounded flex items-center justify-center flex-shrink-0">
-                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-                  <path d="M3 4h10M3 8h7M3 12h5" stroke="white" strokeWidth="2" strokeLinecap="round" />
-                </svg>
-              </div>
-              <span className="font-semibold text-white text-base">Paperless Pipeline</span>
-            </Link>
-            <p className="text-sm text-gray-400 leading-relaxed max-w-xs">
-              The smarter way to manage real estate transactions. Built for brokers,
-              teams, and transaction coordinators who need clarity and control.
+    <footer>
+      {/* CTA block — dark rounded card, 80px padding, border-radius 24px */}
+      <div className="px-4 sm:px-6 lg:px-8 py-8">
+        <div
+          className="max-w-[1400px] mx-auto rounded-3xl bg-[#030712] flex flex-col items-center text-center gap-6 px-8 py-20 md:px-20"
+        >
+          {/* Eyebrow */}
+          <p
+            className="text-sm font-medium text-white leading-6 uppercase"
+            style={{ letterSpacing: "0.0893em" }}
+          >
+            Call to Action
+          </p>
+
+          {/* Heading + subtext */}
+          <div className="flex flex-col items-center gap-4 max-w-[1068px] w-full">
+            <h2
+              className="text-[40px] font-semibold text-white leading-[48px] text-center"
+            >
+              Switching doesn&apos;t mean starting over
+            </h2>
+            <p
+              className="text-xl font-normal text-white leading-8 text-center"
+              style={{ letterSpacing: "-0.01em" }}
+            >
+              We&apos;ll help you get set up without disrupting active deals.
             </p>
-            <div className="flex items-center gap-3 mt-6">
-              <a
-                href="https://twitter.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Follow us on X (Twitter)"
-                className="w-9 h-9 bg-white/10 hover:bg-white/20 rounded-lg flex items-center justify-center transition-colors text-gray-400 hover:text-white"
-              >
-                <TwitterIcon />
-              </a>
-              <a
-                href="https://linkedin.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Follow us on LinkedIn"
-                className="w-9 h-9 bg-white/10 hover:bg-white/20 rounded-lg flex items-center justify-center transition-colors text-gray-400 hover:text-white"
-              >
-                <LinkedInIcon />
-              </a>
-              <a
-                href="https://facebook.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Follow us on Facebook"
-                className="w-9 h-9 bg-white/10 hover:bg-white/20 rounded-lg flex items-center justify-center transition-colors text-gray-400 hover:text-white"
-              >
-                <FacebookIcon />
-              </a>
-            </div>
           </div>
 
-          {/* Link columns */}
-          {Object.entries(footerLinks).map(([section, links]) => (
-            <div key={section}>
-              <h3 className="text-sm font-semibold text-white mb-4">{section}</h3>
-              <ul className="space-y-2.5">
-                {links.map((link) => (
-                  <li key={link.href}>
-                    <Link
-                      href={link.href}
-                      className="text-sm text-gray-400 hover:text-white transition-colors"
-                    >
-                      {link.label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
+          {/* CTA button — white bg, blue text */}
+          <Link
+            href="/signup"
+            className="inline-flex items-center text-sm font-medium text-[#0063EB] bg-white hover:bg-gray-50 rounded-lg px-6 py-3 transition-colors"
+            style={{
+              boxShadow:
+                "0px 0px 0px 1px rgba(255, 255, 255, 1), 0px 1px 2px 0px rgba(255, 255, 255, 0.64)",
+            }}
+          >
+            Start My 14-Day Free Trial →
+          </Link>
+        </div>
+      </div>
+
+      {/* Footer links section — white background */}
+      <div className="bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-10">
+            {Object.entries(footerColumns).map(([heading, links]) => (
+              <div key={heading} className="flex flex-col gap-10">
+                {/* Column heading: 18px Regular UPPERCASE #4F4F4F */}
+                <h3
+                  className="text-[18px] font-normal text-[#4F4F4F] leading-6 uppercase"
+                  style={{ letterSpacing: "-0.0133em" }}
+                >
+                  {heading}
+                </h3>
+                {/* Links: 18px Regular #000000, gap 24px */}
+                <ul className="flex flex-col gap-6">
+                  {links.map((link) => (
+                    <li key={link.href}>
+                      <Link
+                        href={link.href}
+                        className="text-[18px] font-normal text-[#000000] leading-6 hover:text-[#0063EB] transition-colors"
+                        style={{ letterSpacing: "-0.0133em" }}
+                      >
+                        {link.label}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
         </div>
 
-        <div className="mt-12 pt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-xs text-gray-500">
-            &copy; {year} Paperless Pipeline. All rights reserved.
-          </p>
-          <div className="flex items-center gap-5">
-            <Link href="/privacy-policy" className="text-xs text-gray-500 hover:text-gray-300 transition-colors">
-              Privacy
-            </Link>
-            <Link href="/cookie-policy" className="text-xs text-gray-500 hover:text-gray-300 transition-colors">
-              Cookies
-            </Link>
-            <Link href="/terms-of-service" className="text-xs text-gray-500 hover:text-gray-300 transition-colors">
-              Terms
-            </Link>
+        {/* Copyright row */}
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-8">
+          <div className="border-t border-gray-200 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+            {/* Copyright text: 14px Regular #4F4F4F */}
+            <p
+              className="text-[14px] font-normal text-[#4F4F4F] leading-5"
+              style={{ letterSpacing: "-0.0057em" }}
+            >
+              ©2026; All Rights Reserved
+            </p>
+
+            {/* Legal links: 14px Regular #4F4F4F underlined, gap 24px */}
+            <div className="flex items-center gap-6">
+              <Link
+                href="/cookie-policy"
+                className="text-[14px] font-normal text-[#4F4F4F] leading-5 underline hover:text-[#0063EB] transition-colors"
+                style={{ letterSpacing: "-0.0057em" }}
+              >
+                Cookies Settings
+              </Link>
+              <Link
+                href="/terms-of-service"
+                className="text-[14px] font-normal text-[#4F4F4F] leading-5 underline hover:text-[#0063EB] transition-colors"
+                style={{ letterSpacing: "-0.0057em" }}
+              >
+                Terms &amp; Conditions
+              </Link>
+              <Link
+                href="/privacy-policy"
+                className="text-[14px] font-normal text-[#4F4F4F] leading-5 underline hover:text-[#0063EB] transition-colors"
+                style={{ letterSpacing: "-0.0057em" }}
+              >
+                Privacy Policy
+              </Link>
+            </div>
           </div>
         </div>
       </div>

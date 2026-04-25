@@ -42,7 +42,7 @@ export const navItems: NavItem[] = [
     href: "/pricing",
   },
   {
-    label: "Resources",
+    label: "Free Resources",
     href: "/resources",
     children: [
       { label: "Blog", href: "/blog" },
