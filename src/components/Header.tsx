@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { navItems, type NavItem } from "@/data/navigation";
 
@@ -75,11 +76,13 @@ export default function Header() {
         <div className="flex items-center justify-between h-24">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2.5 flex-shrink-0">
-            <div className="w-8 h-8 bg-[#0063EB] rounded flex items-center justify-center">
-              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-                <path d="M3 4h10M3 8h7M3 12h5" stroke="white" strokeWidth="2" strokeLinecap="round" />
-              </svg>
-            </div>
+            <Image
+              src="/images/figma/logo.png"
+              alt="Paperless Pipeline"
+              width={32}
+              height={32}
+              className="object-contain"
+            />
             <span className="font-semibold text-[#030712] text-base leading-tight">
               Paperless Pipeline
             </span>

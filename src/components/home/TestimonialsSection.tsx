@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 const CARD_GRADIENT =
   "linear-gradient(250deg, rgba(255,233,91,1) 0%, rgba(13,71,193,1) 100%)";
 
@@ -6,8 +8,7 @@ const testimonials = [
     name: "Megan Walz",
     company: "Avenue Transactions",
     role: "Transaction Coordinator",
-    initials: "MW",
-    avatarBg: "#0D47C1",
+    logo: "/images/figma/testimonial-logo-1.png",
     quote:
       "I've tried everything. Paperless Pipeline makes the most financial sense and it was the easiest platform to onboard agents.",
     quoteSize: 24,
@@ -22,8 +23,7 @@ const testimonials = [
     name: "Kesha Kennedy",
     company: "Legacy South Real Estate Group",
     role: "Broker in Charge",
-    initials: "KK",
-    avatarBg: "#7B3FBE",
+    logo: "/images/figma/testimonial-logo-2.png",
     quote:
       "When I opened my brokerage I heard other software was better. But now I’m back because of the ease of Paperless Pipeline. I’ve used it for years and I love it.",
     quoteSize: 32,
@@ -38,8 +38,7 @@ const testimonials = [
     name: "Reed Wilson",
     company: "The Wilson Group",
     role: "Broker / Owner",
-    initials: "RW",
-    avatarBg: "#D97706",
+    logo: "/images/figma/testimonial-logo-3.png",
     quote:
       "I thought an all-in-one platform would keep everything in one hub. What I learned was that agents weren’t using it, and it didn’t work the way I expected.",
     quoteSize: 24,
@@ -100,17 +99,15 @@ export default function TestimonialsSection() {
                   className="flex items-center"
                   style={{ gap: t.profileGap }}
                 >
-                  {/* Avatar */}
-                  <div
-                    className="rounded-full p-2 shrink-0 flex items-center justify-center"
-                    style={{ background: t.avatarBg }}
-                  >
-                    <span
-                      className="text-white text-sm w-8 h-8 flex items-center justify-center"
-                      style={{ fontWeight: 600 }}
-                    >
-                      {t.initials}
-                    </span>
+                  {/* Company logo */}
+                  <div className="shrink-0">
+                    <Image
+                      src={t.logo}
+                      alt={t.company}
+                      width={48}
+                      height={48}
+                      className="object-contain"
+                    />
                   </div>
 
                   {/* Name + company */}

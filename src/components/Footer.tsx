@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 const footerColumns: Record<string, { label: string; href: string }[]> = {
   COMPANY: [
@@ -29,7 +30,12 @@ export default function Footer() {
       {/* CTA block — dark rounded card, 80px padding, border-radius 24px */}
       <div className="px-4 sm:px-6 lg:px-8 py-8">
         <div
-          className="max-w-[1400px] mx-auto rounded-3xl bg-[#030712] flex flex-col items-center text-center gap-6 px-8 py-20 md:px-20"
+          className="max-w-[1400px] mx-auto rounded-3xl flex flex-col items-center text-center gap-6 px-8 py-20 md:px-20 overflow-hidden relative"
+          style={{
+            backgroundImage: "url('/images/figma/dark-gradient-bg.png')",
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+          }}
         >
           {/* Eyebrow */}
           <p
@@ -103,13 +109,22 @@ export default function Footer() {
         {/* Copyright row */}
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-8">
           <div className="border-t border-gray-200 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
-            {/* Copyright text: 14px Regular #4F4F4F */}
-            <p
-              className="text-[14px] font-normal text-[#4F4F4F] leading-5"
-              style={{ letterSpacing: "-0.0057em" }}
-            >
-              ©2026; All Rights Reserved
-            </p>
+            {/* Logo + copyright */}
+            <div className="flex items-center gap-3">
+              <Image
+                src="/images/figma/logo.png"
+                alt="Paperless Pipeline"
+                width={32}
+                height={32}
+                className="object-contain"
+              />
+              <p
+                className="text-[14px] font-normal text-[#4F4F4F] leading-5"
+                style={{ letterSpacing: "-0.0057em" }}
+              >
+                ©2026; All Rights Reserved
+              </p>
+            </div>
 
             {/* Legal links: 14px Regular #4F4F4F underlined, gap 24px */}
             <div className="flex items-center gap-6">
