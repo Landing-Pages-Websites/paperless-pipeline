@@ -4,11 +4,11 @@ import Image from "next/image";
 export default function HeroSection() {
   return (
     <section className="bg-[#FDF9EE] overflow-hidden">
-      <div className="max-w-[1440px] mx-auto px-5 sm:px-8 lg:px-20">
+      <div className="max-w-[1280px] mx-auto px-5 sm:px-10 lg:px-20">
         <div className="flex flex-col lg:flex-row items-start gap-12 lg:gap-10 pt-16 pb-16 lg:pt-[98px] lg:pb-20">
 
-          {/* ── LEFT COLUMN ── */}
-          <div className="w-full lg:w-[705px] lg:flex-shrink-0 flex flex-col gap-8">
+          {/* ── LEFT COLUMN (~55%) ── */}
+          <div className="w-full lg:w-[55%] flex flex-col gap-8">
 
             {/* Heading group */}
             <div className="flex flex-col gap-6">
@@ -23,8 +23,6 @@ export default function HeroSection() {
                     className="flex items-center justify-center rounded-full flex-shrink-0"
                     style={{
                       background: "rgba(4,110,255,0.1)",
-                      borderRadius: "96px",
-                      padding: "4px",
                       width: "20px",
                       height: "20px",
                     }}
@@ -41,28 +39,27 @@ export default function HeroSection() {
                   </span>
                 </div>
 
-                {/* Headline — "Transaction management" black, "that stays out of the way." blue (italic on "out of the way") */}
+                {/* Headline */}
                 <h1
                   className="font-semibold text-black"
                   style={{
                     fontSize: "clamp(40px, 5.5vw, 64px)",
-                    lineHeight: "1.125",
-                    letterSpacing: "-0.0375em",
+                    lineHeight: "1.1",
+                    letterSpacing: "-0.03em",
                   }}
                 >
-                  Transaction management{" "}
+                  Transaction management
+                  <br />
                   <span className="text-[#0063EB]">
-                    that stays{" "}
-                    <em className="font-semibold italic">out of the way</em>
-                    {"."}
+                    that stays <em className="italic">out of the way.</em>
                   </span>
                 </h1>
               </div>
 
               {/* Subtitle */}
               <p
-                className="text-black font-medium"
-                style={{ fontSize: "18px", lineHeight: "32px" }}
+                className="font-medium"
+                style={{ fontSize: "18px", lineHeight: "32px", color: "#4F4F4F" }}
               >
                 Built for teams that need clarity, control, and predictable costs as they grow.
               </p>
@@ -76,11 +73,10 @@ export default function HeroSection() {
                 style={{
                   fontSize: "14px",
                   lineHeight: "24px",
-                  fontWeight: 500,
                   background: "#0063EB",
                   border: "1px solid rgba(255,255,255,0.3)",
                   borderRadius: "8px",
-                  padding: "6px 12px",
+                  padding: "10px 20px",
                   boxShadow:
                     "0px 0px 0px 1px rgba(4,110,255,1), 0px 1px 2px 0px rgba(4,110,255,0.64)",
                 }}
@@ -93,9 +89,8 @@ export default function HeroSection() {
                 style={{
                   fontSize: "14px",
                   lineHeight: "24px",
-                  fontWeight: 500,
                   borderRadius: "8px",
-                  padding: "6px 12px",
+                  padding: "10px 20px",
                   boxShadow:
                     "0px 0px 0px 1px rgba(0,0,0,0.06), 0px 1px 2px 0px rgba(0,0,0,0.06)",
                 }}
@@ -104,74 +99,80 @@ export default function HeroSection() {
               </Link>
             </div>
 
-            {/* G2 social proof */}
-            <div className="flex items-end gap-6">
+            {/* G2 social proof: overlapping avatars | divider | rating/stars/label */}
+            <div className="flex items-center gap-4">
 
-              {/* 4.6+ rating box */}
-              <div
-                style={{
-                  background: "rgba(255,255,255,0.25)",
-                  border: "1px solid rgba(0,0,0,0.1)",
-                  borderRadius: "8px",
-                  padding: "16px",
-                  width: "197px",
-                  flexShrink: 0,
-                }}
-              >
+              {/* Overlapping circular avatars */}
+              <div className="flex items-center">
+                {[1, 2, 3].map((n) => (
+                  <div
+                    key={n}
+                    className="relative rounded-full overflow-hidden border-2 border-[#FDF9EE] flex-shrink-0"
+                    style={{
+                      width: "36px",
+                      height: "36px",
+                      marginLeft: n === 1 ? "0" : "-10px",
+                      zIndex: n,
+                    }}
+                  >
+                    <Image
+                      src={`/images/figma/hero-avatar-${n}.png`}
+                      alt={`User avatar ${n}`}
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
+                ))}
+              </div>
+
+              {/* Vertical divider */}
+              <div style={{ width: "1px", height: "52px", background: "#D5D9E2", flexShrink: 0 }} />
+
+              {/* Rating block */}
+              <div className="flex flex-col">
                 <div
                   style={{
                     fontFamily: "var(--font-bricolage)",
                     fontWeight: 500,
-                    fontSize: "40px",
-                    lineHeight: "56px",
+                    fontSize: "32px",
+                    lineHeight: "1",
                     letterSpacing: "-0.03em",
                   }}
                 >
                   <span style={{ color: "#23272E" }}>4.6</span>
                   <span style={{ color: "#0063EB" }}>+</span>
                 </div>
-                <div
-                  className="font-medium"
-                  style={{ color: "#23272E", fontSize: "12px", lineHeight: "20px" }}
-                >
-                  by users on G2
-                </div>
-              </div>
-
-              {/* G2 badge images + divider */}
-              <div className="flex flex-col items-stretch gap-4 flex-1">
-                <div className="flex items-center gap-6">
-                  {[1, 2, 3].map((n) => (
-                    <Image
-                      key={n}
-                      src={`/images/figma/hero-avatar-${n}.png`}
-                      alt={`G2 award badge ${n}`}
-                      width={56}
-                      height={64}
-                      className="flex-shrink-0 object-cover"
-                    />
+                <div className="flex gap-0.5 mt-1">
+                  {[...Array(5)].map((_, i) => (
+                    <svg
+                      key={i}
+                      width="14"
+                      height="14"
+                      viewBox="0 0 24 24"
+                      fill="#FFE95B"
+                      aria-hidden="true"
+                    >
+                      <path d="M12 2l2.7 5.47 6.03.87-4.37 4.25 1.03 6.01L12 15.77l-5.39 2.83 1.03-6.01L3.27 8.34l6.03-.87L12 2z" />
+                    </svg>
                   ))}
                 </div>
-                <div
-                  style={{
-                    height: 0,
-                    border: "1px solid #D5D9E2",
-                    borderRadius: "12px",
-                    width: "100%",
-                  }}
-                />
+                <span
+                  className="font-medium mt-0.5"
+                  style={{ fontSize: "12px", lineHeight: "20px", color: "#6C757D" }}
+                >
+                  by users on G2
+                </span>
               </div>
             </div>
           </div>
 
-          {/* ── RIGHT COLUMN: 2×2 stat card grid ── */}
+          {/* ── RIGHT COLUMN (~45%): 2×2 stat card grid ── */}
           <div className="w-full lg:flex-1 flex justify-center lg:justify-start">
             <div
-              className="grid grid-cols-2 w-full"
+              className="grid grid-cols-2 gap-3 w-full"
               style={{ maxWidth: "500px" }}
             >
-
-              {/* Card 1: Monthly transactions — blue, rounded right side */}
+              {/* Card 1: Monthly transactions — blue, pill right side */}
               <div
                 className="flex flex-col justify-between p-5"
                 style={{
@@ -192,7 +193,7 @@ export default function HeroSection() {
                     color: "#FFE95B",
                     fontSize: "clamp(36px, 5vw, 64px)",
                     lineHeight: "0.875",
-                    letterSpacing: "-0.0188em",
+                    letterSpacing: "-0.02em",
                   }}
                 >
                   33K+
@@ -210,7 +211,6 @@ export default function HeroSection() {
                   gap: "8px",
                 }}
               >
-                {/* Stars */}
                 <div className="flex gap-0.5 justify-center">
                   {[...Array(4)].map((_, i) => (
                     <svg
@@ -226,11 +226,11 @@ export default function HeroSection() {
                   ))}
                 </div>
                 <p
-                  className="text-center font-medium"
+                  className="text-center"
                   style={{
                     fontSize: "clamp(10px, 1.1vw, 14px)",
                     lineHeight: "1.45",
-                    letterSpacing: "-0.0057em",
+                    letterSpacing: "-0.006em",
                     color: "#393837",
                     maxWidth: "216px",
                   }}
@@ -272,7 +272,7 @@ export default function HeroSection() {
                     color: "#0063EB",
                     fontSize: "clamp(36px, 5vw, 64px)",
                     lineHeight: "0.875",
-                    letterSpacing: "-0.0188em",
+                    letterSpacing: "-0.02em",
                   }}
                 >
                   16+
@@ -304,13 +304,12 @@ export default function HeroSection() {
                     color: "#0063EB",
                     fontSize: "clamp(36px, 5vw, 64px)",
                     lineHeight: "0.875",
-                    letterSpacing: "-0.0188em",
+                    letterSpacing: "-0.02em",
                   }}
                 >
                   90K+
                 </div>
               </div>
-
             </div>
           </div>
 
