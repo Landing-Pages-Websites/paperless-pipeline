@@ -11,7 +11,7 @@ Multi-page marketing website for Paperless Pipeline, a real estate transaction m
 
 ## Design Reference
 - See `DESIGN_SPEC.md` for full design tokens, sitemap, and component specs.
-- Figma source of truth: https://www.figma.com/design/AQ93XkoSmmbyf16Nb9auW2
+- Figma source of truth: https://www.figma.com/design/c05rvNxwVjgdfAElsCjsQo/Peter-Paperless-Pipelines---CF--Copy-
 
 ## Design Tokens (Quick Reference)
 

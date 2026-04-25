@@ -1,73 +1,103 @@
-import { Shield, DollarSign, Eye, MessageCircle } from "lucide-react";
-
-const values = [
+const cards = [
   {
-    icon: DollarSign,
-    title: "Honest, Predictable Pricing",
-    description:
-      "One flat monthly fee based on transaction volume. No per-seat charges, no feature paywalls, no surprise invoices at the end of the month.",
-    bg: "bg-[#E8F8EF]",
-    iconColor: "text-emerald-600",
+    iconBg: "#E8F8EF",
+    title: "No lock-in",
+    body: "Month-to-month subscriptions mean you're never trapped",
   },
   {
-    icon: Shield,
-    title: "No Hidden Fees",
-    description:
-      "The price you see is the price you pay. eSign, document storage, unlimited users, and all integrations are included in every plan.",
-    bg: "bg-[#EEF4FF]",
-    iconColor: "text-[#0063EB]",
+    iconBg: "#EEF4FF",
+    title: "Full export",
+    body: "Standard formats you can use anywhere",
   },
   {
-    icon: Eye,
-    title: "Full Visibility",
-    description:
-      "We believe your team deserves to see exactly what's happening in every deal. No black boxes, no buried settings — everything is front and center.",
-    bg: "bg-[#F5F0FF]",
-    iconColor: "text-purple-600",
-  },
-  {
-    icon: MessageCircle,
-    title: "Open Communication",
-    description:
-      "Questions, concerns, feedback — we're always reachable. Our team responds fast and our roadmap is shaped by what our customers actually need.",
-    bg: "bg-[#FDF9EE]",
-    iconColor: "text-amber-600",
+    iconBg: "#F5F0FF",
+    title: "You own it",
+    body: "Your transactions, contacts, and history stay yours",
   },
 ];
 
+function LockIcon({ color }: { color: string }) {
+  return (
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden>
+      <rect x="5" y="11" width="14" height="10" rx="2" stroke={color} strokeWidth="1.5" />
+      <path d="M8 11V7a4 4 0 0 1 8 0v4" stroke={color} strokeWidth="1.5" strokeLinecap="round" />
+    </svg>
+  );
+}
+
+function ExportIcon({ color }: { color: string }) {
+  return (
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden>
+      <path d="M12 3v12M8 11l4 4 4-4" stroke={color} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M5 20h14" stroke={color} strokeWidth="1.5" strokeLinecap="round" />
+    </svg>
+  );
+}
+
+function OwnerIcon({ color }: { color: string }) {
+  return (
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden>
+      <circle cx="12" cy="8" r="4" stroke={color} strokeWidth="1.5" />
+      <path d="M4 20c0-4 3.6-7 8-7s8 3 8 7" stroke={color} strokeWidth="1.5" strokeLinecap="round" />
+    </svg>
+  );
+}
+
+const icons = [LockIcon, ExportIcon, OwnerIcon];
+const iconColors = ["#16A34A", "#0063EB", "#7C3AED"];
+
 export default function TransparencySection() {
   return (
-    <section className="py-20 md:py-28 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-14">
-          <h2 className="text-3xl md:text-4xl font-semibold text-[#030712] mb-4">
-            Built on Transparency
-          </h2>
-          <p className="text-lg text-[#4F4F4F] max-w-2xl mx-auto">
-            We built Paperless Pipeline on a simple belief: the tools you rely on
-            to run your business shouldn't have anything to hide.
-          </p>
+    <section className="bg-white py-[120px] px-[80px] max-md:py-16 max-md:px-4">
+      {/* Inner container — max 1280px, column, 48px gap */}
+      <div className="max-w-[1280px] mx-auto flex flex-col gap-12">
+        {/* Header — max 836px centered */}
+        <div className="max-w-[836px] mx-auto flex flex-col gap-3 text-center">
+          <span className="font-sans font-medium text-[14px] leading-[24px] tracking-[0.0893em] uppercase text-[#0063EB]">
+            Built on transparency
+          </span>
+          <div className="flex flex-col gap-2">
+            <h2 className="font-sans font-semibold text-[48px] leading-tight text-black max-md:text-[32px]">
+              Your data should always be yours
+            </h2>
+            <p className="font-sans font-normal text-[16px] leading-[150%] text-[#4F4F4F]">
+              Some platforms make it easy to get in — and hard to leave.
+              <br className="max-md:hidden" />
+              <br className="max-md:hidden" />
+              We don&apos;t lock your data behind contracts, penalties, or formats
+              that only work inside our system. If Paperless Pipeline ever
+              isn&apos;t the right fit, you can take your data with you.
+            </p>
+          </div>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {values.map((value) => {
-            const Icon = value.icon;
+        {/* Cards row — 3 cards, stretch height, 24px gap */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-stretch">
+          {cards.map((card, i) => {
+            const Icon = icons[i];
+            const color = iconColors[i];
             return (
               <div
-                key={value.title}
-                className="rounded-2xl border border-gray-100 bg-white shadow-sm p-7 hover:shadow-md transition-shadow"
+                key={card.title}
+                className="flex flex-col justify-between gap-6 border border-black/10 rounded-2xl p-6"
               >
+                {/* Icon */}
                 <div
-                  className={`w-11 h-11 ${value.bg} rounded-xl flex items-center justify-center mb-5`}
+                  className="w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0"
+                  style={{ backgroundColor: card.iconBg }}
                 >
-                  <Icon size={22} className={value.iconColor} />
+                  <Icon color={color} />
                 </div>
-                <h3 className="text-base font-semibold text-[#030712] mb-2">
-                  {value.title}
-                </h3>
-                <p className="text-sm text-[#4F4F4F] leading-relaxed">
-                  {value.description}
-                </p>
+
+                {/* Text */}
+                <div className="flex flex-col gap-1">
+                  <h3 className="font-sans font-medium text-[24px] leading-[32px] tracking-[-0.0075em] text-[#030712]">
+                    {card.title}
+                  </h3>
+                  <p className="font-sans font-normal text-[16px] leading-[32px] tracking-[-0.0113em] text-[#4F4F4F]">
+                    {card.body}
+                  </p>
+                </div>
               </div>
             );
           })}

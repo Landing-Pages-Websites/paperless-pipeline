@@ -1,76 +1,129 @@
-import { FileText, Users, Zap, BarChart3 } from "lucide-react";
-
-const features = [
+const steps = [
   {
-    icon: BarChart3,
-    title: "Transaction Tracking",
-    description:
-      "Keep every deal visible from contract to close. Track deadlines, documents, and status at a glance so nothing falls through the cracks.",
-    bg: "bg-[#EEF4FF]",
-    iconColor: "text-[#0063EB]",
+    number: "1",
+    title: "Start a new transaction in seconds",
+    body: "Create and launch deals instantly with pre-built workflows that eliminate setup time.",
+    large: true,
   },
   {
-    icon: FileText,
-    title: "Document Management",
-    description:
-      "Collect, store, and share transaction documents in a single organized workspace. Full version history and instant access for your whole team.",
-    bg: "bg-[#F5F0FF]",
-    iconColor: "text-purple-600",
+    number: "2",
+    title: "Documents, tasks, deadlines, and compliance all stay connected",
+    body: "Everything lives in one organized system, so nothing slips through the cracks.",
+    large: false,
   },
   {
-    icon: Zap,
-    title: "Automated Workflows",
-    description:
-      "Set up deadline reminders, task checklists, and status notifications that run automatically — so your team spends time on deals, not admin.",
-    bg: "bg-[#E8F8EF]",
-    iconColor: "text-emerald-600",
+    number: "3",
+    title: "Track progress at a glance — no guessing, no chasing",
+    body: "Get real-time visibility into every deal without constant follow-ups or manual checks.",
+    large: false,
   },
   {
-    icon: Users,
-    title: "Team Collaboration",
-    description:
-      "Assign tasks, share notes, and communicate with agents, TCs, and clients all in one place. Everyone sees what they need — nothing more.",
-    bg: "bg-[#FFF8E8]",
-    iconColor: "text-amber-600",
+    number: "4",
+    title: "Close with confidence knowing nothing was missed",
+    body: "Stay fully in control with automated checks that ensure every step is completed.",
+    large: false,
   },
 ];
 
 export default function WorkflowSection() {
   return (
-    <section className="py-20 md:py-28 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-14">
-          <h2 className="text-3xl md:text-4xl font-semibold text-[#030712] mb-4">
+    <section className="bg-white py-[120px] px-[80px] max-md:py-16 max-md:px-4">
+      <div className="flex flex-col lg:flex-row lg:gap-12">
+        {/* Left: label + headline + body — 572px fixed on desktop */}
+        <div className="lg:w-[572px] lg:flex-shrink-0 flex flex-col gap-3 max-lg:mb-10">
+          <span className="font-sans font-medium text-[14px] leading-[24px] tracking-[0.0893em] uppercase text-[#0063EB]">
             All-in-One Workflow
-          </h2>
-          <p className="text-lg text-[#4F4F4F] max-w-2xl mx-auto">
-            Everything your team needs to manage real estate transactions —
-            from first contact to commission check.
-          </p>
+          </span>
+          <div className="flex flex-col gap-2">
+            <h2 className="font-sans font-semibold text-[48px] leading-tight text-black max-md:text-[32px]">
+              How Paperless Pipeline works
+            </h2>
+            <p className="font-sans font-normal text-[16px] leading-[150%] text-[#4F4F4F]">
+              Streamline your entire transaction process with a connected system
+              designed to reduce manual work, eliminate errors, and help you
+              close faster with confidence.
+            </p>
+          </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {features.map((feature) => {
-            const Icon = feature.icon;
-            return (
-              <div
-                key={feature.title}
-                className="bg-white rounded-2xl border border-gray-100 shadow-sm p-7 hover:shadow-md transition-shadow"
-              >
+        {/* Right: circle sidebar (48px) + cards column — gap 24px */}
+        <div className="flex-1 flex gap-6 items-start">
+          {/* Circle sidebar with vertical connecting line — desktop only */}
+          <div className="hidden lg:block relative w-12 flex-shrink-0">
+            {/* Vertical line centered in the 48px column */}
+            <div className="absolute left-[23.5px] top-2 bottom-2 w-px bg-[#DEE2E6]" />
+            {/* Circles — min-h mirrors each card so circles align to card tops */}
+            <div className="flex flex-col gap-6">
+              {steps.map((step, i) => (
                 <div
-                  className={`w-11 h-11 ${feature.bg} rounded-xl flex items-center justify-center mb-5`}
+                  key={step.number}
+                  className={`flex justify-center items-start pt-2 ${
+                    step.large ? "min-h-[448px]" : "min-h-[192px]"
+                  }`}
                 >
-                  <Icon size={22} className={feature.iconColor} />
+                  <div
+                    className={`relative z-10 w-12 h-12 rounded-full flex items-center justify-center font-sans font-bold text-[24px] leading-[32px] flex-shrink-0 ${
+                      i === 0
+                        ? "bg-[#0063EB] text-[#FFE95B]"
+                        : "bg-[#E9ECEF] text-[#6C757D]"
+                    }`}
+                  >
+                    {step.number}
+                  </div>
                 </div>
-                <h3 className="text-lg font-semibold text-[#030712] mb-2">
-                  {feature.title}
-                </h3>
-                <p className="text-sm text-[#4F4F4F] leading-relaxed">
-                  {feature.description}
-                </p>
+              ))}
+            </div>
+          </div>
+
+          {/* Cards column — gap 24px between cards */}
+          <div className="flex flex-col gap-6 flex-1">
+            {steps.map((step, i) => (
+              <div
+                key={step.number}
+                className={`bg-white rounded-3xl p-8 flex flex-col gap-6 ${
+                  i === 0
+                    ? "border border-[#DEE2E6] shadow-[0px_24px_64px_0px_rgba(224,224,224,0.48)] min-h-[448px]"
+                    : "border border-[#E9ECEF] min-h-[192px]"
+                }`}
+              >
+                {/* Step number shown inline on mobile */}
+                <div
+                  className={`lg:hidden w-12 h-12 rounded-full flex items-center justify-center font-sans font-bold text-[24px] leading-[32px] flex-shrink-0 ${
+                    i === 0
+                      ? "bg-[#0063EB] text-[#FFE95B]"
+                      : "bg-[#E9ECEF] text-[#6C757D]"
+                  }`}
+                >
+                  {step.number}
+                </div>
+
+                {step.large ? (
+                  /* Card 1: text group (h3 + 8px + p) → 24px gap → image (272px, rounded-2xl) */
+                  <>
+                    <div className="flex flex-col gap-2">
+                      <h3 className="font-sans font-medium text-[24px] leading-[32px] tracking-[-0.02em] text-black max-md:text-[20px]">
+                        {step.title}
+                      </h3>
+                      <p className="font-sans font-normal text-[16px] leading-[24px] tracking-[-0.02em] text-[#6C757D]">
+                        {step.body}
+                      </p>
+                    </div>
+                    <div className="flex-1 rounded-2xl bg-[#ECEEF2] min-h-[272px]" />
+                  </>
+                ) : (
+                  /* Cards 2–4: h3 → 24px gap → p (separate top-level flex children) */
+                  <>
+                    <h3 className="font-sans font-medium text-[24px] leading-[32px] tracking-[-0.02em] text-black max-md:text-[20px]">
+                      {step.title}
+                    </h3>
+                    <p className="font-sans font-normal text-[16px] leading-[24px] tracking-[-0.02em] text-[#6C757D]">
+                      {step.body}
+                    </p>
+                  </>
+                )}
               </div>
-            );
-          })}
+            ))}
+          </div>
         </div>
       </div>
     </section>

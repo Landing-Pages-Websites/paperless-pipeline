@@ -1,90 +1,95 @@
-import { X, Check } from "lucide-react";
+const painItems = [
+  {
+    title: "The fit breaks down",
+    body: "You're texting agents for updates because you can't see where a deal actually stands.",
+  },
+  {
+    title: "Workarounds pile up",
+    body: "The checklist is in one place, documents in another, and status updates somewhere else.",
+  },
+  {
+    title: "Costs jump",
+    body: "As your team grows, software expenses rise faster than the value you're getting.",
+  },
+];
 
-const painPoints = [
-  {
-    problem: "Deals tracked in spreadsheets, email chains, and sticky notes",
-    solution: "Every transaction in one organized workspace — visible to your whole team",
-  },
-  {
-    problem: "Missed deadlines because reminders live in someone's head",
-    solution: "Automated alerts and task checklists keep every deal on schedule",
-  },
-  {
-    problem: "Hours spent chasing documents from agents and clients",
-    solution: "Automated document requests and a shared folder everyone can access",
-  },
-  {
-    problem: "No idea what's happening in your pipeline until something goes wrong",
-    solution: "Real-time dashboard gives you full visibility across every active deal",
-  },
+const stats = [
+  { number: "10+", label: "Hours lost each week" },
+  { number: "3–5", label: "Separate tools" },
+  { number: "$$$", label: "Software spend that's hard to tie back to real productivity" },
 ];
 
 export default function PainPointsSection() {
   return (
-    <section className="py-20 md:py-28 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-14">
-          <h2 className="text-3xl md:text-4xl font-semibold text-[#030712] mb-4">
-            When Systems Fall Behind
-          </h2>
-          <p className="text-lg text-[#4F4F4F]">
-            How this shows up in practice:
-          </p>
+    <section className="bg-white py-[120px] px-[80px] max-md:py-16 max-md:px-4">
+      <div className="flex flex-col gap-6">
+        {/* Main content row: background image container with left white card */}
+        {/* Container bg is a Figma background image (fill_PGVVQG); using dark-secondary as placeholder */}
+        <div
+          className="flex flex-col lg:flex-row gap-4 p-4 rounded-3xl bg-[#23272E]"
+          style={{ minHeight: "520px" }}
+        >
+          {/* Left white card — 593px wide on desktop */}
+          <div className="bg-white rounded-2xl p-8 flex flex-col gap-12 lg:w-[593px] lg:flex-shrink-0 max-md:p-6">
+            {/* Header */}
+            <div className="flex flex-col gap-3">
+              <span className="font-sans font-medium text-[14px] leading-[24px] tracking-[0.0893em] uppercase text-[#D92D20]">
+                When systems fall behind
+              </span>
+              <div className="flex flex-col gap-2">
+                <h2 className="font-sans font-semibold text-[48px] leading-tight text-black max-md:text-[32px]">
+                  Growth shouldn&apos;t make your brokerage harder to run
+                </h2>
+                <p className="font-sans font-normal text-[16px] leading-[150%] text-[#4F4F4F]">
+                  What worked early on starts to strain as your roster and deals
+                  grow.
+                </p>
+              </div>
+            </div>
+
+            {/* Pain items */}
+            <div className="flex flex-col gap-4">
+              {painItems.map((item) => (
+                <div
+                  key={item.title}
+                  className="flex flex-col gap-6 border border-[#F0EDEA] rounded-lg p-4"
+                >
+                  {/* Icon placeholder — SVG in Figma */}
+                  <div className="w-6 h-6 rounded-sm bg-[#F0EDEA]" />
+                  <div className="flex flex-col gap-1">
+                    <span className="font-sans font-semibold text-[16px] leading-[24px] tracking-[-0.0113em] text-[#393837]">
+                      {item.title}
+                    </span>
+                    <span className="font-sans font-normal text-[14px] leading-[20px] tracking-[-0.0057em] text-[#4F4F4F]">
+                      {item.body}
+                    </span>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
 
-        {/* Column headers */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10">
-          <div>
-            <div className="flex items-center gap-2 mb-5">
-              <div className="w-7 h-7 bg-red-50 rounded-full flex items-center justify-center flex-shrink-0">
-                <X size={14} className="text-[#D92D20]" strokeWidth={3} />
-              </div>
-              <span className="text-sm font-semibold text-[#D92D20] uppercase tracking-wide">
-                Without Paperless Pipeline
-              </span>
-            </div>
-            <div className="space-y-4">
-              {painPoints.map((item, i) => (
-                <div
-                  key={i}
-                  className="flex items-start gap-3 bg-red-50 border border-red-100 rounded-xl p-5"
-                >
-                  <div className="w-6 h-6 bg-white rounded-full flex items-center justify-center flex-shrink-0 mt-0.5 shadow-sm">
-                    <X size={12} className="text-[#D92D20]" strokeWidth={3} />
-                  </div>
-                  <p className="text-sm text-[#4F4F4F] leading-relaxed">
-                    {item.problem}
-                  </p>
-                </div>
-              ))}
-            </div>
-          </div>
+        {/* "How this shows up in practice" label */}
+        <p className="font-sans font-medium text-[14px] leading-[24px] tracking-[0.0893em] uppercase text-[#D92D20] text-center">
+          How this shows up in practice :
+        </p>
 
-          <div>
-            <div className="flex items-center gap-2 mb-5">
-              <div className="w-7 h-7 bg-[#E8F8EF] rounded-full flex items-center justify-center flex-shrink-0">
-                <Check size={14} className="text-emerald-600" strokeWidth={3} />
-              </div>
-              <span className="text-sm font-semibold text-emerald-700 uppercase tracking-wide">
-                With Paperless Pipeline
+        {/* Stats row */}
+        <div className="flex flex-col md:flex-row gap-6">
+          {stats.map((stat) => (
+            <div
+              key={stat.number}
+              className="flex-1 flex flex-col gap-4 items-center justify-center border border-black/10 rounded-2xl px-4 py-8"
+            >
+              <span className="font-sans font-medium text-[64px] leading-[56px] tracking-[-0.0188em] text-[#D92D20] text-center">
+                {stat.number}
+              </span>
+              <span className="font-sans font-medium text-[20px] leading-[26px] text-[#1E1E1E] text-center">
+                {stat.label}
               </span>
             </div>
-            <div className="space-y-4">
-              {painPoints.map((item, i) => (
-                <div
-                  key={i}
-                  className="flex items-start gap-3 bg-[#E8F8EF] border border-emerald-100 rounded-xl p-5"
-                >
-                  <div className="w-6 h-6 bg-white rounded-full flex items-center justify-center flex-shrink-0 mt-0.5 shadow-sm">
-                    <Check size={12} className="text-emerald-600" strokeWidth={3} />
-                  </div>
-                  <p className="text-sm text-[#4F4F4F] leading-relaxed">
-                    {item.solution}
-                  </p>
-                </div>
-              ))}
-            </div>
-          </div>
+          ))}
         </div>
       </div>
     </section>

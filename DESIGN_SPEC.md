@@ -1,6 +1,6 @@
 # Paperless Pipeline — Design Specification
 
-Figma: https://www.figma.com/design/AQ93XkoSmmbyf16Nb9auW2/Peter-Paperless-Pipelines---CF
+Figma: https://www.figma.com/design/c05rvNxwVjgdfAElsCjsQo/Peter-Paperless-Pipelines---CF--Copy-
 Source page: "UI Design Updates - 4.04.2026"
 
 ## Color Palette
