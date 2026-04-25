@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 const steps = [
   {
     number: "1",
@@ -108,7 +110,15 @@ export default function WorkflowSection() {
                         {step.body}
                       </p>
                     </div>
-                    <div className="flex-1 rounded-2xl bg-[#ECEEF2] min-h-[272px]" />
+                    <div className="relative w-full h-[272px] rounded-2xl overflow-hidden">
+                      <Image
+                        src="/images/figma/workflow-screenshot.png"
+                        alt="Paperless Pipeline transaction management dashboard"
+                        fill
+                        className="object-cover object-top"
+                        quality={85}
+                      />
+                    </div>
                   </>
                 ) : (
                   /* Cards 2–4: h3 → 24px gap → p (separate top-level flex children) */

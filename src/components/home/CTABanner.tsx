@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 
 type CTABannerProps = {
@@ -21,14 +22,33 @@ export default function CTABanner({
 }: CTABannerProps) {
   return (
     <section className="px-5 py-5">
-      <div
-        className="max-w-[1400px] mx-auto rounded-3xl py-12 px-6 md:py-20 md:px-20"
-        style={{
-          background:
-            "linear-gradient(135deg, #030712 0%, #061a42 50%, #0a2870 100%)",
-        }}
-      >
-        <div className="max-w-[1280px] mx-auto flex flex-col items-center">
+      <div className="max-w-[1400px] mx-auto rounded-3xl overflow-hidden relative py-12 px-6 md:py-20 md:px-20">
+        {/* Dark gradient background image */}
+        <Image
+          src="/images/figma/dark-gradient-bg.png"
+          alt=""
+          fill
+          className="object-cover"
+          aria-hidden="true"
+        />
+
+        {/* Person photo overlay — right side, low opacity */}
+        <div className="absolute right-0 top-0 h-full w-[40%] pointer-events-none">
+          <Image
+            src={
+              variant === "quote"
+                ? "/images/figma/cta-image-1.png"
+                : "/images/figma/cta-image-2.png"
+            }
+            alt=""
+            fill
+            className="object-cover object-left opacity-20"
+            aria-hidden="true"
+          />
+        </div>
+
+        {/* Content */}
+        <div className="relative z-10 max-w-[1280px] mx-auto flex flex-col items-center">
           {variant === "quote" ? (
             <div className="max-w-[1068px] w-full px-0 md:px-10 text-center">
               <p className="text-white font-semibold text-2xl md:text-[40px] leading-tight md:leading-[48px]">
