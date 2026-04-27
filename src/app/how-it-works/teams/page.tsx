@@ -1,246 +1,322 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
-import {
-  Layers,
-  MessageSquare,
-  ClipboardList,
-  Zap,
-  ChevronRight,
-  CheckCircle2,
-} from "lucide-react";
+import CTABanner from "@/components/home/CTABanner";
+import TestimonialsSection from "@/components/home/TestimonialsSection";
 
 export const metadata: Metadata = {
   title: "How It Works for Teams — Paperless Pipeline",
   description:
-    "Give your real estate team a single system for every transaction. Standardize your process, improve communication, and close more deals together.",
+    "Give your real estate team a single system for every transaction. Define your processes, streamline collaboration, and keep every deal on track.",
 };
 
-const benefits = [
+const workflowFeatures = [
   {
-    icon: Layers,
-    title: "Standardized Process",
+    title: "Centralized Transaction Hub",
     description:
-      "Every team member follows the same transaction workflow. No more guessing what stage a deal is in or which documents are missing.",
+      "Keep all emails, documents, notes, and updates tied to each transaction in one organized workspace. Eliminate scattered communication and version confusion—your team always sees the latest status, complete history, and next steps without digging through inboxes or files.",
+    image: "/images/figma/pages/product-screenshot-transactions.jpg",
+    imageAlt: "Centralized transaction hub dashboard",
   },
   {
-    icon: MessageSquare,
-    title: "Built-In Communication",
+    title: "Smart Deadline Tracking",
     description:
-      "Keep all deal-related communication in one place. Notes, updates, and document requests live inside each transaction — not scattered across texts and emails.",
+      "Automatically track contract deadlines, contingency dates, and key milestones for every deal. Sync with your preferred calendar, trigger automated reminders, and use custom date fields to match your workflow—so nothing slips, even across multiple active transactions.",
+    image: "/images/figma/pages/product-screenshot-workflow.jpg",
+    imageAlt: "Smart deadline tracking interface",
   },
   {
-    icon: ClipboardList,
-    title: "Shared Checklists",
+    title: "Task & Team Coordination",
     description:
-      "Create reusable checklists for your most common transaction types. Everyone on the team knows exactly what needs to happen and when.",
+      "Assign tasks with clear ownership, attach them to specific deadlines, and manage checklist-driven workflows across your team. Add notes, updates, and dependencies to ensure every role—from agent to coordinator—knows exactly what needs to be done and when.",
+    image: "/images/figma/pages/product-screenshot-checklist.jpg",
+    imageAlt: "Task and team coordination checklist",
   },
   {
-    icon: Zap,
-    title: "Work Faster Together",
+    title: "Real-Time Reporting & Access",
     description:
-      "Automated deadline reminders and task notifications mean nothing falls through the cracks — even when you're juggling multiple deals at once.",
-  },
-];
-
-const steps = [
-  {
-    number: "01",
-    title: "Create Your Team Template",
-    description:
-      "Build transaction templates that reflect your team's workflow — standard checklists, deadlines, and roles. Set it up once and apply it to every new deal.",
-  },
-  {
-    number: "02",
-    title: "Assign Deals and Roles",
-    description:
-      "When a new transaction opens, assign it to the right team members. Each person sees exactly what they're responsible for, nothing more, nothing less.",
-  },
-  {
-    number: "03",
-    title: "Track Progress in Real Time",
-    description:
-      "The team dashboard shows every deal's status, upcoming milestones, and any blockers. Your whole team stays aligned without a single status meeting.",
+      "Generate instant reports on commissions, pending deals, and closed transactions. Monitor team performance, track production trends, and access everything securely from any device—giving your team full visibility whether they're in the office or in the field.",
+    image: "/images/figma/pages/screenshot-team-dashboard.jpg",
+    imageAlt: "Real-time reporting and team dashboard",
   },
 ];
 
 export default function TeamsPage() {
   return (
     <>
-      {/* Hero */}
-      <section className="bg-[#F5F0FF] py-20 md:py-28">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl">
-            <div className="inline-flex items-center gap-2 bg-white border border-purple-200 rounded-full px-4 py-1.5 mb-6">
-              <span className="text-xs font-semibold text-[#7C3AED]">For Teams</span>
-            </div>
-            <h1 className="text-4xl md:text-5xl font-semibold text-[#030712] leading-tight tracking-tight mb-6">
-              The Operating System for{" "}
-              <span className="text-[#0063EB]">High-Performance Teams</span>
-            </h1>
-            <p className="text-lg md:text-xl text-[#4F4F4F] leading-relaxed mb-8 max-w-2xl">
-              Paperless Pipeline gives real estate teams a shared playbook.
-              Standardize your transaction process, cut down on back-and-forth,
-              and close deals faster as a unit.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Link
-                href="/signup"
-                className="inline-flex items-center justify-center gap-2 bg-[#0063EB] hover:bg-[#046EFF] text-white font-medium px-7 py-3.5 rounded-lg transition-colors text-sm"
-              >
-                Start Free Trial
-                <ChevronRight size={16} />
-              </Link>
-              <Link
-                href="/pricing"
-                className="inline-flex items-center justify-center border border-gray-300 hover:border-[#0063EB] hover:text-[#0063EB] text-[#030712] font-medium px-7 py-3.5 rounded-lg transition-colors text-sm"
-              >
-                View Pricing
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* ─────────────────────────────────────────
+          1. HERO
+      ───────────────────────────────────────── */}
+      <section className="bg-[#FDF9EE] overflow-hidden">
+        <div className="max-w-[1280px] mx-auto px-5 sm:px-10 lg:px-20">
+          <div className="flex flex-col lg:flex-row items-start gap-12 lg:gap-10 pt-16 pb-16 lg:pt-[98px] lg:pb-20">
 
-      {/* Benefits grid */}
-      <section className="py-20 md:py-28 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-14">
-            <h2 className="text-3xl md:text-4xl font-semibold text-[#030712] mb-4">
-              What teams get with Paperless Pipeline
-            </h2>
-            <p className="text-[#4F4F4F] text-lg max-w-2xl mx-auto">
-              Replace the group texts and scattered spreadsheets with one
-              system your whole team will actually use.
-            </p>
-          </div>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {benefits.map((benefit) => {
-              const Icon = benefit.icon;
-              return (
-                <div
-                  key={benefit.title}
-                  className="bg-white border border-gray-100 rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow"
+            {/* Left column */}
+            <div className="w-full lg:w-[55%] flex flex-col gap-8">
+              <div className="flex flex-col gap-6">
+                <div className="flex flex-col gap-3">
+                  {/* Badge */}
+                  <div
+                    className="inline-flex items-center self-start gap-2 bg-white rounded-full"
+                    style={{ border: "1px solid rgba(0,0,0,0.1)", padding: "6px 12px 6px 6px" }}
+                  >
+                    <span
+                      className="flex items-center justify-center rounded-full flex-shrink-0"
+                      style={{ background: "rgba(4,110,255,0.1)", width: "20px", height: "20px" }}
+                    >
+                      <svg width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true">
+                        <circle cx="5" cy="5" r="4" fill="#0063EB" />
+                      </svg>
+                    </span>
+                    <span
+                      className="font-medium text-black whitespace-nowrap"
+                      style={{ fontSize: "12px", lineHeight: "20px" }}
+                    >
+                      No credit card required. No setup fees.
+                    </span>
+                  </div>
+
+                  {/* H1 */}
+                  <h1
+                    className="font-semibold text-black"
+                    style={{
+                      fontSize: "clamp(40px, 5.5vw, 64px)",
+                      lineHeight: "1.125",
+                      letterSpacing: "-0.0375em",
+                    }}
+                  >
+                    Supercharge your real{" "}
+                    <span className="text-[#0063EB]">estate team</span>
+                  </h1>
+                </div>
+
+                {/* Subtitle */}
+                <p
+                  className="font-medium"
+                  style={{ fontSize: "18px", lineHeight: "32px", color: "#4F4F4F" }}
                 >
-                  <div className="w-11 h-11 bg-[#F5F0FF] rounded-lg flex items-center justify-center mb-4">
-                    <Icon size={22} className="text-[#7C3AED]" />
-                  </div>
-                  <h3 className="text-lg font-semibold text-[#030712] mb-2">
-                    {benefit.title}
-                  </h3>
-                  <p className="text-[#4F4F4F] text-sm leading-relaxed">
-                    {benefit.description}
-                  </p>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-      </section>
+                  Define your processes, streamline collaboration, and keep every
+                  transaction on track with a system built for how teams actually
+                  work.
+                </p>
+              </div>
 
-      {/* How it works steps */}
-      <section className="py-20 md:py-28 bg-[#ECEEF2]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-14">
-            <h2 className="text-3xl md:text-4xl font-semibold text-[#030712] mb-4">
-              How it works for teams
-            </h2>
-            <p className="text-[#4F4F4F] text-lg max-w-xl mx-auto">
-              Get your whole team working from the same playbook in days, not
-              weeks.
-            </p>
-          </div>
-          <div className="grid md:grid-cols-3 gap-8">
-            {steps.map((step, index) => (
-              <div key={step.number} className="relative">
-                {index < steps.length - 1 && (
-                  <div className="hidden md:block absolute top-8 left-[calc(100%-1rem)] w-8 border-t-2 border-dashed border-[#7C3AED]/30 z-10" />
-                )}
-                <div className="bg-white rounded-xl p-8 shadow-sm h-full">
-                  <div className="text-4xl font-bold text-[#7C3AED]/20 mb-4 leading-none">
-                    {step.number}
+              {/* CTA buttons */}
+              <div className="flex flex-col sm:flex-row gap-3">
+                <Link
+                  href="/signup"
+                  className="inline-flex items-center justify-center text-white font-medium w-full sm:w-auto"
+                  style={{
+                    fontSize: "14px",
+                    lineHeight: "24px",
+                    background: "#0063EB",
+                    border: "1px solid rgba(255,255,255,0.3)",
+                    borderRadius: "8px",
+                    padding: "10px 20px",
+                    boxShadow:
+                      "0px 0px 0px 1px rgba(4,110,255,1), 0px 1px 2px 0px rgba(4,110,255,0.64)",
+                  }}
+                >
+                  Start Free Trial →
+                </Link>
+                <Link
+                  href="/demo"
+                  className="inline-flex items-center justify-center text-black font-medium bg-white w-full sm:w-auto"
+                  style={{
+                    fontSize: "14px",
+                    lineHeight: "24px",
+                    borderRadius: "8px",
+                    padding: "10px 20px",
+                    boxShadow:
+                      "0px 0px 0px 1px rgba(0,0,0,0.06), 0px 1px 2px 0px rgba(0,0,0,0.06)",
+                  }}
+                >
+                  Book A Demo →
+                </Link>
+              </div>
+
+              {/* Social proof */}
+              <div className="flex items-center gap-4">
+                <div className="flex items-center">
+                  {[1, 2, 3].map((n) => (
+                    <div
+                      key={n}
+                      className="relative rounded-full overflow-hidden border-2 border-[#FDF9EE] flex-shrink-0"
+                      style={{
+                        width: "36px",
+                        height: "36px",
+                        marginLeft: n === 1 ? "0" : "-10px",
+                        zIndex: n,
+                      }}
+                    >
+                      <Image
+                        src={`/images/figma/hero-avatar-${n}.png`}
+                        alt={`User avatar ${n}`}
+                        fill
+                        className="object-cover"
+                      />
+                    </div>
+                  ))}
+                </div>
+                <div
+                  style={{ width: "1px", height: "52px", background: "#D5D9E2", flexShrink: 0 }}
+                />
+                <div className="flex flex-col">
+                  <div
+                    style={{
+                      fontFamily: "var(--font-bricolage)",
+                      fontWeight: 500,
+                      fontSize: "32px",
+                      lineHeight: "1",
+                      letterSpacing: "-0.03em",
+                    }}
+                  >
+                    <span style={{ color: "#23272E" }}>4.6</span>
+                    <span style={{ color: "#0063EB" }}>+</span>
                   </div>
-                  <h3 className="text-xl font-semibold text-[#030712] mb-3">
-                    {step.title}
-                  </h3>
-                  <p className="text-[#4F4F4F] text-sm leading-relaxed">
-                    {step.description}
-                  </p>
+                  <div className="flex gap-0.5 mt-1">
+                    {[...Array(5)].map((_, i) => (
+                      <svg
+                        key={i}
+                        width="14"
+                        height="14"
+                        viewBox="0 0 24 24"
+                        fill="#FFE95B"
+                        aria-hidden="true"
+                      >
+                        <path d="M12 2l2.7 5.47 6.03.87-4.37 4.25 1.03 6.01L12 15.77l-5.39 2.83 1.03-6.01L3.27 8.34l6.03-.87L12 2z" />
+                      </svg>
+                    ))}
+                  </div>
+                  <span
+                    className="font-medium mt-0.5"
+                    style={{ fontSize: "12px", lineHeight: "20px", color: "#6C757D" }}
+                  >
+                    by users on G2
+                  </span>
                 </div>
               </div>
-            ))}
+            </div>
+
+            {/* Right column: product screenshot */}
+            <div className="w-full lg:flex-1 flex justify-center lg:justify-end">
+              <div
+                className="relative w-full rounded-2xl overflow-hidden"
+                style={{
+                  maxWidth: "620px",
+                  aspectRatio: "621 / 524",
+                  border: "1px solid rgba(0,0,0,0.08)",
+                  boxShadow:
+                    "-3px 4px 11px 0px rgba(112,112,112,0.1), -13px 15px 20px 0px rgba(112,112,112,0.09), -29px 35px 27px 0px rgba(112,112,112,0.05)",
+                }}
+              >
+                <Image
+                  src="/images/figma/pages/screenshot-team-dashboard.jpg"
+                  alt="Paperless Pipeline team management dashboard"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 1024px) 100vw, 45vw"
+                  priority
+                />
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Pain points callout */}
-      <section className="py-20 md:py-28 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <h2 className="text-3xl md:text-4xl font-semibold text-[#030712] mb-6">
-                Does this sound like your team?
-              </h2>
-              <ul className="space-y-4">
-                {[
-                  "Everyone has their own way of managing transactions",
-                  "Status updates require interrupting teammates mid-day",
-                  "Important documents get sent to the wrong person or get lost",
-                  "New team members take weeks to get up to speed",
-                ].map((pain) => (
-                  <li key={pain} className="flex items-start gap-3">
-                    <CheckCircle2
-                      size={20}
-                      className="text-[#0063EB] mt-0.5 flex-shrink-0"
-                    />
-                    <span className="text-[#4F4F4F]">{pain}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div className="bg-[#F5F0FF] rounded-2xl p-8 md:p-10">
-              <p className="text-2xl font-semibold text-[#030712] leading-snug mb-6">
-                "We doubled our deal volume without adding headcount. Paperless
-                Pipeline is the only reason that was even possible."
+      {/* ─────────────────────────────────────────
+          2. WORKFLOW
+      ───────────────────────────────────────── */}
+      <section className="py-[80px] md:py-[120px] px-5 md:px-[80px]" style={{ background: "#FAFAFA" }}>
+        <div className="max-w-[1280px] mx-auto">
+          <div className="flex flex-col lg:flex-row gap-12">
+
+            {/* Left: sticky heading */}
+            <div className="w-full lg:w-[44%] lg:sticky lg:top-24 lg:self-start flex flex-col gap-3">
+              <p
+                className="text-[#0063EB] font-medium text-[14px] leading-[24px] uppercase"
+                style={{ letterSpacing: "0.0893em" }}
+              >
+                Team Workflow
               </p>
-              <div>
-                <p className="font-semibold text-[#030712] text-sm">
-                  James R.
-                </p>
-                <p className="text-[#6C757D] text-sm">
-                  Team Lead, top-producing team of 8
+              <div className="flex flex-col gap-2">
+                <h2 className="text-black font-semibold text-[32px] md:text-[48px] leading-tight">
+                  Everything Your Team Needs to Stay in Sync
+                </h2>
+                <p className="text-[#4F4F4F] font-normal text-[16px] leading-[150%]">
+                  Manage communication, tasks, deadlines, and reporting in one
+                  place—so every transaction moves forward with clarity,
+                  accountability, and speed.
                 </p>
               </div>
+            </div>
+
+            {/* Right: feature cards */}
+            <div className="flex-1 flex flex-col gap-6">
+              {workflowFeatures.map(({ title, description, image, imageAlt }) => (
+                <div
+                  key={title}
+                  className="rounded-2xl overflow-hidden flex flex-col"
+                  style={{
+                    background: "#FFFFFF",
+                    border: "1px solid rgba(0,0,0,0.1)",
+                  }}
+                >
+                  {/* Screenshot */}
+                  <div className="relative w-full" style={{ height: "260px" }}>
+                    <Image
+                      src={image}
+                      alt={imageAlt}
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 1024px) 100vw, 660px"
+                    />
+                  </div>
+                  {/* Text */}
+                  <div className="flex flex-col gap-4 p-6">
+                    <h3
+                      className="text-black font-medium"
+                      style={{ fontSize: "24px", lineHeight: "36px" }}
+                    >
+                      {title}
+                    </h3>
+                    <p
+                      className="text-[#4F4F4F] font-normal"
+                      style={{ fontSize: "16px", lineHeight: "28px" }}
+                    >
+                      {description}
+                    </p>
+                    <Link
+                      href="/features/transaction-management"
+                      className="text-[#0063EB] font-medium underline self-start"
+                      style={{ fontSize: "14px", lineHeight: "24px" }}
+                    >
+                      Learn More →
+                    </Link>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="py-16 md:py-20 bg-[#0063EB]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl md:text-4xl font-semibold text-white mb-4 max-w-2xl mx-auto">
-            Build a team that closes deals, not status calls.
-          </h2>
-          <p className="text-blue-100 text-lg mb-8 max-w-xl mx-auto">
-            Paperless Pipeline keeps every team member aligned from the moment
-            a contract is signed to the day it closes.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link
-              href="/signup"
-              className="inline-block bg-white hover:bg-blue-50 text-[#0063EB] font-semibold px-8 py-3.5 rounded-lg transition-colors text-sm"
-            >
-              Start Free Trial
-            </Link>
-            <Link
-              href="/pricing"
-              className="inline-block border border-white/40 hover:border-white text-white font-medium px-8 py-3.5 rounded-lg transition-colors text-sm"
-            >
-              See Pricing
-            </Link>
-          </div>
-        </div>
-      </section>
+      {/* ─────────────────────────────────────────
+          3. CTA BANNER
+      ───────────────────────────────────────── */}
+      <CTABanner
+        variant="cta"
+        eyebrow="Get Started"
+        heading="Start Without the Hassle"
+        subtext="Free setup, training, and support—so your team can get up and running quickly."
+        buttonText="Start Free Trial →"
+        buttonHref="/signup"
+      />
+
+      {/* ─────────────────────────────────────────
+          4. TESTIMONIALS
+      ───────────────────────────────────────── */}
+      <TestimonialsSection />
     </>
   );
 }
