@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { caseStudies } from "@/data/case-studies";
+import CTABanner from "@/components/home/CTABanner";
 
 export const metadata: Metadata = {
   title: "Case Studies — Paperless Pipeline",
@@ -15,44 +16,66 @@ export default function CaseStudiesPage() {
       <section className="py-20 md:py-28 bg-[#FDF9EE]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <span className="inline-block text-xs font-semibold uppercase tracking-widest text-[#0063EB] mb-4">
-            Customer Stories
+            No credit card required. No setup fees.
           </span>
-          <h1 className="text-4xl md:text-5xl font-semibold text-[#030712] mb-5">
-            Case Studies
+          <h1 className="text-4xl md:text-5xl font-semibold text-[#030712] mb-5 max-w-3xl mx-auto leading-tight">
+            Explore How Paperless Pipeline Works in Practice
           </h1>
-          <p className="text-lg text-[#4F4F4F] max-w-2xl mx-auto">
-            See how teams use Paperless Pipeline to close faster, scale smarter,
-            and eliminate the friction that slows deals down.
+          <p className="text-lg text-[#4F4F4F] max-w-2xl mx-auto mb-8">
+            A collection of use-case driven examples showing how teams can
+            streamline transactions, manage commissions, and improve workflows
           </p>
+          <Link
+            href="/signup"
+            className="inline-flex items-center gap-2 bg-[#0063EB] hover:bg-[#046EFF] text-white font-medium px-6 py-3 rounded-lg transition-colors"
+          >
+            Start Free Trial →
+          </Link>
         </div>
       </section>
 
       {/* Case study cards */}
       <section className="py-20 md:py-28 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          {/* Section header */}
+          <div className="text-center mb-14">
+            <span className="inline-block text-xs font-semibold uppercase tracking-widest text-[#0063EB] mb-4">
+              Case Studies
+            </span>
+            <h2 className="text-3xl md:text-4xl font-semibold text-[#030712] mb-4">
+              Explore Different Ways to Use Paperless Pipeline
+            </h2>
+            <p className="text-base text-[#4F4F4F] max-w-2xl mx-auto">
+              A collection of practical examples showing how features can be
+              applied across transactions, eSign, commissions, and team workflows
+            </p>
+          </div>
+
+          {/* Card grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {caseStudies.map((study) => (
               <article
                 key={study.slug}
-                className="bg-white border border-gray-100 rounded-2xl shadow-sm overflow-hidden flex flex-col hover:shadow-md transition-shadow"
+                className="bg-white border border-gray-100 rounded-2xl overflow-hidden flex flex-col hover:shadow-md transition-shadow"
               >
-                {/* Top accent */}
-                <div className="bg-[#EEF4FF] px-6 pt-6 pb-4">
-                  <span className="inline-block text-xs font-semibold uppercase tracking-widest text-[#0063EB] mb-3">
+                {/* Card image area */}
+                <div className="h-44 bg-[#EEF4FF] flex flex-col justify-end px-6 pb-5">
+                  <span className="inline-block text-xs font-semibold uppercase tracking-widest text-[#0063EB]">
                     {study.industry}
                   </span>
-                  <h2 className="text-lg font-semibold text-[#030712] leading-snug">
-                    {study.company}
-                  </h2>
                 </div>
 
                 <div className="p-6 flex flex-col flex-1">
+                  <h2 className="text-lg font-semibold text-[#030712] mb-3">
+                    {study.company}
+                  </h2>
+
                   {/* Key metric badge */}
-                  <div className="inline-flex items-center gap-2 bg-[#E8F8EF] text-emerald-700 text-sm font-semibold px-3 py-1.5 rounded-full mb-4 self-start">
+                  <div className="inline-flex items-center gap-1.5 bg-[#E8F8EF] text-emerald-700 text-xs font-semibold px-3 py-1.5 rounded-full mb-4 self-start">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
-                      width="14"
-                      height="14"
+                      width="12"
+                      height="12"
                       viewBox="0 0 24 24"
                       fill="none"
                       stroke="currentColor"
@@ -73,10 +96,10 @@ export default function CaseStudiesPage() {
 
                   <Link
                     href={`/case-studies/${study.slug}`}
-                    className="text-sm font-semibold text-[#0063EB] hover:underline mt-auto"
+                    className="text-sm font-semibold text-[#0063EB] hover:underline"
                     aria-label={`Read ${study.company} case study`}
                   >
-                    Read the full story →
+                    Read →
                   </Link>
                 </div>
               </article>
@@ -85,24 +108,15 @@ export default function CaseStudiesPage() {
         </div>
       </section>
 
-      {/* Bottom CTA */}
-      <section className="py-20 bg-[#030712]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl md:text-4xl font-semibold text-white mb-5">
-            Your team could be next
-          </h2>
-          <p className="text-lg text-gray-400 mb-8 max-w-xl mx-auto">
-            Start your free trial today and see why thousands of real estate
-            professionals trust Paperless Pipeline.
-          </p>
-          <Link
-            href="/signup"
-            className="inline-block bg-[#0063EB] hover:bg-[#046EFF] text-white font-semibold px-8 py-4 rounded-lg transition-colors"
-          >
-            Start Free Trial — No Credit Card Required
-          </Link>
-        </div>
-      </section>
+      {/* CTA Banner */}
+      <CTABanner
+        variant="cta"
+        eyebrow="GET STARTED"
+        heading="Simplify Your Transaction Management Today"
+        subtext="See how easy it is to manage transactions, teams, and commissions—all in one place"
+        buttonText="Start My 14-Day Free Trial →"
+        buttonHref="/signup"
+      />
     </>
   );
 }

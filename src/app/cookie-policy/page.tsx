@@ -10,19 +10,17 @@ const LAST_UPDATED = "April 1, 2026";
 
 export default function CookiePolicyPage() {
   return (
-    <section className="py-20 md:py-28 bg-white">
-      <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="mb-10">
-          <span className="inline-block text-xs font-semibold uppercase tracking-widest text-[#0063EB] mb-4">
-            Legal
-          </span>
-          <h1 className="text-4xl font-semibold text-[#030712] mb-3">
-            Cookie Policy
-          </h1>
-          <p className="text-sm text-[#6C757D]">Last updated: {LAST_UPDATED}</p>
+    <>
+      <section className="bg-[#FDF9EE] py-[60px] md:py-[80px]">
+        <div className="max-w-[768px] mx-auto px-5 sm:px-10 text-center">
+          <p className="text-[#0063EB] font-medium text-[14px] leading-[24px] uppercase mb-3" style={{ letterSpacing: "0.0893em" }}>Legal</p>
+          <h1 className="text-[40px] md:text-[56px] font-semibold text-black leading-tight mb-3">Cookie Policy</h1>
+          <p className="text-[#6C757D] text-[14px]">Last updated: {LAST_UPDATED}</p>
         </div>
-
-        <div className="space-y-10 text-[#4F4F4F]">
+      </section>
+      <section className="py-[60px] md:py-[80px] bg-white">
+        <div className="max-w-[768px] mx-auto px-5 sm:px-10">
+          <div className="space-y-10 text-[#4F4F4F]">
           <div>
             <h2 className="text-xl font-semibold text-[#030712] mb-3">
               1. What Are Cookies?
@@ -194,7 +192,8 @@ export default function CookiePolicyPage() {
             </p>
           </div>
         </div>
-      </div>
-    </section>
+        </div>
+      </section>
+    </>
   );
 }
