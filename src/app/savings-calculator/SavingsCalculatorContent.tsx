@@ -2,244 +2,261 @@
 
 import { useState, useMemo } from "react";
 import Link from "next/link";
-import { TrendingDown, Clock, DollarSign, ArrowRight } from "lucide-react";
 
-function getPPPlan(transactions: number): { plan: string; cost: number } {
-  if (transactions <= 10) return { plan: "Starter", cost: 49 };
-  if (transactions <= 50) return { plan: "Professional", cost: 99 };
-  return { plan: "Enterprise", cost: 199 };
+const plans = [
+  { name: "Starter", transactions: 5, price: 65 },
+  { name: "Basic", transactions: 10, price: 130 },
+  { name: "Growth", transactions: 25, price: 175 },
+  { name: "Pro", transactions: 40, price: 220 },
+  { name: "Scale", transactions: 80, price: 305 },
+  { name: "Advanced", transactions: 150, price: 390 },
+  { name: "Elite", transactions: 250, price: 495 },
+];
+
+function getPlan(count: number) {
+  for (const plan of plans) {
+    if (count <= plan.transactions) return plan;
+  }
+  return plans[plans.length - 1];
 }
 
-function formatCurrency(n: number): string {
-  return Math.abs(n).toLocaleString("en-US", {
+function fmt(n: number) {
+  return new Intl.NumberFormat("en-US", {
     style: "currency",
     currency: "USD",
     maximumFractionDigits: 0,
-  });
+  }).format(Math.abs(n));
 }
 
 export default function SavingsCalculatorContent() {
   const [transactions, setTransactions] = useState(25);
-  const [currentCost, setCurrentCost] = useState(150);
-  const [teamMembers, setTeamMembers] = useState(5);
-  const [hoursPerTx, setHoursPerTx] = useState(2);
+  const [currentCost, setCurrentCost] = useState(300);
 
-  const results = useMemo(() => {
-    const { plan, cost: ppCost } = getPPPlan(transactions);
-    const monthlySavings = currentCost - ppCost;
-    const annualSavings = monthlySavings * 12;
-    const timeSavedMonthly = Math.round(transactions * hoursPerTx * 0.35);
-    const timeSavedAnnual = timeSavedMonthly * 12;
-    return { plan, ppCost, monthlySavings, annualSavings, timeSavedMonthly, timeSavedAnnual };
-  }, [transactions, currentCost, hoursPerTx]);
-
-  const saving = results.monthlySavings >= 0;
+  const plan = useMemo(() => getPlan(transactions), [transactions]);
+  const monthlySavings = currentCost - plan.price;
+  const annualSavings = monthlySavings * 12;
+  const saving = monthlySavings > 0;
+  const pct = Math.min(100, (transactions / 250) * 100);
 
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 xl:gap-16 items-start">
-      {/* Inputs */}
-      <div className="bg-white rounded-2xl border border-gray-200 shadow-sm p-8">
-        <h2 className="text-xl font-semibold text-[#030712] mb-7">
-          Your Current Setup
-        </h2>
-
-        {/* Transactions */}
-        <div className="mb-7">
-          <div className="flex items-center justify-between mb-2">
-            <label className="text-sm font-medium text-[#030712]">
-              Transactions per month
-            </label>
-            <span className="text-sm font-semibold text-[#0063EB]">{transactions}</span>
-          </div>
-          <input
-            type="range"
-            min={1}
-            max={100}
-            value={transactions}
-            onChange={(e) => setTransactions(Number(e.target.value))}
-            className="w-full accent-[#0063EB]"
-            aria-label="Transactions per month"
-          />
-          <div className="flex justify-between text-xs text-[#6C757D] mt-1">
-            <span>1</span>
-            <span>100</span>
-          </div>
-        </div>
-
-        {/* Current cost */}
-        <div className="mb-7">
-          <label className="block text-sm font-medium text-[#030712] mb-2">
-            Current monthly software cost
-          </label>
-          <div className="relative">
-            <span className="absolute left-3 top-1/2 -translate-y-1/2 text-[#6C757D] text-sm pointer-events-none">
-              $
-            </span>
-            <input
-              type="number"
-              min={0}
-              value={currentCost}
-              onChange={(e) => setCurrentCost(Math.max(0, Number(e.target.value)))}
-              className="w-full pl-7 pr-4 py-2.5 border border-gray-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-[#0063EB]/30 focus:border-[#0063EB] transition-colors"
-              aria-label="Current monthly software cost in dollars"
-            />
-          </div>
-          <p className="text-xs text-[#6C757D] mt-1">
-            Include all transaction management, eSign, and storage tools
+    <div className="max-w-[1280px] mx-auto flex flex-col lg:flex-row gap-12 items-stretch">
+      {/* Left: description + inputs */}
+      <div className="flex-1 flex flex-col gap-10">
+        <div className="flex flex-col gap-3">
+          <p
+            className="text-[#0063EB] font-medium text-[14px] leading-[24px] uppercase"
+            style={{ letterSpacing: "0.0893em" }}
+          >
+            Calculator
           </p>
-        </div>
-
-        {/* Team members */}
-        <div className="mb-7">
-          <div className="flex items-center justify-between mb-2">
-            <label className="text-sm font-medium text-[#030712]">
-              Number of team members
-            </label>
-            <span className="text-sm font-semibold text-[#0063EB]">{teamMembers}</span>
-          </div>
-          <input
-            type="range"
-            min={1}
-            max={50}
-            value={teamMembers}
-            onChange={(e) => setTeamMembers(Number(e.target.value))}
-            className="w-full accent-[#0063EB]"
-            aria-label="Number of team members"
-          />
-          <div className="flex justify-between text-xs text-[#6C757D] mt-1">
-            <span>1</span>
-            <span>50</span>
+          <div className="flex flex-col gap-2">
+            <h2 className="text-black font-semibold text-[32px] md:text-[48px] leading-tight">
+              How Much Could You Save?
+            </h2>
+            <div className="flex flex-col gap-4 text-[#4F4F4F] text-[16px] leading-[150%]">
+              <p>
+                Enter your current monthly software spend and transaction volume to
+                see your potential savings with Paperless Pipeline.
+              </p>
+              <p>
+                Unlike per-user tools, Paperless Pipeline charges by transactions—so
+                you can add your whole team for free.
+              </p>
+            </div>
           </div>
         </div>
 
-        {/* Hours per transaction */}
-        <div>
-          <div className="flex items-center justify-between mb-2">
-            <label className="text-sm font-medium text-[#030712]">
-              Admin hours per transaction
-            </label>
-            <span className="text-sm font-semibold text-[#0063EB]">{hoursPerTx}h</span>
+        {/* Inputs */}
+        <div className="flex flex-col gap-8">
+          {/* Transactions slider */}
+          <div className="flex flex-col gap-3">
+            <div className="flex items-center justify-between">
+              <label
+                htmlFor="transactions-slider"
+                className="text-black font-medium text-[16px] leading-[28px]"
+              >
+                Monthly Transactions
+              </label>
+              <span className="text-[#0063EB] font-semibold text-[16px]">
+                {transactions}
+              </span>
+            </div>
+            <div className="relative h-2">
+              <div className="absolute inset-0 rounded-full bg-[#EEF4FF] overflow-hidden">
+                <div
+                  className="h-full rounded-full bg-[#0063EB] transition-all duration-150"
+                  style={{ width: `${pct}%` }}
+                />
+              </div>
+              <input
+                id="transactions-slider"
+                type="range"
+                min={1}
+                max={250}
+                value={transactions}
+                onChange={(e) => setTransactions(Number(e.target.value))}
+                className="absolute inset-0 w-full opacity-0 cursor-pointer h-2"
+                aria-label="Monthly transactions"
+              />
+            </div>
+            <div className="flex justify-between text-[14px] text-[#6C757D]">
+              <span>1</span>
+              <span>250+</span>
+            </div>
           </div>
-          <input
-            type="range"
-            min={0.5}
-            max={10}
-            step={0.5}
-            value={hoursPerTx}
-            onChange={(e) => setHoursPerTx(Number(e.target.value))}
-            className="w-full accent-[#0063EB]"
-            aria-label="Hours spent on admin per transaction"
-          />
-          <div className="flex justify-between text-xs text-[#6C757D] mt-1">
-            <span>0.5h</span>
-            <span>10h</span>
+
+          {/* Current cost input */}
+          <div className="flex flex-col gap-3">
+            <label
+              htmlFor="current-cost"
+              className="text-black font-medium text-[16px] leading-[28px]"
+            >
+              Current Monthly Software Cost
+            </label>
+            <div className="relative">
+              <span className="absolute left-4 top-1/2 -translate-y-1/2 text-[#6C757D] font-medium text-[16px] pointer-events-none">
+                $
+              </span>
+              <input
+                id="current-cost"
+                type="number"
+                min={0}
+                value={currentCost}
+                onChange={(e) =>
+                  setCurrentCost(Math.max(0, Number(e.target.value)))
+                }
+                className="w-full pl-8 pr-4 py-3 border border-black/10 rounded-xl text-[16px] text-black focus:outline-none focus:ring-2 focus:ring-[#0063EB]/30 focus:border-[#0063EB] transition-colors"
+                aria-label="Current monthly software cost"
+              />
+            </div>
+            <p className="text-[14px] text-[#6C757D]">
+              Include transaction management, eSign, storage, and any per-user tools
+            </p>
           </div>
         </div>
       </div>
 
-      {/* Results */}
-      <div className="space-y-5">
-        {/* Recommended plan */}
-        <div className="bg-[#EEF4FF] rounded-2xl p-6">
-          <p className="text-xs font-semibold uppercase tracking-widest text-[#0063EB] mb-1">
-            Recommended Plan
-          </p>
-          <p className="text-xl font-semibold text-[#030712]">
-            {results.plan} — {formatCurrency(results.ppCost)}/mo
-          </p>
-          <p className="text-sm text-[#4F4F4F] mt-1">
-            Based on {transactions} transaction{transactions !== 1 ? "s" : ""}/month
-          </p>
-        </div>
+      {/* Right: results widget */}
+      <div className="flex-1 bg-white border border-black/10 rounded-2xl p-4 flex flex-col gap-4">
+        <div className="flex flex-col gap-6 p-4 flex-1">
+          {/* Widget header */}
+          <div className="flex flex-col gap-1">
+            <p
+              className="text-black font-medium text-[24px] leading-[32px]"
+              style={{ letterSpacing: "-0.02em" }}
+            >
+              Your Savings Estimate
+            </p>
+            <p
+              className="text-[#4F4F4F] text-[14px] leading-[20px]"
+              style={{ letterSpacing: "-0.02em" }}
+            >
+              Based on {transactions} transaction{transactions !== 1 ? "s" : ""}/month
+            </p>
+          </div>
 
-        {/* Cost comparison */}
-        <div className="bg-white rounded-2xl border border-gray-200 shadow-sm p-6">
-          <h3 className="text-base font-semibold text-[#030712] mb-4">
-            Monthly Cost Comparison
-          </h3>
-          <div className="space-y-3">
-            <div className="flex items-center justify-between">
-              <span className="text-sm text-[#4F4F4F]">Current tools</span>
-              <span className="text-sm font-semibold text-[#030712]">
-                {formatCurrency(currentCost)}/mo
+          {/* Recommended plan + price */}
+          <div className="flex flex-col gap-1 pb-4 border-b border-[#E4E4E7]">
+            <p
+              className="text-[#6C757D] font-medium text-[12px] uppercase"
+              style={{ letterSpacing: "0.08em" }}
+            >
+              Recommended Plan
+            </p>
+            <div className="flex items-end gap-1">
+              <span
+                className="text-black font-medium text-[48px] leading-[56px]"
+                style={{ letterSpacing: "-0.04em" }}
+              >
+                {fmt(plan.price)}
+              </span>
+              <span className="text-[#4F4F4F] text-[14px] leading-[24px] pb-2">
+                /month
               </span>
             </div>
-            <div className="flex items-center justify-between">
-              <span className="text-sm text-[#4F4F4F]">Paperless Pipeline</span>
-              <span className="text-sm font-semibold text-[#0063EB]">
-                {formatCurrency(results.ppCost)}/mo
+            <p className="text-[#0063EB] font-medium text-[14px]">
+              {plan.name} Plan
+            </p>
+          </div>
+
+          {/* Cost comparison */}
+          <div className="flex flex-col gap-3">
+            <div className="flex justify-between items-center">
+              <span className="text-[#4F4F4F] text-[14px]">Your current tools</span>
+              <span className="text-black font-medium text-[14px]">
+                {fmt(currentCost)}/mo
               </span>
             </div>
-            <div className="h-px bg-gray-100" />
-            <div className="flex items-center justify-between">
-              <span className="text-sm font-semibold text-[#030712]">
-                {saving ? "Monthly savings" : "Monthly premium"}
+            <div className="flex justify-between items-center">
+              <span className="text-[#4F4F4F] text-[14px]">Paperless Pipeline</span>
+              <span className="text-[#0063EB] font-medium text-[14px]">
+                {fmt(plan.price)}/mo
+              </span>
+            </div>
+            <div className="h-px bg-[#E4E4E7]" />
+            <div className="flex justify-between items-center">
+              <span className="text-black font-semibold text-[14px]">
+                {saving ? "Monthly savings" : "Monthly difference"}
               </span>
               <span
-                className={`text-sm font-bold ${
+                className={`font-bold text-[16px] ${
                   saving ? "text-emerald-600" : "text-[#D92D20]"
                 }`}
               >
                 {saving ? "+" : "-"}
-                {formatCurrency(results.monthlySavings)}/mo
+                {fmt(monthlySavings)}/mo
               </span>
+            </div>
+          </div>
+
+          {/* Annual savings highlight */}
+          <div
+            className={`rounded-xl p-4 flex justify-between items-center ${
+              saving ? "bg-[#E8F8EF]" : "bg-[#FDF9EE]"
+            }`}
+          >
+            <div>
+              <p
+                className="text-[#6C757D] font-medium text-[12px] uppercase"
+                style={{ letterSpacing: "0.08em" }}
+              >
+                Annual savings
+              </p>
+              <p
+                className={`font-bold text-[24px] leading-[32px] ${
+                  saving ? "text-emerald-700" : "text-[#D92D20]"
+                }`}
+              >
+                {saving ? "+" : "-"}
+                {fmt(annualSavings)}
+              </p>
+            </div>
+            <div className="text-right">
+              <p className="text-[12px] text-[#6C757D]">per year</p>
+              {saving && (
+                <p className="text-emerald-600 font-medium text-[14px]">
+                  You save!
+                </p>
+              )}
             </div>
           </div>
         </div>
 
-        {/* Savings cards */}
-        <div className="grid grid-cols-3 gap-4">
-          <div className={`rounded-xl p-5 ${saving ? "bg-[#E8F8EF]" : "bg-[#FDF9EE]"}`}>
-            <DollarSign
-              size={16}
-              className={`mb-2 ${saving ? "text-emerald-600" : "text-[#6C757D]"}`}
-            />
-            <p className="text-xs text-[#6C757D] mb-1">Annual savings</p>
-            <p
-              className={`text-lg font-bold leading-tight ${
-                saving ? "text-emerald-700" : "text-[#D92D20]"
-              }`}
-            >
-              {saving ? "+" : "-"}
-              {formatCurrency(results.annualSavings)}
-            </p>
-          </div>
-          <div className="bg-[#F5F0FF] rounded-xl p-5">
-            <Clock size={16} className="text-purple-500 mb-2" />
-            <p className="text-xs text-[#6C757D] mb-1">Hours saved/mo</p>
-            <p className="text-lg font-bold text-purple-700 leading-tight">
-              ~{results.timeSavedMonthly}h
-            </p>
-          </div>
-          <div className="bg-[#EEF4FF] rounded-xl p-5">
-            <TrendingDown size={16} className="text-[#0063EB] mb-2" />
-            <p className="text-xs text-[#6C757D] mb-1">Hours saved/yr</p>
-            <p className="text-lg font-bold text-[#0063EB] leading-tight">
-              ~{results.timeSavedAnnual}h
-            </p>
-          </div>
-        </div>
-
         {/* CTA */}
-        <div className="bg-[#030712] rounded-2xl p-7 text-white">
-          <h3 className="text-lg font-semibold mb-2">Ready to start saving?</h3>
-          <p className="text-sm text-gray-400 mb-5">
-            Start your free trial today. No credit card required.
+        <div className="px-4 pb-4 flex flex-col gap-2">
+          <Link
+            href="/signup"
+            className="flex items-center justify-center w-full text-white font-medium text-[14px] leading-[24px] py-3 px-5 rounded-lg bg-[#0063EB] hover:bg-[#046EFF] transition-colors"
+            style={{
+              boxShadow:
+                "0px 0px 0px 1px rgba(4,110,255,1), 0px 1px 2px 0px rgba(4,110,255,0.64)",
+            }}
+          >
+            Start Free Trial →
+          </Link>
+          <p className="text-center text-[12px] text-[#6C757D]">
+            No credit card required. Cancel anytime.
           </p>
-          <div className="flex flex-col sm:flex-row gap-3">
-            <Link
-              href="/signup"
-              className="inline-flex items-center justify-center gap-2 bg-[#0063EB] hover:bg-[#046EFF] text-white text-sm font-semibold px-6 py-3 rounded-lg transition-colors"
-            >
-              Start Free Trial
-            </Link>
-            <Link
-              href="/pricing"
-              className="inline-flex items-center justify-center gap-2 border border-gray-600 hover:border-gray-400 text-white text-sm font-medium px-6 py-3 rounded-lg transition-colors"
-            >
-              View Pricing <ArrowRight size={14} />
-            </Link>
-          </div>
         </div>
       </div>
     </div>
