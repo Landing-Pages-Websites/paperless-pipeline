@@ -3,6 +3,12 @@ import Link from "next/link";
 import { caseStudies } from "@/data/case-studies";
 import CTABanner from "@/components/home/CTABanner";
 
+const cardGradients = [
+  "linear-gradient(135deg, #0063EB 0%, #004BB5 100%)",
+  "linear-gradient(135deg, #10B981 0%, #047857 100%)",
+  "linear-gradient(135deg, #8B5CF6 0%, #6D28D9 100%)",
+];
+
 export const metadata: Metadata = {
   title: "Case Studies — Paperless Pipeline",
   description:
@@ -53,14 +59,32 @@ export default function CaseStudiesPage() {
 
           {/* Card grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {caseStudies.map((study) => (
+            {caseStudies.map((study, index) => (
               <article
                 key={study.slug}
                 className="bg-white border border-gray-100 rounded-2xl overflow-hidden flex flex-col hover:shadow-md transition-shadow"
               >
                 {/* Card image area */}
-                <div className="h-44 bg-[#EEF4FF] flex flex-col justify-end px-6 pb-5">
-                  <span className="inline-block text-xs font-semibold uppercase tracking-widest text-[#0063EB]">
+                <div
+                  className="h-52 flex flex-col justify-end px-6 pb-5 relative overflow-hidden"
+                  style={{ background: cardGradients[index % cardGradients.length] }}
+                >
+                  <span
+                    className="absolute inset-0 flex items-center justify-center text-white font-bold leading-none pointer-events-none select-none"
+                    style={{
+                      fontSize: "64px",
+                      opacity: 0.15,
+                      transform: "rotate(-6deg)",
+                      whiteSpace: "pre-wrap",
+                      wordBreak: "break-word",
+                      padding: "1rem",
+                      textAlign: "center",
+                    }}
+                    aria-hidden="true"
+                  >
+                    {study.company}
+                  </span>
+                  <span className="relative inline-block text-xs font-semibold uppercase tracking-widest text-white/90">
                     {study.industry}
                   </span>
                 </div>
@@ -71,7 +95,7 @@ export default function CaseStudiesPage() {
                   </h2>
 
                   {/* Key metric badge */}
-                  <div className="inline-flex items-center gap-1.5 bg-[#E8F8EF] text-emerald-700 text-xs font-semibold px-3 py-1.5 rounded-full mb-4 self-start">
+                  <div className="inline-flex items-center gap-1.5 bg-[#E8F8EF] text-emerald-700 text-sm font-semibold px-4 py-2 rounded-full mb-4 self-start">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       width="12"

@@ -169,8 +169,18 @@ export default function HeroSection() {
           {/* ── RIGHT COLUMN (~45%): 2×2 stat card grid ── */}
           <div className="w-full lg:flex-1 flex justify-center lg:justify-start">
             <div
-              className="grid grid-cols-2 gap-3 w-full"
-              style={{ maxWidth: "500px" }}
+              className="relative rounded-[20px] overflow-hidden p-3 w-full"
+              style={{ maxWidth: "500px", background: "#0B1120" }}
+            >
+              <Image
+                src="/images/figma/pages/product-screenshot-transactions.jpg"
+                alt=""
+                fill
+                className="object-cover opacity-30"
+                aria-hidden="true"
+              />
+            <div
+              className="relative z-10 grid grid-cols-2 gap-3 w-full"
             >
               {/* Card 1: Monthly transactions — blue, pill right side */}
               <div
@@ -310,6 +320,7 @@ export default function HeroSection() {
                   90K+
                 </div>
               </div>
+            </div>
             </div>
           </div>
 

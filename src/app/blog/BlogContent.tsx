@@ -15,13 +15,13 @@ const categories: (typeof ALL | BlogCategory)[] = [
   "Compliance",
 ];
 
-const categoryColors: Record<BlogCategory, string> = {
-  "Best Practices": "bg-[#E8F8EF]",
-  "Market Trends": "bg-[#EEF4FF]",
-  Technology: "bg-[#F5F0FF]",
-  "Transaction Management": "bg-[#FDF9EE]",
-  "Team Management": "bg-[#FFF0E6]",
-  Compliance: "bg-[#ECEEF2]",
+const categoryGradients: Record<BlogCategory, string> = {
+  "Best Practices": "linear-gradient(135deg, #10B981 0%, #059669 100%)",
+  "Market Trends": "linear-gradient(135deg, #3B82F6 0%, #1D4ED8 100%)",
+  Technology: "linear-gradient(135deg, #8B5CF6 0%, #6D28D9 100%)",
+  "Transaction Management": "linear-gradient(135deg, #F59E0B 0%, #D97706 100%)",
+  "Team Management": "linear-gradient(135deg, #F97316 0%, #EA580C 100%)",
+  Compliance: "linear-gradient(135deg, #6B7280 0%, #4B5563 100%)",
 };
 
 function getInitials(name: string) {
@@ -58,8 +58,25 @@ export default function BlogContent() {
         <article className="bg-white border border-black/10 rounded-3xl overflow-hidden flex flex-col md:flex-row hover:shadow-md transition-shadow">
           {/* Placeholder image */}
           <div
-            className={`md:w-[45%] min-h-[280px] md:min-h-[420px] flex-shrink-0 ${categoryColors[featured.category]}`}
-          />
+            className="md:w-[45%] min-h-[280px] md:min-h-[420px] flex-shrink-0 relative overflow-hidden"
+            style={{ background: "linear-gradient(145deg, #0063EB 0%, #004BB5 100%)" }}
+          >
+            <span
+              className="absolute inset-0 flex items-center justify-center text-white font-bold leading-none pointer-events-none select-none"
+              style={{
+                fontSize: "80px",
+                opacity: 0.1,
+                transform: "rotate(-6deg)",
+                whiteSpace: "pre-wrap",
+                wordBreak: "break-word",
+                padding: "1rem",
+                textAlign: "center",
+              }}
+              aria-hidden="true"
+            >
+              {featured.title}
+            </span>
+          </div>
 
           {/* Content */}
           <div className="flex flex-col justify-between gap-8 p-6 md:p-8 flex-1">
@@ -144,8 +161,25 @@ export default function BlogContent() {
               >
                 {/* Placeholder image */}
                 <div
-                  className={`mx-6 mt-6 h-[220px] rounded-2xl flex-shrink-0 ${categoryColors[post.category]}`}
-                />
+                  className="mx-6 mt-6 h-[220px] rounded-2xl flex-shrink-0 relative overflow-hidden"
+                  style={{ background: categoryGradients[post.category] }}
+                >
+                  <span
+                    className="absolute inset-0 flex items-center justify-center text-white font-bold leading-none pointer-events-none select-none"
+                    style={{
+                      fontSize: "80px",
+                      opacity: 0.1,
+                      transform: "rotate(-6deg)",
+                      whiteSpace: "pre-wrap",
+                      wordBreak: "break-word",
+                      padding: "1rem",
+                      textAlign: "center",
+                    }}
+                    aria-hidden="true"
+                  >
+                    {post.category}
+                  </span>
+                </div>
 
                 {/* Content */}
                 <div className="p-6 flex flex-col flex-1 justify-between gap-5">
