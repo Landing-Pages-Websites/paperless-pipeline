@@ -1,4 +1,9 @@
-export type FAQCategory = "General" | "Pricing" | "Features" | "Getting Started";
+export type FAQCategory =
+  | "General"
+  | "Getting Started"
+  | "Pricing"
+  | "Features"
+  | "Support";
 
 export type FAQ = {
   question: string;
@@ -22,89 +27,96 @@ export const faqs: FAQ[] = [
   },
   {
     category: "General",
-    question: "What kind of support is available?",
-    answer:
-      "All plans include email and chat support with fast response times. Our Professional and Enterprise plans include priority support with dedicated account managers and phone access. We also maintain an extensive help center with guides, videos, and webinars.",
-  },
-  {
-    category: "General",
     question: "Is my data secure with Paperless Pipeline?",
     answer:
       "Security is our top priority. We use bank-level encryption, secure data centers, and industry-standard security practices to keep your sensitive transaction data safe at all times.",
   },
+  // Getting Started
+  {
+    category: "Getting Started",
+    question: "How long does it take to get up and running?",
+    answer:
+      "Most teams are fully operational within 1–3 days. There's no complex migration, no IT setup required, and no lengthy implementation project to manage. You create your account, set up your checklist templates, and start opening transactions.\n\nIf you're moving from another platform and have existing transaction data, our support team can help you with the transition. We also provide live onboarding calls for teams that want a guided walkthrough.",
+  },
+  {
+    category: "Getting Started",
+    question: "Do I need to train my agents to use it?",
+    answer:
+      "Paperless Pipeline is built to be intuitive — most agents pick it up within minutes. The interface is clean and focused, so agents only see what's relevant to their active transactions. We also provide a help center, video walkthroughs, and live onboarding sessions to get your team comfortable quickly.",
+  },
+  {
+    category: "Getting Started",
+    question: "Can I import data from my current system?",
+    answer:
+      "Yes. We provide migration assistance to help you bring your existing transaction data into Paperless Pipeline. Our onboarding team will work with you to ensure a smooth transition from wherever you're coming from.",
+  },
   // Pricing
   {
     category: "Pricing",
-    question: "How does Paperless Pipeline pricing work?",
-    answer:
-      "Paperless Pipeline charges a flat monthly fee based on your transaction volume — not per user or per seat. Your whole team can use it without watching the bill climb as you grow. Plans start at a predictable monthly rate with no surprise overages.",
-  },
-  {
-    category: "Pricing",
-    question: "Is there a limit to the number of users I can add?",
-    answer:
-      "No. All Paperless Pipeline plans include unlimited users. You pay for transactions, not headcount — so you can invite your entire brokerage, all your agents, and every transaction coordinator without any additional per-seat fees.",
-  },
-  {
-    category: "Pricing",
-    question: "Is there a free trial available?",
+    question: "Is there a free trial?",
     answer:
       "Yes — you can start a free trial with no credit card required. Explore all features and see how Paperless Pipeline can transform your transaction process before committing to a plan.",
   },
   {
     category: "Pricing",
-    question: "Can I change my plan as my business grows?",
+    question: "How is Paperless Pipeline priced?",
     answer:
-      "Absolutely. You can upgrade or downgrade your plan at any time from your account dashboard. Upgrades take effect immediately, and downgrades apply at the start of your next billing cycle. There are no penalties for changing plans.",
+      "Paperless Pipeline charges a flat monthly fee based on your transaction volume — not per user or per seat. Your whole team can use it without watching the bill climb as you grow. Plans start at a predictable monthly rate with no surprise overages.",
+  },
+  {
+    category: "Pricing",
+    question: "Are there any setup fees or contracts?",
+    answer:
+      "No setup fees and no long-term contracts. You pay month-to-month and can cancel at any time. We believe the product should earn your business every month — not a signed agreement.",
+  },
+  {
+    category: "Pricing",
+    question: "Does pricing change as my team grows?",
+    answer:
+      "Pricing is based on transaction volume, not the number of users — so adding agents to your team doesn't change your bill. As your transaction volume grows you can upgrade your plan at any time from your account dashboard.",
   },
   // Features
   {
     category: "Features",
-    question: "Does Paperless Pipeline integrate with my other tools?",
-    answer:
-      "Yes. Paperless Pipeline integrates with popular real estate CRMs, MLS platforms, e-signature tools, and accounting software. Our open API also allows custom integrations. Check our integrations page for the full list of supported platforms.",
-  },
-  {
-    category: "Features",
-    question: "What is Pipeline eSign?",
+    question: "Is eSign included, or do I need a separate subscription?",
     answer:
       "Pipeline eSign is our built-in electronic signature tool. You can send documents for signature directly from within a transaction, track signing status in real time, and automatically file completed documents back to the transaction record — no third-party eSign subscription required.",
   },
   {
     category: "Features",
-    question: "How does commission tracking work?",
-    answer:
-      "Paperless Pipeline automatically calculates agent and broker splits, fees, and net payouts for each transaction based on your brokerage's commission schedule. You can review, approve, and export commission statements at close — no spreadsheets needed.",
-  },
-  {
-    category: "Features",
-    question: "Can I customize my transaction workflows?",
+    question: "Can I customize the checklists for different transaction types?",
     answer:
       "Yes. You can build custom task checklists and workflow templates tailored to different transaction types (buyer, seller, lease, etc.). Templates auto-assign tasks by role and set deadline rules relative to key dates like contract date and closing date.",
   },
-  // Getting Started
   {
-    category: "Getting Started",
-    question: "How long does it take to get set up?",
+    category: "Features",
+    question: "Does it work for teams managing multiple markets or states?",
     answer:
-      "Most teams are fully operational within a day. Our onboarding wizard walks you through importing your existing transactions, inviting your team, and customizing your workflow templates. We also offer free concierge setup for teams on higher-tier plans.",
+      "Yes. Paperless Pipeline is built to scale across multiple markets, states, and office locations. You can configure separate workflows, compliance checklists, and commission structures for each market — all managed from a single account.",
   },
   {
-    category: "Getting Started",
-    question: "Can I migrate my existing data to Paperless Pipeline?",
+    category: "Features",
+    question: "How does the commission management feature work?",
     answer:
-      "Yes. We provide migration assistance to help you bring your existing transaction data into Paperless Pipeline. Our onboarding team will work with you to ensure a smooth transition from wherever you're coming from.",
+      "Paperless Pipeline automatically calculates agent and broker splits, fees, and net payouts for each transaction based on your brokerage's commission schedule. You can review, approve, and export commission statements at close — no spreadsheets needed.",
+  },
+  // Support
+  {
+    category: "Support",
+    question: "What kind of support is available?",
+    answer:
+      "All plans include email and chat support with fast response times. Our Professional and Enterprise plans include priority support with dedicated account managers and phone access. We also maintain an extensive help center with guides, videos, and webinars.",
   },
   {
-    category: "Getting Started",
-    question: "Do I need to install any software?",
+    category: "Support",
+    question: "Do you offer onboarding help?",
     answer:
-      "No installation needed. Paperless Pipeline is fully cloud-based and runs in any modern web browser. There's also a mobile-optimized view so agents can check transaction status and complete tasks from any device, anywhere.",
+      "Yes. Every new account gets access to our onboarding resources including guided walkthroughs, video tutorials, and a dedicated help center. Teams on higher-tier plans also get live onboarding calls with our customer success team to get everything configured exactly right.",
   },
   {
-    category: "Getting Started",
-    question: "How do I invite my team members?",
+    category: "Support",
+    question: "How quickly do you respond to support requests?",
     answer:
-      "From your account dashboard, go to Team Settings and enter your team members' email addresses. They'll receive an invitation to join your workspace, set up their profile, and get access to the transactions you assign them — all in under two minutes.",
+      "Our typical response time is under two hours on business days. Live chat is available during business hours and email support is monitored throughout the day. Priority support plans include access to a dedicated account manager and phone support.",
   },
 ];
