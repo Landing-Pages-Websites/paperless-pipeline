@@ -75,17 +75,15 @@ export default function Header() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-24">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2.5 flex-shrink-0">
+          <Link href="/" className="flex items-center flex-shrink-0">
             <Image
-              src="/images/figma/logo.png"
+              src="/images/figma/logo-full.png"
               alt="Paperless Pipeline"
-              width={32}
+              width={167}
               height={32}
               className="object-contain"
+              priority
             />
-            <span className="font-semibold text-[#030712] text-base leading-tight">
-              Paperless Pipeline
-            </span>
           </Link>
 
           {/* Desktop nav */}

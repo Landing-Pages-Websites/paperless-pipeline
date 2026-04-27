@@ -122,10 +122,10 @@ export default function Footer() {
             {/* Logo + copyright */}
             <div className="flex items-center gap-3">
               <Image
-                src="/images/figma/logo.png"
+                src="/images/figma/logo-full.png"
                 alt="Paperless Pipeline"
-                width={32}
-                height={32}
+                width={125}
+                height={24}
                 className="object-contain"
               />
               <p
