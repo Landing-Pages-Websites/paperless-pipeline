@@ -10,14 +10,8 @@ const testimonials = [
     role: "Transaction Coordinator",
     logo: "/images/figma/testimonial-logo-1.png",
     quote:
-      "I've tried everything. Paperless Pipeline makes the most financial sense and it was the easiest platform to onboard agents.",
-    quoteSize: 24,
-    quoteFontWeight: 400,
-    quoteLineHeight: "32px",
-    quoteLetterSpacing: "-0.0208em",
-    companyColor: "#4F4F4F",
-    profileGap: "16px",
-    height: 480,
+      "I've tried everything. Paperless Pipeline makes the most financial sense and it was the easiest platform to onboard agents.",
+    featured: false,
   },
   {
     name: "Kesha Kennedy",
@@ -25,14 +19,8 @@ const testimonials = [
     role: "Broker in Charge",
     logo: "/images/figma/testimonial-logo-2.png",
     quote:
-      "When I opened my brokerage I heard other software was better. But now I’m back because of the ease of Paperless Pipeline. I’ve used it for years and I love it.",
-    quoteSize: 32,
-    quoteFontWeight: 500,
-    quoteLineHeight: "40px",
-    quoteLetterSpacing: "-0.0156em",
-    companyColor: "#737373",
-    profileGap: "24px",
-    height: null,
+      "When I opened my brokerage I heard other software was better. But now I'm back because of the ease of Paperless Pipeline. I've used it for years and I love it.",
+    featured: true,
   },
   {
     name: "Reed Wilson",
@@ -40,21 +28,15 @@ const testimonials = [
     role: "Broker / Owner",
     logo: "/images/figma/testimonial-logo-3.png",
     quote:
-      "I thought an all-in-one platform would keep everything in one hub. What I learned was that agents weren’t using it, and it didn’t work the way I expected.",
-    quoteSize: 24,
-    quoteFontWeight: 400,
-    quoteLineHeight: "32px",
-    quoteLetterSpacing: "-0.0208em",
-    companyColor: "#4F4F4F",
-    profileGap: "16px",
-    height: 480,
+      "I thought an all-in-one platform would keep everything in one hub. What I learned was that agents weren't using it, and it didn't work the way I expected.",
+    featured: false,
   },
 ];
 
 export default function TestimonialsSection() {
   return (
     <section className="bg-white py-[120px] px-[80px] max-md:py-16 max-md:px-4">
-      <div className="mx-auto flex flex-col gap-[55px]">
+      <div className="max-w-[1280px] mx-auto flex flex-col gap-[55px]">
 
         {/* Header */}
         <div className="flex flex-col gap-3 max-w-[836px] mx-auto text-center">
@@ -82,68 +64,60 @@ export default function TestimonialsSection() {
         </div>
 
         {/* Cards row */}
-        <div className="flex flex-col md:flex-row items-center gap-8">
+        <div className="flex flex-col md:flex-row items-stretch gap-6">
           {testimonials.map((t) => (
             <div
               key={t.name}
-              className="w-full md:flex-1 rounded-[16px] p-8 flex flex-col justify-between max-md:h-auto"
-              style={{
-                background: CARD_GRADIENT,
-                height: t.height ? `${t.height}px` : undefined,
-              }}
+              className={`w-full md:flex-1 rounded-[16px] p-6 flex flex-col justify-between ${
+                t.featured ? "md:py-10 md:px-8" : ""
+              }`}
+              style={{ background: CARD_GRADIENT }}
             >
-              {/* Top: profile + quote */}
-              <div className="flex flex-col gap-8">
-                {/* Profile row */}
-                <div
-                  className="flex items-center"
-                  style={{ gap: t.profileGap }}
-                >
-                  {/* Company logo */}
-                  <div className="shrink-0">
-                    <Image
-                      src={t.logo}
-                      alt={t.company}
-                      width={48}
-                      height={48}
-                      className="object-contain"
-                    />
-                  </div>
-
-                  {/* Name + company */}
-                  <div className="flex flex-col gap-1">
-                    <span
-                      className="text-[#1E1E1E] text-base leading-[24px]"
-                      style={{ fontWeight: 500 }}
-                    >
-                      {t.name}
-                    </span>
-                    <span
-                      className="text-[14px] leading-[20px]"
-                      style={{ fontWeight: 400, color: t.companyColor }}
-                    >
-                      {t.company}
-                    </span>
-                  </div>
+              {/* Top: logo, name/company, quote */}
+              <div className="flex flex-col gap-6">
+                {/* Company logo */}
+                <div className="shrink-0">
+                  <Image
+                    src={t.logo}
+                    alt={t.company}
+                    width={48}
+                    height={48}
+                    className="object-contain"
+                  />
                 </div>
 
-                {/* Quote */}
-                <div className="flex flex-col gap-2">
+                {/* Name + company */}
+                <div className="flex flex-col gap-0.5">
                   <span
-                    className="text-[#1E1E1E] leading-none select-none"
-                    style={{ fontSize: "96px", fontWeight: 700, lineHeight: 1 }}
+                    className="text-[#1E1E1E] text-base leading-[24px]"
+                    style={{ fontWeight: 500 }}
+                  >
+                    {t.name}
+                  </span>
+                  <span
+                    className="text-[14px] leading-[20px] text-[#4F4F4F]"
+                    style={{ fontWeight: 400 }}
+                  >
+                    {t.company}
+                  </span>
+                </div>
+
+                {/* Quote mark + quote text */}
+                <div className="flex flex-col gap-3">
+                  <span
+                    className="text-[#1E1E1E] select-none"
+                    style={{ fontSize: "48px", fontWeight: 700, lineHeight: "0.8" }}
                     aria-hidden="true"
                   >
                     &ldquo;
                   </span>
                   <p
-                    className="text-[#1E1E1E]"
-                    style={{
-                      fontSize: t.quoteSize,
-                      fontWeight: t.quoteFontWeight,
-                      lineHeight: t.quoteLineHeight,
-                      letterSpacing: t.quoteLetterSpacing,
-                    }}
+                    className={`text-[#1E1E1E] ${
+                      t.featured
+                        ? "text-[24px] md:text-[32px] leading-[32px] md:leading-[40px] font-medium"
+                        : "text-[20px] md:text-[24px] leading-[28px] md:leading-[32px] font-normal"
+                    }`}
+                    style={{ letterSpacing: "-0.02em" }}
                   >
                     {t.quote}
                   </p>
@@ -151,7 +125,7 @@ export default function TestimonialsSection() {
               </div>
 
               {/* Bottom: role */}
-              <div className="mt-6">
+              <div className="mt-8">
                 <span
                   className="text-[#1E1E1E] text-[14px] leading-[20px]"
                   style={{ fontWeight: 400 }}

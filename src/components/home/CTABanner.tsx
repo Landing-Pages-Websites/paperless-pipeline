@@ -76,11 +76,7 @@ export default function CTABanner({
               </div>
               <Link
                 href={buttonHref}
-                className="inline-flex items-center gap-2 bg-white text-[#0063EB] font-medium text-sm leading-6 px-3 py-1.5 rounded-lg whitespace-nowrap"
-                style={{
-                  boxShadow:
-                    "0px 0px 0px 1px rgba(255,255,255,1), 0px 1px 2px 0px rgba(255,255,255,0.64)",
-                }}
+                className="inline-flex items-center gap-2 bg-[#FFE95B] text-[#1E1E1E] font-medium text-sm leading-6 px-5 py-2.5 rounded-lg whitespace-nowrap hover:bg-[#ffe033] transition-colors"
               >
                 {buttonText}
               </Link>

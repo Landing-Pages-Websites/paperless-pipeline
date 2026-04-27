@@ -76,11 +76,7 @@ export default function Footer() {
             {/* CTA button — white bg, blue text */}
             <Link
               href="/signup"
-              className="inline-flex items-center text-sm font-medium text-[#0063EB] bg-white hover:bg-gray-50 rounded-lg px-6 py-3 transition-colors"
-              style={{
-                boxShadow:
-                  "0px 0px 0px 1px rgba(255, 255, 255, 1), 0px 1px 2px 0px rgba(255, 255, 255, 0.64)",
-              }}
+              className="inline-flex items-center text-sm font-medium text-[#1E1E1E] bg-[#FFE95B] hover:bg-[#ffe033] rounded-lg px-5 py-2.5 transition-colors"
             >
               Start My 14-Day Free Trial →
             </Link>

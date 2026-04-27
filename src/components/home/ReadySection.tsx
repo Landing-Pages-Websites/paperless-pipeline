@@ -3,10 +3,11 @@ import Image from "next/image";
 export default function ReadySection() {
   return (
     <section className="bg-white py-[120px] px-[80px] max-md:py-16 max-md:px-4">
-      <div className="max-w-[1280px] mx-auto flex flex-col md:flex-row items-stretch gap-12">
+      <div className="max-w-[1280px] mx-auto flex flex-col md:flex-row items-stretch gap-8">
 
-        {/* Left: dark card with dark-gradient-bg.png, white inner quote card at bottom */}
-        <div className="relative w-full md:flex-1 rounded-[24px] border border-[#F0EDEA] overflow-hidden flex flex-col justify-end p-4 min-h-[420px]">
+        {/* Left: dark card with product screenshot + white quote card overlay at bottom */}
+        <div className="relative w-full md:flex-1 rounded-[24px] overflow-hidden flex flex-col min-h-[560px]">
+          {/* Dark gradient background */}
           <Image
             src="/images/figma/dark-gradient-bg.png"
             alt=""
@@ -15,32 +16,48 @@ export default function ReadySection() {
             aria-hidden="true"
           />
 
-          {/* White quote box */}
-          <div className="relative z-10 bg-white rounded-[16px] p-4 flex flex-col gap-2">
-            <p
-              className="text-[#393837] text-base leading-[20px]"
-              style={{ fontWeight: 500, letterSpacing: "-0.005em" }}
-            >
-              With many systems, you need a couple of hours of training… but
-              with this system, it&apos;s so intuitive that it&apos;s hard to
-              mess up.
-            </p>
-            <div className="flex gap-2 items-start">
-              <span
-                className="text-[#1E1E1E] text-[14px] leading-[20px] shrink-0"
-                style={{ fontWeight: 600, letterSpacing: "-0.0057em" }}
-              >
-                -
-              </span>
+          {/* Product screenshot at top */}
+          <div className="relative z-10 p-4 pb-0 flex-1">
+            <div className="rounded-xl overflow-hidden">
+              <Image
+                src="/images/figma/ready-feature-image.png"
+                alt="Paperless Pipeline dashboard"
+                width={600}
+                height={400}
+                className="w-full h-auto object-cover"
+                quality={85}
+              />
+            </div>
+          </div>
+
+          {/* White quote box at bottom */}
+          <div className="relative z-10 p-4">
+            <div className="bg-white rounded-[16px] p-5 flex flex-col gap-3">
               <p
-                className="text-[#4F4F4F] text-[14px] leading-[20px]"
-                style={{ letterSpacing: "-0.0057em" }}
+                className="text-[#393837] text-[15px] leading-[22px]"
+                style={{ fontWeight: 500, letterSpacing: "-0.005em" }}
               >
-                <span className="font-semibold text-[#1E1E1E]">
-                  Michael Greer
-                </span>{" "}
-                Managing Partner, Good 2 Go Properties &amp; Services
+                With many systems, you need a couple of hours of training… but
+                with this system, it&apos;s so intuitive that it&apos;s hard to
+                mess up.
               </p>
+              <div className="flex gap-2 items-start">
+                <span
+                  className="text-[#1E1E1E] text-[14px] leading-[20px] shrink-0"
+                  style={{ fontWeight: 600 }}
+                >
+                  -
+                </span>
+                <p
+                  className="text-[#4F4F4F] text-[14px] leading-[20px]"
+                  style={{ letterSpacing: "-0.0057em" }}
+                >
+                  <span className="font-semibold text-[#1E1E1E]">
+                    Michael Greer
+                  </span>{" "}
+                  Managing Partner, Good 2 Go Properties &amp; Services
+                </p>
+              </div>
             </div>
           </div>
         </div>
