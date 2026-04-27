@@ -32,25 +32,26 @@ export default function PainPointsSection() {
   return (
     <section className="bg-white py-[120px] px-[80px] max-md:py-16 max-md:px-4">
       <div className="flex flex-col gap-6">
-        {/* Top section: painpoints-image.png as bg, white card on left */}
-        <div className="relative rounded-3xl overflow-hidden flex flex-row p-4 gap-2 min-h-[680px]">
+        {/* Top section: illustration bg with white overlay card on left */}
+        <div className="relative rounded-3xl overflow-hidden min-h-[680px] max-md:min-h-0">
+          {/* Background illustration */}
           <Image
             src="/images/figma/painpoints-image.png"
             alt=""
             fill
-            className="object-cover"
+            className="object-cover object-right"
             aria-hidden="true"
           />
 
-          {/* Left white card — 593px wide on desktop */}
-          <div className="relative z-10 bg-white rounded-2xl p-8 flex flex-col gap-12 lg:w-[593px] lg:flex-shrink-0 w-full max-md:p-6">
+          {/* White overlay card — pinned left, ~40% width on desktop */}
+          <div className="relative z-10 bg-white/95 backdrop-blur-sm rounded-2xl p-10 m-6 flex flex-col gap-10 lg:w-[540px] lg:max-w-[45%] max-md:p-6">
             {/* Header */}
             <div className="flex flex-col gap-3">
               <span className="font-sans font-medium text-[14px] leading-[24px] tracking-[0.0893em] uppercase text-[#D92D20]">
                 When systems fall behind
               </span>
               <div className="flex flex-col gap-2">
-                <h2 className="font-sans font-semibold text-[48px] leading-tight text-black max-md:text-[32px]">
+                <h2 className="font-sans font-semibold text-[40px] leading-[1.15] text-black max-md:text-[28px]">
                   Growth shouldn&apos;t make your brokerage harder to run
                 </h2>
                 <p className="font-sans font-normal text-[16px] leading-[150%] text-[#4F4F4F]">
@@ -60,19 +61,19 @@ export default function PainPointsSection() {
               </div>
             </div>
 
-            {/* Pain items */}
-            <div className="flex flex-col gap-4">
+            {/* Pain items — simple rows, no card borders */}
+            <div className="flex flex-col gap-6">
               {painItems.map(({ title, body, Icon }) => (
-                <div
-                  key={title}
-                  className="flex flex-col gap-6 border border-[#F0EDEA] rounded-lg p-4"
-                >
-                  <Icon size={24} color="#D92D20" strokeWidth={1.75} />
+                <div key={title} className="flex items-start gap-4">
+                  {/* Icon in a colored square */}
+                  <div className="w-10 h-10 rounded-lg bg-[#FEE4E2] flex items-center justify-center flex-shrink-0">
+                    <Icon size={20} color="#D92D20" strokeWidth={2} />
+                  </div>
                   <div className="flex flex-col gap-1">
-                    <span className="font-sans font-semibold text-[16px] leading-[24px] tracking-[-0.0113em] text-[#393837]">
+                    <span className="font-sans font-semibold text-[16px] leading-[24px] tracking-[-0.01em] text-[#1E1E1E]">
                       {title}
                     </span>
-                    <span className="font-sans font-normal text-[14px] leading-[20px] tracking-[-0.0057em] text-[#4F4F4F]">
+                    <span className="font-sans font-normal text-[14px] leading-[20px] text-[#4F4F4F]">
                       {body}
                     </span>
                   </div>
