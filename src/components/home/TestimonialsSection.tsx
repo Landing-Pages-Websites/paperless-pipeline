@@ -1,7 +1,7 @@
 import Image from "next/image";
 
 const CARD_GRADIENT =
-  "linear-gradient(250deg, rgba(255,233,91,1) 0%, rgba(13,71,193,1) 100%)";
+  "linear-gradient(250deg, #FFE95B 0%, #0D47C1 100%)";
 
 const testimonials = [
   {
@@ -128,19 +128,26 @@ export default function TestimonialsSection() {
                 </div>
 
                 {/* Quote */}
-                <p
-                  className="text-[#1E1E1E]"
-                  style={{
-                    fontSize: t.quoteSize,
-                    fontWeight: t.quoteFontWeight,
-                    lineHeight: t.quoteLineHeight,
-                    letterSpacing: t.quoteLetterSpacing,
-                  }}
-                >
-                  &ldquo;
-                  <br />
-                  {t.quote}
-                </p>
+                <div className="flex flex-col gap-2">
+                  <span
+                    className="text-[#1E1E1E] leading-none select-none"
+                    style={{ fontSize: "96px", fontWeight: 700, lineHeight: 1 }}
+                    aria-hidden="true"
+                  >
+                    &ldquo;
+                  </span>
+                  <p
+                    className="text-[#1E1E1E]"
+                    style={{
+                      fontSize: t.quoteSize,
+                      fontWeight: t.quoteFontWeight,
+                      lineHeight: t.quoteLineHeight,
+                      letterSpacing: t.quoteLetterSpacing,
+                    }}
+                  >
+                    {t.quote}
+                  </p>
+                </div>
               </div>
 
               {/* Bottom: role */}

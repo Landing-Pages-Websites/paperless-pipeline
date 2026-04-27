@@ -90,6 +90,7 @@ export default function PainPointsSection() {
               key={stat.number}
               className="flex-1 flex flex-col gap-4 items-center justify-center border border-black/10 rounded-2xl px-4 py-8"
             >
+              <div className="w-10 h-[3px] bg-[#FFE95B] rounded-full" />
               <span className="font-sans font-medium text-[64px] leading-[56px] tracking-[-0.0188em] text-[#D92D20] text-center">
                 {stat.number}
               </span>

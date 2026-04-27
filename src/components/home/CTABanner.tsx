@@ -42,7 +42,7 @@ export default function CTABanner({
             }
             alt=""
             fill
-            className="object-cover object-left opacity-20"
+            className="object-cover object-left opacity-40"
             aria-hidden="true"
           />
         </div>
