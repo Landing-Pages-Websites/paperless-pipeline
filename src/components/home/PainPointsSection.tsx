@@ -29,7 +29,7 @@ export default function PainPointsSection() {
     <section className="bg-white py-[120px] px-[80px] max-md:py-16 max-md:px-4">
       <div className="flex flex-col gap-6">
         {/* Top section: painpoints-image.png as bg, white card on left */}
-        <div className="relative rounded-3xl overflow-hidden flex flex-row p-4 gap-2 min-h-[520px]">
+        <div className="relative rounded-3xl overflow-hidden flex flex-row p-4 gap-2 min-h-[680px]">
           <Image
             src="/images/figma/painpoints-image.png"
             alt=""

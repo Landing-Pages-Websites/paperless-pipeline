@@ -126,22 +126,25 @@ A large dark card (rounded-3xl, ~24px radius) with the dark gradient background 
 
 **Background:** White
 
-**Layout:** Two main areas stacked vertically.
+**Layout:** Three areas stacked vertically with gap-6 between them.
 
-**Top Section:**
-- Left: Section header with eyebrow "WHEN SYSTEMS FALL BEHIND" in blue uppercase, heading "Growth shouldn't make your brokerage harder to run" in ~48px, subtitle text
-- Right: A large illustration image (use painpoints-image.png) showing a cluttered/messy workflow visualization
+**Area 1 — Top section (large rounded card):**
+- Full-width rounded-3xl card with painpoints-image.png as BACKGROUND (fill, object-cover)
+- The image shows a messy workflow illustration (tangled lines, scattered elements)
+- Overlaid on the LEFT side: a white card (exactly 593px wide on desktop, rounded-2xl, p-8) containing:
+  - Red (#D92D20) eyebrow: "WHEN SYSTEMS FALL BEHIND"
+  - Heading: "Growth shouldn't make your brokerage harder to run" in ~48px semibold
+  - Subtitle in gray
+  - Three problem cards stacked vertically, each with: small icon placeholder, bold title, description text
+- The RIGHT side of the card: the background image is visible (not covered by the white overlay)
+- Min-height: ~680px to give the image room
 
-**Middle: Three problem cards** in a row:
-Each card has:
-- A small red/dark icon at top
-- Heading in semibold (e.g., "The fit breaks down")
-- Description text in gray
+**Area 2 — "HOW THIS SHOWS UP IN PRACTICE" label** centered, red (#D92D20) uppercase
 
-**Bottom: Stats bar** with heading "HOW THIS SHOWS UP IN PRACTICE :" followed by three stat items:
-- "10+" / "Hours lost each week"
-- "3–5" / "Separate tools"
-- "$$$" / "Software spend that's hard to tie back to real productivity"
+**Area 3 — Stats row:** Three cards in a row, each with:
+- Short yellow (#FFE95B) horizontal accent line at top
+- Large red (#D92D20) number (64px): "10+", "3-5", "$$$"
+- Label text in dark below
 
 ---
 

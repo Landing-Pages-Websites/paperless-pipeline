@@ -75,7 +75,7 @@ export default function RolesSection() {
                 <button
                   key={role.id}
                   onClick={() => setActiveIndex(i)}
-                  className="flex-1 flex flex-col gap-6 p-4 rounded-2xl text-left transition-all"
+                  className="flex-1 flex flex-col gap-6 p-6 rounded-2xl text-left transition-all"
                   style={
                     isActive
                       ? {
@@ -105,20 +105,19 @@ export default function RolesSection() {
                       </span>
                     </div>
                   </div>
-                  <div
-                    className="w-full h-0.5 rounded-full"
-                    style={{
-                      backgroundColor: "#ECEEF2",
-                      border: isActive ? "none" : "0.5px solid #D5D9E2",
-                    }}
-                  />
+                  {!isActive && (
+                    <div
+                      className="w-full h-0.5 rounded-full bg-[#ECEEF2]"
+                      style={{ border: "0.5px solid #D5D9E2" }}
+                    />
+                  )}
                 </button>
               );
             })}
           </div>
 
           {/* Content panel — dark-gradient-bg.png as background */}
-          <div className="relative rounded-3xl border border-[#D5D9E2] overflow-hidden min-h-[520px]">
+          <div className="relative rounded-3xl border border-[#D5D9E2] overflow-hidden">
             {/* Background image */}
             <Image
               src="/images/figma/dark-gradient-bg.png"
@@ -128,20 +127,21 @@ export default function RolesSection() {
               aria-hidden="true"
             />
 
-            {/* Product screenshot — absolutely positioned on the left */}
-            <div className="hidden md:block absolute left-[66px] top-[80px] w-[606px] h-[360px] rounded-xl overflow-hidden">
-              <Image
-                src="/images/figma/roles-screenshot.png"
-                alt="Paperless Pipeline product UI"
-                fill
-                className="object-cover"
-              />
-            </div>
+            {/* Flex row: screenshot left (55%), white card right (45%) */}
+            <div className="relative z-10 flex flex-col md:flex-row gap-2 p-4 min-h-[520px]">
+              {/* Left: product screenshot — 55% width */}
+              <div className="hidden md:block md:w-[55%] relative rounded-xl overflow-hidden min-h-[360px]">
+                <Image
+                  src="/images/figma/roles-screenshot.png"
+                  alt="Paperless Pipeline product UI"
+                  fill
+                  className="object-cover object-top"
+                />
+              </div>
 
-            {/* White card — right-aligned */}
-            <div className="relative z-10 flex justify-end p-4">
+              {/* Right: white card — 45% width */}
               <div
-                className="flex flex-col justify-between bg-white rounded-2xl p-8 w-full md:w-[526px] md:h-[488px]"
+                className="w-full md:w-[45%] flex flex-col justify-between bg-white rounded-2xl p-8"
                 style={{
                   boxShadow: "0px 1px 2px 0px rgba(35,39,46,0.08)",
                 }}
