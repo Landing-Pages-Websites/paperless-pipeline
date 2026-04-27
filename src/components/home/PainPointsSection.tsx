@@ -1,17 +1,21 @@
 import Image from "next/image";
+import { AlertTriangle, Layers, TrendingUp, type LucideIcon } from "lucide-react";
 
-const painItems = [
+const painItems: { title: string; body: string; Icon: LucideIcon }[] = [
   {
     title: "The fit breaks down",
     body: "You're texting agents for updates because you can't see where a deal actually stands.",
+    Icon: AlertTriangle,
   },
   {
     title: "Workarounds pile up",
     body: "The checklist is in one place, documents in another, and status updates somewhere else.",
+    Icon: Layers,
   },
   {
     title: "Costs jump",
     body: "As your team grows, software expenses rise faster than the value you're getting.",
+    Icon: TrendingUp,
   },
 ];
 
@@ -58,18 +62,18 @@ export default function PainPointsSection() {
 
             {/* Pain items */}
             <div className="flex flex-col gap-4">
-              {painItems.map((item) => (
+              {painItems.map(({ title, body, Icon }) => (
                 <div
-                  key={item.title}
+                  key={title}
                   className="flex flex-col gap-6 border border-[#F0EDEA] rounded-lg p-4"
                 >
-                  <div className="w-6 h-6 rounded-sm bg-[#F0EDEA]" />
+                  <Icon size={24} color="#D92D20" strokeWidth={1.75} />
                   <div className="flex flex-col gap-1">
                     <span className="font-sans font-semibold text-[16px] leading-[24px] tracking-[-0.0113em] text-[#393837]">
-                      {item.title}
+                      {title}
                     </span>
                     <span className="font-sans font-normal text-[14px] leading-[20px] tracking-[-0.0057em] text-[#4F4F4F]">
-                      {item.body}
+                      {body}
                     </span>
                   </div>
                 </div>

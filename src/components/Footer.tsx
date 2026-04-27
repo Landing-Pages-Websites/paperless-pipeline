@@ -37,40 +37,54 @@ export default function Footer() {
             backgroundPosition: "center",
           }}
         >
-          {/* Eyebrow */}
-          <p
-            className="text-sm font-medium text-white leading-6 uppercase"
-            style={{ letterSpacing: "0.0893em" }}
-          >
-            Call to Action
-          </p>
-
-          {/* Heading + subtext */}
-          <div className="flex flex-col items-center gap-4 max-w-[1068px] w-full">
-            <h2
-              className="text-[40px] font-semibold text-white leading-[48px] text-center"
-            >
-              Switching doesn&apos;t mean starting over
-            </h2>
-            <p
-              className="text-xl font-normal text-white leading-8 text-center"
-              style={{ letterSpacing: "-0.01em" }}
-            >
-              We&apos;ll help you get set up without disrupting active deals.
-            </p>
+          {/* Person photo overlay — right side, low opacity */}
+          <div className="absolute right-0 top-0 h-full w-[40%] pointer-events-none">
+            <Image
+              src="/images/figma/cta-image-2.png"
+              alt=""
+              fill
+              className="object-cover object-left opacity-40"
+              aria-hidden="true"
+            />
           </div>
 
-          {/* CTA button — white bg, blue text */}
-          <Link
-            href="/signup"
-            className="inline-flex items-center text-sm font-medium text-[#0063EB] bg-white hover:bg-gray-50 rounded-lg px-6 py-3 transition-colors"
-            style={{
-              boxShadow:
-                "0px 0px 0px 1px rgba(255, 255, 255, 1), 0px 1px 2px 0px rgba(255, 255, 255, 0.64)",
-            }}
-          >
-            Start My 14-Day Free Trial →
-          </Link>
+          {/* Content */}
+          <div className="relative z-10 flex flex-col items-center text-center gap-6">
+            {/* Eyebrow */}
+            <p
+              className="text-sm font-medium text-white leading-6 uppercase"
+              style={{ letterSpacing: "0.0893em" }}
+            >
+              Call to Action
+            </p>
+
+            {/* Heading + subtext */}
+            <div className="flex flex-col items-center gap-4 max-w-[1068px] w-full">
+              <h2
+                className="text-[40px] font-semibold text-white leading-[48px] text-center"
+              >
+                Switching doesn&apos;t mean starting over
+              </h2>
+              <p
+                className="text-xl font-normal text-white leading-8 text-center"
+                style={{ letterSpacing: "-0.01em" }}
+              >
+                We&apos;ll help you get set up without disrupting active deals.
+              </p>
+            </div>
+
+            {/* CTA button — white bg, blue text */}
+            <Link
+              href="/signup"
+              className="inline-flex items-center text-sm font-medium text-[#0063EB] bg-white hover:bg-gray-50 rounded-lg px-6 py-3 transition-colors"
+              style={{
+                boxShadow:
+                  "0px 0px 0px 1px rgba(255, 255, 255, 1), 0px 1px 2px 0px rgba(255, 255, 255, 0.64)",
+              }}
+            >
+              Start My 14-Day Free Trial →
+            </Link>
+          </div>
         </div>
       </div>
 

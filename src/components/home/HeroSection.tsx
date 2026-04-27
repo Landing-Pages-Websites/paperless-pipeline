@@ -178,7 +178,7 @@ export default function HeroSection() {
                 style={{
                   background: "#0063EB",
                   borderRadius: "16px 100px 100px 16px",
-                  aspectRatio: "1",
+                  minHeight: "180px",
                 }}
               >
                 <div
@@ -206,7 +206,7 @@ export default function HeroSection() {
                 style={{
                   background: "#FFFFFF",
                   borderRadius: "16px",
-                  aspectRatio: "1",
+                  minHeight: "180px",
                   padding: "clamp(16px, 3.5vw, 44px) clamp(12px, 1.5vw, 18px)",
                   gap: "8px",
                 }}
@@ -253,7 +253,7 @@ export default function HeroSection() {
                 style={{
                   background: "#FFFFFF",
                   borderRadius: "16px",
-                  aspectRatio: "1",
+                  minHeight: "180px",
                 }}
               >
                 <div
@@ -285,7 +285,7 @@ export default function HeroSection() {
                 style={{
                   background: "#FFE95B",
                   borderRadius: "16px 100px 16px 16px",
-                  aspectRatio: "1",
+                  minHeight: "180px",
                 }}
               >
                 <div

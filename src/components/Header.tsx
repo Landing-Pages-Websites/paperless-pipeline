@@ -59,8 +59,8 @@ export default function Header() {
       }`}
     >
       {/* Announcement banner */}
-      <div className="bg-[#0063EB] flex items-center justify-center gap-3 px-4 py-2">
-        <p className="text-sm font-normal text-white leading-6 text-center">
+      <div className="bg-[#FFE95B] flex items-center justify-center gap-3 px-4 py-2">
+        <p className="text-sm font-normal text-[#1E1E1E] leading-6 text-center">
           See our AI Roadmap for Transaction Management
         </p>
         <a
