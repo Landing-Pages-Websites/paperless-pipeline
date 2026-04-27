@@ -1,7 +1,7 @@
 import Image from "next/image";
 
 const CARD_GRADIENT =
-  "linear-gradient(250deg, #FFE95B 0%, #0D47C1 100%)";
+  "linear-gradient(135deg, #FFE95B 0%, #0D47C1 100%)";
 
 const testimonials = [
   {

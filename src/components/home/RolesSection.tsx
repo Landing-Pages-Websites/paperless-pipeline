@@ -80,7 +80,7 @@ export default function RolesSection() {
                     isActive
                       ? {
                           background:
-                            "linear-gradient(250deg, rgba(255,233,91,1) 0%, rgba(13,71,193,1) 100%)",
+                            "linear-gradient(135deg, rgba(255,233,91,1) 0%, rgba(13,71,193,1) 100%)",
                         }
                       : {}
                   }
