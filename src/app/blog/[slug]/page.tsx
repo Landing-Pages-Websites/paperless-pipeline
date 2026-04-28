@@ -168,9 +168,26 @@ export default async function BlogPostPage({
 
             {/* Hero image */}
             <div
-              className={`w-full h-[280px] md:h-[500px] rounded-2xl ${categoryColors[post.category]}`}
+              className={`w-full h-[280px] md:h-[500px] rounded-2xl relative overflow-hidden ${categoryColors[post.category]}`}
               aria-hidden="true"
-            />
+            >
+              {/* Gradient overlay */}
+              <div className="absolute inset-0 bg-gradient-to-br from-black/5 via-transparent to-black/15 pointer-events-none" />
+              {/* Large quote mark top-left */}
+              <span
+                className="absolute top-4 left-6 font-serif leading-none pointer-events-none select-none text-black/10"
+                style={{ fontSize: "clamp(100px, 18vw, 200px)", lineHeight: 1 }}
+              >
+                &ldquo;
+              </span>
+              {/* Ghosted category name centered */}
+              <span
+                className="absolute inset-0 flex items-center justify-center font-semibold leading-none pointer-events-none select-none text-center px-8 text-black/10 uppercase"
+                style={{ fontSize: "clamp(36px, 7vw, 100px)", letterSpacing: "0.04em" }}
+              >
+                {post.category}
+              </span>
+            </div>
           </div>
         </div>
       </section>

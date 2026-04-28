@@ -66,23 +66,20 @@ export default function CaseStudiesPage() {
               >
                 {/* Card image area */}
                 <div
-                  className="h-52 flex flex-col justify-end px-6 pb-5 relative overflow-hidden"
+                  className="h-60 flex flex-col justify-end px-6 pb-5 relative overflow-hidden"
                   style={{ background: cardGradients[index % cardGradients.length] }}
                 >
+                  {/* Large metric number watermark */}
                   <span
                     className="absolute inset-0 flex items-center justify-center text-white font-bold leading-none pointer-events-none select-none"
                     style={{
-                      fontSize: "64px",
-                      opacity: 0.15,
-                      transform: "rotate(-6deg)",
-                      whiteSpace: "pre-wrap",
-                      wordBreak: "break-word",
-                      padding: "1rem",
-                      textAlign: "center",
+                      fontSize: "120px",
+                      opacity: 0.12,
+                      letterSpacing: "-0.02em",
                     }}
                     aria-hidden="true"
                   >
-                    {study.company}
+                    {study.metric.split(" ")[0]}
                   </span>
                   <span className="relative inline-block text-xs font-semibold uppercase tracking-widest text-white/90">
                     {study.industry}
@@ -95,7 +92,7 @@ export default function CaseStudiesPage() {
                   </h2>
 
                   {/* Key metric badge */}
-                  <div className="inline-flex items-center gap-1.5 bg-[#E8F8EF] text-emerald-700 text-sm font-semibold px-4 py-2 rounded-full mb-4 self-start">
+                  <div className="inline-flex items-center gap-1.5 bg-[#E8F8EF] border border-emerald-200 text-emerald-700 text-sm font-semibold px-4 py-2 rounded-full mb-4 self-start">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       width="12"
@@ -120,7 +117,7 @@ export default function CaseStudiesPage() {
 
                   <Link
                     href={`/case-studies/${study.slug}`}
-                    className="text-sm font-semibold text-[#0063EB] hover:underline"
+                    className="inline-flex items-center gap-1.5 bg-[#0063EB] hover:bg-[#046EFF] text-white text-sm font-medium px-4 py-2 rounded-lg transition-colors self-start"
                     aria-label={`Read ${study.company} case study`}
                   >
                     Read →

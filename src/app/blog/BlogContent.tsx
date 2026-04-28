@@ -61,20 +61,26 @@ export default function BlogContent() {
             className="md:w-[45%] min-h-[280px] md:min-h-[420px] flex-shrink-0 relative overflow-hidden"
             style={{ background: "linear-gradient(145deg, #0063EB 0%, #004BB5 100%)" }}
           >
+            {/* Mesh overlay */}
+            <div
+              className="absolute inset-0 pointer-events-none"
+              style={{
+                backgroundImage:
+                  "radial-gradient(circle at 20% 25%, rgba(255,255,255,0.18) 0%, transparent 50%), radial-gradient(circle at 78% 75%, rgba(0,20,80,0.35) 0%, transparent 55%), radial-gradient(circle at 55% 15%, rgba(255,255,255,0.09) 0%, transparent 38%)",
+              }}
+            />
+            {/* Diagonal FEATURED watermark */}
             <span
               className="absolute inset-0 flex items-center justify-center text-white font-bold leading-none pointer-events-none select-none"
               style={{
-                fontSize: "80px",
-                opacity: 0.1,
-                transform: "rotate(-6deg)",
-                whiteSpace: "pre-wrap",
-                wordBreak: "break-word",
-                padding: "1rem",
-                textAlign: "center",
+                fontSize: "68px",
+                opacity: 0.08,
+                transform: "rotate(-35deg)",
+                letterSpacing: "0.12em",
               }}
               aria-hidden="true"
             >
-              {featured.title}
+              FEATURED
             </span>
           </div>
 
