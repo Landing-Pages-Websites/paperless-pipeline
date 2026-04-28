@@ -107,21 +107,21 @@ const steps = [
     title: "Add Fields or Use Templates",
     description:
       "Quickly place signature fields or use prebuilt, reusable forms to speed up the process and avoid repetitive work.",
-    image: null,
+    image: "/images/figma/pages/screenshot-esign-templates.jpg",
   },
   {
     number: 3,
     title: "Send & Track in Real Time",
     description:
       "Send documents instantly and monitor progress live, with the ability to send reminders or make updates anytime.",
-    image: null,
+    image: "/images/figma/pages/screenshot-esign-signing.jpg",
   },
   {
     number: 4,
     title: "Receive Signed Documents Automatically",
     description:
       "Completed documents are returned directly to your account, fully organized and ready for access.",
-    image: null,
+    image: "/images/figma/pages/screenshot-esign-workflow.jpg",
   },
 ];
 

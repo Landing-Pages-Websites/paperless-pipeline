@@ -106,7 +106,61 @@ export default function CommissionCalculatorPage() {
                   A common agent/broker commission split is 70/30. In this case, 70% of the commission on a sale goes to the brokerage and 30% to the agent.
                 </p>
               </div>
-              <div className="my-12 h-72 w-full rounded-xl bg-[#ECEEF2] md:h-[400px]" aria-hidden="true" />
+              {/* Standard 70/30 commission split illustration */}
+              <div
+                aria-hidden="true"
+                className="my-12 w-full overflow-hidden rounded-xl border border-gray-100 bg-[#F8FAFC]"
+              >
+                <div className="flex flex-col gap-5 p-6 md:gap-7 md:p-10">
+                  <div className="flex flex-wrap items-start justify-between gap-4">
+                    <div>
+                      <p className="text-xs font-medium uppercase tracking-wider text-[#6C757D]">Example Calculation</p>
+                      <p className="mt-1 text-lg font-semibold text-[#030712] md:text-xl">$420,000 Sale · 3% Commission</p>
+                    </div>
+                    <div className="rounded-lg bg-[#EEF4FF] px-3 py-2 text-center">
+                      <p className="text-xs text-[#6C757D]">Gross Commission</p>
+                      <p className="text-base font-bold text-[#0063EB] md:text-lg">$12,600</p>
+                    </div>
+                  </div>
+                  <div>
+                    <p className="mb-2 text-xs font-medium text-[#6C757D]">70 / 30 Commission Split</p>
+                    <div className="flex h-14 overflow-hidden rounded-xl shadow-sm md:h-20">
+                      <div
+                        className="flex flex-col items-center justify-center gap-0.5 bg-[#0063EB]"
+                        style={{ width: "70%" }}
+                      >
+                        <span className="text-base font-bold text-white md:text-xl">70%</span>
+                        <span className="text-xs font-medium text-white/80">Broker</span>
+                      </div>
+                      <div
+                        className="flex flex-col items-center justify-center gap-0.5 border-y-2 border-r-2 border-[#0063EB] bg-[#EEF4FF]"
+                        style={{ width: "30%" }}
+                      >
+                        <span className="text-base font-bold text-[#0063EB] md:text-xl">30%</span>
+                        <span className="text-xs font-medium text-[#0063EB]/70">Agent</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="grid grid-cols-2 gap-3">
+                    <div className="rounded-lg border border-gray-100 bg-white p-3 md:p-4">
+                      <p className="text-xs text-[#6C757D]">Broker Receives</p>
+                      <p className="mt-1 text-2xl font-bold text-[#030712] md:text-3xl">$8,820</p>
+                      <p className="mt-0.5 text-xs text-[#6C757D]">70% of $12,600</p>
+                    </div>
+                    <div className="rounded-lg border border-[#0063EB]/20 bg-white p-3 md:p-4">
+                      <p className="text-xs text-[#6C757D]">Agent Receives</p>
+                      <p className="mt-1 text-2xl font-bold text-[#0063EB] md:text-3xl">$3,780</p>
+                      <p className="mt-0.5 text-xs text-[#6C757D]">30% of $12,600</p>
+                    </div>
+                  </div>
+                  <div className="flex flex-wrap items-center gap-2 rounded-lg border border-[#FFE95B] bg-[#FFE95B]/20 px-3 py-2 md:px-4 md:py-3">
+                    <span className="text-xs text-[#030712]">After $300 in agent fees</span>
+                    <span className="ml-auto text-xs font-semibold text-[#030712]">
+                      Agent nets <span className="text-[#0063EB]">$3,480</span> · Broker nets $9,120
+                    </span>
+                  </div>
+                </div>
+              </div>
               <div className="pb-4 flex flex-col gap-4">
                 <p className="text-base leading-[150%] text-[#4F4F4F]">
                   Imagine an agent makes a sale worth $420,000. Of this selling price, 3% (or $12,600) goes to the selling side.
@@ -196,7 +250,83 @@ export default function CommissionCalculatorPage() {
                   Tiered commission structures are when the agent receives a different percentage of the total commission depending on how much they earn in a specific period.
                 </p>
               </div>
-              <div className="my-12 h-72 w-full rounded-xl bg-[#ECEEF2] md:h-[400px]" aria-hidden="true" />
+              {/* Tiered commission structure illustration */}
+              <div
+                aria-hidden="true"
+                className="my-12 w-full overflow-hidden rounded-xl border border-gray-100 bg-[#F8FAFC]"
+              >
+                <div className="flex flex-col gap-5 p-6 md:gap-6 md:p-10">
+                  <div>
+                    <p className="text-xs font-medium uppercase tracking-wider text-[#6C757D]">Tiered Commission Structure</p>
+                    <p className="mt-1 text-lg font-semibold text-[#030712] md:text-xl">Agent Rate Increases With Earnings</p>
+                  </div>
+                  <div>
+                    <div className="mb-2 flex items-center justify-between">
+                      <div className="flex items-center gap-2">
+                        <span className="rounded bg-[#EEF4FF] px-2 py-0.5 text-xs font-semibold text-[#0063EB]">Tier 1</span>
+                        <span className="text-sm text-[#4F4F4F]">Up to $20,000 earned</span>
+                      </div>
+                      <span className="text-sm font-semibold text-[#030712]">Agent 80%</span>
+                    </div>
+                    <div className="flex h-12 overflow-hidden rounded-xl shadow-sm md:h-16">
+                      <div
+                        className="flex items-center justify-center bg-[#0063EB]"
+                        style={{ width: "80%" }}
+                      >
+                        <span className="text-sm font-semibold text-white md:text-base">Agent 80%</span>
+                      </div>
+                      <div
+                        className="flex items-center justify-center border-y-2 border-r-2 border-[#0063EB] bg-[#EEF4FF]"
+                        style={{ width: "20%" }}
+                      >
+                        <span className="text-xs font-semibold text-[#0063EB]">20%</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <div className="h-0 flex-1 border-t-2 border-dashed border-[#FFE95B]" />
+                    <span className="rounded-full border border-[#FFE95B] bg-[#FFE95B]/30 px-3 py-1 text-xs font-semibold text-[#030712]">
+                      $20,000 Threshold ↑
+                    </span>
+                    <div className="h-0 flex-1 border-t-2 border-dashed border-[#FFE95B]" />
+                  </div>
+                  <div>
+                    <div className="mb-2 flex items-center justify-between">
+                      <div className="flex items-center gap-2">
+                        <span className="rounded bg-[#E8F8EF] px-2 py-0.5 text-xs font-semibold text-[#059669]">Tier 2</span>
+                        <span className="text-sm text-[#4F4F4F]">Above $20,000 earned</span>
+                      </div>
+                      <span className="text-sm font-semibold text-[#030712]">Agent 90%</span>
+                    </div>
+                    <div className="flex h-12 overflow-hidden rounded-xl shadow-sm md:h-16">
+                      <div
+                        className="flex items-center justify-center bg-[#0063EB]"
+                        style={{ width: "90%" }}
+                      >
+                        <span className="text-sm font-semibold text-white md:text-base">Agent 90%</span>
+                      </div>
+                      <div
+                        className="flex items-center justify-center border-y-2 border-r-2 border-[#0063EB] bg-[#EEF4FF]"
+                        style={{ width: "10%" }}
+                      >
+                        <span className="hidden text-xs font-semibold text-[#0063EB] md:block">10%</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="grid grid-cols-2 gap-3">
+                    <div className="rounded-lg border border-gray-100 bg-white p-3 md:p-4">
+                      <p className="text-xs text-[#6C757D]">Before Threshold</p>
+                      <p className="mt-1 text-xl font-bold text-[#030712] md:text-2xl">$16,000</p>
+                      <p className="mt-0.5 text-xs text-[#6C757D]">80% × $20,000</p>
+                    </div>
+                    <div className="rounded-lg border border-[#0063EB]/20 bg-white p-3 md:p-4">
+                      <p className="text-xs text-[#6C757D]">After Threshold</p>
+                      <p className="mt-1 text-xl font-bold text-[#0063EB] md:text-2xl">$8,100</p>
+                      <p className="mt-0.5 text-xs text-[#6C757D]">90% × $9,000</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
               <div className="pb-4 flex flex-col gap-4">
                 <p className="text-base leading-[150%] text-[#4F4F4F]">
                   This type of structure incentivizes real estate agents to make more sales by giving them a larger piece of the pie when they do so.
@@ -342,7 +472,49 @@ export default function CommissionCalculatorPage() {
                     Brokerage referral fees are typically taken out before the commission is split between the brokerage and the agent. However, this will depend on the exact deal you have set up with the referring brokerage.
                   </p>
                 </div>
-                <div className="my-12 h-72 w-full rounded-xl bg-[#ECEEF2] md:h-[400px]" aria-hidden="true" />
+                {/* Standard split illustration — compact, referral fee context */}
+                <div
+                  aria-hidden="true"
+                  className="my-12 w-full overflow-hidden rounded-xl border border-gray-100 bg-[#F8FAFC]"
+                >
+                  <div className="flex flex-col gap-4 p-5 md:p-8">
+                    <div className="flex flex-wrap items-start justify-between gap-4">
+                      <div>
+                        <p className="text-xs font-medium uppercase tracking-wider text-[#6C757D]">After Referral Fee Deducted</p>
+                        <p className="mt-1 text-base font-semibold text-[#030712] md:text-lg">$16,000 Remaining to Split</p>
+                      </div>
+                      <div className="rounded-lg bg-[#EEF4FF] px-3 py-1.5 text-center">
+                        <p className="text-xs font-semibold text-[#0063EB]">70 / 30 Split</p>
+                      </div>
+                    </div>
+                    <div className="flex h-12 overflow-hidden rounded-xl shadow-sm md:h-14">
+                      <div
+                        className="flex flex-col items-center justify-center gap-0.5 bg-[#0063EB]"
+                        style={{ width: "70%" }}
+                      >
+                        <span className="text-sm font-bold text-white">70% Broker</span>
+                      </div>
+                      <div
+                        className="flex flex-col items-center justify-center gap-0.5 border-y-2 border-r-2 border-[#0063EB] bg-[#EEF4FF]"
+                        style={{ width: "30%" }}
+                      >
+                        <span className="text-sm font-bold text-[#0063EB]">30% Agent</span>
+                      </div>
+                    </div>
+                    <div className="grid grid-cols-2 gap-3">
+                      <div className="rounded-lg border border-gray-100 bg-white p-3">
+                        <p className="text-xs text-[#6C757D]">Broker Receives</p>
+                        <p className="mt-1 text-xl font-bold text-[#030712] md:text-2xl">$11,200</p>
+                        <p className="mt-0.5 text-xs text-[#6C757D]">70% of $16,000</p>
+                      </div>
+                      <div className="rounded-lg border border-[#0063EB]/20 bg-white p-3">
+                        <p className="text-xs text-[#6C757D]">Agent Receives</p>
+                        <p className="mt-1 text-xl font-bold text-[#0063EB] md:text-2xl">$4,800</p>
+                        <p className="mt-0.5 text-xs text-[#6C757D]">30% of $16,000</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
                 <div>
                   <div className="border-b border-gray-100 pb-6 mb-4">
                     <h4 className="text-xl font-semibold text-black leading-[120%]">
@@ -375,7 +547,51 @@ export default function CommissionCalculatorPage() {
                     Major brokerages often charge a &ldquo;franchise fee&rdquo; on sales made by franchise brokerages. Like referral fees, this is typically taken out before the commission is split between the broker and the agent.
                   </p>
                 </div>
-                <div className="my-12 h-72 w-full rounded-xl bg-[#ECEEF2] md:h-[400px]" aria-hidden="true" />
+                {/* Tiered split illustration — compact, franchise fee context */}
+                <div
+                  aria-hidden="true"
+                  className="my-12 w-full overflow-hidden rounded-xl border border-gray-100 bg-[#F8FAFC]"
+                >
+                  <div className="flex flex-col gap-4 p-5 md:p-8">
+                    <div>
+                      <p className="text-xs font-medium uppercase tracking-wider text-[#6C757D]">After Franchise Fee Deducted</p>
+                      <p className="mt-1 text-base font-semibold text-[#030712] md:text-lg">$8,640 Remaining · Tiered Split</p>
+                    </div>
+                    <div>
+                      <div className="mb-1.5 flex items-center justify-between">
+                        <span className="rounded bg-[#EEF4FF] px-2 py-0.5 text-xs font-semibold text-[#0063EB]">Tier 1</span>
+                        <span className="text-xs font-semibold text-[#030712]">Agent 80%</span>
+                      </div>
+                      <div className="flex h-10 overflow-hidden rounded-xl shadow-sm md:h-12">
+                        <div className="flex items-center justify-center bg-[#0063EB]" style={{ width: "80%" }}>
+                          <span className="text-xs font-semibold text-white md:text-sm">Agent 80%</span>
+                        </div>
+                        <div className="flex items-center justify-center border-y-2 border-r-2 border-[#0063EB] bg-[#EEF4FF]" style={{ width: "20%" }}>
+                          <span className="text-xs font-semibold text-[#0063EB]">20%</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="flex items-center gap-3">
+                      <div className="h-0 flex-1 border-t-2 border-dashed border-[#FFE95B]" />
+                      <span className="rounded-full border border-[#FFE95B] bg-[#FFE95B]/30 px-2 py-0.5 text-xs font-semibold text-[#030712]">Threshold</span>
+                      <div className="h-0 flex-1 border-t-2 border-dashed border-[#FFE95B]" />
+                    </div>
+                    <div>
+                      <div className="mb-1.5 flex items-center justify-between">
+                        <span className="rounded bg-[#E8F8EF] px-2 py-0.5 text-xs font-semibold text-[#059669]">Tier 2</span>
+                        <span className="text-xs font-semibold text-[#030712]">Agent 90%</span>
+                      </div>
+                      <div className="flex h-10 overflow-hidden rounded-xl shadow-sm md:h-12">
+                        <div className="flex items-center justify-center bg-[#0063EB]" style={{ width: "90%" }}>
+                          <span className="text-xs font-semibold text-white md:text-sm">Agent 90%</span>
+                        </div>
+                        <div className="flex items-center justify-center border-y-2 border-r-2 border-[#0063EB] bg-[#EEF4FF]" style={{ width: "10%" }}>
+                          <span className="hidden text-xs font-semibold text-[#0063EB] md:block">10%</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
                 <div>
                   <div className="border-b border-gray-100 pb-6 mb-4">
                     <h4 className="text-xl font-semibold text-black leading-[120%]">
