@@ -1,6 +1,7 @@
 import type { MetadataRoute } from "next";
 import { blogPosts } from "@/data/blog-posts";
 import { caseStudies } from "@/data/case-studies";
+import { guides } from "@/data/guides";
 
 const baseUrl = "https://paperless-pipeline-three.vercel.app";
 
@@ -14,6 +15,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const caseStudyRoutes = caseStudies.map((study) => ({
     url: `${baseUrl}/case-studies/${study.slug}`,
+    lastModified: new Date(),
+    changeFrequency: "monthly" as const,
+    priority: 0.6,
+  }));
+
+  const guideRoutes = guides.map((guide) => ({
+    url: `${baseUrl}/guides/${guide.slug}`,
     lastModified: new Date(),
     changeFrequency: "monthly" as const,
     priority: 0.6,
@@ -100,6 +108,25 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.7,
     },
     ...caseStudyRoutes,
+    {
+      url: `${baseUrl}/signup`,
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/demo`,
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/contact`,
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.7,
+    },
+    ...guideRoutes,
     {
       url: `${baseUrl}/privacy-policy`,
       lastModified: new Date(),
