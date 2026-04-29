@@ -72,7 +72,7 @@ export default function Header() {
       </div>
 
       {/* Main nav bar — 96px tall */}
-      <div className="mx-auto max-w-[1700px] px-6 sm:px-10 lg:px-[100px]">
+      <div className="mx-auto max-w-[1440px] px-6 sm:px-10 lg:px-20">
         <div className="flex items-center justify-between h-24">
           {/* Logo */}
           <Link href="/" className="flex items-center flex-shrink-0">

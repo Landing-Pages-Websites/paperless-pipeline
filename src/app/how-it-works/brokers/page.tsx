@@ -145,12 +145,12 @@ export default function BrokersPage() {
       {/* ─────────────────────────────────────────
           1. HERO
       ───────────────────────────────────────── */}
-      <section className="bg-[#FDF9EE] overflow-hidden">
-        <div className="max-w-[1280px] mx-auto px-5 sm:px-10 lg:px-20">
-          <div className="flex flex-col lg:flex-row items-start gap-12 lg:gap-10 pt-16 pb-16 lg:pt-[98px] lg:pb-20">
+      <section className="overflow-hidden bg-[#FDF9EE]">
+        <div className="mx-auto max-w-[1440px] px-5 sm:px-10 lg:px-20">
+          <div className="flex flex-col items-start gap-12 pb-16 pt-16 lg:flex-row lg:gap-[48px] lg:pb-[70px] lg:pt-[43px]">
 
             {/* Left column */}
-            <div className="w-full lg:w-[55%] flex flex-col gap-8">
+            <div className="flex w-full flex-col gap-8 lg:w-[590px] lg:shrink-0 lg:pt-[60px]">
               <div className="flex flex-col gap-6">
                 <div className="flex flex-col gap-3">
                   {/* Badge */}
@@ -178,9 +178,9 @@ export default function BrokersPage() {
                   <h1
                     className="font-semibold text-black"
                     style={{
-                      fontSize: "clamp(40px, 5.5vw, 64px)",
-                      lineHeight: "1.125",
-                      letterSpacing: "-0.0375em",
+                      fontSize: "clamp(44px, 5.55vw, 64px)",
+                      lineHeight: "1.08",
+                      letterSpacing: "-0.052em",
                     }}
                   >
                     Run a smarter, faster real{" "}
@@ -199,7 +199,7 @@ export default function BrokersPage() {
               </div>
 
               {/* CTA buttons */}
-              <div className="flex flex-col sm:flex-row gap-3">
+              <div className="flex flex-col gap-3 sm:flex-row">
                 <Link
                   href="/signup"
                   className="inline-flex items-center justify-center text-white font-medium w-full sm:w-auto"
@@ -231,90 +231,51 @@ export default function BrokersPage() {
                   Book A Demo →
                 </Link>
               </div>
-
-              {/* Social proof */}
-              <div className="flex items-center gap-4">
-                <div className="flex items-center">
-                  {[1, 2, 3].map((n) => (
-                    <div
-                      key={n}
-                      className="relative rounded-full overflow-hidden border-2 border-[#FDF9EE] flex-shrink-0"
-                      style={{
-                        width: "36px",
-                        height: "36px",
-                        marginLeft: n === 1 ? "0" : "-10px",
-                        zIndex: n,
-                      }}
-                    >
-                      <Image
-                        src={`/images/figma/hero-avatar-${n}.png`}
-                        alt={`User avatar ${n}`}
-                        fill
-                        className="object-cover"
-                      />
-                    </div>
-                  ))}
-                </div>
-                <div
-                  style={{ width: "1px", height: "52px", background: "#D5D9E2", flexShrink: 0 }}
-                />
-                <div className="flex flex-col">
-                  <div
-                    style={{
-                      fontFamily: "var(--font-bricolage)",
-                      fontWeight: 500,
-                      fontSize: "32px",
-                      lineHeight: "1",
-                      letterSpacing: "-0.03em",
-                    }}
-                  >
-                    <span style={{ color: "#23272E" }}>4.6</span>
-                    <span style={{ color: "#0063EB" }}>+</span>
-                  </div>
-                  <div className="flex gap-0.5 mt-1">
-                    {[...Array(5)].map((_, i) => (
-                      <svg
-                        key={i}
-                        width="14"
-                        height="14"
-                        viewBox="0 0 24 24"
-                        fill="#FFE95B"
-                        aria-hidden="true"
-                      >
-                        <path d="M12 2l2.7 5.47 6.03.87-4.37 4.25 1.03 6.01L12 15.77l-5.39 2.83 1.03-6.01L3.27 8.34l6.03-.87L12 2z" />
-                      </svg>
-                    ))}
-                  </div>
-                  <span
-                    className="font-medium mt-0.5"
-                    style={{ fontSize: "12px", lineHeight: "20px", color: "#6C757D" }}
-                  >
-                    by users on G2
-                  </span>
-                </div>
-              </div>
             </div>
 
-            {/* Right column: product screenshot */}
-            <div className="w-full lg:flex-1 flex justify-center lg:justify-end">
-              <div
-                className="relative w-full rounded-2xl overflow-hidden"
-                style={{
-                  maxWidth: "620px",
-                  aspectRatio: "621 / 524",
-                  border: "1px solid rgba(0,0,0,0.08)",
-                  boxShadow:
-                    "-3px 4px 11px 0px rgba(112,112,112,0.1), -13px 15px 20px 0px rgba(112,112,112,0.09), -29px 35px 27px 0px rgba(112,112,112,0.05)",
-                }}
-              >
-                <Image
-                  src="/images/figma/pages/product-screenshot-transactions.jpg"
-                  alt="Paperless Pipeline transaction management dashboard"
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 1024px) 100vw, 45vw"
-                  priority
-                />
+            {/* Right column: hero photo and stat card */}
+            <div className="flex w-full justify-center lg:flex-1 lg:justify-end">
+              <div className="relative w-full max-w-[704px] pb-[78px]">
+                <div
+                  className="relative w-full overflow-hidden rounded-2xl"
+                  style={{
+                    aspectRatio: "621 / 421",
+                    boxShadow:
+                      "-3px 4px 11px 0px rgba(112,112,112,0.1), -13px 15px 20px 0px rgba(112,112,112,0.09), -29px 35px 27px 0px rgba(112,112,112,0.05)",
+                  }}
+                >
+                  <Image
+                    src="/images/figma/pages/product-screenshot-compliance.jpg"
+                    alt="Real estate professionals reviewing brokerage work together"
+                    fill
+                    className="object-cover"
+                    style={{ objectPosition: "50% 64%" }}
+                    sizes="(max-width: 1024px) 100vw, 45vw"
+                    priority
+                  />
+                </div>
+                <div className="absolute bottom-0 left-0 flex h-[112px] w-[min(425px,calc(100%-24px))] items-center justify-center gap-8 rounded-xl bg-[#FFE95B] px-9 shadow-[0_16px_32px_rgba(112,112,112,0.18)] sm:gap-10 sm:px-12">
+                  <span
+                    className="font-medium text-[#0063EB]"
+                    style={{
+                      fontSize: "40px",
+                      lineHeight: "1",
+                      letterSpacing: "-0.04em",
+                    }}
+                  >
+                    90k+
+                  </span>
+                  <span
+                    className="max-w-[170px] font-medium text-black"
+                    style={{
+                      fontSize: "26px",
+                      lineHeight: "30px",
+                      letterSpacing: "-0.04em",
+                    }}
+                  >
+                    Real estate professionals
+                  </span>
+                </div>
               </div>
             </div>
           </div>
@@ -324,8 +285,8 @@ export default function BrokersPage() {
       {/* ─────────────────────────────────────────
           2. BEFORE / AFTER
       ───────────────────────────────────────── */}
-      <section className="bg-white py-[80px] md:py-[120px] px-5 md:px-[80px]">
-        <div className="max-w-[1280px] mx-auto flex flex-col items-center gap-12">
+      <section className="bg-white px-5 py-[88px] md:px-[80px] md:py-[124px]">
+        <div className="mx-auto flex max-w-[1280px] flex-col items-center gap-12">
 
           {/* Section header */}
           <div className="flex flex-col items-center gap-3 max-w-[757px] w-full text-center">
@@ -336,10 +297,10 @@ export default function BrokersPage() {
               Why Teams Switch
             </p>
             <div className="flex flex-col gap-2">
-              <h2 className="text-black font-semibold text-[32px] md:text-[48px] leading-tight">
+              <h2 className="text-black font-semibold text-[32px] leading-tight md:text-[48px]">
                 Why Brokerages Switch to Paperless Pipeline
               </h2>
-              <p className="text-[#4F4F4F] font-normal text-[16px] leading-[150%]">
+              <p className="text-[16px] font-normal leading-[150%] text-[#4F4F4F]">
                 Designed to support every stakeholder in the process—so brokers,
                 teams, and coordinators can work smarter, stay aligned, and close
                 faster.
@@ -348,17 +309,17 @@ export default function BrokersPage() {
           </div>
 
           {/* Cards row */}
-          <div className="flex flex-col lg:flex-row gap-6 w-full">
+          <div className="flex w-full flex-col gap-6 lg:flex-row">
 
             {/* BEFORE card */}
             <div
-              className="flex-1 flex flex-col gap-4 rounded-2xl overflow-hidden"
+              className="flex-1 overflow-hidden rounded-2xl p-4"
               style={{ background: "#F3F3F3", border: "1px solid rgba(0,0,0,0.1)" }}
             >
               {/* Card image */}
-              <div className="relative w-full" style={{ height: "240px" }}>
+              <div className="relative w-full overflow-hidden rounded-lg" style={{ height: "319px" }}>
                 <Image
-                  src="/images/figma/pages/product-screenshot-transactions.jpg"
+                  src="/images/figma/pages/product-screenshot-workflow.jpg"
                   alt="Before Paperless Pipeline — scattered transaction management"
                   fill
                   className="object-cover"
@@ -366,43 +327,44 @@ export default function BrokersPage() {
                 />
               </div>
               {/* Card content */}
-              <div className="flex flex-col gap-5 px-6 pb-8">
+              <div className="flex flex-col gap-4 pt-5">
                 <h3
                   className="font-medium"
                   style={{ fontSize: "24px", lineHeight: "32px", letterSpacing: "-0.0521em", color: "#131315" }}
                 >
                   Before Pipeline
                 </h3>
-                <div className="flex flex-col gap-3">
+                <div className="h-px w-full bg-black/10" />
+                <div className="flex flex-col gap-4 pb-1">
                   {beforeItems.map((item) => (
                     <div key={item} className="flex items-start gap-2">
-                      <span className="flex-shrink-0 mt-1">
-                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
-                          <circle cx="10" cy="10" r="9" stroke="#D92D20" strokeWidth="1.5" />
-                          <path d="M13 7L7 13M7 7l6 6" stroke="#D92D20" strokeWidth="1.5" strokeLinecap="round" />
+                      <span className="mt-1 flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-[#E3342F]">
+                        <svg width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true">
+                          <path d="M7.75 2.25L2.25 7.75M2.25 2.25l5.5 5.5" stroke="white" strokeWidth="1.5" strokeLinecap="round" />
                         </svg>
                       </span>
                       <p
                         className="font-normal text-[#4F4F4F]"
-                        style={{ fontSize: "16px", lineHeight: "32px", letterSpacing: "-0.0113em" }}
+                        style={{ fontSize: "16px", lineHeight: "24px", letterSpacing: "-0.0113em" }}
                       >
                         {item}
                       </p>
                     </div>
                   ))}
                 </div>
+                <div className="h-px w-full bg-black/10" />
               </div>
             </div>
 
             {/* AFTER card */}
             <div
-              className="flex-1 flex flex-col gap-4 rounded-2xl overflow-hidden"
+              className="flex-1 overflow-hidden rounded-2xl p-4"
               style={{ background: "#0063EB", border: "1px solid rgba(255,255,255,0.1)" }}
             >
               {/* Card image */}
-              <div className="relative w-full" style={{ height: "240px" }}>
+              <div className="relative w-full overflow-hidden rounded-lg" style={{ height: "319px" }}>
                 <Image
-                  src="/images/figma/pages/product-screenshot-checklist.jpg"
+                  src="/images/figma/pages/product-screenshot-transactions.jpg"
                   alt="After Paperless Pipeline — organized transaction management"
                   fill
                   className="object-cover"
@@ -410,31 +372,32 @@ export default function BrokersPage() {
                 />
               </div>
               {/* Card content */}
-              <div className="flex flex-col gap-5 px-6 pb-8">
+              <div className="flex flex-col gap-4 pt-5">
                 <h3
                   className="font-medium text-white"
                   style={{ fontSize: "24px", lineHeight: "32px", letterSpacing: "-0.0521em" }}
                 >
                   After Pipeline
                 </h3>
-                <div className="flex flex-col gap-3">
+                <div className="h-px w-full bg-white/15" />
+                <div className="flex flex-col gap-4 pb-1">
                   {afterItems.map((item) => (
                     <div key={item} className="flex items-start gap-2">
-                      <span className="flex-shrink-0 mt-1">
-                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
-                          <circle cx="10" cy="10" r="9" stroke="rgba(255,255,255,0.6)" strokeWidth="1.5" />
-                          <path d="M6.5 10l2.5 2.5 4.5-5" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                      <span className="mt-1 flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-[#26C653]">
+                        <svg width="11" height="9" viewBox="0 0 11 9" fill="none" aria-hidden="true">
+                          <path d="M1.4 4.5l2.6 2.6 5.6-5.6" stroke="#0063EB" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" />
                         </svg>
                       </span>
                       <p
                         className="font-normal text-white"
-                        style={{ fontSize: "16px", lineHeight: "32px", letterSpacing: "-0.0113em" }}
+                        style={{ fontSize: "16px", lineHeight: "24px", letterSpacing: "-0.0113em" }}
                       >
                         {item}
                       </p>
                     </div>
                   ))}
                 </div>
+                <div className="h-px w-full bg-white/10" />
               </div>
             </div>
           </div>
@@ -461,8 +424,8 @@ export default function BrokersPage() {
       {/* ─────────────────────────────────────────
           3. STATS
       ───────────────────────────────────────── */}
-      <section className="bg-white py-[80px] md:py-[120px] px-5 md:px-[80px]">
-        <div className="max-w-[1280px] mx-auto flex flex-col items-center gap-16">
+      <section className="bg-white px-5 py-[88px] md:px-[80px] md:py-[118px]">
+        <div className="mx-auto flex max-w-[1280px] flex-col items-center gap-16">
 
           {/* Header */}
           <div className="flex flex-col items-center gap-3 max-w-[836px] w-full text-center">
@@ -473,7 +436,7 @@ export default function BrokersPage() {
               Proven at Scale
             </p>
             <div className="flex flex-col gap-2">
-              <h2 className="text-black font-semibold text-[32px] md:text-[48px] leading-tight">
+              <h2 className="text-[32px] font-semibold leading-tight text-black md:text-[48px]">
                 Built for Growing Brokerages
               </h2>
               <p className="text-[#4F4F4F] font-normal text-[16px] leading-[150%]">
@@ -484,11 +447,11 @@ export default function BrokersPage() {
           </div>
 
           {/* Stat cards */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-3 w-full">
+          <div className="grid w-full grid-cols-1 gap-3 md:grid-cols-3">
             {stats.map(({ value, label }) => (
               <div
                 key={value}
-                className="flex flex-col justify-center gap-2 rounded-2xl p-6"
+                className="flex min-h-[150px] flex-col justify-center gap-2 rounded-xl p-6"
                 style={{ background: "#FFFFFF", border: "1px solid rgba(0,0,0,0.1)" }}
               >
                 <p
@@ -517,19 +480,19 @@ export default function BrokersPage() {
       {/* ─────────────────────────────────────────
           5. VALUE
       ───────────────────────────────────────── */}
-      <section className="bg-white py-[80px] md:py-[120px] px-5 md:px-[80px]">
-        <div className="max-w-[1280px] mx-auto flex flex-col gap-16">
+      <section className="bg-white px-5 py-[80px] md:px-[80px] md:py-[120px]">
+        <div className="mx-auto flex max-w-[1280px] flex-col gap-16">
 
           {/* Header — two columns on desktop */}
           <div className="flex flex-col md:flex-row md:items-end gap-3">
-            <div className="flex flex-col gap-3 flex-1">
+            <div className="flex flex-1 flex-col gap-3">
               <p
                 className="text-[#0063EB] font-medium text-[14px] leading-[24px] uppercase"
                 style={{ letterSpacing: "0.0893em" }}
               >
                 Built for Your Entire Brokerage
               </p>
-              <h2 className="text-black font-semibold text-[32px] md:text-[48px] leading-tight">
+              <h2 className="text-[32px] font-semibold leading-tight text-black md:text-[48px]">
                 One Platform for Your Entire Team
               </h2>
             </div>
@@ -544,29 +507,29 @@ export default function BrokersPage() {
           </div>
 
           {/* Value cards */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
             {valueCards.map(({ Icon, title, description }) => (
               <div
                 key={title}
-                className="flex flex-col gap-6 rounded-xl p-6"
+                className="flex min-h-[292px] flex-col gap-6 rounded-xl p-6"
                 style={{ background: "#FFFFFF", border: "1px solid rgba(0,0,0,0.1)" }}
               >
                 <div
-                  className="flex items-center justify-center rounded-full bg-[#0063EB] flex-shrink-0"
-                  style={{ width: "64px", height: "64px" }}
+                  className="flex flex-shrink-0 items-center justify-center rounded-full bg-[#0063EB]"
+                  style={{ width: "48px", height: "48px" }}
                 >
-                  <Icon size={28} color="white" aria-hidden="true" />
+                  <Icon size={22} color="#FFE95B" fill="#FFE95B" aria-hidden="true" />
                 </div>
                 <div className="flex flex-col gap-6">
                   <h3
                     className="text-black font-medium"
-                    style={{ fontSize: "24px", lineHeight: "28px", letterSpacing: "-0.015em" }}
+                    style={{ fontSize: "22px", lineHeight: "26px", letterSpacing: "-0.015em" }}
                   >
                     {title}
                   </h3>
                   <p
                     className="text-[#4F4F4F] font-normal"
-                    style={{ fontSize: "16px", lineHeight: "32px" }}
+                    style={{ fontSize: "16px", lineHeight: "30px" }}
                   >
                     {description}
                   </p>
@@ -581,10 +544,10 @@ export default function BrokersPage() {
           6. FEATURES
       ───────────────────────────────────────── */}
       <section
-        className="py-[80px] md:py-[120px] px-5 md:px-[80px]"
+        className="px-5 py-[80px] md:px-[80px] md:py-[120px]"
         style={{ background: "linear-gradient(180deg, #FFFFFF 0%, #F4F4F5 50%)" }}
       >
-        <div className="max-w-[1280px] mx-auto flex flex-col items-center gap-12">
+        <div className="mx-auto flex max-w-[1280px] flex-col items-center gap-10">
 
           {/* Header */}
           <div className="flex flex-col items-center gap-3 max-w-[836px] w-full text-center">
@@ -595,7 +558,7 @@ export default function BrokersPage() {
               Everything You Need
             </p>
             <div className="flex flex-col gap-2">
-              <h2 className="text-black font-semibold text-[32px] md:text-[48px] leading-tight">
+              <h2 className="text-[32px] font-semibold leading-tight text-black md:text-[48px]">
                 Powerful Tools to Run Your Brokerage Efficiently
               </h2>
               <p className="text-[#4F4F4F] font-normal text-[16px] leading-[150%]">
@@ -607,15 +570,15 @@ export default function BrokersPage() {
           </div>
 
           {/* Tab pills */}
-          <div className="flex items-center gap-4 rounded-2xl p-0.5" style={{ background: "#FAFAFA" }}>
+          <div className="flex flex-wrap items-center justify-center gap-2 rounded-2xl p-0.5" style={{ background: "#FAFAFA" }}>
             <div
               className="flex items-center gap-2 rounded-lg"
-              style={{ padding: "4px 12px 4px 8px", background: "#FFFFFF" }}
+              style={{ padding: "4px 12px 4px 8px", background: "#0063EB" }}
             >
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                <path d="M9 12l2 2 4-4M21 12a9 9 0 11-18 0 9 9 0 0118 0z" stroke="#0063EB" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                <path d="M7 11.5a3 3 0 100-6 3 3 0 000 6zM17 11.5a3 3 0 100-6 3 3 0 000 6zM4 14.5h6a2 2 0 012 2v2H2v-2a2 2 0 012-2zM14 14.5h6a2 2 0 012 2v2h-8v-2a4 4 0 00-.54-2z" fill="white" />
               </svg>
-              <span className="font-medium text-[#0063EB]" style={{ fontSize: "16px", lineHeight: "28px" }}>
+              <span className="font-medium text-white" style={{ fontSize: "16px", lineHeight: "28px" }}>
                 Always included
               </span>
             </div>
@@ -647,14 +610,14 @@ export default function BrokersPage() {
           </div>
 
           {/* Features content: cards + screenshot */}
-          <div className="flex flex-col lg:flex-row items-stretch gap-6 w-full">
+          <div className="flex w-full flex-col items-stretch gap-6 lg:flex-row">
 
             {/* Feature cards */}
-            <div className="flex flex-col gap-4 lg:w-[411px] flex-shrink-0">
+            <div className="flex flex-shrink-0 flex-col gap-4 lg:w-[390px]">
               {alwaysIncludedFeatures.map(({ title, description }) => (
                 <div
                   key={title}
-                  className="flex flex-col gap-3 rounded-2xl p-4 flex-1"
+                  className="flex flex-1 flex-col gap-3 rounded-xl p-4"
                   style={{ background: "#FFFFFF", border: "1px solid rgba(0,0,0,0.1)" }}
                 >
                   <h3
@@ -675,11 +638,11 @@ export default function BrokersPage() {
 
             {/* Product screenshot */}
             <div
-              className="relative flex-1 rounded-2xl overflow-hidden"
+              className="relative flex-1 overflow-hidden rounded-xl"
               style={{ minHeight: "400px" }}
             >
               <Image
-                src="/images/figma/pages/product-screenshot-compliance.jpg"
+                src="/images/figma/pages/product-screenshot-checklist.jpg"
                 alt="Paperless Pipeline compliance and document management"
                 fill
                 className="object-cover"
