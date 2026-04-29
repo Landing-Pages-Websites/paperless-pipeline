@@ -13,22 +13,24 @@ export default function CommissionCalculatorPage() {
   return (
     <>
       {/* ── Hero ── */}
-      <section className="relative overflow-hidden bg-[#FDF9EE] py-24 md:py-32">
-        {/* Decorative blurs */}
+      <section className="relative overflow-hidden bg-[linear-gradient(110deg,#FDF9EE_0%,#FDF9EE_32%,#D4E4F7_58%,#DDD8F0_76%,#EDD8E8_100%)] py-20 md:py-28">
+        {/* Decorative colour blobs */}
         <div
           className="pointer-events-none absolute inset-0 overflow-hidden"
           aria-hidden="true"
         >
-          <div className="absolute -right-40 top-[10%] h-[500px] w-[500px] rounded-full bg-[rgba(4,110,255,0.22)] blur-[200px]" />
-          <div className="absolute right-0 top-[20%] h-[260px] w-[260px] rounded-full bg-[rgba(255,233,91,0.35)] blur-[130px]" />
-          <div className="absolute right-20 top-[5%] h-[160px] w-[160px] rounded-full bg-[rgba(255,73,44,0.22)] blur-[80px]" />
+          <div className="absolute right-[8%] top-[10%] h-[420px] w-[420px] rounded-full bg-[rgba(80,120,220,0.28)] blur-[110px]" />
+          <div className="absolute right-[30%] top-[25%] h-[280px] w-[280px] rounded-full bg-[rgba(160,130,210,0.22)] blur-[90px]" />
+          <div className="absolute bottom-0 right-0 h-[260px] w-[260px] rounded-full bg-[rgba(220,150,170,0.30)] blur-[100px]" />
         </div>
 
         <div className="relative z-10 mx-auto flex max-w-7xl flex-col items-center gap-5 px-4 text-center sm:px-6 lg:px-8">
           {/* Badge */}
           <div className="inline-flex items-center gap-2 rounded-full border border-black/10 bg-white px-3 py-1.5 shadow-sm">
-            <span className="flex h-5 w-5 items-center justify-center rounded-full bg-[#0063EB]/10 text-[10px] font-semibold text-[#0063EB]">
-              ✓
+            <span className="flex h-5 w-5 items-center justify-center rounded-full bg-[#EAF2FF]">
+              <svg width="10" height="10" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+                <path d="M6 1.25L7.25 4.75L10.75 6L7.25 7.25L6 10.75L4.75 7.25L1.25 6L4.75 4.75L6 1.25Z" fill="#0063EB" />
+              </svg>
             </span>
             <span className="text-xs font-medium text-black">
               No credit card required. No setup fees.
@@ -60,7 +62,7 @@ export default function CommissionCalculatorPage() {
       </section>
 
       {/* ── Calculator ── */}
-      <section className="bg-white py-20 md:py-28">
+      <section className="bg-white py-14 md:py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <CommissionCalculatorContent />
         </div>
