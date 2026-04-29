@@ -1,6 +1,3 @@
-"use client";
-
-import { useState } from "react";
 import Image from "next/image";
 
 const steps = [
@@ -8,6 +5,7 @@ const steps = [
     number: "1",
     title: "Start a new transaction in seconds",
     body: "Create and launch deals instantly with pre-built workflows that eliminate setup time.",
+    featured: true,
   },
   {
     number: "2",
@@ -26,100 +24,84 @@ const steps = [
   },
 ];
 
-export default function WorkflowSection() {
-  const [activeIndex, setActiveIndex] = useState(0);
-
+function StepNumber({
+  number,
+  active,
+}: {
+  number: string;
+  active: boolean;
+}) {
   return (
-    <section className="bg-white py-[120px] px-[80px] max-md:py-16 max-md:px-4">
-      <div className="flex flex-col lg:flex-row lg:gap-12 lg:items-start">
-        {/* LEFT COLUMN: header + stepper (~572px) */}
-        <div className="lg:w-[572px] lg:flex-shrink-0 flex flex-col gap-10 max-lg:mb-10">
-          {/* Section header */}
-          <div className="flex flex-col gap-3">
-            <span className="font-sans font-medium text-[14px] leading-[24px] tracking-[0.0893em] uppercase text-[#0063EB]">
-              All-in-One Workflow
-            </span>
-            <div className="flex flex-col gap-2">
-              <h2 className="font-sans font-semibold text-[48px] leading-tight text-black max-md:text-[32px]">
-                How Paperless Pipeline works
-              </h2>
-              <p className="font-sans font-normal text-[16px] leading-[150%] text-[#4F4F4F]">
-                Streamline your entire transaction process with a connected
-                system designed to reduce manual work, eliminate errors, and
-                help you close faster with confidence.
-              </p>
-            </div>
-          </div>
+    <div
+      className={`relative z-10 flex size-12 items-center justify-center rounded-full text-[24px] font-bold leading-none ${
+        active ? "bg-[#0063EB] text-[#FFE95B]" : "bg-[#E9ECEF] text-[#6C757D]"
+      }`}
+    >
+      {number}
+    </div>
+  );
+}
 
-          {/* Stepper */}
-          <div className="flex flex-col">
-            {steps.map((step, i) => (
-              <div key={step.number} className="flex gap-4">
-                {/* Circle + connecting line */}
-                <div className="flex flex-col items-center flex-shrink-0">
-                  <button
-                    onClick={() => setActiveIndex(i)}
-                    className={`w-12 h-12 rounded-full flex items-center justify-center font-sans font-bold text-[24px] leading-[32px] flex-shrink-0 transition-colors ${
-                      i === activeIndex
-                        ? "bg-[#0063EB] text-[#FFE95B]"
-                        : "bg-[#E9ECEF] text-[#6C757D] cursor-pointer"
-                    }`}
-                  >
-                    {step.number}
-                  </button>
-                  {i < steps.length - 1 && (
-                    <div className="flex-1 w-px bg-[#DEE2E6] my-1 min-h-[24px]" />
-                  )}
-                </div>
+export default function WorkflowSection() {
+  return (
+    <section className="bg-white px-6 py-20 sm:px-10 lg:px-[80px] lg:py-[100px]">
+      <div className="mx-auto grid max-w-[1121px] grid-cols-1 gap-12 lg:grid-cols-[503px_64px_514px] lg:gap-5">
+        <div className="lg:pt-1">
+          <span className="text-[14px] font-medium uppercase leading-6 tracking-[0.12em] text-[#0063EB]">
+            All-in-One Workflow
+          </span>
+          <h2 className="mt-6 max-w-[500px] text-[44px] font-semibold leading-[1.22] text-black max-md:text-[34px]">
+            How Paperless Pipeline works
+          </h2>
+          <p className="mt-5 max-w-[500px] text-[16px] font-normal leading-6 text-[#4F4F4F]">
+            Streamline your entire transaction process with a connected system designed to
+            reduce manual work, eliminate errors, and help you close faster with confidence.
+          </p>
+        </div>
 
-                {/* Step content */}
-                <div
-                  className={`flex-1 cursor-pointer ${i < steps.length - 1 ? "pb-8" : ""}`}
-                  onClick={() => setActiveIndex(i)}
-                >
-                  {i === activeIndex ? (
-                    <div className="pt-2 flex flex-col gap-2">
-                      <h3 className="font-sans font-medium text-[24px] leading-[32px] tracking-[-0.02em] text-black">
-                        {step.title}
-                      </h3>
-                      <p className="font-sans font-normal text-[16px] leading-[24px] tracking-[-0.02em] text-[#6C757D]">
-                        {step.body}
-                      </p>
-                      {/* Mobile: screenshot inline below expanded step */}
-                      <div className="lg:hidden mt-4 rounded-2xl overflow-hidden border border-[#DEE2E6] shadow-lg">
-                        <Image
-                          src="/images/figma/workflow-screenshot.png"
-                          alt="Paperless Pipeline transaction management dashboard"
-                          width={700}
-                          height={500}
-                          className="w-full h-auto"
-                          quality={85}
-                        />
-                      </div>
-                    </div>
-                  ) : (
-                    <h3 className="pt-2 font-sans font-medium text-[18px] leading-[28px] tracking-[-0.02em] text-[#6C757D]">
-                      {step.title}
-                    </h3>
-                  )}
-                </div>
-              </div>
+        <div className="relative hidden justify-center lg:flex">
+          <div className="absolute top-6 bottom-0 left-1/2 w-px -translate-x-1/2 bg-[#DEE2E6]" />
+          <div className="flex h-full flex-col items-center justify-between">
+            {steps.map((step, index) => (
+              <StepNumber key={step.number} number={step.number} active={index === 0} />
             ))}
           </div>
         </div>
 
-        {/* RIGHT COLUMN: screenshot card (desktop only) */}
-        <div className="hidden lg:flex flex-1 items-start justify-center sticky top-8">
-          <div className="w-full bg-white border border-[#DEE2E6] shadow-lg rounded-2xl overflow-hidden">
-            <Image
-              src="/images/figma/workflow-screenshot.png"
-              alt="Paperless Pipeline transaction management dashboard"
-              width={700}
-              height={500}
-              className="w-full h-auto"
-              quality={85}
-            />
-          </div>
+        <div className="space-y-6">
+          {steps.map((step, index) => (
+            <div key={step.number} className="grid grid-cols-[48px_1fr] gap-4 lg:block">
+              <div className="lg:hidden">
+                <StepNumber number={step.number} active={index === 0} />
+              </div>
+              <article
+                className={`rounded-[20px] border border-[#E9ECEF] bg-white px-7 py-7 ${
+                  index === 0 ? "shadow-[0_18px_40px_rgba(3,7,18,0.06)]" : ""
+                }`}
+              >
+                <h3 className="text-[24px] font-medium leading-[32px] tracking-[-0.02em] text-black">
+                  {step.title}
+                </h3>
+                <p className="mt-2 text-[16px] font-normal leading-6 tracking-[-0.02em] text-[#6C757D]">
+                  {step.body}
+                </p>
+
+                {step.featured && (
+                  <div className="relative mt-6 h-[240px] overflow-hidden rounded-[12px]">
+                    <Image
+                      src="/images/figma/workflow-screenshot.png"
+                      alt="Paperless Pipeline transaction workflow"
+                      fill
+                      priority
+                      unoptimized
+                      className="object-cover"
+                      quality={90}
+                    />
+                  </div>
+                )}
+              </article>
+            </div>
+          ))}
         </div>
       </div>
     </section>
