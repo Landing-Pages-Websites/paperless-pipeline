@@ -59,20 +59,20 @@ export default function Header() {
       }`}
     >
       {/* Announcement banner */}
-      <div className="bg-[#FFE95B] flex items-center justify-center gap-3 px-4 py-2">
-        <p className="text-sm font-normal text-[#1E1E1E] leading-6 text-center">
+      <div className="flex items-center justify-center gap-3 bg-[#0063EB] px-4 py-2">
+        <p className="text-center text-[17px] font-normal leading-6 text-white">
           See our AI Roadmap for Transaction Management
         </p>
         <a
           href="#"
-          className="shrink-0 text-xs font-normal text-white bg-[#292929] rounded-[6px] px-2 py-0.5 leading-6 hover:bg-black/70 transition-colors"
+          className="shrink-0 rounded-[6px] bg-[#292929] px-3 py-0.5 text-[15px] font-normal leading-6 text-white transition-colors hover:bg-black/70"
         >
           Learn More
         </a>
       </div>
 
       {/* Main nav bar — 96px tall */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-[1700px] px-6 sm:px-10 lg:px-[100px]">
         <div className="flex items-center justify-between h-24">
           {/* Logo */}
           <Link href="/" className="flex items-center flex-shrink-0">
@@ -87,7 +87,7 @@ export default function Header() {
           </Link>
 
           {/* Desktop nav */}
-          <nav className="hidden lg:flex items-center gap-3" aria-label="Main navigation">
+          <nav className="hidden items-center gap-9 lg:flex" aria-label="Main navigation">
             {navItems.map((item) =>
               item.children ? (
                 <DropdownMenu key={item.href} item={item} />
@@ -95,7 +95,7 @@ export default function Header() {
                 <Link
                   key={item.href}
                   href={item.href}
-                  className="text-sm font-normal text-[#000000] hover:text-[#0063EB] transition-colors py-2"
+                  className="py-2 text-[16px] font-normal text-[#000000] transition-colors hover:text-[#0063EB]"
                 >
                   {item.label}
                 </Link>
@@ -104,29 +104,20 @@ export default function Header() {
           </nav>
 
           {/* Desktop CTA buttons */}
-          <div className="hidden lg:flex items-center gap-2">
-            {/* Log In — white bg, subtle shadow */}
-            <Link
-              href="/login"
-              className="inline-flex items-center text-sm font-medium text-[#000000] hover:text-[#0063EB] bg-white px-3 py-1.5 rounded-lg transition-colors"
-              style={{
-                boxShadow:
-                  "0px 0px 0px 1px rgba(0, 0, 0, 0.06), 0px 1px 2px 0px rgba(0, 0, 0, 0.06)",
-              }}
-            >
-              Log In
-            </Link>
+          <div className="hidden items-center gap-2 lg:flex">
             {/* Try It Free — primary blue, ring shadow */}
             <Link
               href="/signup"
-              className="inline-flex items-center text-sm font-medium text-white bg-[#0063EB] hover:bg-[#046EFF] px-2 py-1 rounded-lg transition-colors"
-              style={{
-                border: "1px solid rgba(255, 255, 255, 0.4)",
-                boxShadow:
-                  "0px 0px 0px 1px rgba(4, 110, 255, 1), 0px 1px 2px 0px rgba(4, 110, 255, 0.56)",
-              }}
+              className="inline-flex h-10 items-center rounded-lg border border-white/40 bg-[#0063EB] px-3 text-[16px] font-medium text-white shadow-[0_0_0_1px_#046EFF,0_1px_2px_rgba(4,110,255,0.56)] transition-colors hover:bg-[#046EFF]"
             >
               Try It Free
+            </Link>
+            {/* Log In — white bg, subtle shadow */}
+            <Link
+              href="/login"
+              className="inline-flex h-10 items-center rounded-lg bg-white px-3 text-[16px] font-medium text-[#000000] shadow-[0_0_0_1px_rgba(0,0,0,0.06),0_1px_2px_rgba(0,0,0,0.06)] transition-colors hover:text-[#0063EB]"
+            >
+              Log In
             </Link>
           </div>
 

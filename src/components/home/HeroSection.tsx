@@ -1,329 +1,224 @@
 import Link from "next/link";
-import Image from "next/image";
+
+type ButtonProps = {
+  href: string;
+  children: React.ReactNode;
+  variant: "primary" | "secondary";
+};
+
+function HeroButton({ href, children, variant }: ButtonProps) {
+  const classes =
+    variant === "primary"
+      ? "border-white/30 bg-[#0063EB] text-white shadow-[0_0_0_1px_#046EFF,0_1px_2px_rgba(4,110,255,0.64)] hover:bg-[#046EFF]"
+      : "border-[#E9ECEF] bg-white text-[#1E1E1E] shadow-[0_0_0_1px_rgba(0,0,0,0.06),0_1px_2px_rgba(0,0,0,0.06)] hover:bg-[#F8FAFC]";
+
+  return (
+    <Link
+      href={href}
+      className={`inline-flex h-11 items-center justify-center rounded-[8px] border px-5 text-[14px] font-medium leading-6 transition-colors ${classes}`}
+    >
+      {children}
+    </Link>
+  );
+}
+
+function SparkleIcon() {
+  return (
+    <span className="flex size-5 shrink-0 items-center justify-center rounded-full bg-[#EAF2FF]">
+      <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+        <path
+          d="M6 1.25L7.25 4.75L10.75 6L7.25 7.25L6 10.75L4.75 7.25L1.25 6L4.75 4.75L6 1.25Z"
+          fill="#0063EB"
+        />
+      </svg>
+    </span>
+  );
+}
+
+function Stars({ className = "text-[22px]" }: { className?: string }) {
+  return (
+    <div className={`flex items-center justify-center gap-1 text-[#E3B742] ${className}`} aria-hidden="true">
+      <span>★</span>
+      <span>★</span>
+      <span className="text-[1.28em] leading-none">★</span>
+      <span>★</span>
+      <span className="text-[0.78em]">★</span>
+    </div>
+  );
+}
+
+function AwardBadge({
+  title,
+  accent,
+}: {
+  title: string;
+  accent: "blue" | "teal" | "gray";
+}) {
+  const accentClass =
+    accent === "blue"
+      ? "border-b-[#0063EB]"
+      : accent === "teal"
+        ? "border-b-[#10BFA7]"
+        : "border-b-[#23272E]";
+
+  return (
+    <div className="relative h-[76px] w-[58px] bg-white text-center shadow-[0_0_0_1px_rgba(0,0,0,0.18)]">
+      <div className="flex h-3 items-center justify-between bg-[#F2F4F7] px-1 text-[4px] font-semibold uppercase leading-none text-[#1E1E1E]">
+        <span>Spring 2025</span>
+        <span className="rounded-[1px] bg-[#FF492C] px-0.5 text-white">G2</span>
+      </div>
+      <div className="flex h-[48px] items-center justify-center px-1 text-[7px] font-semibold leading-[9px] text-[#111827]">
+        {title}
+      </div>
+      <div
+        className={`mx-auto h-0 w-0 border-x-[29px] border-b-[13px] border-x-transparent ${accentClass}`}
+      />
+      {accent === "gray" && (
+        <div className="absolute bottom-2 left-1/2 -translate-x-1/2 text-[8px] leading-none text-[#FF492C]">
+          ★
+        </div>
+      )}
+    </div>
+  );
+}
+
+function ProofStrip() {
+  return (
+    <div className="mt-[30px] flex flex-wrap items-end gap-7">
+      <div className="flex h-[122px] w-[242px] flex-col justify-center rounded-[8px] border border-black/10 bg-[#FDF9EE] px-5 shadow-[0_1px_1px_rgba(0,0,0,0.03)]">
+        <div className="font-display text-[38px] font-medium leading-none text-[#23272E]">
+          4.6<span className="text-[#0063EB]">+</span>
+        </div>
+        <div className="mt-3 text-[15px] font-medium leading-5 text-[#23272E]">by users on G2</div>
+      </div>
+
+      <div className="flex h-[96px] items-end gap-7 border-b border-[#D5D9E2] px-1 pb-5">
+        <AwardBadge title="Easiest Setup" accent="blue" />
+        <AwardBadge title="Easiest To Do Business With" accent="teal" />
+        <AwardBadge title="Users Love Us" accent="gray" />
+      </div>
+    </div>
+  );
+}
+
+function StatCard({
+  label,
+  value,
+  className,
+  labelClassName = "text-[#1E1E1E]",
+  valueClassName = "text-[#0063EB]",
+}: {
+  label: React.ReactNode;
+  value: string;
+  className: string;
+  labelClassName?: string;
+  valueClassName?: string;
+}) {
+  return (
+    <div className={`flex min-h-[216px] flex-col justify-between p-8 ${className}`}>
+      <div className={`text-[21px] font-medium leading-[1.18] ${labelClassName}`}>{label}</div>
+      <div className={`font-display text-[56px] font-medium leading-none ${valueClassName}`}>{value}</div>
+    </div>
+  );
+}
+
+function HeroStats() {
+  return (
+    <div className="grid w-full max-w-[440px] grid-cols-1 gap-0 sm:grid-cols-2">
+      <StatCard
+        label={
+          <>
+            Monthly
+            <br />
+            transactions
+          </>
+        }
+        value="33K+"
+        className="rounded-tl-[14px] rounded-tr-[88px] rounded-br-[88px] rounded-bl-[14px] bg-[#0063EB]"
+        labelClassName="text-white"
+        valueClassName="text-[#FFE95B]"
+      />
+
+      <div className="flex min-h-[216px] flex-col items-center justify-center rounded-[14px] bg-white px-5 py-8 text-center">
+        <Stars className="text-[15px]" />
+        <p className="mt-3 max-w-[180px] text-[11px] font-normal leading-[16px] text-[#393837]">
+          &quot;I saved $470,000 over 14 years with flawless service and zero issues.&quot;
+        </p>
+        <p className="mt-5 text-[11px] font-semibold leading-4 text-[#1E1E1E]">— Tony Garrant</p>
+        <p className="mt-1 text-[9px] font-normal leading-4 text-[#393837]">
+          Broker/Owner, Abundant Realty
+        </p>
+      </div>
+
+      <StatCard
+        label={
+          <>
+            Years
+            <br />
+            in use
+          </>
+        }
+        value="16+"
+        className="rounded-[14px] bg-white"
+      />
+
+      <StatCard
+        label={
+          <>
+            Real estate
+            <br />
+            professionals
+          </>
+        }
+        value="90K+"
+        className="rounded-tl-[14px] rounded-tr-[88px] rounded-br-[14px] rounded-bl-[14px] bg-[#FFE95B]"
+      />
+    </div>
+  );
+}
 
 export default function HeroSection() {
   return (
-    <section className="bg-[#FDF9EE] overflow-hidden">
-      <div className="max-w-[1280px] mx-auto px-5 sm:px-10 lg:px-20">
-        <div className="flex flex-col lg:flex-row items-start gap-12 lg:gap-10 pt-16 pb-16 lg:pt-[98px] lg:pb-20">
-
-          {/* ── LEFT COLUMN (~55%) ── */}
-          <div className="w-full lg:w-[55%] flex flex-col gap-8">
-
-            {/* Heading group */}
-            <div className="flex flex-col gap-6">
-              <div className="flex flex-col gap-3">
-
-                {/* Pill badge */}
-                <div
-                  className="inline-flex items-center self-start gap-2 bg-white rounded-full"
-                  style={{ border: "1px solid rgba(0,0,0,0.1)", padding: "6px 12px 6px 6px" }}
-                >
-                  <span
-                    className="flex items-center justify-center rounded-full flex-shrink-0"
-                    style={{
-                      background: "rgba(4,110,255,0.1)",
-                      width: "20px",
-                      height: "20px",
-                    }}
-                  >
-                    <svg width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true">
-                      <circle cx="5" cy="5" r="4" fill="#0063EB" />
-                    </svg>
-                  </span>
-                  <span
-                    className="font-medium text-black whitespace-nowrap"
-                    style={{ fontSize: "12px", lineHeight: "20px" }}
-                  >
-                    No credit card required · Free setup included
-                  </span>
-                </div>
-
-                {/* Headline */}
-                <h1
-                  className="font-semibold text-black"
-                  style={{
-                    fontSize: "clamp(40px, 5.5vw, 64px)",
-                    lineHeight: "1.1",
-                    letterSpacing: "-0.03em",
-                  }}
-                >
-                  Transaction management
-                  <br />
-                  <span className="text-[#0063EB]">
-                    that stays <em className="italic">out of the way.</em>
-                  </span>
-                </h1>
-              </div>
-
-              {/* Subtitle */}
-              <p
-                className="font-medium"
-                style={{ fontSize: "18px", lineHeight: "32px", color: "#4F4F4F" }}
-              >
-                Built for teams that need clarity, control, and predictable costs as they grow.
-              </p>
+    <section className="overflow-hidden bg-[linear-gradient(90deg,#FDF9EE_0%,#FDF9EE_42%,#DCECFB_67%,#FAF8E9_100%)]">
+      <div className="mx-auto max-w-[1280px] px-6 sm:px-10 lg:px-[72px]">
+        <div className="grid grid-cols-1 items-center gap-12 py-14 lg:grid-cols-[590px_440px] lg:gap-[86px] lg:pt-[78px] lg:pb-6">
+          <div className="max-w-[590px]">
+            <div className="inline-flex max-w-full items-center gap-2 rounded-full border border-black/10 bg-white py-1.5 pr-4 pl-1.5 shadow-[0_1px_2px_rgba(0,0,0,0.04)]">
+              <SparkleIcon />
+              <span className="text-[13px] font-medium leading-5 text-[#1E1E1E] sm:whitespace-nowrap sm:text-[15px]">
+                No credit card required · Free setup included
+              </span>
             </div>
 
-            {/* CTA buttons */}
-            <div className="flex flex-col sm:flex-row gap-3">
-              <Link
-                href="/signup"
-                className="inline-flex items-center justify-center text-white font-medium w-full sm:w-auto"
-                style={{
-                  fontSize: "14px",
-                  lineHeight: "24px",
-                  background: "#0063EB",
-                  border: "1px solid rgba(255,255,255,0.3)",
-                  borderRadius: "8px",
-                  padding: "10px 20px",
-                  boxShadow:
-                    "0px 0px 0px 1px rgba(4,110,255,1), 0px 1px 2px 0px rgba(4,110,255,0.64)",
-                }}
-              >
+            <h1 className="mt-6 text-[48px] font-semibold leading-[1.08] tracking-normal text-black sm:text-[60px] lg:text-[48px] xl:text-[56px]">
+              <span className="block">Transaction</span>
+              <span className="block whitespace-nowrap">
+                management <span className="text-[#0063EB]">that</span>
+              </span>
+              <span className="block whitespace-nowrap text-[#0063EB]">
+                stays <em className="font-medium italic">out of the way.</em>
+              </span>
+            </h1>
+
+            <p className="mt-7 max-w-[560px] text-[15px] font-medium leading-[26px] text-[#1E1E1E] sm:text-[18px]">
+              Built for teams that need clarity, control, and predictable costs as they grow.
+            </p>
+
+            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+              <HeroButton href="/signup" variant="primary">
                 Start Free Trial →
-              </Link>
-              <Link
-                href="/demo"
-                className="inline-flex items-center justify-center text-black font-medium bg-white w-full sm:w-auto"
-                style={{
-                  fontSize: "14px",
-                  lineHeight: "24px",
-                  borderRadius: "8px",
-                  padding: "10px 20px",
-                  boxShadow:
-                    "0px 0px 0px 1px rgba(0,0,0,0.06), 0px 1px 2px 0px rgba(0,0,0,0.06)",
-                }}
-              >
+              </HeroButton>
+              <HeroButton href="/demo" variant="secondary">
                 Book A Demo →
-              </Link>
+              </HeroButton>
             </div>
 
-            {/* G2 social proof: overlapping avatars | divider | rating/stars/label */}
-            <div className="flex items-center gap-4">
-
-              {/* Overlapping circular avatars */}
-              <div className="flex items-center">
-                {[1, 2, 3].map((n) => (
-                  <div
-                    key={n}
-                    className="relative rounded-full overflow-hidden border-2 border-[#FDF9EE] flex-shrink-0"
-                    style={{
-                      width: "36px",
-                      height: "36px",
-                      marginLeft: n === 1 ? "0" : "-10px",
-                      zIndex: n,
-                    }}
-                  >
-                    <Image
-                      src={`/images/figma/hero-avatar-${n}.png`}
-                      alt={`User avatar ${n}`}
-                      fill
-                      className="object-cover"
-                    />
-                  </div>
-                ))}
-              </div>
-
-              {/* Vertical divider */}
-              <div style={{ width: "1px", height: "52px", background: "#D5D9E2", flexShrink: 0 }} />
-
-              {/* Rating block */}
-              <div className="flex flex-col">
-                <div
-                  style={{
-                    fontFamily: "var(--font-bricolage)",
-                    fontWeight: 500,
-                    fontSize: "32px",
-                    lineHeight: "1",
-                    letterSpacing: "-0.03em",
-                  }}
-                >
-                  <span style={{ color: "#23272E" }}>4.6</span>
-                  <span style={{ color: "#0063EB" }}>+</span>
-                </div>
-                <div className="flex gap-0.5 mt-1">
-                  {[...Array(5)].map((_, i) => (
-                    <svg
-                      key={i}
-                      width="14"
-                      height="14"
-                      viewBox="0 0 24 24"
-                      fill="#FFE95B"
-                      aria-hidden="true"
-                    >
-                      <path d="M12 2l2.7 5.47 6.03.87-4.37 4.25 1.03 6.01L12 15.77l-5.39 2.83 1.03-6.01L3.27 8.34l6.03-.87L12 2z" />
-                    </svg>
-                  ))}
-                </div>
-                <span
-                  className="font-medium mt-0.5"
-                  style={{ fontSize: "12px", lineHeight: "20px", color: "#6C757D" }}
-                >
-                  by users on G2
-                </span>
-              </div>
-            </div>
+            <ProofStrip />
           </div>
 
-          {/* ── RIGHT COLUMN (~45%): 2×2 stat card grid ── */}
-          <div className="w-full lg:flex-1 flex justify-center lg:justify-start">
-            <div
-              className="relative rounded-[20px] overflow-hidden p-3 w-full"
-              style={{ maxWidth: "500px", background: "#0B1120" }}
-            >
-              <Image
-                src="/images/figma/pages/product-screenshot-transactions.jpg"
-                alt=""
-                fill
-                className="object-cover opacity-30"
-                aria-hidden="true"
-              />
-            <div
-              className="relative z-10 grid grid-cols-2 gap-3 w-full"
-            >
-              {/* Card 1: Monthly transactions — blue, pill right side */}
-              <div
-                className="flex flex-col justify-between p-5"
-                style={{
-                  background: "#0063EB",
-                  borderRadius: "16px 100px 100px 16px",
-                  minHeight: "180px",
-                }}
-              >
-                <div
-                  className="font-medium text-white"
-                  style={{ fontSize: "clamp(14px, 1.6vw, 20px)", lineHeight: "1.3" }}
-                >
-                  Monthly<br />transactions
-                </div>
-                <div
-                  className="font-medium"
-                  style={{
-                    color: "#FFE95B",
-                    fontSize: "clamp(36px, 5vw, 64px)",
-                    lineHeight: "0.875",
-                    letterSpacing: "-0.02em",
-                  }}
-                >
-                  33K+
-                </div>
-              </div>
-
-              {/* Card 2: Testimonial — white */}
-              <div
-                className="flex flex-col items-center justify-center"
-                style={{
-                  background: "#FFFFFF",
-                  borderRadius: "16px",
-                  minHeight: "180px",
-                  padding: "clamp(16px, 3.5vw, 44px) clamp(12px, 1.5vw, 18px)",
-                  gap: "8px",
-                }}
-              >
-                <div className="flex gap-0.5 justify-center">
-                  {[...Array(4)].map((_, i) => (
-                    <svg
-                      key={i}
-                      width="16"
-                      height="16"
-                      viewBox="0 0 24 24"
-                      fill="#E3B742"
-                      aria-hidden="true"
-                    >
-                      <path d="M12 2l2.7 5.47 6.03.87-4.37 4.25 1.03 6.01L12 15.77l-5.39 2.83 1.03-6.01L3.27 8.34l6.03-.87L12 2z" />
-                    </svg>
-                  ))}
-                </div>
-                <p
-                  className="text-center"
-                  style={{
-                    fontSize: "clamp(10px, 1.1vw, 14px)",
-                    lineHeight: "1.45",
-                    letterSpacing: "-0.006em",
-                    color: "#393837",
-                    maxWidth: "216px",
-                  }}
-                >
-                  <span style={{ fontWeight: 400 }}>
-                    &ldquo;I saved&nbsp;$470,000&nbsp;over 14 years with flawless service and zero issues.&rdquo;
-                  </span>
-                  <br /><br />
-                  <span style={{ color: "#1E1E1E", fontWeight: 500 }}>— Tony Garrant</span>
-                  <br />
-                  <span style={{ fontWeight: 400, fontSize: "clamp(9px, 0.9vw, 12px)" }}>
-                    Broker/Owner, Abundant Realty
-                  </span>
-                </p>
-              </div>
-
-              {/* Card 3: Years in use — white */}
-              <div
-                className="flex flex-col justify-between p-5"
-                style={{
-                  background: "#FFFFFF",
-                  borderRadius: "16px",
-                  minHeight: "180px",
-                }}
-              >
-                <div
-                  className="font-medium"
-                  style={{
-                    color: "#1E1E1E",
-                    fontSize: "clamp(14px, 1.6vw, 20px)",
-                    lineHeight: "1.3",
-                  }}
-                >
-                  Years<br />in use
-                </div>
-                <div
-                  className="font-medium"
-                  style={{
-                    color: "#0063EB",
-                    fontSize: "clamp(36px, 5vw, 64px)",
-                    lineHeight: "0.875",
-                    letterSpacing: "-0.02em",
-                  }}
-                >
-                  16+
-                </div>
-              </div>
-
-              {/* Card 4: Real estate professionals — yellow, pill top-right */}
-              <div
-                className="flex flex-col justify-between p-5"
-                style={{
-                  background: "#FFE95B",
-                  borderRadius: "16px 100px 16px 16px",
-                  minHeight: "180px",
-                }}
-              >
-                <div
-                  className="font-medium"
-                  style={{
-                    color: "#1E1E1E",
-                    fontSize: "clamp(14px, 1.6vw, 20px)",
-                    lineHeight: "1.3",
-                  }}
-                >
-                  Real estate professionals
-                </div>
-                <div
-                  className="font-medium"
-                  style={{
-                    color: "#0063EB",
-                    fontSize: "clamp(36px, 5vw, 64px)",
-                    lineHeight: "0.875",
-                    letterSpacing: "-0.02em",
-                  }}
-                >
-                  90K+
-                </div>
-              </div>
-            </div>
-            </div>
+          <div className="flex w-full justify-center lg:justify-end">
+            <HeroStats />
           </div>
-
         </div>
       </div>
     </section>
