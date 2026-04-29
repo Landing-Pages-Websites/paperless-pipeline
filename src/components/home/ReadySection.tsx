@@ -1,188 +1,69 @@
 import Image from "next/image";
+import { Blocks, MonitorCheck } from "lucide-react";
+
+const featureCards = [
+  {
+    title: "Configured around your process",
+    body: "We help set things up based on how your team runs transactions.",
+    Icon: Blocks,
+  },
+  {
+    title: "Usable from day one",
+    body: "Agents and staff can work in the system as deals move forward.",
+    Icon: MonitorCheck,
+  },
+];
 
 export default function ReadySection() {
   return (
-    <section className="bg-white py-[120px] px-[80px] max-md:py-16 max-md:px-4">
-      <div className="max-w-[1280px] mx-auto flex flex-col md:flex-row items-stretch gap-8">
-
-        {/* Left: dark card with product screenshot + white quote card overlay at bottom */}
-        <div className="relative w-full md:flex-1 rounded-[24px] overflow-hidden flex flex-col min-h-[560px]">
-          {/* Dark gradient background */}
+    <section className="bg-white px-6 py-[110px] sm:px-10 lg:px-[80px]">
+      <div className="mx-auto grid max-w-[1120px] grid-cols-1 items-start gap-10 md:grid-cols-2">
+        <div className="relative min-h-[418px] overflow-hidden rounded-[18px]">
           <Image
-            src="/images/figma/dark-gradient-bg.png"
-            alt=""
+            src="/images/figma/ready-feature-image.jpg"
+            alt="Real estate team reviewing documents"
             fill
             className="object-cover"
-            aria-hidden="true"
+            quality={90}
           />
-
-          {/* Product screenshot at top */}
-          <div className="relative z-10 p-4 pb-0 flex-1">
-            <div className="rounded-xl overflow-hidden">
-              <Image
-                src="/images/figma/ready-feature-image.png"
-                alt="Paperless Pipeline dashboard"
-                width={600}
-                height={400}
-                className="w-full h-auto object-cover"
-                quality={85}
-              />
-            </div>
-          </div>
-
-          {/* White quote box at bottom */}
-          <div className="relative z-10 p-4">
-            <div className="bg-white rounded-[16px] p-5 flex flex-col gap-3">
-              <p
-                className="text-[#393837] text-[15px] leading-[22px]"
-                style={{ fontWeight: 500, letterSpacing: "-0.005em" }}
-              >
-                With many systems, you need a couple of hours of training… but
-                with this system, it&apos;s so intuitive that it&apos;s hard to
-                mess up.
-              </p>
-              <div className="flex gap-2 items-start">
-                <span
-                  className="text-[#1E1E1E] text-[14px] leading-[20px] shrink-0"
-                  style={{ fontWeight: 600 }}
-                >
-                  -
-                </span>
-                <p
-                  className="text-[#4F4F4F] text-[14px] leading-[20px]"
-                  style={{ letterSpacing: "-0.0057em" }}
-                >
-                  <span className="font-semibold text-[#1E1E1E]">
-                    Michael Greer
-                  </span>{" "}
-                  Managing Partner, Good 2 Go Properties &amp; Services
-                </p>
-              </div>
-            </div>
+          <div className="absolute right-4 bottom-4 left-4 rounded-[12px] bg-white p-4 shadow-[0_8px_24px_rgba(3,7,18,0.10)]">
+            <p className="text-[15px] font-medium leading-5 tracking-[-0.005em] text-[#1E1E1E]">
+              “With many systems, you need a couple of hours of training... but with this
+              system, it&apos;s so intuitive that it&apos;s hard to mess up.”
+            </p>
+            <p className="mt-2 text-[11px] font-normal leading-4 text-[#4F4F4F]">
+              <span className="font-semibold text-[#1E1E1E]">- Michael Greer</span>
+              <br />
+              Managing Partner, Good 2 Go Properties &amp; Services
+            </p>
           </div>
         </div>
 
-        {/* Right: heading + feature cards */}
-        <div className="w-full md:flex-1 flex flex-col justify-between gap-8">
+        <div className="pt-1">
+          <p className="text-[12px] font-medium uppercase leading-6 tracking-[0.14em] text-[#0063EB]">
+            Ready from Day One
+          </p>
+          <h2 className="mt-6 max-w-[520px] text-[42px] font-semibold leading-[1.3] text-black max-md:text-[34px]">
+            Up and running in days, not weeks
+          </h2>
+          <p className="mt-4 max-w-[550px] text-[15px] font-normal leading-6 text-[#4F4F4F]">
+            Launch quickly with a setup built around your process, so your team can adopt
+            it easily and start closing deals without missing a beat.
+          </p>
 
-          {/* Heading block */}
-          <div className="flex flex-col gap-3 max-w-[574px]">
-            <span
-              className="text-[#0063EB] text-[14px] leading-[24px] uppercase"
-              style={{ fontWeight: 500, letterSpacing: "0.0893em" }}
-            >
-              Ready from Day One
-            </span>
-            <div className="flex flex-col gap-2">
-              <h2
-                className="text-black text-[48px] leading-tight max-md:text-4xl"
-                style={{ fontWeight: 600 }}
-              >
-                Up and running in days, not weeks
-              </h2>
-              <p
-                className="text-[#4F4F4F] text-base leading-[150%]"
-                style={{ fontWeight: 400 }}
-              >
-                Launch quickly with a setup built around your process, so your
-                team can adopt it easily and start closing deals without missing
-                a beat.
-              </p>
-            </div>
-          </div>
-
-          {/* Feature cards */}
-          <div className="flex flex-col md:flex-row gap-5">
-            {/* Card: Configured around your process */}
-            <div
-              className="flex-1 flex flex-col gap-6 p-4 rounded-[8px]"
-              style={{ border: "1px solid rgba(0,0,0,0.1)" }}
-            >
-              <svg
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <circle
-                  cx="12"
-                  cy="12"
-                  r="3"
-                  stroke="#0063EB"
-                  strokeWidth="1.5"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-                <path
-                  d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"
-                  stroke="#0063EB"
-                  strokeWidth="1.5"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
-              <div className="flex flex-col gap-1">
-                <h3
-                  className="text-[#393837] text-base leading-[24px]"
-                  style={{ fontWeight: 600, letterSpacing: "-0.0113em" }}
-                >
-                  Configured around your process
+          <div className="mt-16 grid grid-cols-1 gap-5 sm:grid-cols-2">
+            {featureCards.map(({ title, body, Icon }) => (
+              <div key={title} className="min-h-[149px] rounded-[8px] border border-black/10 bg-white p-4">
+                <Icon size={20} className="text-[#0063EB]" />
+                <h3 className="mt-8 text-[15px] font-semibold leading-6 tracking-[-0.01em] text-[#393837]">
+                  {title}
                 </h3>
-                <p
-                  className="text-[#4F4F4F] text-[14px] leading-[20px]"
-                  style={{ fontWeight: 400, letterSpacing: "-0.0057em" }}
-                >
-                  We help set things up based on how your team runs
-                  transactions.
+                <p className="mt-1 text-[13px] font-normal leading-5 tracking-[-0.006em] text-[#4F4F4F]">
+                  {body}
                 </p>
               </div>
-            </div>
-
-            {/* Card: Usable from day one */}
-            <div
-              className="flex-1 flex flex-col gap-6 p-4 rounded-[8px]"
-              style={{ border: "1px solid rgba(0,0,0,0.1)" }}
-            >
-              <svg
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M22 11.08V12a10 10 0 11-5.93-9.14"
-                  stroke="#0063EB"
-                  strokeWidth="1.5"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-                <path
-                  d="M22 4L12 14.01l-3-3"
-                  stroke="#0063EB"
-                  strokeWidth="1.5"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
-              <div className="flex flex-col gap-1">
-                <h3
-                  className="text-[#393837] text-base leading-[24px]"
-                  style={{ fontWeight: 600, letterSpacing: "-0.0113em" }}
-                >
-                  Usable from day one
-                </h3>
-                <p
-                  className="text-[#4F4F4F] text-[14px] leading-[20px]"
-                  style={{ fontWeight: 400, letterSpacing: "-0.0057em" }}
-                >
-                  Agents and staff can work in the system as deals move forward.
-                </p>
-              </div>
-            </div>
+            ))}
           </div>
-
         </div>
       </div>
     </section>

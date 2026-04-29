@@ -48,53 +48,46 @@ const iconColors = ["#16A34A", "#0063EB", "#7C3AED"];
 
 export default function TransparencySection() {
   return (
-    <section className="bg-white py-[120px] px-[80px] max-md:py-16 max-md:px-4">
-      {/* Inner container — max 1280px, column, 48px gap */}
-      <div className="max-w-[1280px] mx-auto flex flex-col gap-12">
-        {/* Header — max 836px centered */}
-        <div className="max-w-[836px] mx-auto flex flex-col gap-3 text-center">
-          <span className="font-sans font-medium text-[14px] leading-[24px] tracking-[0.0893em] uppercase text-[#0063EB]">
+    <section className="bg-white px-6 py-[96px] sm:px-10 lg:px-[80px]">
+      <div className="mx-auto flex max-w-[1120px] flex-col gap-12">
+        <div className="mx-auto max-w-[760px] text-center">
+          <span className="font-sans text-[12px] font-medium uppercase leading-6 tracking-[0.14em] text-[#0063EB]">
             Built on transparency
           </span>
-          <div className="flex flex-col gap-2">
-            <h2 className="font-sans font-semibold text-[48px] leading-tight text-black max-md:text-[32px]">
-              Your data should always be yours
-            </h2>
-            <p className="font-sans font-normal text-[16px] leading-[150%] text-[#4F4F4F]">
-              Some platforms make it easy to get in — and hard to leave.
-              <br className="max-md:hidden" />
-              <br className="max-md:hidden" />
-              We don&apos;t lock your data behind contracts, penalties, or formats
-              that only work inside our system. If Paperless Pipeline ever
-              isn&apos;t the right fit, you can take your data with you.
-            </p>
-          </div>
+          <h2 className="mt-7 font-sans text-[40px] font-semibold leading-tight text-black max-md:text-[32px]">
+            Your data should always be yours
+          </h2>
+          <p className="mt-5 font-sans text-[15px] font-normal leading-6 text-[#4F4F4F]">
+            Some platforms make it easy to get in — and hard to leave.
+          </p>
+          <p className="mx-auto mt-6 max-w-[760px] font-sans text-[15px] font-normal leading-6 text-[#4F4F4F]">
+            We don&apos;t lock your data behind contracts, penalties, or formats that only work
+            inside our system. If Paperless Pipeline ever isn&apos;t the right fit, you can take
+            your data with you.
+          </p>
         </div>
 
-        {/* Cards row — 3 cards, stretch height, 24px gap */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-stretch">
+        <div className="grid grid-cols-1 items-stretch gap-5 md:grid-cols-3">
           {cards.map((card, i) => {
             const Icon = icons[i];
             const color = iconColors[i];
             return (
               <div
                 key={card.title}
-                className="flex flex-col justify-between gap-6 border border-black/10 rounded-2xl p-6"
+                className="flex min-h-[203px] flex-col justify-between rounded-[10px] border border-black/10 bg-white p-5"
               >
-                {/* Icon */}
                 <div
-                  className="w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0"
+                  className="flex size-10 shrink-0 items-center justify-center rounded-full"
                   style={{ backgroundColor: card.iconBg }}
                 >
                   <Icon color={color} />
                 </div>
 
-                {/* Text */}
-                <div className="flex flex-col gap-1">
-                  <h3 className="font-sans font-medium text-[24px] leading-[32px] tracking-[-0.0075em] text-[#030712]">
+                <div>
+                  <h3 className="font-sans text-[22px] font-medium leading-8 tracking-[-0.0075em] text-[#030712]">
                     {card.title}
                   </h3>
-                  <p className="font-sans font-normal text-[16px] leading-[32px] tracking-[-0.0113em] text-[#4F4F4F]">
+                  <p className="mt-1 font-sans text-[15px] font-normal leading-8 tracking-[-0.0113em] text-[#4F4F4F]">
                     {card.body}
                   </p>
                 </div>

@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { AlertTriangle, Layers, TrendingUp, type LucideIcon } from "lucide-react";
+import { AlertTriangle, FileText, TrendingUp, type LucideIcon } from "lucide-react";
 
 const painItems: { title: string; body: string; Icon: LucideIcon }[] = [
   {
@@ -10,7 +10,7 @@ const painItems: { title: string; body: string; Icon: LucideIcon }[] = [
   {
     title: "Workarounds pile up",
     body: "The checklist is in one place, documents in another, and status updates somewhere else.",
-    Icon: Layers,
+    Icon: FileText,
   },
   {
     title: "Costs jump",
@@ -24,84 +24,65 @@ const stats = [
   { number: "3–5", label: "Separate tools" },
   {
     number: "$$$",
-    label: "Software spend that's hard to tie back to real productivity",
+    label: "Software spend that’s hard to tie back to real productivity",
   },
 ];
 
 export default function PainPointsSection() {
   return (
-    <section className="bg-white py-[120px] px-[80px] max-md:py-16 max-md:px-4">
-      <div className="flex flex-col gap-6">
-        {/* Top section: illustration bg with white overlay card on left */}
-        <div className="relative rounded-3xl overflow-hidden min-h-[680px] max-md:min-h-0">
-          {/* Background illustration */}
+    <section className="bg-white px-6 py-[104px] sm:px-10 lg:px-[80px]">
+      <div className="mx-auto max-w-[1120px]">
+        <div className="relative min-h-[713px] overflow-hidden rounded-[18px]">
           <Image
-            src="/images/figma/painpoints-image.png"
+            src="/images/figma/painpoints-image.jpg"
             alt=""
             fill
             className="object-cover object-right"
             aria-hidden="true"
+            quality={90}
           />
 
-          {/* White overlay card — pinned left, ~40% width on desktop */}
-          <div className="relative z-10 bg-white/95 backdrop-blur-sm rounded-2xl p-10 m-6 flex flex-col gap-10 lg:w-[540px] lg:max-w-[45%] max-md:p-6">
-            {/* Header */}
-            <div className="flex flex-col gap-3">
-              <span className="font-sans font-medium text-[14px] leading-[24px] tracking-[0.0893em] uppercase text-[#D92D20]">
-                When systems fall behind
-              </span>
-              <div className="flex flex-col gap-2">
-                <h2 className="font-sans font-semibold text-[40px] leading-[1.15] text-black max-md:text-[28px]">
-                  Growth shouldn&apos;t make your brokerage harder to run
-                </h2>
-                <p className="font-sans font-normal text-[16px] leading-[150%] text-[#4F4F4F]">
-                  What worked early on starts to strain as your roster and deals
-                  grow.
-                </p>
-              </div>
-            </div>
+          <div className="relative z-10 m-4 flex min-h-[681px] w-full max-w-[520px] flex-col rounded-[14px] bg-white p-8 md:p-10">
+            <p className="text-[12px] font-medium uppercase leading-6 tracking-[0.14em] text-[#D92D20]">
+              When systems fall behind
+            </p>
+            <h2 className="mt-6 text-[40px] font-semibold leading-[1.35] text-black max-md:text-[32px]">
+              Growth shouldn&apos;t make your brokerage harder to run
+            </h2>
+            <p className="mt-4 text-[15px] font-normal leading-6 text-[#4F4F4F]">
+              What worked early on starts to strain as your roster and deals grow.
+            </p>
 
-            {/* Pain items — simple rows, no card borders */}
-            <div className="flex flex-col gap-6">
+            <div className="mt-11 flex flex-col gap-4">
               {painItems.map(({ title, body, Icon }) => (
-                <div key={title} className="flex items-start gap-4">
-                  {/* Icon in a colored square */}
-                  <div className="w-10 h-10 rounded-lg bg-[#FEE4E2] flex items-center justify-center flex-shrink-0">
-                    <Icon size={20} color="#D92D20" strokeWidth={2} />
-                  </div>
-                  <div className="flex flex-col gap-1">
-                    <span className="font-sans font-semibold text-[16px] leading-[24px] tracking-[-0.01em] text-[#1E1E1E]">
-                      {title}
-                    </span>
-                    <span className="font-sans font-normal text-[14px] leading-[20px] text-[#4F4F4F]">
-                      {body}
-                    </span>
-                  </div>
+                <div key={title} className="rounded-[8px] border border-black/10 bg-white p-4">
+                  <Icon size={18} className="text-[#D92D20]" fill={title === "Workarounds pile up" ? "#D92D20" : "none"} />
+                  <h3 className="mt-7 text-[14px] font-semibold leading-5 tracking-[-0.01em] text-[#1E1E1E]">
+                    {title}
+                  </h3>
+                  <p className="mt-1 text-[13px] font-normal leading-5 text-[#4F4F4F]">{body}</p>
                 </div>
               ))}
             </div>
           </div>
         </div>
 
-        {/* "How this shows up in practice" label */}
-        <p className="font-sans font-medium text-[14px] leading-[24px] tracking-[0.0893em] uppercase text-[#D92D20] text-center">
+        <p className="mt-6 text-center text-[12px] font-medium uppercase leading-6 tracking-[0.14em] text-[#D92D20]">
           How this shows up in practice :
         </p>
 
-        {/* Stats row */}
-        <div className="flex flex-col md:flex-row gap-6">
+        <div className="mt-5 grid grid-cols-1 gap-5 md:grid-cols-3">
           {stats.map((stat) => (
             <div
               key={stat.number}
-              className="flex-1 flex flex-col gap-4 items-center justify-center border border-black/10 rounded-2xl px-4 py-8"
+              className="flex min-h-[163px] flex-col items-center justify-center rounded-[10px] border border-black/10 bg-white px-5 text-center"
             >
-              <div className="w-10 h-[3px] bg-[#FFE95B] rounded-full" />
-              <span className="font-sans font-medium text-[64px] leading-[56px] tracking-[-0.0188em] text-[#D92D20] text-center">
+              <div className="text-[56px] font-medium leading-none tracking-[-0.02em] text-[#D92D20]">
                 {stat.number}
-              </span>
-              <span className="font-sans font-medium text-[20px] leading-[26px] text-[#1E1E1E] text-center">
+              </div>
+              <p className="mt-4 max-w-[275px] text-[18px] font-medium leading-6 text-[#1E1E1E]">
                 {stat.label}
-              </span>
+              </p>
             </div>
           ))}
         </div>

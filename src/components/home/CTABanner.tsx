@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 
 type CTABannerProps = {
@@ -11,72 +10,62 @@ type CTABannerProps = {
   buttonHref?: string;
 };
 
+function WhiteMark() {
+  return (
+    <svg width="48" height="48" viewBox="0 0 48 48" fill="none" className="mx-auto" aria-hidden="true">
+      <path d="M20 9L34 21.5C37.8 24.9 36.5 31.1 31.7 32.7L25.9 34.6L30 24L18 18L20 9Z" fill="white" />
+      <path d="M16.5 20.5L27.5 26L22.5 39L12 31.5L16.5 20.5Z" fill="white" />
+      <circle cx="27.5" cy="23.5" r="3.5" fill="#9DB4E5" />
+    </svg>
+  );
+}
+
 export default function CTABanner({
   variant = "quote",
-  quote = "One system to manage transactions, documents, and compliance — without forcing agents to change how they work.",
+  quote = "One system to manage transactions, documents, and compliance — without forcing agents to change how they work.",
   eyebrow = "CALL TO ACTION",
   heading = "Switching doesn't mean starting over",
   subtext = "We'll help you get set up without disrupting active deals.",
   buttonText = "Start My 14-Day Free Trial →",
   buttonHref = "/signup",
 }: CTABannerProps) {
+  const isQuote = variant === "quote";
+
   return (
-    <section className="px-5 py-5">
-      <div className="max-w-[1400px] mx-auto rounded-3xl overflow-hidden relative py-12 px-6 md:py-20 md:px-20">
-        {/* Dark gradient background image */}
-        <Image
-          src="/images/figma/dark-gradient-bg.png"
-          alt=""
-          fill
-          className="object-cover"
+    <section className={`bg-white px-6 sm:px-10 lg:px-6 ${isQuote ? "py-8" : "py-[76px]"}`}>
+      <div
+        className={`relative mx-auto max-w-[1232px] overflow-hidden rounded-[20px] ${
+          isQuote ? "min-h-[407px]" : "min-h-[416px]"
+        }`}
+      >
+        <div
+          className="absolute inset-0 bg-[radial-gradient(circle_at_18%_35%,rgba(255,233,91,0.50),transparent_34%),radial-gradient(circle_at_78%_44%,rgba(0,99,235,0.92),transparent_42%),linear-gradient(120deg,#C8C4A8_0%,#8AA1DD_48%,#0063EB_100%)]"
           aria-hidden="true"
         />
+        <div className="absolute inset-0 bg-white/5 backdrop-blur-[1px]" aria-hidden="true" />
 
-        {/* Person photo overlay — right side, low opacity */}
-        <div className="absolute right-0 top-0 h-full w-[40%] pointer-events-none">
-          <Image
-            src={
-              variant === "quote"
-                ? "/images/figma/cta-image-1.png"
-                : "/images/figma/cta-image-2.png"
-            }
-            alt=""
-            fill
-            className="object-cover object-left opacity-40"
-            aria-hidden="true"
-          />
-        </div>
-
-        {/* Content */}
-        <div className="relative z-10 max-w-[1280px] mx-auto flex flex-col items-center">
-          {variant === "quote" ? (
-            <div className="max-w-[1068px] w-full px-0 md:px-10 text-center">
-              <p className="text-white font-semibold text-2xl md:text-[40px] leading-tight md:leading-[48px]">
+        <div className="relative z-10 flex min-h-[inherit] flex-col items-center justify-center px-6 text-center">
+          {isQuote ? (
+            <div className="max-w-[820px]">
+              <WhiteMark />
+              <p className="mt-12 text-[34px] font-semibold leading-[42px] text-white max-md:text-[28px] max-md:leading-9">
                 {quote}
               </p>
             </div>
           ) : (
-            <div className="max-w-[1068px] w-full px-0 md:px-10 flex flex-col items-center gap-6 text-center">
-              <div className="flex flex-col items-center gap-4">
-                <p
-                  className="text-white font-medium text-sm leading-6 uppercase"
-                  style={{ letterSpacing: "0.0893em" }}
-                >
-                  {eyebrow}
-                </p>
-                <h2 className="text-white font-semibold text-3xl md:text-[40px] leading-tight md:leading-[48px]">
-                  {heading}
-                </h2>
-                <p
-                  className="text-white font-normal text-lg md:text-xl md:leading-8"
-                  style={{ letterSpacing: "-0.01em" }}
-                >
-                  {subtext}
-                </p>
-              </div>
+            <div className="max-w-[480px]">
+              <p className="text-[12px] font-medium uppercase leading-6 tracking-[0.14em] text-white">
+                {eyebrow}
+              </p>
+              <h2 className="mt-5 text-[32px] font-semibold leading-[38px] text-white md:text-[40px] md:leading-[46px]">
+                {heading}
+              </h2>
+              <p className="mx-auto mt-5 max-w-[330px] text-[18px] font-normal leading-7 text-white">
+                {subtext}
+              </p>
               <Link
                 href={buttonHref}
-                className="inline-flex items-center gap-2 bg-[#FFE95B] text-[#1E1E1E] font-medium text-sm leading-6 px-5 py-2.5 rounded-lg whitespace-nowrap hover:bg-[#ffe033] transition-colors"
+                className="mt-6 inline-flex h-9 items-center justify-center rounded-[8px] bg-white px-4 text-[13px] font-medium leading-5 text-[#0063EB] shadow-[0_1px_2px_rgba(0,0,0,0.08)] transition-colors hover:bg-[#F8FAFC]"
               >
                 {buttonText}
               </Link>

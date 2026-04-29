@@ -89,11 +89,10 @@ export default function WorkflowSection() {
                 {step.featured && (
                   <div className="relative mt-6 h-[240px] overflow-hidden rounded-[12px]">
                     <Image
-                      src="/images/figma/workflow-screenshot.png"
+                      src="/images/figma/workflow-screenshot.jpg"
                       alt="Paperless Pipeline transaction workflow"
                       fill
                       priority
-                      unoptimized
                       className="object-cover"
                       quality={90}
                     />

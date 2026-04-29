@@ -35,20 +35,20 @@ const testimonials = [
 
 export default function TestimonialsSection() {
   return (
-    <section className="bg-white py-[120px] px-[80px] max-md:py-16 max-md:px-4">
-      <div className="max-w-[1280px] mx-auto flex flex-col gap-[55px]">
+    <section className="bg-white px-6 py-[96px] sm:px-10 lg:px-[80px]">
+      <div className="mx-auto flex max-w-[1120px] flex-col gap-[55px]">
 
         {/* Header */}
-        <div className="flex flex-col gap-3 max-w-[836px] mx-auto text-center">
+        <div className="mx-auto flex max-w-[760px] flex-col gap-3 text-center">
           <span
-            className="text-[#0063EB] text-[14px] leading-[24px] uppercase"
-            style={{ fontWeight: 500, letterSpacing: "0.0893em" }}
+            className="text-[12px] uppercase leading-6 text-[#0063EB]"
+            style={{ fontWeight: 500, letterSpacing: "0.14em" }}
           >
             Trusted by teams like yours
           </span>
           <div className="flex flex-col gap-2">
             <h2
-              className="text-black text-[48px] leading-tight max-md:text-4xl"
+              className="text-[40px] leading-tight text-black max-md:text-4xl"
               style={{ fontWeight: 600 }}
             >
               For those who have outgrown the &lsquo;all-in-one&rsquo; promise
