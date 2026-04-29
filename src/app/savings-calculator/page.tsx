@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { Users, RefreshCw, Zap } from "lucide-react";
+import { Users, RefreshCw, Star } from "lucide-react";
 import CTABanner from "@/components/home/CTABanner";
 import SavingsCalculatorContent from "./SavingsCalculatorContent";
 
@@ -12,13 +12,13 @@ export const metadata: Metadata = {
 };
 
 const pricingPlans = [
-  { name: "Starter", transactions: 5, monthlyPrice: 65, withCommission: 119 },
-  { name: "Basic", transactions: 10, monthlyPrice: 130, withCommission: 184 },
-  { name: "Growth", transactions: 25, monthlyPrice: 175, withCommission: 234 },
-  { name: "Pro", transactions: 40, monthlyPrice: 220, withCommission: 279 },
-  { name: "Scale", transactions: 80, monthlyPrice: 305, withCommission: 414 },
+  { name: "Starter",  transactions: 5,   monthlyPrice: 65,  withCommission: 119 },
+  { name: "Basic",    transactions: 10,  monthlyPrice: 130, withCommission: 184 },
+  { name: "Growth",   transactions: 25,  monthlyPrice: 175, withCommission: 234 },
+  { name: "Pro",      transactions: 40,  monthlyPrice: 220, withCommission: 279 },
+  { name: "Scale",    transactions: 80,  monthlyPrice: 305, withCommission: 414 },
   { name: "Advanced", transactions: 150, monthlyPrice: 390, withCommission: 504 },
-  { name: "Elite", transactions: 250, monthlyPrice: 495, withCommission: 609 },
+  { name: "Elite",    transactions: 250, monthlyPrice: 495, withCommission: 609 },
 ];
 
 const benefits = [
@@ -35,7 +35,7 @@ const benefits = [
       "Ditch the annual contract. With Paperless Pipeline you can change plans directly from your account. You can also cancel anytime.",
   },
   {
-    Icon: Zap,
+    Icon: Star,
     title: "Start with unlimited transactions",
     description:
       "Make the switch, easy. New customers can add all of their current and closed transactions during the first month with a paid account.",
@@ -67,197 +67,106 @@ export default function SavingsCalculatorPage() {
   return (
     <>
       {/* ── 1. HERO ── */}
-      <section className="bg-[#FDF9EE] overflow-hidden">
-        <div className="max-w-[1440px] mx-auto px-5 sm:px-10 lg:px-[80px]">
-          <div className="flex flex-col items-center text-center gap-8 py-[80px] lg:py-[160px]">
-            {/* Badge */}
-            <div
-              className="inline-flex items-center gap-2 bg-white rounded-full"
-              style={{ border: "1px solid rgba(0,0,0,0.1)", padding: "6px 12px 6px 6px" }}
-            >
-              <span
-                className="flex items-center justify-center rounded-full flex-shrink-0"
-                style={{ background: "rgba(4,110,255,0.1)", width: "20px", height: "20px" }}
-              >
-                <svg width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true">
-                  <circle cx="5" cy="5" r="4" fill="#0063EB" />
-                </svg>
-              </span>
-              <span className="font-medium text-black text-[12px] leading-[20px] whitespace-nowrap">
-                No credit card required. No setup fees.
-              </span>
-            </div>
+      <section className="relative overflow-hidden bg-[linear-gradient(90deg,#F8EDD0_0%,#E0D8EC_33%,#C8D4F0_58%,#3B5BDB_100%)] py-20 md:py-[160px]">
+        <div
+          className="pointer-events-none absolute inset-0 overflow-hidden"
+          aria-hidden="true"
+        >
+          <div className="absolute left-[22%] top-[15%] h-[320px] w-[320px] rounded-full bg-[rgba(190,165,215,0.35)] blur-[120px]" />
+          <div className="absolute right-[28%] bottom-[10%] h-[260px] w-[260px] rounded-full bg-[rgba(160,185,235,0.30)] blur-[100px]" />
+        </div>
 
-            {/* Heading */}
-            <h1
-              className="font-semibold text-black max-w-[611px]"
-              style={{
-                fontSize: "clamp(40px, 5.5vw, 64px)",
-                lineHeight: "1.125",
-                letterSpacing: "-0.0375em",
-              }}
-            >
-              Stop <span className="text-[#0063EB]">Overpaying</span> for Your Tools
-            </h1>
-
-            {/* Subtext */}
-            <p
-              className="font-medium text-black max-w-[611px]"
-              style={{ fontSize: "18px", lineHeight: "32px" }}
-            >
-              Find out how much you could save by switching to a simpler, more
-              affordable solution
-            </p>
-
-            {/* CTA */}
-            <Link
-              href="/signup"
-              className="inline-flex items-center text-white font-medium"
-              style={{
-                fontSize: "14px",
-                lineHeight: "24px",
-                background: "#0063EB",
-                borderRadius: "8px",
-                padding: "6px 12px",
-                boxShadow:
-                  "0px 0px 0px 1px rgba(4,110,255,1), 0px 1px 2px 0px rgba(4,110,255,0.64)",
-              }}
-            >
-              Start Free Trial →
-            </Link>
+        <div className="relative z-10 mx-auto flex max-w-7xl flex-col items-center gap-8 px-4 text-center sm:px-6 lg:px-8">
+          {/* Badge */}
+          <div className="inline-flex items-center gap-2 rounded-full border border-black/10 bg-white px-3 py-1.5 shadow-sm">
+            <span className="flex h-5 w-5 items-center justify-center rounded-full bg-[#EAF2FF]">
+              <svg width="10" height="10" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+                <path
+                  d="M6 1.25L7.25 4.75L10.75 6L7.25 7.25L6 10.75L4.75 7.25L1.25 6L4.75 4.75L6 1.25Z"
+                  fill="#0063EB"
+                />
+              </svg>
+            </span>
+            <span className="text-xs font-medium text-black">
+              No credit card required. No setup fees.
+            </span>
           </div>
+
+          {/* Heading */}
+          <h1 className="max-w-[611px] text-5xl font-semibold tracking-[-0.0375em] text-black md:text-[64px] md:leading-[72px]">
+            Stop <span className="text-[#0063EB]">Overpaying</span> for Your Tools
+          </h1>
+
+          {/* Subtext */}
+          <p className="max-w-[540px] text-lg font-medium leading-8 text-black">
+            Find out how much you could save by switching to a simpler, more affordable solution
+          </p>
+
+          {/* CTA */}
+          <Link
+            href="/signup"
+            className="inline-flex items-center rounded-lg bg-[#0063EB] px-5 py-2.5 text-sm font-medium text-white shadow-[0_0_0_1px_#0063EB,0_1px_2px_rgba(4,110,255,0.64)] transition-colors hover:bg-[#046EFF]"
+          >
+            Start Free Trial →
+          </Link>
         </div>
       </section>
 
       {/* ── 2. CALCULATOR ── */}
-      <section className="bg-white py-[80px] md:py-[120px] px-5 md:px-[80px]">
+      <section className="bg-white px-4 py-20 md:px-8 md:py-28">
         <SavingsCalculatorContent />
       </section>
 
       {/* ── 3. PRICING TABLE ── */}
-      <section className="bg-white py-[80px] px-5 md:px-[80px]">
-        <div className="max-w-[1280px] mx-auto flex flex-col items-center gap-12">
+      <section className="bg-white px-4 pb-20 md:px-8 md:pb-28">
+        <div className="mx-auto flex max-w-[900px] flex-col items-center gap-12">
           {/* Header */}
-          <div className="flex flex-col items-center gap-3 max-w-[757px] w-full text-center">
-            <p
-              className="text-[#0063EB] font-medium text-[14px] leading-[24px] uppercase"
-              style={{ letterSpacing: "0.0893em" }}
-            >
+          <div className="flex flex-col items-center gap-3 text-center">
+            <p className="text-sm font-medium uppercase tracking-[0.09em] text-[#0063EB]">
               Plans
             </p>
-            <div className="flex flex-col gap-2">
-              <h2 className="text-black font-semibold text-[32px] md:text-[48px] leading-tight">
-                Choose Your Monthly Transaction Plan
-              </h2>
-              <p className="text-[#4F4F4F] font-normal text-[16px] leading-[150%]">
-                Transparent pricing based on how many transactions you manage each month
-              </p>
-            </div>
+            <h2 className="text-3xl font-semibold text-black md:text-[48px] md:leading-tight">
+              Choose Your Monthly Transaction Plan
+            </h2>
+            <p className="text-base text-[#4F4F4F]">
+              Transparent pricing based on how many transactions you manage each month
+            </p>
           </div>
 
           {/* Table */}
           <div className="w-full overflow-x-auto">
-            <div
-              className="min-w-[640px] flex flex-row"
-              style={{
-                background: "#FAFAFA",
-                border: "1px solid #D4D4D8",
-                borderRadius: "16px",
-                padding: "8px",
-              }}
-            >
-              {/* Left column: plan names */}
-              <div
-                className="flex flex-col gap-0 flex-shrink-0"
-                style={{
-                  background: "#FFFFFF",
-                  borderRadius: "12px",
-                  padding: "24px",
-                  width: "180px",
-                }}
-              >
-                <div style={{ paddingBottom: "16px", borderBottom: "1px solid #E4E4E7" }}>
-                  <span className="text-[#0063EB] font-semibold text-[16px] leading-[28px]">
-                    Plan
-                  </span>
-                </div>
-                {pricingPlans.map((plan, i) => (
-                  <div
-                    key={plan.name}
-                    style={{
-                      paddingTop: "16px",
-                      paddingBottom: i < pricingPlans.length - 1 ? "16px" : "0",
-                      borderBottom:
-                        i < pricingPlans.length - 1 ? "1px solid #E4E4E7" : "none",
-                    }}
-                  >
-                    <span className="text-[#18181B] font-medium text-[16px] leading-[28px]">
-                      {plan.name}
-                    </span>
-                  </div>
-                ))}
-              </div>
-
-              {/* Right: 3 data columns */}
-              <div className="flex flex-1 min-w-0">
-                {[
-                  {
-                    header: "Transactions Included",
-                    values: pricingPlans.map((p) => String(p.transactions)),
-                  },
-                  {
-                    header: "Monthly Cost",
-                    values: pricingPlans.map((p) => `$${p.monthlyPrice}`),
-                  },
-                  {
-                    header: "Cost with Commission Module",
-                    values: pricingPlans.map((p) => `$${p.withCommission}`),
-                  },
-                ].map(({ header, values }) => (
-                  <div
-                    key={header}
-                    className="flex flex-col flex-1 min-w-0"
-                    style={{ padding: "24px" }}
-                  >
-                    <div style={{ paddingBottom: "16px", borderBottom: "1px solid #E4E4E7" }}>
-                      <span className="text-[#0063EB] font-semibold text-[16px] leading-[28px]">
-                        {header}
-                      </span>
+            <div className="min-w-[580px] overflow-hidden rounded-2xl border border-[#D4D4D8] bg-[#FAFAFA]">
+              {/* Header row */}
+              <div className="grid grid-cols-4 border-b border-[#D4D4D8] bg-white px-0">
+                {["Plan", "Transactions Included", "Monthly Cost", "Cost with Commission Module"].map(
+                  (col) => (
+                    <div key={col} className="px-6 py-4">
+                      <span className="text-sm font-semibold text-[#0063EB]">{col}</span>
                     </div>
-                    {values.map((val, i) => (
-                      <div
-                        key={i}
-                        style={{
-                          paddingTop: "16px",
-                          paddingBottom: i < values.length - 1 ? "16px" : "0",
-                          borderBottom:
-                            i < values.length - 1 ? "1px solid #E4E4E7" : "none",
-                        }}
-                      >
-                        <span className="text-[#18181B] font-medium text-[16px] leading-[28px]">
-                          {val}
-                        </span>
-                      </div>
-                    ))}
-                  </div>
-                ))}
+                  )
+                )}
               </div>
+              {/* Data rows */}
+              {pricingPlans.map((plan, i) => (
+                <div
+                  key={plan.name}
+                  className={`grid grid-cols-4 ${
+                    i < pricingPlans.length - 1 ? "border-b border-[#E4E4E7]" : ""
+                  }`}
+                >
+                  <div className="px-6 py-4 font-medium text-[#18181B]">{plan.name}</div>
+                  <div className="px-6 py-4 text-[#18181B]">{plan.transactions}</div>
+                  <div className="px-6 py-4 text-[#18181B]">${plan.monthlyPrice}</div>
+                  <div className="px-6 py-4 text-[#18181B]">${plan.withCommission}</div>
+                </div>
+              ))}
             </div>
           </div>
 
           {/* CTA */}
           <Link
             href="/contact"
-            className="inline-flex items-center text-white font-medium"
-            style={{
-              fontSize: "14px",
-              lineHeight: "24px",
-              background: "#0063EB",
-              borderRadius: "8px",
-              padding: "6px 12px",
-              boxShadow:
-                "0px 0px 0px 1px rgba(4,110,255,1), 0px 1px 2px 0px rgba(4,110,255,0.64)",
-            }}
+            className="inline-flex items-center rounded-lg bg-[#0063EB] px-5 py-2.5 text-sm font-medium text-white shadow-[0_0_0_1px_#0063EB,0_1px_2px_rgba(4,110,255,0.64)] transition-colors hover:bg-[#046EFF]"
           >
             Contact Sales →
           </Link>
@@ -265,57 +174,38 @@ export default function SavingsCalculatorPage() {
       </section>
 
       {/* ── 4. BENEFITS ── */}
-      <section className="bg-white py-[80px] md:py-[120px] px-5 md:px-[80px]">
-        <div className="max-w-[1280px] mx-auto flex flex-col gap-16">
+      <section className="bg-white px-4 py-20 md:px-8 md:py-28">
+        <div className="mx-auto max-w-7xl flex flex-col gap-16">
           {/* Header */}
-          <div className="flex flex-col md:flex-row md:items-end gap-6">
-            <div className="flex flex-col gap-3 flex-1">
-              <p
-                className="text-[#0063EB] font-medium text-[14px] leading-[24px] uppercase"
-                style={{ letterSpacing: "0.0893em" }}
-              >
+          <div className="flex flex-col gap-6 md:flex-row md:items-end">
+            <div className="flex flex-1 flex-col gap-3">
+              <p className="text-sm font-medium uppercase tracking-[0.09em] text-[#0063EB]">
                 Benefits
               </p>
-              <h2 className="text-black font-semibold text-[32px] md:text-[48px] leading-tight">
+              <h2 className="text-3xl font-semibold text-black md:text-[48px] md:leading-tight">
                 Why By-the-Transaction Pricing Works Better
               </h2>
             </div>
-            <p className="text-[#4F4F4F] font-normal text-[16px] leading-[150%] md:max-w-[420px]">
+            <p className="text-base leading-relaxed text-[#4F4F4F] md:max-w-[420px]">
               Reduce costs, stay flexible, and scale your team without paying per user
             </p>
           </div>
 
-          {/* Benefit cards */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {/* Cards */}
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
             {benefits.map(({ Icon, title, description }) => (
               <div
                 key={title}
-                className="flex flex-col gap-6 rounded-xl p-6"
-                style={{ background: "#FFFFFF", border: "1px solid rgba(0,0,0,0.1)" }}
+                className="flex flex-col gap-6 rounded-xl border border-black/10 bg-white p-6"
               >
-                <div
-                  className="flex items-center justify-center rounded-full bg-[#0063EB] flex-shrink-0"
-                  style={{ width: "64px", height: "64px" }}
-                >
+                <div className="flex h-16 w-16 items-center justify-center rounded-full bg-[#0063EB]">
                   <Icon size={28} color="white" aria-hidden="true" />
                 </div>
-                <div className="flex flex-col gap-6">
-                  <h3
-                    className="text-black font-medium whitespace-pre-line"
-                    style={{
-                      fontSize: "24px",
-                      lineHeight: "28px",
-                      letterSpacing: "-0.015em",
-                    }}
-                  >
+                <div className="flex flex-col gap-4">
+                  <h3 className="whitespace-pre-line text-2xl font-medium leading-[1.15] tracking-[-0.015em] text-black">
                     {title}
                   </h3>
-                  <p
-                    className="text-[#4F4F4F] font-normal"
-                    style={{ fontSize: "16px", lineHeight: "32px" }}
-                  >
-                    {description}
-                  </p>
+                  <p className="text-base leading-8 text-[#4F4F4F]">{description}</p>
                 </div>
               </div>
             ))}
@@ -324,70 +214,41 @@ export default function SavingsCalculatorPage() {
       </section>
 
       {/* ── 5. SOLUTIONS ── */}
-      <section
-        className="py-[80px] md:py-[120px] px-5 md:px-[80px]"
-        style={{
-          background: "linear-gradient(180deg, #FFFFFF 0%, #F4F4F5 50%)",
-        }}
-      >
-        <div className="max-w-[1280px] mx-auto flex flex-col gap-12">
+      <section className="bg-[linear-gradient(180deg,#FFFFFF_0%,#F4F4F5_50%)] px-4 py-20 md:px-8 md:py-28">
+        <div className="mx-auto max-w-7xl flex flex-col gap-12">
           {/* Header */}
-          <div className="flex flex-col items-center gap-3 max-w-[836px] mx-auto w-full text-center">
-            <p
-              className="text-[#0063EB] font-medium text-[14px] leading-[24px] uppercase"
-              style={{ letterSpacing: "0.0893em" }}
-            >
+          <div className="mx-auto flex max-w-[836px] flex-col items-center gap-3 text-center">
+            <p className="text-sm font-medium uppercase tracking-[0.09em] text-[#0063EB]">
               Solutions
             </p>
-            <div className="flex flex-col gap-2">
-              <h2 className="text-black font-semibold text-[32px] md:text-[48px] leading-tight">
-                Built for Every Role{" "}
-                <br className="hidden md:block" />
-                in Real Estate
-              </h2>
-              <p className="text-[#4F4F4F] font-normal text-[16px] leading-[150%]">
-                From brokerages to transaction coordinators,{" "}
-                <br className="hidden md:block" />
-                Paperless Pipeline supports how your team works
-              </p>
-            </div>
+            <h2 className="text-3xl font-semibold text-black md:text-[48px] md:leading-tight">
+              Built for Every Role
+              <br className="hidden md:block" />
+              in Real Estate
+            </h2>
+            <p className="text-base text-[#4F4F4F]">
+              From brokerages to transaction coordinators,
+              <br className="hidden md:block" />
+              Paperless Pipeline supports how your team works
+            </p>
           </div>
 
           {/* Cards + image */}
-          <div className="flex flex-col lg:flex-row gap-6">
+          <div className="flex flex-col gap-6 lg:flex-row">
             {/* Role cards */}
-            <div className="flex flex-col gap-4 lg:w-[411px] flex-shrink-0">
+            <div className="flex flex-col gap-4 lg:w-[411px] lg:shrink-0">
               {solutions.map(({ title, description, href }) => (
                 <div
                   key={title}
-                  className="flex flex-col gap-3 rounded-2xl p-4"
-                  style={{ background: "#FFFFFF", border: "1px solid rgba(0,0,0,0.1)" }}
+                  className="flex flex-col gap-3 rounded-2xl border border-black/10 bg-white p-4"
                 >
-                  <div className="flex flex-col gap-3">
-                    <h3
-                      className="text-black font-medium"
-                      style={{
-                        fontSize: "24px",
-                        lineHeight: "28px",
-                        letterSpacing: "-0.01em",
-                      }}
-                    >
-                      {title}
-                    </h3>
-                    <p
-                      className="text-[#4F4F4F] font-normal"
-                      style={{
-                        fontSize: "16px",
-                        lineHeight: "28px",
-                        letterSpacing: "-0.0075em",
-                      }}
-                    >
-                      {description}
-                    </p>
-                  </div>
+                  <h3 className="text-2xl font-medium tracking-[-0.01em] text-[#0063EB]">
+                    {title}
+                  </h3>
+                  <p className="text-base leading-7 text-[#4F4F4F]">{description}</p>
                   <Link
                     href={href}
-                    className="text-[#0063EB] font-medium text-[14px] leading-[24px] underline self-start"
+                    className="self-start text-sm font-medium text-[#0063EB] underline"
                   >
                     Learn More →
                   </Link>
@@ -396,10 +257,10 @@ export default function SavingsCalculatorPage() {
             </div>
 
             {/* Image */}
-            <div className="flex-1 relative rounded-2xl overflow-hidden min-h-[400px] lg:min-h-0">
+            <div className="relative min-h-[400px] flex-1 overflow-hidden rounded-2xl lg:min-h-0">
               <Image
-                src="/images/figma/roles-screenshot.png"
-                alt="Paperless Pipeline — transaction management for every role"
+                src="/images/figma/pages/a0652331378aef12.png"
+                alt="Real estate professionals working together"
                 fill
                 className="object-cover"
                 sizes="(max-width: 1024px) 100vw, 845px"
@@ -413,8 +274,8 @@ export default function SavingsCalculatorPage() {
       <CTABanner
         variant="cta"
         eyebrow="GET STARTED"
-        heading="Switching doesn't mean starting over"
-        subtext="We'll help you get set up without disrupting active deals."
+        heading="Simplify Your Transaction Management Today"
+        subtext="See how easy it is to manage transactions, teams, and commissions—all in one place"
         buttonText="Start My 14-Day Free Trial →"
         buttonHref="/signup"
       />
