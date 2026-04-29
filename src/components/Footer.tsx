@@ -2,7 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 
 const footerColumns: Record<string, { label: string; href: string }[]> = {
-  COMPANY: [
+  "GET STARTED": [
     { label: "Schedule a Demo", href: "/schedule-demo" },
     { label: "Contact Us", href: "/contact" },
     { label: "Pricing", href: "/pricing" },
@@ -15,6 +15,9 @@ const footerColumns: Record<string, { label: string; href: string }[]> = {
   ],
   RESOURCES: [
     { label: "Blogs", href: "/blog" },
+    { label: "Commissions Calculator", href: "/commission-calculator" },
+    { label: "Savings Calculator", href: "/savings-calculator" },
+    { label: "Case Studies", href: "/case-studies" },
   ],
   "FREE GUIDES": [
     { label: "Recruiting Real Estate Agents", href: "/guides/recruiting-real-estate-agents" },
@@ -26,139 +29,110 @@ const footerColumns: Record<string, { label: string; href: string }[]> = {
 
 export default function Footer() {
   return (
-    <footer>
-      {/* CTA block — dark rounded card, 80px padding, border-radius 24px */}
-      <div className="px-4 sm:px-6 lg:px-8 py-8">
+    <footer className="bg-white">
+      <div className="px-6 pb-8 pt-8 sm:px-10 lg:px-[80px]">
         <div
-          className="max-w-[1400px] mx-auto rounded-3xl flex flex-col items-center text-center gap-6 px-8 py-20 md:px-20 overflow-hidden relative"
+          className="relative mx-auto max-w-[1440px] overflow-hidden rounded-[24px] px-5 pb-8 pt-24 text-center sm:px-8 md:pb-14 md:pt-32"
           style={{
             backgroundImage: "url('/images/figma/dark-gradient-bg.png')",
             backgroundSize: "cover",
             backgroundPosition: "center",
           }}
         >
-          {/* Person photo overlay — right side, low opacity */}
-          <div className="absolute right-0 top-0 h-full w-[40%] pointer-events-none">
-            <Image
-              src="/images/figma/cta-image-2.png"
-              alt=""
-              fill
-              className="object-cover object-left opacity-40"
-              aria-hidden="true"
-            />
-          </div>
-
-          {/* Content */}
-          <div className="relative z-10 flex flex-col items-center text-center gap-6">
-            {/* Eyebrow */}
-            <p
-              className="text-sm font-medium text-white leading-6 uppercase"
-              style={{ letterSpacing: "0.0893em" }}
-            >
-              Call to Action
+          <div className="relative z-10 mx-auto flex max-w-[760px] flex-col items-center">
+            <h2 className="text-[34px] font-semibold leading-[1.12] text-white md:text-[48px]">
+              Built for brokers who want fewer fires — not more software
+            </h2>
+            <p className="mt-7 max-w-[680px] text-[18px] font-normal leading-7 text-white md:text-[22px] md:leading-8">
+              Paperless Pipeline helps teams close deals smoothly, consistently,
+              and without unnecessary stress.
             </p>
-
-            {/* Heading + subtext */}
-            <div className="flex flex-col items-center gap-4 max-w-[1068px] w-full">
-              <h2
-                className="text-[40px] font-semibold text-white leading-[48px] text-center"
-              >
-                Switching doesn&apos;t mean starting over
-              </h2>
-              <p
-                className="text-xl font-normal text-white leading-8 text-center"
-                style={{ letterSpacing: "-0.01em" }}
-              >
-                We&apos;ll help you get set up without disrupting active deals.
-              </p>
-            </div>
-
-            {/* CTA button — white bg, blue text */}
             <Link
               href="/signup"
-              className="inline-flex items-center text-sm font-medium text-[#1E1E1E] bg-[#FFE95B] hover:bg-[#ffe033] rounded-lg px-5 py-2.5 transition-colors"
+              className="mt-8 inline-flex h-11 items-center justify-center rounded-[8px] bg-white px-5 text-[14px] font-medium leading-5 text-[#0063EB] shadow-[0_1px_2px_rgba(0,0,0,0.08)] transition-colors hover:bg-[#F8FAFC]"
             >
               Start My 14-Day Free Trial →
             </Link>
           </div>
-        </div>
-      </div>
 
-      {/* Footer links section — white background */}
-      <div className="bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-10">
-            {Object.entries(footerColumns).map(([heading, links]) => (
-              <div key={heading} className="flex flex-col gap-10">
-                {/* Column heading: 18px Regular UPPERCASE #4F4F4F */}
-                <h3
-                  className="text-[18px] font-normal text-[#4F4F4F] leading-6 uppercase"
-                  style={{ letterSpacing: "-0.0133em" }}
-                >
-                  {heading}
-                </h3>
-                {/* Links: 18px Regular #000000, gap 24px */}
-                <ul className="flex flex-col gap-6">
-                  {links.map((link) => (
-                    <li key={link.href}>
-                      <Link
-                        href={link.href}
-                        className="text-[18px] font-normal text-[#000000] leading-6 hover:text-[#0063EB] transition-colors"
-                        style={{ letterSpacing: "-0.0133em" }}
-                      >
-                        {link.label}
-                      </Link>
-                    </li>
+          <div className="relative z-10 mt-16 rounded-[14px] bg-white/80 p-6 text-left shadow-[0_1px_2px_rgba(0,0,0,0.03)] backdrop-blur-md sm:p-8 md:mt-20 md:p-10">
+            <div className="grid grid-cols-1 gap-10 md:grid-cols-[1.25fr_repeat(4,1fr)] md:gap-12">
+              <div className="flex flex-col">
+                <Image
+                  src="/images/figma/logo-full.png"
+                  alt="Paperless Pipeline"
+                  width={150}
+                  height={29}
+                  className="object-contain"
+                />
+                <p className="mt-10 max-w-[260px] text-[18px] font-normal leading-6 text-[#1E1E1E]">
+                  Streamlining transaction management for modern real estate
+                  teams.
+                </p>
+                <div className="mt-10 flex items-center gap-3">
+                  {[
+                    { label: "LinkedIn", mark: "in" },
+                    { label: "Instagram", mark: "ig" },
+                    { label: "X", mark: "X" },
+                  ].map(({ label, mark }) => (
+                    <Link
+                      key={label}
+                      href="#"
+                      aria-label={label}
+                      className="flex h-8 w-8 items-center justify-center rounded-full border border-dashed border-[#6C757D] text-[13px] font-medium leading-none text-[#475569] transition-colors hover:border-[#0063EB] hover:text-[#0063EB]"
+                    >
+                      {mark}
+                    </Link>
                   ))}
-                </ul>
+                </div>
               </div>
-            ))}
-          </div>
-        </div>
 
-        {/* Copyright row */}
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-8">
-          <div className="border-t border-gray-200 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
-            {/* Logo + copyright */}
-            <div className="flex items-center gap-3">
-              <Image
-                src="/images/figma/logo-full.png"
-                alt="Paperless Pipeline"
-                width={125}
-                height={24}
-                className="object-contain"
-              />
-              <p
-                className="text-[14px] font-normal text-[#4F4F4F] leading-5"
-                style={{ letterSpacing: "-0.0057em" }}
-              >
-                ©2026; All Rights Reserved
-              </p>
+              {Object.entries(footerColumns).map(([heading, links]) => (
+                <div key={heading} className="flex flex-col gap-8">
+                  <h3 className="text-[18px] font-normal uppercase leading-6 text-[#4F4F4F]">
+                    {heading}
+                  </h3>
+                  <ul className="flex flex-col gap-5">
+                    {links.map((link) => (
+                      <li key={link.href}>
+                        <Link
+                          href={link.href}
+                          className="text-[18px] font-normal leading-6 text-black transition-colors hover:text-[#0063EB]"
+                        >
+                          {link.label}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
             </div>
 
-            {/* Legal links: 14px Regular #4F4F4F underlined, gap 24px */}
-            <div className="flex items-center gap-6">
-              <Link
-                href="/cookie-policy"
-                className="text-[14px] font-normal text-[#4F4F4F] leading-5 underline hover:text-[#0063EB] transition-colors"
-                style={{ letterSpacing: "-0.0057em" }}
-              >
-                Cookies Settings
-              </Link>
-              <Link
-                href="/terms-of-service"
-                className="text-[14px] font-normal text-[#4F4F4F] leading-5 underline hover:text-[#0063EB] transition-colors"
-                style={{ letterSpacing: "-0.0057em" }}
-              >
-                Terms &amp; Conditions
-              </Link>
-              <Link
-                href="/privacy-policy"
-                className="text-[14px] font-normal text-[#4F4F4F] leading-5 underline hover:text-[#0063EB] transition-colors"
-                style={{ letterSpacing: "-0.0057em" }}
-              >
-                Privacy Policy
-              </Link>
+            <div className="mt-16 flex flex-col items-start justify-between gap-6 md:mt-20 md:flex-row md:items-center">
+              <p className="text-[14px] font-normal leading-5 text-[#4F4F4F]">
+                ©2026; All Rights Reserved
+              </p>
+
+              <div className="flex flex-wrap items-center gap-x-12 gap-y-3">
+                <Link
+                  href="/cookie-policy"
+                  className="text-[14px] font-normal leading-5 text-[#4F4F4F] underline transition-colors hover:text-[#0063EB]"
+                >
+                  Cookies Settings
+                </Link>
+                <Link
+                  href="/terms-of-service"
+                  className="text-[14px] font-normal leading-5 text-[#4F4F4F] underline transition-colors hover:text-[#0063EB]"
+                >
+                  Terms &amp; Conditions
+                </Link>
+                <Link
+                  href="/privacy-policy"
+                  className="text-[14px] font-normal leading-5 text-[#4F4F4F] underline transition-colors hover:text-[#0063EB]"
+                >
+                  Privacy Policy
+                </Link>
+              </div>
             </div>
           </div>
         </div>

@@ -70,7 +70,7 @@ const commissionFeatures = [
 
 export default function PricingPreviewSection() {
   return (
-    <section className="bg-white py-[80px] md:py-[120px] px-5 md:px-[80px]">
+    <section className="bg-white px-5 py-[80px] md:px-[80px] md:pt-16 md:pb-[120px]">
       <div className="max-w-[1440px] mx-auto flex flex-col items-center gap-12 md:gap-[55px]">
         {/* Section header */}
         <div className="flex flex-col items-center gap-3 w-full max-w-[836px]">

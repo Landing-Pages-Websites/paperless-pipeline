@@ -35,7 +35,7 @@ const testimonials = [
 
 export default function TestimonialsSection() {
   return (
-    <section className="bg-white px-6 py-[96px] sm:px-10 lg:px-[80px]">
+    <section className="bg-white px-6 pt-[96px] pb-14 sm:px-10 md:pb-16 lg:px-[80px]">
       <div className="mx-auto flex max-w-[1120px] flex-col gap-[55px]">
 
         {/* Header */}
