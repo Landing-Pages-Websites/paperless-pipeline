@@ -14,37 +14,11 @@ export default function FAQsPage() {
   return (
     <>
       {/* Hero */}
-      <section className="bg-[#FDF9EE] relative overflow-hidden py-24 md:py-32">
-        {/* Decorative blobs */}
-        <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
-          <div
-            className="absolute right-0 top-0 w-[700px] h-[700px] rounded-full"
-            style={{
-              background:
-                "radial-gradient(circle, rgba(4,110,255,0.35) 0%, transparent 70%)",
-              filter: "blur(187px)",
-              opacity: 0.4,
-            }}
-          />
-          <div
-            className="absolute right-1/4 top-1/3 w-[330px] h-[330px] rounded-full"
-            style={{
-              background:
-                "radial-gradient(circle, rgba(255,233,91,0.45) 0%, transparent 70%)",
-              filter: "blur(120px)",
-              opacity: 0.35,
-            }}
-          />
-          <div
-            className="absolute right-1/3 top-1/2 w-[210px] h-[210px] rounded-full"
-            style={{
-              background:
-                "radial-gradient(circle, rgba(255,73,44,0.35) 0%, transparent 70%)",
-              filter: "blur(80px)",
-              opacity: 0.3,
-            }}
-          />
-        </div>
+      <section className="relative overflow-hidden bg-[linear-gradient(100deg,#FFF9EC_0%,#FBF7EE_35%,#DDECF8_56%,#BFD9F7_78%,#E7EEC9_100%)] py-24 md:py-32">
+        <div
+          className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_72%_48%,rgba(0,99,235,0.12),transparent_42%),radial-gradient(circle_at_96%_88%,rgba(255,233,91,0.26),transparent_30%)]"
+          aria-hidden="true"
+        />
 
         <div className="relative z-10 max-w-[611px] mx-auto px-4 text-center">
           {/* Badge pill */}
@@ -97,11 +71,12 @@ export default function FAQsPage() {
       {/* CTA Banner */}
       <CTABanner
         variant="cta"
-        eyebrow="READY TO GET STARTED?"
-        heading="Try Paperless Pipeline free for 14 days"
-        subtext="No credit card required. Set up in minutes."
-        buttonText="Start Free Trial →"
-        buttonHref="/signup"
+        eyebrow="REACH OUT TO US"
+        heading="Still have questions?"
+        subtext="Our team is happy to walk you through anything. No sales pitch — just straightforward answers."
+        buttonText="Chat With Us →"
+        buttonHref="/contact"
+        compact
       />
 
       {/* Testimonials */}

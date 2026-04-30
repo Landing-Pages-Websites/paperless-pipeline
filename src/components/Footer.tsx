@@ -42,6 +42,8 @@ export default function Footer() {
     pathname === "/features/commissions-management";
   const isCommissionCalculatorPage = pathname === "/commission-calculator";
   const isSavingsCalculatorPage = pathname === "/savings-calculator";
+  const isFaqsPage = pathname === "/faqs";
+  const isPrivacyPolicyPage = pathname === "/privacy-policy";
 
   const footerCta = isPricingPage
     ? {
@@ -104,6 +106,30 @@ export default function Footer() {
               "See how easy it is to manage transactions, teams, and commissions—all in one place",
           }
       : isSavingsCalculatorPage
+        ? {
+            heading: (
+              <>
+                Simplify Your Transaction
+                <br />
+                Management Today
+              </>
+            ),
+            subtext:
+              "See how easy it is to manage transactions, teams, and commissions—all in one place",
+          }
+      : isFaqsPage
+        ? {
+            heading: (
+              <>
+                Simplify Your Transaction
+                <br />
+                Management Today
+              </>
+            ),
+            subtext:
+              "See how easy it is to manage transactions, teams, and commissions—all in one place",
+          }
+      : isPrivacyPolicyPage
         ? {
             heading: (
               <>

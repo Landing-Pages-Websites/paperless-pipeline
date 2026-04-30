@@ -1,99 +1,64 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { useState } from "react";
 import { ChevronDown, ChevronUp } from "lucide-react";
-import { faqs, type FAQCategory } from "@/data/faqs";
+import { faqs } from "@/data/faqs";
 
-const CATEGORIES: ("All" | FAQCategory)[] = [
-  "All",
-  "General",
+const VISIBLE_CATEGORIES = [
   "Getting Started",
   "Pricing",
   "Features",
-  "Support",
 ];
 
 export default function FAQsContent() {
-  const [activeCategory, setActiveCategory] = useState<"All" | FAQCategory>("All");
-  const [openItems, setOpenItems] = useState<Set<string>>(new Set());
-
-  const filtered = useMemo(
-    () =>
-      faqs.filter(
-        (faq) => activeCategory === "All" || faq.category === activeCategory
-      ),
-    [activeCategory]
+  const filtered = faqs.filter((faq) =>
+    VISIBLE_CATEGORIES.includes(faq.category)
   );
 
+  const [openQuestion, setOpenQuestion] = useState(filtered[0]?.question ?? "");
+
   function toggle(question: string) {
-    setOpenItems((prev) => {
-      const next = new Set(prev);
-      if (next.has(question)) next.delete(question);
-      else next.add(question);
-      return next;
-    });
+    setOpenQuestion((current) => (current === question ? "" : question));
   }
 
   return (
-    <div className="max-w-[1280px] mx-auto">
-      {/* Category tabs */}
-      <div
-        className="flex flex-wrap gap-2 justify-center mb-10"
-        role="tablist"
-        aria-label="FAQ categories"
-      >
-        {CATEGORIES.map((cat) => (
-          <button
-            key={cat}
-            role="tab"
-            aria-selected={activeCategory === cat}
-            onClick={() => setActiveCategory(cat)}
-            className={`px-5 py-2 rounded-full text-sm font-medium transition-colors ${
-              activeCategory === cat
-                ? "bg-[#0063EB] text-white"
-                : "bg-[#ECEEF2] text-[#4F4F4F] hover:bg-[#EEF4FF] hover:text-[#0063EB]"
-            }`}
-          >
-            {cat}
-          </button>
-        ))}
-      </div>
-
-      {/* FAQ accordion */}
-      <div className="divide-y divide-[#E4E4E7]">
+    <div className="mx-auto max-w-[610px]">
+      <div className="border-y border-[#E4E4E7]">
         {filtered.map((faq) => {
-          const isOpen = openItems.has(faq.question);
+          const isOpen = openQuestion === faq.question;
           return (
-            <div key={faq.question} className="px-6 py-6">
+            <div key={faq.question} className="border-b border-[#E4E4E7] last:border-b-0">
               <button
-                className="w-full flex items-center justify-between gap-5 text-left"
+                className="flex w-full items-center justify-between gap-5 py-6 text-left"
                 onClick={() => toggle(faq.question)}
                 aria-expanded={isOpen}
               >
                 <span
-                  className="text-[18px] leading-8 text-[#1E1E1E]"
+                  className="text-[16px] leading-6 text-[#1E1E1E]"
                   style={{ fontWeight: 600 }}
                 >
                   {faq.question}
                 </span>
                 <span
-                  className={`flex-shrink-0 w-9 h-9 rounded-full flex items-center justify-center transition-colors ${
+                  className={`flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full transition-colors ${
                     isOpen
                       ? "bg-[#0063EB] text-white"
-                      : "bg-white border border-[#E4E4E7] text-[#4F4F4F]"
+                      : "text-[#1E1E1E]"
                   }`}
                   aria-hidden="true"
                 >
-                  {isOpen ? <ChevronUp size={18} /> : <ChevronDown size={18} />}
+                  {isOpen ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
                 </span>
               </button>
 
               {isOpen && (
-                <div className="mt-4 pr-14">
+                <div className="max-w-[560px] pb-6 pr-10">
                   {faq.answer.split("\n\n").map((paragraph, i) => (
                     <p
                       key={i}
-                      className={`text-base leading-7 text-[#4F4F4F] ${i > 0 ? "mt-4" : ""}`}
+                      className={`text-[15px] leading-6 text-[#4F4F4F] ${
+                        i > 0 ? "mt-7" : ""
+                      }`}
                       style={{ fontWeight: 400 }}
                     >
                       {paragraph}
