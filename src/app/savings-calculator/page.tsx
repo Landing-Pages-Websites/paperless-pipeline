@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { Users, RefreshCw, Star } from "lucide-react";
-import CTABanner from "@/components/home/CTABanner";
 import SavingsCalculatorContent from "./SavingsCalculatorContent";
 
 export const metadata: Metadata = {
@@ -259,7 +258,7 @@ export default function SavingsCalculatorPage() {
             {/* Image */}
             <div className="relative min-h-[400px] flex-1 overflow-hidden rounded-2xl lg:min-h-0">
               <Image
-                src="/images/figma/pages/a0652331378aef12.png"
+                src="/images/figma/pages/product-screenshot-checklist.jpg"
                 alt="Real estate professionals working together"
                 fill
                 className="object-cover"
@@ -270,15 +269,6 @@ export default function SavingsCalculatorPage() {
         </div>
       </section>
 
-      {/* ── 6. CTA BANNER ── */}
-      <CTABanner
-        variant="cta"
-        eyebrow="GET STARTED"
-        heading="Simplify Your Transaction Management Today"
-        subtext="See how easy it is to manage transactions, teams, and commissions—all in one place"
-        buttonText="Start My 14-Day Free Trial →"
-        buttonHref="/signup"
-      />
     </>
   );
 }

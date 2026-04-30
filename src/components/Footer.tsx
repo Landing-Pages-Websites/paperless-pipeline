@@ -40,6 +40,8 @@ export default function Footer() {
   const isPipelineESignPage = pathname === "/features/pipeline-esign";
   const isCommissionsManagementPage =
     pathname === "/features/commissions-management";
+  const isCommissionCalculatorPage = pathname === "/commission-calculator";
+  const isSavingsCalculatorPage = pathname === "/savings-calculator";
 
   const footerCta = isPricingPage
     ? {
@@ -88,6 +90,30 @@ export default function Footer() {
             ),
             subtext:
               "See how Paperless Pipeline can streamline your workflow and save your team valuable time",
+          }
+      : isCommissionCalculatorPage
+        ? {
+            heading: (
+              <>
+                Simplify Your Transaction
+                <br />
+                Management Today
+              </>
+            ),
+            subtext:
+              "See how easy it is to manage transactions, teams, and commissions—all in one place",
+          }
+      : isSavingsCalculatorPage
+        ? {
+            heading: (
+              <>
+                Simplify Your Transaction
+                <br />
+                Management Today
+              </>
+            ),
+            subtext:
+              "See how easy it is to manage transactions, teams, and commissions—all in one place",
           }
       : isHomePage
         ? {
