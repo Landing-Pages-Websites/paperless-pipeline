@@ -44,6 +44,7 @@ export default function Footer() {
   const isSavingsCalculatorPage = pathname === "/savings-calculator";
   const isFaqsPage = pathname === "/faqs";
   const isPrivacyPolicyPage = pathname === "/privacy-policy";
+  const isTermsOfServicePage = pathname === "/terms-of-service";
 
   const footerCta = isPricingPage
     ? {
@@ -130,6 +131,18 @@ export default function Footer() {
               "See how easy it is to manage transactions, teams, and commissions—all in one place",
           }
       : isPrivacyPolicyPage
+        ? {
+            heading: (
+              <>
+                Simplify Your Transaction
+                <br />
+                Management Today
+              </>
+            ),
+            subtext:
+              "See how easy it is to manage transactions, teams, and commissions—all in one place",
+          }
+      : isTermsOfServicePage
         ? {
             heading: (
               <>
