@@ -33,8 +33,35 @@ const footerColumns: Record<string, { label: string; href: string }[]> = {
 export default function Footer() {
   const pathname = usePathname();
   const isTcPage = pathname === "/how-it-works/transaction-coordinators";
+  const isTransactionManagementPage =
+    pathname === "/features/transaction-management";
+  const isPipelineESignPage = pathname === "/features/pipeline-esign";
 
-  const footerCta = isTcPage
+  const footerCta = isTransactionManagementPage
+    ? {
+        heading: (
+          <>
+            Ready to Simplify Your
+            <br />
+            Transaction Management?
+          </>
+        ),
+        subtext:
+          "See how Paperless Pipeline can streamline your workflow and save your team valuable time",
+      }
+    : isPipelineESignPage
+      ? {
+          heading: (
+            <>
+              Ready to Simplify Your
+              <br />
+              Signing Process?
+            </>
+          ),
+          subtext:
+            "Switch to a faster, smarter, and more affordable solution today",
+        }
+      : isTcPage
     ? {
         heading: (
           <>

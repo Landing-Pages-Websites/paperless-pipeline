@@ -59,7 +59,7 @@ export default function Header() {
       }`}
     >
       {/* Announcement banner */}
-      <div className="flex items-center justify-center gap-3 bg-[#0063EB] px-4 py-2">
+      <div className="flex items-center justify-center gap-3 bg-[#0063EB] px-4 py-4">
         <p className="text-center text-[17px] font-normal leading-6 text-white">
           See our AI Roadmap for Transaction Management
         </p>
@@ -72,8 +72,8 @@ export default function Header() {
       </div>
 
       {/* Main nav bar — 96px tall */}
-      <div className="mx-auto max-w-[1440px] px-6 sm:px-10 lg:px-20">
-        <div className="flex items-center justify-between h-24">
+      <div className="mx-auto w-full max-w-[1720px] px-6 sm:px-10 lg:px-[108px]">
+        <div className="flex h-28 items-center justify-between">
           {/* Logo */}
           <Link href="/" className="flex items-center flex-shrink-0">
             <Image

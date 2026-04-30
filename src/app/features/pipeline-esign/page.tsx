@@ -131,12 +131,18 @@ export default function PipelineESignPage() {
       {/* ─────────────────────────────────────────
           1. HERO
       ───────────────────────────────────────── */}
-      <section className="bg-[#FDF9EE] overflow-hidden">
-        <div className="max-w-[1280px] mx-auto px-5 sm:px-10 lg:px-20">
-          <div className="flex flex-col lg:flex-row items-start gap-12 lg:gap-10 pt-16 pb-16 lg:pt-[98px] lg:pb-20">
+      <section
+        className="overflow-hidden"
+        style={{
+          background:
+            "radial-gradient(circle at 88% 58%, rgba(241, 202, 181, 0.42) 0%, transparent 27%), radial-gradient(circle at 78% 88%, rgba(244, 233, 146, 0.42) 0%, transparent 24%), linear-gradient(110deg, #FDF9EE 0%, #FBF8EF 36%, #EAF4FB 54%, #C7DFF7 74%, #F8F3D4 100%)",
+        }}
+      >
+        <div className="mx-auto max-w-[1440px] px-5 sm:px-10 lg:px-20">
+          <div className="flex flex-col items-start gap-12 pb-16 pt-16 lg:flex-row lg:gap-[70px] lg:pb-[70px] lg:pt-[43px]">
 
             {/* Left column */}
-            <div className="w-full lg:w-[55%] flex flex-col gap-8">
+            <div className="flex w-full flex-col gap-8 lg:w-[590px] lg:shrink-0 lg:pt-[72px]">
               <div className="flex flex-col gap-6">
                 <div className="flex flex-col gap-3">
                   {/* Badge */}
@@ -164,9 +170,9 @@ export default function PipelineESignPage() {
                   <h1
                     className="font-semibold text-black"
                     style={{
-                      fontSize: "clamp(40px, 5.5vw, 64px)",
-                      lineHeight: "1.125",
-                      letterSpacing: "-0.0375em",
+                      fontSize: "clamp(44px, 5.55vw, 64px)",
+                      lineHeight: "1.08",
+                      letterSpacing: "-0.052em",
                     }}
                   >
                     Get Documents{" "}
@@ -186,7 +192,7 @@ export default function PipelineESignPage() {
               </div>
 
               {/* CTA buttons */}
-              <div className="flex flex-col sm:flex-row gap-3">
+              <div className="flex flex-col gap-3 sm:flex-row">
                 <Link
                   href="/signup"
                   className="inline-flex items-center justify-center text-white font-medium w-full sm:w-auto"
@@ -218,87 +224,25 @@ export default function PipelineESignPage() {
                   Book A Demo →
                 </Link>
               </div>
-
-              {/* Social proof */}
-              <div className="flex items-center gap-4">
-                <div className="flex items-center">
-                  {[1, 2, 3].map((n) => (
-                    <div
-                      key={n}
-                      className="relative rounded-full overflow-hidden border-2 border-[#FDF9EE] flex-shrink-0"
-                      style={{
-                        width: "36px",
-                        height: "36px",
-                        marginLeft: n === 1 ? "0" : "-10px",
-                        zIndex: n,
-                      }}
-                    >
-                      <Image
-                        src={`/images/figma/hero-avatar-${n}.png`}
-                        alt={`User avatar ${n}`}
-                        fill
-                        className="object-cover"
-                      />
-                    </div>
-                  ))}
-                </div>
-                <div
-                  style={{ width: "1px", height: "52px", background: "#D5D9E2", flexShrink: 0 }}
-                />
-                <div className="flex flex-col">
-                  <div
-                    style={{
-                      fontFamily: "var(--font-bricolage)",
-                      fontWeight: 500,
-                      fontSize: "32px",
-                      lineHeight: "1",
-                      letterSpacing: "-0.03em",
-                    }}
-                  >
-                    <span style={{ color: "#23272E" }}>4.6</span>
-                    <span style={{ color: "#0063EB" }}>+</span>
-                  </div>
-                  <div className="flex gap-0.5 mt-1">
-                    {[...Array(5)].map((_, i) => (
-                      <svg
-                        key={i}
-                        width="14"
-                        height="14"
-                        viewBox="0 0 24 24"
-                        fill="#FFE95B"
-                        aria-hidden="true"
-                      >
-                        <path d="M12 2l2.7 5.47 6.03.87-4.37 4.25 1.03 6.01L12 15.77l-5.39 2.83 1.03-6.01L3.27 8.34l6.03-.87L12 2z" />
-                      </svg>
-                    ))}
-                  </div>
-                  <span
-                    className="font-medium mt-0.5"
-                    style={{ fontSize: "12px", lineHeight: "20px", color: "#6C757D" }}
-                  >
-                    by users on G2
-                  </span>
-                </div>
-              </div>
             </div>
 
             {/* Right column: product screenshot */}
-            <div className="w-full lg:flex-1 flex justify-center lg:justify-end">
+            <div className="flex w-full justify-center lg:w-[620px] lg:shrink-0 lg:justify-end">
               <div
-                className="relative w-full rounded-2xl overflow-hidden"
+                className="relative w-full overflow-hidden rounded-2xl"
                 style={{
                   maxWidth: "620px",
                   aspectRatio: "621 / 524",
-                  border: "1px solid rgba(0,0,0,0.08)",
                   boxShadow:
                     "-3px 4px 11px 0px rgba(112,112,112,0.1), -13px 15px 20px 0px rgba(112,112,112,0.09), -29px 35px 27px 0px rgba(112,112,112,0.05)",
                 }}
               >
                 <Image
-                  src="/images/figma/pages/screenshot-esign-workflow.jpg"
+                  src="/images/figma/pages/screenshot-esign-signing.jpg"
                   alt="Pipeline eSign — integrated document signing workflow"
                   fill
                   className="object-cover"
+                  style={{ objectPosition: "50% 48%" }}
                   sizes="(max-width: 1024px) 100vw, 45vw"
                   priority
                 />
@@ -311,22 +255,23 @@ export default function PipelineESignPage() {
       {/* ─────────────────────────────────────────
           2. BENEFITS
       ───────────────────────────────────────── */}
-      <section className="bg-white py-[80px] md:py-[120px] px-5 md:px-[80px]">
-        <div className="max-w-[1280px] mx-auto flex flex-col items-center gap-12">
+      <section className="bg-white px-5 py-5">
+        <div className="mx-auto max-w-[1400px] rounded-2xl bg-[#0063EB] px-5 py-[80px] sm:px-10 md:py-[120px] lg:px-[80px]">
+          <div className="mx-auto flex max-w-[1280px] flex-col items-center gap-12">
 
           {/* Section header */}
           <div className="flex flex-col items-center gap-3 max-w-[836px] w-full text-center">
             <p
-              className="text-[#0063EB] font-medium text-[14px] leading-[24px] uppercase"
+              className="font-medium text-[14px] uppercase leading-[24px] text-white"
               style={{ letterSpacing: "0.0893em" }}
             >
               Features
             </p>
             <div className="flex flex-col gap-2">
-              <h2 className="text-black font-semibold text-[32px] md:text-[48px] leading-tight">
+              <h2 className="text-[32px] font-semibold leading-tight text-white md:text-[48px]">
                 What Makes Pipeline eSign Different
               </h2>
-              <p className="text-[#4F4F4F] font-normal text-[16px] leading-[150%]">
+              <p className="font-normal text-[16px] leading-[150%] text-white">
                 Built to make document signing fast, simple, and fully integrated
               </p>
             </div>
@@ -334,30 +279,32 @@ export default function PipelineESignPage() {
 
           {/* Benefit cards grid — 3 cols on first row, 2 centered on second */}
           <div className="w-full flex flex-col gap-6">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
               {benefitCards.slice(0, 3).map(({ Icon, title, description }) => (
                 <div
                   key={title}
-                  className="flex flex-col gap-6 rounded-xl p-8"
+                  className="flex min-h-[250px] flex-col gap-6 rounded-xl p-8"
                   style={{ background: "#FFFFFF", border: "1px solid rgba(0,0,0,0.1)" }}
                 >
-                  <div
-                    className="flex items-center justify-center rounded-full bg-[#0063EB] flex-shrink-0"
-                    style={{ width: "56px", height: "56px", padding: "12px" }}
-                  >
-                    <Icon size={24} color="white" aria-hidden="true" />
-                  </div>
-                  <div className="flex flex-col gap-4">
+                  <div className="flex items-center gap-6">
+                    <div
+                      className="flex flex-shrink-0 items-center justify-center rounded-full bg-[#0063EB]"
+                      style={{ width: "48px", height: "48px", padding: "12px" }}
+                    >
+                      <Icon size={22} color="#FFE95B" fill="#FFE95B" aria-hidden="true" />
+                    </div>
                     <h3
-                      className="text-black font-normal"
+                      className="font-normal text-black"
                       style={{ fontSize: "18px", lineHeight: "28px", letterSpacing: "-0.0144em" }}
                     >
                       {title}
                     </h3>
-                    <div className="w-full h-px bg-[#E4E4E7]" />
+                  </div>
+                  <div className="flex flex-col gap-4">
+                    <div className="h-px w-full bg-[#E4E4E7]" />
                     <p
                       className="text-[#4F4F4F] font-normal"
-                      style={{ fontSize: "16px", lineHeight: "32px", letterSpacing: "-0.0113em" }}
+                      style={{ fontSize: "16px", lineHeight: "30px", letterSpacing: "-0.0113em" }}
                     >
                       {description}
                     </p>
@@ -365,30 +312,32 @@ export default function PipelineESignPage() {
                 </div>
               ))}
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:max-w-[66.67%] mx-auto w-full">
+            <div className="mx-auto grid w-full grid-cols-1 gap-6 md:grid-cols-2 md:max-w-[calc(66.67%+8px)]">
               {benefitCards.slice(3).map(({ Icon, title, description }) => (
                 <div
                   key={title}
-                  className="flex flex-col gap-6 rounded-xl p-8"
+                  className="flex min-h-[220px] flex-col gap-6 rounded-xl p-8"
                   style={{ background: "#FFFFFF", border: "1px solid rgba(0,0,0,0.1)" }}
                 >
-                  <div
-                    className="flex items-center justify-center rounded-full bg-[#0063EB] flex-shrink-0"
-                    style={{ width: "56px", height: "56px", padding: "12px" }}
-                  >
-                    <Icon size={24} color="white" aria-hidden="true" />
-                  </div>
-                  <div className="flex flex-col gap-4">
+                  <div className="flex items-center gap-6">
+                    <div
+                      className="flex flex-shrink-0 items-center justify-center rounded-full bg-[#0063EB]"
+                      style={{ width: "48px", height: "48px", padding: "12px" }}
+                    >
+                      <Icon size={22} color="#FFE95B" fill="#FFE95B" aria-hidden="true" />
+                    </div>
                     <h3
-                      className="text-black font-normal"
+                      className="font-normal text-black"
                       style={{ fontSize: "18px", lineHeight: "28px", letterSpacing: "-0.0144em" }}
                     >
                       {title}
                     </h3>
-                    <div className="w-full h-px bg-[#E4E4E7]" />
+                  </div>
+                  <div className="flex flex-col gap-4">
+                    <div className="h-px w-full bg-[#E4E4E7]" />
                     <p
                       className="text-[#4F4F4F] font-normal"
-                      style={{ fontSize: "16px", lineHeight: "32px", letterSpacing: "-0.0113em" }}
+                      style={{ fontSize: "16px", lineHeight: "30px", letterSpacing: "-0.0113em" }}
                     >
                       {description}
                     </p>
@@ -397,14 +346,15 @@ export default function PipelineESignPage() {
               ))}
             </div>
           </div>
+          </div>
         </div>
       </section>
 
       {/* ─────────────────────────────────────────
           3. BEFORE / AFTER
       ───────────────────────────────────────── */}
-      <section className="bg-white py-[80px] md:py-[120px] px-5 md:px-[80px]">
-        <div className="max-w-[1280px] mx-auto flex flex-col items-center gap-12">
+      <section className="bg-white px-5 py-[88px] md:px-[80px] md:py-[120px]">
+        <div className="mx-auto flex max-w-[1280px] flex-col items-center gap-12">
 
           {/* Section header */}
           <div className="flex flex-col items-center gap-3 max-w-[757px] w-full text-center">
@@ -415,7 +365,7 @@ export default function PipelineESignPage() {
               Pricing Advantage
             </p>
             <div className="flex flex-col gap-2">
-              <h2 className="text-black font-semibold text-[32px] md:text-[48px] leading-tight">
+              <h2 className="text-[32px] font-semibold leading-tight text-black md:text-[48px]">
                 Stop Overpaying for eSign Tools
               </h2>
               <p className="text-[#4F4F4F] font-normal text-[16px] leading-[150%]">
@@ -425,89 +375,91 @@ export default function PipelineESignPage() {
           </div>
 
           {/* Cards row */}
-          <div className="flex flex-col lg:flex-row gap-6 w-full">
+          <div className="flex w-full flex-col gap-6 lg:flex-row">
 
             {/* BEFORE card */}
             <div
-              className="flex-1 flex flex-col gap-4 rounded-2xl overflow-hidden"
+              className="flex-1 overflow-hidden rounded-2xl p-4"
               style={{ background: "#F3F3F3", border: "1px solid rgba(0,0,0,0.1)" }}
             >
-              <div className="relative w-full" style={{ height: "240px" }}>
+              <div className="relative w-full overflow-hidden rounded-lg" style={{ height: "319px" }}>
                 <Image
-                  src="/images/figma/pages/screenshot-esign-templates.jpg"
+                  src="/images/figma/pages/screenshot-esign-workflow.jpg"
                   alt="Traditional eSign tools — disconnected, costly workflow"
                   fill
                   className="object-cover"
                   sizes="(max-width: 1024px) 100vw, 50vw"
                 />
               </div>
-              <div className="flex flex-col gap-5 px-6 pb-8">
+              <div className="flex flex-col gap-4 pt-5">
                 <h3
                   className="font-medium"
                   style={{ fontSize: "24px", lineHeight: "32px", letterSpacing: "-0.0521em", color: "#131315" }}
                 >
                   Traditional eSign Tools
                 </h3>
-                <div className="flex flex-col gap-3">
+                <div className="h-px w-full bg-black/10" />
+                <div className="flex flex-col gap-4 pb-1">
                   {beforeItems.map((item) => (
                     <div key={item} className="flex items-start gap-2">
-                      <span className="flex-shrink-0 mt-1">
-                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
-                          <circle cx="10" cy="10" r="9" stroke="#D92D20" strokeWidth="1.5" />
-                          <path d="M13 7L7 13M7 7l6 6" stroke="#D92D20" strokeWidth="1.5" strokeLinecap="round" />
+                      <span className="mt-1 flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-[#E3342F]">
+                        <svg width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true">
+                          <path d="M7.75 2.25L2.25 7.75M2.25 2.25l5.5 5.5" stroke="white" strokeWidth="1.5" strokeLinecap="round" />
                         </svg>
                       </span>
                       <p
                         className="font-normal text-[#4F4F4F]"
-                        style={{ fontSize: "16px", lineHeight: "32px", letterSpacing: "-0.0113em" }}
+                        style={{ fontSize: "16px", lineHeight: "24px", letterSpacing: "-0.0113em" }}
                       >
                         {item}
                       </p>
                     </div>
                   ))}
                 </div>
+                <div className="h-px w-full bg-black/10" />
               </div>
             </div>
 
             {/* AFTER card */}
             <div
-              className="flex-1 flex flex-col gap-4 rounded-2xl overflow-hidden"
+              className="flex-1 overflow-hidden rounded-2xl p-4"
               style={{ background: "#0063EB", border: "1px solid rgba(255,255,255,0.1)" }}
             >
-              <div className="relative w-full" style={{ height: "240px" }}>
+              <div className="relative w-full overflow-hidden rounded-lg" style={{ height: "319px" }}>
                 <Image
-                  src="/images/figma/pages/screenshot-esign-signing.jpg"
+                  src="/images/figma/pages/screenshot-esign-form.jpg"
                   alt="Pipeline eSign — integrated, affordable, seamless"
                   fill
                   className="object-cover"
                   sizes="(max-width: 1024px) 100vw, 50vw"
                 />
               </div>
-              <div className="flex flex-col gap-5 px-6 pb-8">
+              <div className="flex flex-col gap-4 pt-5">
                 <h3
                   className="font-medium text-white"
                   style={{ fontSize: "24px", lineHeight: "32px", letterSpacing: "-0.0521em" }}
                 >
                   Pipeline eSign
                 </h3>
-                <div className="flex flex-col gap-3">
+                <div className="h-px w-full bg-white/15" />
+                <div className="flex flex-col gap-4 pb-1">
                   {afterItems.map((item) => (
                     <div key={item} className="flex items-start gap-2">
-                      <span className="flex-shrink-0 mt-1">
-                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
-                          <circle cx="10" cy="10" r="9" stroke="rgba(255,255,255,0.6)" strokeWidth="1.5" />
-                          <path d="M6.5 10l2.5 2.5 4.5-5" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                      <span className="mt-1 flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-[#26C653]">
+                        <svg width="11" height="9" viewBox="0 0 11 9" fill="none" aria-hidden="true">
+                          <path d="M1.4 4.5l2.6 2.6 5.6-5.6" stroke="#0063EB" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" />
                         </svg>
                       </span>
                       <p
                         className="font-normal text-white"
-                        style={{ fontSize: "16px", lineHeight: "32px", letterSpacing: "-0.0113em" }}
+                        style={{ fontSize: "16px", lineHeight: "24px", letterSpacing: "-0.0113em" }}
                       >
                         {item}
                       </p>
                     </div>
                   ))}
                 </div>
+                <div className="h-px w-full bg-white/10" />
               </div>
             </div>
           </div>
@@ -534,24 +486,31 @@ export default function PipelineESignPage() {
       {/* ─────────────────────────────────────────
           4. CTA BANNER
       ───────────────────────────────────────── */}
-      <CTABanner />
+      <CTABanner
+        variant="cta"
+        eyebrow="Get Started"
+        heading="See Pipeline eSign in Action"
+        subtext="Watch how simple your signing workflow can be"
+        buttonText="Watch Demo →"
+        buttonHref="/demo"
+      />
 
       {/* ─────────────────────────────────────────
           5. USE CASES
       ───────────────────────────────────────── */}
-      <section className="bg-white py-[80px] md:py-[120px] px-5 md:px-[80px]">
-        <div className="max-w-[1280px] mx-auto flex flex-col gap-16">
+      <section className="bg-white px-5 py-[80px] md:px-[80px] md:py-[120px]">
+        <div className="mx-auto flex max-w-[1280px] flex-col gap-16">
 
           {/* Header — two columns on desktop */}
-          <div className="flex flex-col md:flex-row md:items-end gap-3">
-            <div className="flex flex-col gap-3 flex-1">
+          <div className="flex flex-col gap-3 md:flex-row md:items-end">
+            <div className="flex flex-1 flex-col gap-3">
               <p
                 className="text-[#0063EB] font-medium text-[14px] leading-[24px] uppercase"
                 style={{ letterSpacing: "0.0893em" }}
               >
                 Built For
               </p>
-              <h2 className="text-black font-semibold text-[32px] md:text-[48px] leading-tight">
+              <h2 className="text-[32px] font-semibold leading-tight text-black md:text-[48px]">
                 Designed for Every Role in Your Team
               </h2>
             </div>
@@ -567,18 +526,18 @@ export default function PipelineESignPage() {
           </div>
 
           {/* Use case cards 2×2 */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
             {useCases.map(({ Icon, title, description }) => (
               <div
                 key={title}
-                className="flex flex-col gap-6 rounded-xl p-6"
+                className="flex min-h-[220px] flex-col gap-6 rounded-xl p-6"
                 style={{ background: "#FFFFFF", border: "1px solid rgba(0,0,0,0.1)" }}
               >
                 <div
-                  className="flex items-center justify-center rounded-full bg-[#0063EB] flex-shrink-0"
-                  style={{ width: "64px", height: "64px" }}
+                  className="flex flex-shrink-0 items-center justify-center rounded-full bg-[#0063EB]"
+                  style={{ width: "56px", height: "56px" }}
                 >
-                  <Icon size={28} color="white" aria-hidden="true" />
+                  <Icon size={24} color="#FFE95B" fill="#FFE95B" aria-hidden="true" />
                 </div>
                 <div className="flex flex-col gap-6">
                   <h3
@@ -603,11 +562,11 @@ export default function PipelineESignPage() {
       {/* ─────────────────────────────────────────
           6. HOW IT WORKS
       ───────────────────────────────────────── */}
-      <section className="bg-white py-[80px] md:py-[120px] px-5 md:px-[80px]">
-        <div className="max-w-[1280px] mx-auto flex flex-col lg:flex-row gap-12 lg:gap-12">
+      <section className="bg-white px-5 py-[80px] md:px-[80px] md:py-[120px]">
+        <div className="mx-auto flex max-w-[1280px] flex-col gap-12 lg:flex-row lg:gap-12">
 
           {/* Left: section header */}
-          <div className="flex flex-col gap-3 lg:w-[480px] flex-shrink-0">
+          <div className="flex flex-shrink-0 flex-col gap-3 lg:w-[560px]">
             <p
               className="text-[#0063EB] font-medium text-[14px] leading-[24px] uppercase"
               style={{ letterSpacing: "0.0893em" }}
@@ -615,7 +574,7 @@ export default function PipelineESignPage() {
               All-in-One Workflow
             </p>
             <div className="flex flex-col gap-2">
-              <h2 className="text-black font-semibold text-[32px] md:text-[48px] leading-tight">
+              <h2 className="text-[32px] font-semibold leading-tight text-black md:text-[48px]">
                 From Sending to Signing in 4 Simple Steps
               </h2>
               <p className="text-[#4F4F4F] font-normal text-[16px] leading-[150%]">
@@ -625,10 +584,10 @@ export default function PipelineESignPage() {
           </div>
 
           {/* Right: numbered steps */}
-          <div className="flex gap-6 flex-1 min-w-0">
+          <div className="flex min-w-0 flex-1 gap-6">
 
             {/* Number bubbles + connecting line */}
-            <div className="flex flex-col items-center flex-shrink-0">
+            <div className="flex flex-shrink-0 flex-col items-center">
               {steps.map((step, i) => (
                 <div key={step.number} className="flex flex-col items-center">
                   <div
@@ -649,7 +608,7 @@ export default function PipelineESignPage() {
                   {i < steps.length - 1 && (
                     <div
                       className="w-px bg-[#DEE2E6] my-3"
-                      style={{ minHeight: i === 0 ? "384px" : "112px" }}
+                      style={{ minHeight: i === 0 ? "384px" : "128px" }}
                     />
                   )}
                 </div>
@@ -657,7 +616,7 @@ export default function PipelineESignPage() {
             </div>
 
             {/* Step cards */}
-            <div className="flex flex-col gap-6 flex-1 min-w-0">
+            <div className="flex min-w-0 flex-1 flex-col gap-6">
 
               {/* Step 1 — large card with image */}
               <div
@@ -687,7 +646,7 @@ export default function PipelineESignPage() {
                   style={{ height: "272px" }}
                 >
                   <Image
-                    src="/images/figma/pages/screenshot-esign-form.jpg"
+                    src="/images/figma/pages/screenshot-esign-templates.jpg"
                     alt="Choose documents and signers in Pipeline eSign"
                     fill
                     className="object-cover"
@@ -724,6 +683,15 @@ export default function PipelineESignPage() {
           </div>
         </div>
       </section>
+
+      <CTABanner
+        variant="cta"
+        eyebrow="Ready to simplify your signing process?"
+        heading="Ready to Simplify Your Signing Process?"
+        subtext="Switch to a faster, smarter, and more affordable solution today"
+        buttonText="Start My 14-Day Free Trial →"
+        buttonHref="/signup"
+      />
     </>
   );
 }

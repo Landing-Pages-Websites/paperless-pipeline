@@ -145,7 +145,13 @@ export default function BrokersPage() {
       {/* ─────────────────────────────────────────
           1. HERO
       ───────────────────────────────────────── */}
-      <section className="overflow-hidden bg-[#FDF9EE]">
+      <section
+        className="overflow-hidden"
+        style={{
+          background:
+            "radial-gradient(circle at 88% 58%, rgba(241, 202, 181, 0.42) 0%, transparent 27%), radial-gradient(circle at 74% 88%, rgba(244, 233, 146, 0.42) 0%, transparent 24%), linear-gradient(110deg, #FDF9EE 0%, #FBF8EF 36%, #EAF4FB 54%, #C7DFF7 74%, #F8F3D4 100%)",
+        }}
+      >
         <div className="mx-auto max-w-[1440px] px-5 sm:px-10 lg:px-20">
           <div className="flex flex-col items-start gap-12 pb-16 pt-16 lg:flex-row lg:gap-[48px] lg:pb-[70px] lg:pt-[43px]">
 
