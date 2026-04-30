@@ -1,6 +1,17 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import {
+  BarChart3,
+  Bell,
+  Building2,
+  Eye,
+  FileText,
+  Landmark,
+  Sparkles,
+  UserCheck,
+  Users,
+} from "lucide-react";
 import CTABanner from "@/components/home/CTABanner";
 
 export const metadata: Metadata = {
@@ -18,10 +29,10 @@ const commissionChecklist = [
 ];
 
 const featureTabs = [
-  { label: "Statements", sub: "Clear Payouts" },
-  { label: "Reports", sub: "Performance Insights" },
-  { label: "Automation", sub: "Smart Updates" },
-  { label: "Visibility", sub: "Real-Time Access", active: true },
+  { Icon: FileText, label: "Statements", sub: "Clear Payouts" },
+  { Icon: BarChart3, label: "Reports", sub: "Performance Insights" },
+  { Icon: Bell, label: "Automation", sub: "Smart Updates" },
+  { Icon: Eye, label: "Visibility", sub: "Real-Time Access", active: true },
 ];
 
 const processSteps = [
@@ -47,21 +58,25 @@ const processSteps = [
 
 const useCases = [
   {
+    Icon: Landmark,
     title: "Brokers & Owners",
     description:
       "Gain full visibility into financial performance and ensure accurate payouts across your entire organization.",
   },
   {
+    Icon: UserCheck,
     title: "Agents",
     description:
       "Track your earnings in real time without needing to ask for updates or wait for reports.",
   },
   {
+    Icon: Users,
     title: "Admins & Accounting Teams",
     description:
       "Reduce manual work and streamline reporting with automated calculations and ready-to-use statements.",
   },
   {
+    Icon: Building2,
     title: "Growing Teams",
     description:
       "Handle increasing transaction volume without adding complexity to your commission process.",
@@ -74,30 +89,37 @@ export default function CommissionsManagementPage() {
       {/* ─────────────────────────────────────────
           1. HERO
       ───────────────────────────────────────── */}
-      <section className="bg-[#FDF9EE] overflow-hidden">
-        <div className="max-w-[1280px] mx-auto px-5 sm:px-10 lg:px-20">
-          <div className="flex flex-col lg:flex-row items-start gap-12 lg:gap-10 pt-16 pb-16 lg:pt-[98px] lg:pb-20">
+      <section
+        className="overflow-hidden"
+        style={{
+          background:
+            "linear-gradient(105deg, #FFF9EA 0%, #FFF9EA 41%, #EAF5FF 63%, #F4F0D5 100%)",
+        }}
+      >
+        <div className="mx-auto w-full max-w-[1720px] px-5 sm:px-10 lg:px-[108px]">
+          <div className="grid grid-cols-1 items-center gap-9 py-10 lg:grid-cols-[minmax(0,640px)_minmax(0,620px)] lg:justify-between lg:gap-12 lg:pt-[42px] lg:pb-[68px]">
 
             {/* Left column */}
-            <div className="w-full lg:w-[55%] flex flex-col gap-8">
+            <div className="flex w-full flex-col gap-7">
               <div className="flex flex-col gap-6">
-                <div className="flex flex-col gap-3">
+                <div className="flex flex-col gap-5">
                   {/* Badge */}
                   <div
-                    className="inline-flex items-center self-start gap-2 bg-white rounded-full"
-                    style={{ border: "1px solid rgba(0,0,0,0.1)", padding: "6px 12px 6px 6px" }}
+                    className="inline-flex items-center self-start gap-3 rounded-full bg-white"
+                    style={{
+                      border: "1px solid rgba(0,0,0,0.1)",
+                      padding: "7px 17px 7px 8px",
+                      boxShadow: "0 1px 2px rgba(0,0,0,0.03)",
+                    }}
                   >
                     <span
-                      className="flex items-center justify-center rounded-full flex-shrink-0"
-                      style={{ background: "rgba(4,110,255,0.1)", width: "20px", height: "20px" }}
+                      className="flex shrink-0 items-center justify-center rounded-full"
+                      style={{ background: "rgba(4,110,255,0.1)", width: "24px", height: "24px" }}
                     >
-                      <svg width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true">
-                        <circle cx="5" cy="5" r="4" fill="#0063EB" />
-                      </svg>
+                      <Sparkles size={14} color="#0063EB" aria-hidden="true" />
                     </span>
                     <span
-                      className="font-medium text-black whitespace-nowrap"
-                      style={{ fontSize: "12px", lineHeight: "20px" }}
+                      className="whitespace-nowrap text-[14px] font-medium leading-5 text-black sm:text-[16px]"
                     >
                       No credit card required. No setup fees.
                     </span>
@@ -105,23 +127,15 @@ export default function CommissionsManagementPage() {
 
                   {/* H1 */}
                   <h1
-                    className="font-semibold text-black"
-                    style={{
-                      fontSize: "clamp(40px, 5.5vw, 64px)",
-                      lineHeight: "1.125",
-                      letterSpacing: "-0.0375em",
-                    }}
+                    className="max-w-[580px] text-[42px] font-semibold leading-[1.08] text-black sm:text-[54px] lg:text-[62px]"
+                    style={{ letterSpacing: "0" }}
                   >
-                    Real Estate{" "}
-                    <span className="text-[#0063EB]">Commission Management</span>
+                    Real Estate <span className="text-[#0063EB]">Commission Management</span>
                   </h1>
                 </div>
 
                 {/* Subtitle */}
-                <p
-                  className="font-medium"
-                  style={{ fontSize: "18px", lineHeight: "32px", color: "#4F4F4F" }}
-                >
+                <p className="max-w-[650px] text-[18px] font-medium leading-8 text-black sm:text-[20px]">
                   Automate calculations, give agents full visibility, and eliminate
                   manual work with a smarter commission management system
                 </p>
@@ -133,12 +147,12 @@ export default function CommissionsManagementPage() {
                   href="/signup"
                   className="inline-flex items-center justify-center text-white font-medium w-full sm:w-auto"
                   style={{
-                    fontSize: "14px",
+                    fontSize: "16px",
                     lineHeight: "24px",
                     background: "#0063EB",
                     border: "1px solid rgba(255,255,255,0.3)",
                     borderRadius: "8px",
-                    padding: "10px 20px",
+                    padding: "11px 18px",
                     boxShadow:
                       "0px 0px 0px 1px rgba(4,110,255,1), 0px 1px 2px 0px rgba(4,110,255,0.64)",
                   }}
@@ -149,10 +163,10 @@ export default function CommissionsManagementPage() {
                   href="/demo"
                   className="inline-flex items-center justify-center text-black font-medium bg-white w-full sm:w-auto"
                   style={{
-                    fontSize: "14px",
+                    fontSize: "16px",
                     lineHeight: "24px",
                     borderRadius: "8px",
-                    padding: "10px 20px",
+                    padding: "11px 18px",
                     boxShadow:
                       "0px 0px 0px 1px rgba(0,0,0,0.06), 0px 1px 2px 0px rgba(0,0,0,0.06)",
                   }}
@@ -163,23 +177,20 @@ export default function CommissionsManagementPage() {
             </div>
 
             {/* Right column: product screenshot */}
-            <div className="w-full lg:flex-1 flex justify-center lg:justify-end">
+            <div className="flex w-full justify-center lg:justify-end">
               <div
-                className="relative w-full rounded-2xl overflow-hidden"
+                className="relative w-full"
                 style={{
                   maxWidth: "621px",
                   aspectRatio: "621 / 524",
-                  border: "1px solid rgba(0,0,0,0.08)",
-                  boxShadow:
-                    "-3px 4px 11px 0px rgba(112,112,112,0.1), -13px 15px 20px 0px rgba(112,112,112,0.09), -29px 35px 27px 0px rgba(112,112,112,0.05)",
                 }}
               >
                 <Image
-                  src="/images/figma/pages/screenshot-commission-dashboard.jpg"
-                  alt="Paperless Pipeline commission management dashboard"
+                  src="/images/figma/pages/commission-hero-closing.png"
+                  alt="Real estate keys and commission payout"
                   fill
-                  className="object-cover"
-                  sizes="(max-width: 1024px) 100vw, 45vw"
+                  className="object-contain object-center"
+                  sizes="(max-width: 1024px) 100vw, 621px"
                   priority
                 />
               </div>
@@ -191,40 +202,37 @@ export default function CommissionsManagementPage() {
       {/* ─────────────────────────────────────────
           2. COMMISSION MODULE
       ───────────────────────────────────────── */}
-      <section className="bg-white py-[80px] md:py-[120px] px-5 md:px-[80px]">
-        <div className="max-w-[1280px] mx-auto flex flex-col lg:flex-row items-stretch gap-12">
+      <section className="bg-white px-5 py-16 sm:px-10 md:py-24 lg:px-[108px]">
+        <div className="mx-auto grid w-full max-w-[1390px] grid-cols-1 items-center gap-12 lg:grid-cols-[minmax(0,615px)_minmax(0,615px)] lg:gap-16">
 
           {/* Left: screenshot */}
           <div
-            className="relative flex-1 rounded-3xl overflow-hidden min-h-[400px] lg:min-h-0"
+            className="relative min-h-[420px] overflow-hidden rounded-[20px] lg:min-h-[740px]"
             style={{ border: "1px solid #F0EDEA" }}
           >
             <Image
-              src="/images/figma/pages/screenshot-commission-dashboard.jpg"
+              src="/images/figma/pages/commission-module-dashboard.png"
               alt="Commission module dashboard"
               fill
-              className="object-cover"
-              sizes="(max-width: 1024px) 100vw, 50vw"
+              className="object-cover object-center"
+              sizes="(max-width: 1024px) 100vw, 615px"
             />
           </div>
 
           {/* Right: content */}
-          <div className="flex-1 flex flex-col gap-8">
-            <div className="flex flex-col gap-3">
+          <div className="flex min-w-0 flex-col gap-8">
+            <div className="flex flex-col gap-4">
               <p
-                className="text-[#0063EB] font-medium uppercase"
-                style={{ fontSize: "14px", lineHeight: "24px", letterSpacing: "0.0893em" }}
+                className="text-[14px] font-medium uppercase leading-6 text-[#0063EB]"
+                style={{ letterSpacing: "0.14em" }}
               >
                 Commission Module
               </p>
-              <div className="flex flex-col gap-2">
-                <h2 className="text-black font-semibold text-[32px] md:text-[48px] leading-tight">
+              <div className="flex flex-col gap-3">
+                <h2 className="max-w-[580px] text-[36px] font-semibold leading-[1.2] text-black md:text-[48px]">
                   A Simple Way to Track and Share Data
                 </h2>
-                <p
-                  className="text-[#4F4F4F] font-normal"
-                  style={{ fontSize: "16px", lineHeight: "150%" }}
-                >
+                <p className="max-w-[520px] text-[18px] font-normal leading-7 text-[#4F4F4F]">
                   Built to reduce questions and simplify how you manage agent production
                 </p>
               </div>
@@ -235,29 +243,29 @@ export default function CommissionsManagementPage() {
               {commissionChecklist.map((item) => (
                 <div
                   key={item}
-                  className="flex items-center gap-2 rounded-lg p-4"
+                  className="flex min-h-[62px] items-center gap-4 rounded-lg bg-white px-5 py-3"
                   style={{ border: "1px solid rgba(0,0,0,0.1)" }}
                 >
                   <svg
-                    width="32"
-                    height="32"
+                    width="24"
+                    height="24"
                     viewBox="0 0 32 32"
                     fill="none"
                     aria-hidden="true"
                     className="flex-shrink-0"
                   >
-                    <circle cx="16" cy="16" r="16" fill="#0063EB" fillOpacity="0.1" />
+                    <circle cx="16" cy="16" r="14" fill="#0063EB" />
                     <path
                       d="M10 16.5l4 4 8-8"
-                      stroke="#0063EB"
-                      strokeWidth="1.75"
+                      stroke="white"
+                      strokeWidth="2.5"
                       strokeLinecap="round"
                       strokeLinejoin="round"
                     />
                   </svg>
                   <p
-                    className="text-black font-normal"
-                    style={{ fontSize: "16px", lineHeight: "24px", letterSpacing: "-0.0056em" }}
+                    className="font-normal text-[#0063EB]"
+                    style={{ fontSize: "17px", lineHeight: "24px", letterSpacing: "0" }}
                   >
                     {item}
                   </p>
@@ -270,12 +278,12 @@ export default function CommissionsManagementPage() {
               href="/signup"
               className="inline-flex items-center justify-center text-white font-medium self-start"
               style={{
-                fontSize: "14px",
+                fontSize: "15px",
                 lineHeight: "24px",
                 background: "#0063EB",
                 border: "1px solid rgba(255,255,255,0.3)",
                 borderRadius: "8px",
-                padding: "6px 12px",
+                padding: "8px 14px",
                 boxShadow:
                   "0px 0px 0px 1px rgba(4,110,255,1), 0px 1px 2px 0px rgba(4,110,255,0.64)",
               }}
@@ -289,73 +297,62 @@ export default function CommissionsManagementPage() {
       {/* ─────────────────────────────────────────
           3. FEATURES
       ───────────────────────────────────────── */}
-      <section className="bg-white py-[80px] md:py-[120px] px-5 md:px-[80px]">
-        <div className="max-w-[1280px] mx-auto flex flex-col items-center gap-12">
+      <section className="bg-white px-5 py-14 sm:px-10 md:py-16 lg:px-[70px]">
+        <div className="mx-auto flex w-full max-w-[1090px] flex-col items-center gap-9">
 
           {/* Header */}
-          <div className="flex flex-col items-center gap-3 max-w-[757px] w-full text-center">
+          <div className="flex w-full max-w-[720px] flex-col items-center gap-3 text-center">
             <p
-              className="text-[#0063EB] font-medium uppercase"
-              style={{ fontSize: "14px", lineHeight: "24px", letterSpacing: "0.0893em" }}
+              className="text-[11px] font-medium uppercase leading-5 text-[#0063EB]"
+              style={{ letterSpacing: "0.18em" }}
             >
               Features
             </p>
-            <div className="flex flex-col gap-2">
-              <h2 className="text-black font-semibold text-[32px] md:text-[48px] leading-tight">
+            <div className="flex flex-col gap-3">
+              <h2 className="text-[34px] font-semibold leading-[1.18] text-black md:text-[43px]">
                 Tools to Simplify{" "}
                 <br className="hidden md:block" />
                 Commission Management
               </h2>
-              <p
-                className="text-[#4F4F4F] font-normal"
-                style={{ fontSize: "16px", lineHeight: "150%" }}
-              >
+              <p className="text-[15px] font-normal leading-6 text-[#4F4F4F]">
                 Everything you need to track, report, and share commission data efficiently
               </p>
             </div>
           </div>
 
           {/* Feature tabs row */}
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 w-full">
-            {featureTabs.map(({ label, sub, active }) => (
+          <div className="grid w-full grid-cols-1 gap-7 sm:grid-cols-2 lg:grid-cols-4">
+            {featureTabs.map(({ Icon, label, sub, active }) => (
               <div
                 key={label}
-                className="flex flex-col gap-6 rounded-2xl p-4"
+                className="flex min-h-[84px] flex-col justify-between gap-4 rounded-[12px] px-3 py-3"
                 style={
                   active
-                    ? { background: "linear-gradient(250deg, #FFE95B 0%, #0D47C1 100%)" }
+                    ? { background: "linear-gradient(112deg, #EAF5FF 0%, #F4F0D5 100%)" }
                     : {}
                 }
               >
-                <div className="flex items-center gap-4">
+                <div className="flex items-center gap-3">
                   <div
                     className="flex items-center justify-center rounded-full flex-shrink-0"
                     style={{
-                      width: "56px",
-                      height: "56px",
+                      width: "46px",
+                      height: "46px",
                       background: active ? "#0063EB" : "rgba(79,79,79,0.25)",
                     }}
                   >
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                      <path
-                        d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"
-                        stroke={active ? "white" : "#4F4F4F"}
-                        strokeWidth="1.5"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                    </svg>
+                    <Icon size={18} color={active ? "#FFE95B" : "#FFFFFF"} strokeWidth={2} aria-hidden="true" />
                   </div>
                   <div className="flex flex-col">
                     <span
-                      className="font-bold"
-                      style={{ fontSize: "18px", lineHeight: "32px", color: "#1E1E1E" }}
+                      className="font-bold text-[#1E1E1E]"
+                      style={{ fontSize: "15px", lineHeight: "22px" }}
                     >
                       {label}
                     </span>
                     <span
                       className="font-normal"
-                      style={{ fontSize: "16px", lineHeight: "24px", color: "#4F4F4F" }}
+                      style={{ fontSize: "14px", lineHeight: "20px", color: "#4F4F4F" }}
                     >
                       {sub}
                     </span>
@@ -363,7 +360,7 @@ export default function CommissionsManagementPage() {
                 </div>
                 <div
                   className="w-full"
-                  style={{ height: "1px", background: "#ECEEF2" }}
+                  style={{ height: active ? "2px" : "1px", background: active ? "#0063EB" : "#ECEEF2" }}
                 />
               </div>
             ))}
@@ -371,17 +368,32 @@ export default function CommissionsManagementPage() {
 
           {/* Active feature: Visibility — card + screenshot */}
           <div
-            className="flex flex-col lg:flex-row items-stretch w-full rounded-3xl overflow-hidden"
-            style={{ border: "1px solid #D5D9E2", background: "#ECEEF2" }}
+            className="grid w-full grid-cols-1 overflow-hidden rounded-[16px] p-4 lg:grid-cols-[minmax(0,1fr)_420px] lg:p-4"
+            style={{
+              border: "1px solid #D5D9E2",
+              background:
+                "linear-gradient(112deg, #F4F0D5 0%, #D8E9FF 62%, #0063EB 100%)",
+            }}
           >
+            {/* Screenshot */}
+            <div className="relative min-h-[300px] lg:min-h-[360px]">
+              <Image
+                src="/images/figma/pages/screenshot-commission-report.jpg"
+                alt="Automated monthly commission production reports"
+                fill
+                className="object-contain object-center"
+                sizes="(max-width: 1024px) 100vw, 620px"
+              />
+            </div>
+
             {/* White content card */}
-            <div className="lg:w-[526px] flex-shrink-0 p-4 flex items-end">
+            <div className="flex items-stretch lg:items-end">
               <div
-                className="w-full flex flex-col justify-between rounded-2xl p-8 gap-8"
+                className="flex w-full flex-col justify-between gap-8 rounded-[14px] p-7"
                 style={{
                   background: "#FFFFFF",
                   boxShadow: "0px 1px 2px 0px rgba(35,39,46,0.08)",
-                  minHeight: "488px",
+                  minHeight: "360px",
                 }}
               >
                 <div className="flex flex-col gap-6">
@@ -394,16 +406,7 @@ export default function CommissionsManagementPage() {
                       background: "rgba(0,99,235,0.1)",
                     }}
                   >
-                    <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
-                      <path
-                        d="M9 3.75C5.25 3.75 2.085 6.093 1.125 9c.96 2.907 4.125 5.25 7.875 5.25s6.915-2.343 7.875-5.25C15.915 6.093 12.75 3.75 9 3.75z"
-                        stroke="#0063EB"
-                        strokeWidth="1.25"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                      <circle cx="9" cy="9" r="2.25" stroke="#0063EB" strokeWidth="1.25" />
-                    </svg>
+                    <Eye size={18} color="#0063EB" strokeWidth={1.75} aria-hidden="true" />
                   </div>
 
                   {/* Text */}
@@ -411,8 +414,8 @@ export default function CommissionsManagementPage() {
                     <h3
                       className="font-semibold"
                       style={{
-                        fontSize: "24px",
-                        lineHeight: "40px",
+                        fontSize: "23px",
+                        lineHeight: "32px",
                         letterSpacing: "-0.0208em",
                         color: "#1E1E1E",
                       }}
@@ -421,7 +424,7 @@ export default function CommissionsManagementPage() {
                     </h3>
                     <p
                       className="font-normal"
-                      style={{ fontSize: "20px", lineHeight: "32px", color: "#4F4F4F" }}
+                      style={{ fontSize: "18px", lineHeight: "28px", color: "#4F4F4F" }}
                     >
                       Give agents direct access to their earnings and production data anytime. Reduce
                       back-and-forth communication by making financial information easy to view.
@@ -449,16 +452,6 @@ export default function CommissionsManagementPage() {
               </div>
             </div>
 
-            {/* Screenshot */}
-            <div className="relative flex-1 min-h-[360px]">
-              <Image
-                src="/images/figma/pages/screenshot-commission-report.jpg"
-                alt="Automated monthly commission production reports"
-                fill
-                className="object-cover"
-                sizes="(max-width: 1024px) 100vw, 55vw"
-              />
-            </div>
           </div>
         </div>
       </section>
@@ -478,25 +471,22 @@ export default function CommissionsManagementPage() {
       {/* ─────────────────────────────────────────
           5. PROCESS (Included)
       ───────────────────────────────────────── */}
-      <section className="bg-white py-[112px] px-5 md:px-[64px]">
-        <div className="max-w-[1280px] mx-auto flex flex-col gap-20">
+      <section className="bg-white px-5 py-16 sm:px-10 md:py-24 lg:px-[108px]">
+        <div className="mx-auto flex w-full max-w-[1280px] flex-col gap-16">
 
           {/* Header */}
-          <div className="flex flex-col gap-3 max-w-[728px]">
+          <div className="flex max-w-[760px] flex-col gap-4">
             <p
-              className="text-[#0063EB] font-medium uppercase"
-              style={{ fontSize: "14px", lineHeight: "24px", letterSpacing: "0.0893em" }}
+              className="text-[14px] font-medium uppercase leading-6 text-[#0063EB]"
+              style={{ letterSpacing: "0.14em" }}
             >
               The Process
             </p>
-            <div className="flex flex-col gap-2">
-              <h2 className="text-black font-semibold text-[32px] md:text-[48px] leading-tight">
+            <div className="flex flex-col gap-4">
+              <h2 className="text-[36px] font-semibold leading-[1.2] text-black md:text-[48px]">
                 Keep Commission Tracking Simple and Accurate
               </h2>
-              <p
-                className="text-[#4F4F4F] font-normal"
-                style={{ fontSize: "16px", lineHeight: "150%" }}
-              >
+              <p className="text-[17px] font-normal leading-7 text-[#4F4F4F]">
                 A straightforward process that keeps your data organized and up to date
               </p>
             </div>
@@ -507,20 +497,20 @@ export default function CommissionsManagementPage() {
 
             {/* Row 1: Steps 01 + 02 */}
             <div
-              className="flex flex-col md:flex-row gap-16 py-12"
+              className="flex flex-col gap-12 py-12 md:flex-row md:gap-20"
               style={{ borderTop: "1px solid rgba(0,0,0,0.1)" }}
             >
               {processSteps.slice(0, 2).map((step) => (
-                <div key={step.number} className="flex-1 flex flex-row gap-8">
+                <div key={step.number} className="flex flex-1 flex-row gap-8">
                   <span
-                    className="text-[#0063EB] font-bold flex-shrink-0"
+                    className="flex-shrink-0 font-bold text-[#0063EB]"
                     style={{ fontSize: "48px", lineHeight: "120%" }}
                   >
                     {step.number}
                   </span>
                   <div className="flex flex-col gap-4">
                     <h3
-                      className="text-black font-bold"
+                      className="font-bold text-black"
                       style={{ fontSize: "32px", lineHeight: "130%" }}
                     >
                       {step.title}
@@ -543,14 +533,14 @@ export default function CommissionsManagementPage() {
             >
               <div className="flex flex-row gap-8 md:max-w-[608px]">
                 <span
-                  className="text-[#0063EB] font-bold flex-shrink-0"
+                  className="flex-shrink-0 font-bold text-[#0063EB]"
                   style={{ fontSize: "48px", lineHeight: "120%" }}
                 >
                   {processSteps[2].number}
                 </span>
                 <div className="flex flex-col gap-4">
                   <h3
-                    className="text-black font-bold"
+                    className="font-bold text-black"
                     style={{ fontSize: "32px", lineHeight: "130%" }}
                   >
                     {processSteps[2].title}
@@ -571,25 +561,25 @@ export default function CommissionsManagementPage() {
       {/* ─────────────────────────────────────────
           6. USE CASES
       ───────────────────────────────────────── */}
-      <section className="bg-white py-[80px] md:py-[120px] px-5 md:px-[80px]">
-        <div className="max-w-[1280px] mx-auto flex flex-col gap-16">
+      <section className="bg-white px-5 py-16 sm:px-10 md:py-24 lg:px-[108px]">
+        <div className="mx-auto flex w-full max-w-[1280px] flex-col gap-14">
 
           {/* Header — two-column on desktop */}
-          <div className="flex flex-col md:flex-row md:items-end gap-3">
-            <div className="flex flex-col gap-3 flex-1">
+          <div className="flex flex-col gap-8 md:flex-row md:items-end md:justify-between">
+            <div className="flex flex-1 flex-col gap-4">
               <p
-                className="text-[#0063EB] font-medium uppercase"
-                style={{ fontSize: "14px", lineHeight: "24px", letterSpacing: "0.0893em" }}
+                className="text-[14px] font-medium uppercase leading-6 text-[#0063EB]"
+                style={{ letterSpacing: "0.14em" }}
               >
                 Built For
               </p>
-              <h2 className="text-black font-semibold text-[32px] md:text-[48px] leading-tight">
+              <h2 className="max-w-[620px] text-[36px] font-semibold leading-[1.25] text-black md:text-[48px]">
                 Designed for Every Role in Your Team
               </h2>
             </div>
             <p
-              className="text-[#4F4F4F] font-normal flex-1"
-              style={{ fontSize: "16px", lineHeight: "150%", maxWidth: "560px" }}
+              className="flex-1 text-[17px] font-normal leading-7 text-[#4F4F4F]"
+              style={{ maxWidth: "560px" }}
             >
               Whether you&apos;re managing operations, coordinating transactions, or closing
               deals, the Commission Module adapts to your workflow—helping every role move
@@ -598,38 +588,31 @@ export default function CommissionsManagementPage() {
           </div>
 
           {/* Role cards 2×2 grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {useCases.map(({ title, description }) => (
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+            {useCases.map(({ Icon, title, description }) => (
               <div
                 key={title}
-                className="flex flex-col gap-6 rounded-xl p-6"
+                className="flex min-h-[230px] flex-col gap-6 rounded-xl bg-white p-6 md:p-8"
                 style={{ background: "#FFFFFF", border: "1px solid rgba(0,0,0,0.1)" }}
               >
                 {/* Icon */}
                 <div
-                  className="flex items-center justify-center rounded-full bg-[#0063EB] flex-shrink-0"
+                  className="flex flex-shrink-0 items-center justify-center rounded-full bg-[#0063EB]"
                   style={{ width: "64px", height: "64px" }}
                 >
-                  <svg width="32" height="32" viewBox="0 0 32 32" fill="none" aria-hidden="true">
-                    <path
-                      d="M16 8a4 4 0 100 8 4 4 0 000-8zM8 24c0-4.418 3.582-8 8-8s8 3.582 8 8"
-                      stroke="white"
-                      strokeWidth="1.5"
-                      strokeLinecap="round"
-                    />
-                  </svg>
+                  <Icon size={28} color="#FFE95B" strokeWidth={2.2} aria-hidden="true" />
                 </div>
 
                 <div className="flex flex-col gap-6">
                   <h3
-                    className="text-black font-medium"
-                    style={{ fontSize: "24px", lineHeight: "28px", letterSpacing: "-0.015em" }}
+                    className="font-medium text-black"
+                    style={{ fontSize: "24px", lineHeight: "28px", letterSpacing: "0" }}
                   >
                     {title}
                   </h3>
                   <p
-                    className="text-[#4F4F4F] font-normal"
-                    style={{ fontSize: "16px", lineHeight: "32px" }}
+                    className="font-normal text-[#4F4F4F]"
+                    style={{ fontSize: "17px", lineHeight: "30px" }}
                   >
                     {description}
                   </p>

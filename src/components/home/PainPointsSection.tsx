@@ -30,9 +30,9 @@ const stats = [
 
 export default function PainPointsSection() {
   return (
-    <section className="bg-white px-6 py-20 md:py-[104px] sm:px-10 lg:px-[80px]">
-      <div className="mx-auto max-w-[1120px]">
-        <div className="relative min-h-[760px] overflow-hidden rounded-[18px] md:min-h-[713px]">
+    <section className="bg-white px-6 py-8 sm:px-10 md:py-12 lg:px-[80px]">
+      <div className="mx-auto max-w-[940px]">
+        <div className="relative min-h-[470px] overflow-hidden rounded-[16px] md:min-h-[500px]">
           <Image
             src="/images/figma/painpoints-image.jpg"
             alt=""
@@ -40,35 +40,35 @@ export default function PainPointsSection() {
             className="object-cover object-center md:object-right"
             aria-hidden="true"
             quality={90}
-            sizes="(min-width: 1280px) 1120px, calc(100vw - 48px)"
+            sizes="(min-width: 1280px) 940px, calc(100vw - 48px)"
           />
 
-          <div className="relative z-10 m-3 flex min-h-[736px] w-[calc(100%-1.5rem)] max-w-[520px] flex-col rounded-[14px] bg-white p-6 sm:m-4 sm:min-h-[681px] sm:w-[calc(100%-2rem)] md:p-10">
-            <p className="text-[12px] font-medium uppercase leading-6 tracking-[0.14em] text-[#D92D20]">
+          <div className="relative z-10 m-3 flex min-h-[446px] w-[calc(100%-1.5rem)] max-w-[420px] flex-col rounded-[12px] bg-white p-5 sm:m-4 sm:min-h-[468px] sm:w-[calc(100%-2rem)] md:p-6">
+            <p className="text-[10px] font-medium uppercase leading-4 tracking-[0.16em] text-[#D92D20]">
               When systems fall behind
             </p>
-            <h2 className="mt-6 text-[32px] font-semibold leading-[1.25] text-black md:text-[40px] md:leading-[1.35]">
+            <h2 className="mt-4 text-[27px] font-semibold leading-[1.16] text-black md:text-[31px] md:leading-[1.18]">
               Growth shouldn&apos;t make your brokerage harder to run
             </h2>
-            <p className="mt-4 text-[15px] font-normal leading-6 text-[#4F4F4F]">
+            <p className="mt-3 text-[13px] font-normal leading-5 text-[#4F4F4F]">
               What worked early on starts to strain as your roster and deals grow.
             </p>
 
-            <div className="mt-11 flex flex-col gap-4">
+            <div className="mt-6 flex flex-col gap-2.5">
               {painItems.map(({ title, body, Icon }) => (
-                <div key={title} className="rounded-[8px] border border-black/10 bg-white p-4">
-                  <Icon size={18} className="text-[#D92D20]" fill={title === "Workarounds pile up" ? "#D92D20" : "none"} />
-                  <h3 className="mt-7 text-[14px] font-semibold leading-5 tracking-[-0.01em] text-[#1E1E1E]">
+                <div key={title} className="rounded-[8px] border border-black/10 bg-white p-3">
+                  <Icon size={15} className="text-[#D92D20]" fill={title === "Workarounds pile up" ? "#D92D20" : "none"} />
+                  <h3 className="mt-3 text-[12px] font-semibold leading-4 tracking-[-0.01em] text-[#1E1E1E]">
                     {title}
                   </h3>
-                  <p className="mt-1 text-[13px] font-normal leading-5 text-[#4F4F4F]">{body}</p>
+                  <p className="mt-1 text-[11px] font-normal leading-4 text-[#4F4F4F]">{body}</p>
                 </div>
               ))}
             </div>
           </div>
         </div>
 
-        <p className="mt-6 text-center text-[12px] font-medium uppercase leading-6 tracking-[0.14em] text-[#D92D20]">
+        <p className="mt-4 text-center text-[11px] font-medium uppercase leading-5 tracking-[0.14em] text-[#D92D20]">
           How this shows up in practice :
         </p>
 
