@@ -32,6 +32,7 @@ const footerColumns: Record<string, { label: string; href: string }[]> = {
 
 export default function Footer() {
   const pathname = usePathname();
+  const isHomePage = pathname === "/";
   const isTcPage = pathname === "/how-it-works/transaction-coordinators";
   const isTransactionManagementPage =
     pathname === "/features/transaction-management";
@@ -61,6 +62,18 @@ export default function Footer() {
           subtext:
             "Switch to a faster, smarter, and more affordable solution today",
         }
+      : isHomePage
+        ? {
+            heading: (
+              <>
+                Built for brokers who want fewer
+                <br />
+                fires — not more software
+              </>
+            ),
+            subtext:
+              "Paperless Pipeline helps teams close deals smoothly, consistently, and without unnecessary stress.",
+          }
       : isTcPage
     ? {
         heading: (
@@ -97,7 +110,7 @@ export default function Footer() {
           }}
         >
           <div className="relative z-10 mx-auto flex max-w-[760px] flex-col items-center">
-            <h2 className="max-w-[560px] text-[40px] font-semibold leading-[1.15] text-white md:text-[42px]">
+            <h2 className="max-w-[760px] text-[40px] font-semibold leading-[1.15] text-white md:text-[42px]">
               {footerCta.heading}
             </h2>
             <p className="mt-7 max-w-[640px] text-[20px] font-normal leading-8 text-white">

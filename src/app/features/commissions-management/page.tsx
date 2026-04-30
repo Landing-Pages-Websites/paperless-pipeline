@@ -2,13 +2,13 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import {
-  BarChart3,
   Bell,
   Building2,
-  Eye,
-  FileText,
+  CreditCard,
+  File,
   Landmark,
   Sparkles,
+  Table2,
   UserCheck,
   Users,
 } from "lucide-react";
@@ -29,10 +29,10 @@ const commissionChecklist = [
 ];
 
 const featureTabs = [
-  { Icon: FileText, label: "Statements", sub: "Clear Payouts" },
-  { Icon: BarChart3, label: "Reports", sub: "Performance Insights" },
+  { Icon: CreditCard, label: "Statements", sub: "Clear Payouts" },
+  { Icon: File, label: "Reports", sub: "Performance Insights" },
   { Icon: Bell, label: "Automation", sub: "Smart Updates" },
-  { Icon: Eye, label: "Visibility", sub: "Real-Time Access", active: true },
+  { Icon: Table2, label: "Visibility", sub: "Real-Time Access", active: true },
 ];
 
 const processSteps = [
@@ -82,6 +82,51 @@ const useCases = [
       "Handle increasing transaction volume without adding complexity to your commission process.",
   },
 ];
+
+function CommissionReportMockup() {
+  const rows = [
+    ["3", "Transactions Closed"],
+    ["3", "Sales Closed"],
+    ["$975,000.00", "in Sales Volume"],
+    ["$23,100.00", "in Gross Commissions Earned"],
+    ["-$650.00", "in Fees & Taxes Paid"],
+    ["$22,450.00", "in Net Commission Earned"],
+    ["$22,450.00", "in Net Amount Received"],
+  ];
+
+  return (
+    <div className="w-full max-w-[356px] overflow-hidden bg-white shadow-sm">
+      <div className="px-3 pt-3">
+        <p className="text-[11px] font-semibold leading-4 text-[#4F6B8B]">
+          Presidential Real Estate
+        </p>
+        <h3 className="text-[17px] font-bold leading-5 text-[#2569D9]">
+          Stats for John Kennedy
+        </h3>
+        <p className="mt-1 text-[11px] font-semibold leading-4 text-[#2B3D4D]">
+          Calendar Year-to-date
+        </p>
+        <p className="text-[9px] leading-3 text-[#7B838C]">January 1, 2018 to May 31, 2018</p>
+      </div>
+
+      <div className="mt-2">
+        {rows.map(([amount, label]) => (
+          <div
+            key={`${amount}-${label}`}
+            className="grid min-h-[38px] grid-cols-[92px_1fr] items-center border-t border-white bg-[#92C9DA]"
+          >
+            <div className="flex justify-center">
+              <span className="inline-flex min-w-[42px] items-center justify-center rounded-full bg-white px-2 py-1 text-[11px] font-bold leading-4 text-[#41576A] shadow-sm">
+                {amount}
+              </span>
+            </div>
+            <span className="text-[11px] font-medium leading-4 text-[#345363]">{label}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
 
 export default function CommissionsManagementPage() {
   return (
@@ -297,35 +342,35 @@ export default function CommissionsManagementPage() {
       {/* ─────────────────────────────────────────
           3. FEATURES
       ───────────────────────────────────────── */}
-      <section className="bg-white px-5 py-14 sm:px-10 md:py-16 lg:px-[70px]">
-        <div className="mx-auto flex w-full max-w-[1090px] flex-col items-center gap-9">
+      <section className="bg-white px-5 py-14 sm:px-10 md:py-16 lg:px-[54px]">
+        <div className="mx-auto flex w-full max-w-[990px] flex-col items-center gap-[34px]">
 
           {/* Header */}
-          <div className="flex w-full max-w-[720px] flex-col items-center gap-3 text-center">
+          <div className="flex w-full max-w-[690px] flex-col items-center gap-3 text-center">
             <p
-              className="text-[11px] font-medium uppercase leading-5 text-[#0063EB]"
+              className="text-[10px] font-medium uppercase leading-4 text-[#0063EB]"
               style={{ letterSpacing: "0.18em" }}
             >
               Features
             </p>
             <div className="flex flex-col gap-3">
-              <h2 className="text-[34px] font-semibold leading-[1.18] text-black md:text-[43px]">
+              <h2 className="text-[34px] font-semibold leading-[1.18] text-black md:text-[40px]">
                 Tools to Simplify{" "}
                 <br className="hidden md:block" />
                 Commission Management
               </h2>
-              <p className="text-[15px] font-normal leading-6 text-[#4F4F4F]">
+              <p className="text-[13px] font-normal leading-5 text-[#4F4F4F]">
                 Everything you need to track, report, and share commission data efficiently
               </p>
             </div>
           </div>
 
           {/* Feature tabs row */}
-          <div className="grid w-full grid-cols-1 gap-7 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="grid w-full grid-cols-1 gap-[42px] sm:grid-cols-2 lg:grid-cols-[208px_208px_208px_232px]">
             {featureTabs.map(({ Icon, label, sub, active }) => (
               <div
                 key={label}
-                className="flex min-h-[84px] flex-col justify-between gap-4 rounded-[12px] px-3 py-3"
+                className="flex min-h-[88px] flex-col justify-between gap-4 rounded-[12px] px-3 py-3"
                 style={
                   active
                     ? { background: "linear-gradient(112deg, #EAF5FF 0%, #F4F0D5 100%)" }
@@ -336,17 +381,17 @@ export default function CommissionsManagementPage() {
                   <div
                     className="flex items-center justify-center rounded-full flex-shrink-0"
                     style={{
-                      width: "46px",
-                      height: "46px",
+                      width: "44px",
+                      height: "44px",
                       background: active ? "#0063EB" : "rgba(79,79,79,0.25)",
                     }}
                   >
-                    <Icon size={18} color={active ? "#FFE95B" : "#FFFFFF"} strokeWidth={2} aria-hidden="true" />
+                    <Icon size={16} color={active ? "#FFE95B" : "#FFFFFF"} strokeWidth={2} aria-hidden="true" />
                   </div>
                   <div className="flex flex-col">
                     <span
                       className="font-bold text-[#1E1E1E]"
-                      style={{ fontSize: "15px", lineHeight: "22px" }}
+                      style={{ fontSize: "15px", lineHeight: "20px" }}
                     >
                       {label}
                     </span>
@@ -366,57 +411,50 @@ export default function CommissionsManagementPage() {
             ))}
           </div>
 
-          {/* Active feature: Visibility — card + screenshot */}
+          {/* Active feature: Visibility */}
           <div
-            className="grid w-full grid-cols-1 overflow-hidden rounded-[16px] p-4 lg:grid-cols-[minmax(0,1fr)_420px] lg:p-4"
+            className="grid w-full grid-cols-1 overflow-hidden rounded-[16px] p-3 lg:grid-cols-[minmax(0,1fr)_408px]"
             style={{
               border: "1px solid #D5D9E2",
               background:
                 "linear-gradient(112deg, #F4F0D5 0%, #D8E9FF 62%, #0063EB 100%)",
-            }}
+              }}
           >
-            {/* Screenshot */}
-            <div className="relative min-h-[300px] lg:min-h-[360px]">
-              <Image
-                src="/images/figma/pages/screenshot-commission-report.jpg"
-                alt="Automated monthly commission production reports"
-                fill
-                className="object-contain object-center"
-                sizes="(max-width: 1024px) 100vw, 620px"
-              />
+            {/* Report visual */}
+            <div className="flex min-h-[300px] items-center justify-center px-6 py-6 lg:min-h-[378px] lg:px-10 lg:py-0">
+              <CommissionReportMockup />
             </div>
 
             {/* White content card */}
             <div className="flex items-stretch lg:items-end">
               <div
-                className="flex w-full flex-col justify-between gap-8 rounded-[14px] p-7"
+                className="flex w-full flex-col justify-between gap-8 rounded-[14px] p-6"
                 style={{
                   background: "#FFFFFF",
                   boxShadow: "0px 1px 2px 0px rgba(35,39,46,0.08)",
-                  minHeight: "360px",
+                  minHeight: "378px",
                 }}
               >
-                <div className="flex flex-col gap-6">
+                <div className="flex flex-col gap-7">
                   {/* Icon */}
                   <div
-                    className="flex items-center justify-center rounded-full flex-shrink-0"
+                    className="flex items-center justify-center flex-shrink-0"
                     style={{
-                      width: "32px",
-                      height: "32px",
-                      background: "rgba(0,99,235,0.1)",
+                      width: "24px",
+                      height: "24px",
                     }}
                   >
-                    <Eye size={18} color="#0063EB" strokeWidth={1.75} aria-hidden="true" />
+                    <Table2 size={18} color="#0063EB" strokeWidth={1.75} aria-hidden="true" />
                   </div>
 
                   {/* Text */}
-                  <div className="flex flex-col gap-2">
+                  <div className="flex flex-col gap-3">
                     <h3
                       className="font-semibold"
                       style={{
-                        fontSize: "23px",
-                        lineHeight: "32px",
-                        letterSpacing: "-0.0208em",
+                        fontSize: "22px",
+                        lineHeight: "28px",
+                        letterSpacing: "0",
                         color: "#1E1E1E",
                       }}
                     >
@@ -424,7 +462,7 @@ export default function CommissionsManagementPage() {
                     </h3>
                     <p
                       className="font-normal"
-                      style={{ fontSize: "18px", lineHeight: "28px", color: "#4F4F4F" }}
+                      style={{ fontSize: "17px", lineHeight: "26px", color: "#4F4F4F" }}
                     >
                       Give agents direct access to their earnings and production data anytime. Reduce
                       back-and-forth communication by making financial information easy to view.
@@ -461,11 +499,12 @@ export default function CommissionsManagementPage() {
       ───────────────────────────────────────── */}
       <CTABanner
         variant="cta"
-        eyebrow="Get Started"
-        heading="Take the Guesswork Out of Commissions"
-        subtext="See how automated commission tracking can save time and improve accuracy"
-        buttonText="Watch Demo →"
-        buttonHref="/demo"
+        compact
+        eyebrow=""
+        title="Ready to Simplify Commission Management?"
+        subtext="Replace spreadsheets and manual calculations with a smarter, automated system"
+        buttonText="Start My 14-Day Free Trial →"
+        buttonHref="/signup"
       />
 
       {/* ─────────────────────────────────────────

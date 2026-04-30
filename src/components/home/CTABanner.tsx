@@ -3,12 +3,14 @@ import Link from "next/link";
 type CTABannerProps = {
   variant?: "quote" | "cta";
   quote?: string;
+  title?: string;
   eyebrow?: string;
   heading?: string;
   subtext?: string;
   features?: string[];
   buttonText?: string;
   buttonHref?: string;
+  compact?: boolean;
 };
 
 function WhiteMark() {
@@ -24,20 +26,28 @@ function WhiteMark() {
 export default function CTABanner({
   variant = "quote",
   quote = "One system to manage transactions, documents, and compliance — without forcing agents to change how they work.",
+  title,
   eyebrow = "CALL TO ACTION",
   heading = "Switching doesn't mean starting over",
   subtext = "We'll help you get set up without disrupting active deals.",
   features,
   buttonText = "Start My 14-Day Free Trial →",
   buttonHref = "/signup",
+  compact = false,
 }: CTABannerProps) {
   const isQuote = variant === "quote";
+  const resolvedHeading = title ?? heading;
+  const ctaMinHeight = compact ? "min-h-[244px] sm:min-h-[304px]" : "min-h-[500px]";
 
   return (
-    <section className={`bg-white px-6 sm:px-10 lg:px-5 ${isQuote ? "py-8" : "py-[76px]"}`}>
+    <section
+      className={`bg-white px-6 sm:px-10 lg:px-5 ${
+        isQuote ? "py-8" : compact ? "py-10 md:py-14" : "py-[76px]"
+      }`}
+    >
       <div
         className={`relative mx-auto max-w-[1400px] overflow-hidden rounded-[20px] ${
-          isQuote ? "min-h-[407px]" : "min-h-[500px]"
+          isQuote ? "min-h-[407px]" : ctaMinHeight
         }`}
       >
         <div
@@ -56,13 +66,29 @@ export default function CTABanner({
             </div>
           ) : (
             <div className="flex w-full max-w-[900px] flex-col items-center">
-              <p className="text-[12px] font-medium uppercase leading-6 tracking-[0.14em] text-white">
-                {eyebrow}
-              </p>
-              <h2 className="mt-5 max-w-[560px] text-[32px] font-semibold leading-[38px] text-white md:text-[42px] md:leading-[48px]">
-                {heading}
+              {eyebrow && (
+                <p className="text-[12px] font-medium uppercase leading-6 tracking-[0.14em] text-white">
+                  {eyebrow}
+                </p>
+              )}
+              <h2
+                className={`max-w-[620px] font-semibold text-white ${
+                  eyebrow ? "mt-5" : ""
+                } ${
+                  compact
+                    ? "text-[28px] leading-[34px] md:text-[36px] md:leading-[42px]"
+                    : "text-[32px] leading-[38px] md:text-[42px] md:leading-[48px]"
+                }`}
+              >
+                {resolvedHeading}
               </h2>
-              <p className="mx-auto mt-5 max-w-[620px] text-[18px] font-normal leading-7 text-white md:text-[22px] md:leading-8">
+              <p
+                className={`mx-auto max-w-[670px] font-normal text-white ${
+                  compact
+                    ? "mt-4 text-[16px] leading-6 md:text-[18px] md:leading-7"
+                    : "mt-5 text-[18px] leading-7 md:text-[22px] md:leading-8"
+                }`}
+              >
                 {subtext}
               </p>
               {features && features.length > 0 && (
@@ -96,7 +122,11 @@ export default function CTABanner({
               )}
               <Link
                 href={buttonHref}
-                className="mt-8 inline-flex h-10 items-center justify-center rounded-[8px] bg-white px-4 text-[14px] font-medium leading-5 text-[#0063EB] shadow-[0_1px_2px_rgba(0,0,0,0.08)] transition-colors hover:bg-[#F8FAFC]"
+                className={`inline-flex items-center justify-center rounded-[8px] bg-white font-medium text-[#0063EB] shadow-[0_1px_2px_rgba(0,0,0,0.08)] transition-colors hover:bg-[#F8FAFC] ${
+                  compact
+                    ? "mt-5 h-8 px-3 text-[12px] leading-4"
+                    : "mt-8 h-10 px-4 text-[14px] leading-5"
+                }`}
               >
                 {buttonText}
               </Link>
