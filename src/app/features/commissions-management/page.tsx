@@ -247,25 +247,25 @@ export default function CommissionsManagementPage() {
       {/* ─────────────────────────────────────────
           2. COMMISSION MODULE
       ───────────────────────────────────────── */}
-      <section className="bg-white px-5 py-16 sm:px-10 md:py-24 lg:px-[108px]">
-        <div className="mx-auto grid w-full max-w-[1390px] grid-cols-1 items-center gap-12 lg:grid-cols-[minmax(0,615px)_minmax(0,615px)] lg:gap-16">
+      <section className="bg-white px-5 py-14 sm:px-10 md:py-20 lg:px-[80px]">
+        <div className="mx-auto grid w-full max-w-[1280px] grid-cols-1 items-center gap-10 lg:grid-cols-[minmax(0,560px)_minmax(0,560px)] lg:gap-12">
 
           {/* Left: screenshot */}
           <div
-            className="relative min-h-[420px] overflow-hidden rounded-[20px] lg:min-h-[740px]"
+            className="relative min-h-[380px] overflow-hidden rounded-[20px] md:min-h-[500px] lg:h-[640px] lg:min-h-0"
             style={{ border: "1px solid #F0EDEA" }}
           >
             <Image
-              src="/images/figma/pages/commission-module-dashboard.png"
+              src="/images/figma/pages/screenshot-commission-dashboard.jpg"
               alt="Commission module dashboard"
               fill
-              className="object-cover object-center"
-              sizes="(max-width: 1024px) 100vw, 615px"
+              className="object-cover object-[46%_center]"
+              sizes="(max-width: 1024px) 100vw, 560px"
             />
           </div>
 
           {/* Right: content */}
-          <div className="flex min-w-0 flex-col gap-8">
+          <div className="flex min-w-0 flex-col gap-7">
             <div className="flex flex-col gap-4">
               <p
                 className="text-[14px] font-medium uppercase leading-6 text-[#0063EB]"
@@ -274,7 +274,7 @@ export default function CommissionsManagementPage() {
                 Commission Module
               </p>
               <div className="flex flex-col gap-3">
-                <h2 className="max-w-[580px] text-[36px] font-semibold leading-[1.2] text-black md:text-[48px]">
+                <h2 className="max-w-[560px] text-[36px] font-semibold leading-[1.2] text-black md:text-[46px]">
                   A Simple Way to Track and Share Data
                 </h2>
                 <p className="max-w-[520px] text-[18px] font-normal leading-7 text-[#4F4F4F]">
@@ -288,7 +288,7 @@ export default function CommissionsManagementPage() {
               {commissionChecklist.map((item) => (
                 <div
                   key={item}
-                  className="flex min-h-[62px] items-center gap-4 rounded-lg bg-white px-5 py-3"
+                  className="flex min-h-[58px] items-center gap-4 rounded-lg bg-white px-5 py-3"
                   style={{ border: "1px solid rgba(0,0,0,0.1)" }}
                 >
                   <svg
@@ -499,12 +499,11 @@ export default function CommissionsManagementPage() {
       ───────────────────────────────────────── */}
       <CTABanner
         variant="cta"
-        compact
-        eyebrow=""
-        title="Ready to Simplify Commission Management?"
-        subtext="Replace spreadsheets and manual calculations with a smarter, automated system"
-        buttonText="Start My 14-Day Free Trial →"
-        buttonHref="/signup"
+        eyebrow="Get Started"
+        title="Take the Guesswork Out of Commissions"
+        subtext="See how automated commission tracking can save time and improve accuracy"
+        buttonText="Watch Demo →"
+        buttonHref="/demo"
       />
 
       {/* ─────────────────────────────────────────

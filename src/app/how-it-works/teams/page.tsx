@@ -130,7 +130,7 @@ export default function TeamsPage() {
           <div className="flex flex-col gap-12 lg:flex-row lg:gap-[100px]">
 
             {/* Left: sticky heading */}
-            <div className="flex w-full flex-col gap-3 lg:sticky lg:top-28 lg:w-[520px] lg:self-start">
+            <div className="flex w-full flex-col gap-3 lg:sticky lg:top-[208px] lg:w-[520px] lg:self-start">
               <p
                 className="text-[14px] font-medium uppercase leading-6 text-[#0063EB]"
                 style={{ letterSpacing: "0.0893em" }}

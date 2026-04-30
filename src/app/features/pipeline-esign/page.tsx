@@ -2,10 +2,10 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import {
-  Zap,
-  LayoutTemplate,
-  Activity,
-  Download,
+  FastForward,
+  Brain,
+  Bell,
+  FileText,
   ShieldCheck,
   Building2,
   ClipboardList,
@@ -22,25 +22,25 @@ export const metadata: Metadata = {
 
 const benefitCards = [
   {
-    Icon: Zap,
+    Icon: FastForward,
     title: "Send Faster",
     description:
       "Send signature requests in seconds directly from transactions or your Reference Library, without switching tools.",
   },
   {
-    Icon: LayoutTemplate,
+    Icon: Brain,
     title: "Work Smarter",
     description:
       "Use reusable, smart forms that automatically fill in signer roles and transaction details, reducing repetitive work.",
   },
   {
-    Icon: Activity,
+    Icon: Bell,
     title: "Track in Real Time",
     description:
       "Monitor status, send reminders, or cancel requests anytime with full visibility into every document.",
   },
   {
-    Icon: Download,
+    Icon: FileText,
     title: "Get Documents Instantly",
     description:
       "Signed documents are automatically returned and stored in your Pipeline account for easy access.",
@@ -255,12 +255,12 @@ export default function PipelineESignPage() {
       {/* ─────────────────────────────────────────
           2. BENEFITS
       ───────────────────────────────────────── */}
-      <section className="bg-white px-5 py-5">
-        <div className="mx-auto max-w-[1400px] rounded-2xl bg-[#0063EB] px-5 py-[80px] sm:px-10 md:py-[120px] lg:px-[80px]">
-          <div className="mx-auto flex max-w-[1280px] flex-col items-center gap-12">
+      <section className="bg-white px-5 py-6">
+        <div className="mx-auto max-w-[1452px] rounded-[14px] bg-[#0063EB] px-6 py-[88px] sm:px-10 md:py-[108px] lg:px-[62px]">
+          <div className="mx-auto flex max-w-[1328px] flex-col items-center gap-[54px]">
 
           {/* Section header */}
-          <div className="flex flex-col items-center gap-3 max-w-[836px] w-full text-center">
+          <div className="flex w-full max-w-[640px] flex-col items-center gap-3 text-center">
             <p
               className="font-medium text-[14px] uppercase leading-[24px] text-white"
               style={{ letterSpacing: "0.0893em" }}
@@ -268,7 +268,7 @@ export default function PipelineESignPage() {
               Features
             </p>
             <div className="flex flex-col gap-2">
-              <h2 className="text-[32px] font-semibold leading-tight text-white md:text-[48px]">
+              <h2 className="text-[34px] font-semibold leading-[1.18] text-white md:text-[48px]">
                 What Makes Pipeline eSign Different
               </h2>
               <p className="font-normal text-[16px] leading-[150%] text-white">
@@ -278,24 +278,24 @@ export default function PipelineESignPage() {
           </div>
 
           {/* Benefit cards grid — 3 cols on first row, 2 centered on second */}
-          <div className="w-full flex flex-col gap-6">
+          <div className="flex w-full flex-col gap-6">
             <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
               {benefitCards.slice(0, 3).map(({ Icon, title, description }) => (
                 <div
                   key={title}
-                  className="flex min-h-[250px] flex-col gap-6 rounded-xl p-8"
+                  className="flex min-h-[274px] flex-col gap-6 rounded-[12px] p-8"
                   style={{ background: "#FFFFFF", border: "1px solid rgba(0,0,0,0.1)" }}
                 >
                   <div className="flex items-center gap-6">
                     <div
                       className="flex flex-shrink-0 items-center justify-center rounded-full bg-[#0063EB]"
-                      style={{ width: "48px", height: "48px", padding: "12px" }}
+                      style={{ width: "58px", height: "58px", padding: "14px" }}
                     >
-                      <Icon size={22} color="#FFE95B" fill="#FFE95B" aria-hidden="true" />
+                      <Icon size={28} color="#FFE95B" strokeWidth={2.6} aria-hidden="true" />
                     </div>
                     <h3
                       className="font-normal text-black"
-                      style={{ fontSize: "18px", lineHeight: "28px", letterSpacing: "-0.0144em" }}
+                      style={{ fontSize: "20px", lineHeight: "28px", letterSpacing: "-0.0144em" }}
                     >
                       {title}
                     </h3>
@@ -304,7 +304,7 @@ export default function PipelineESignPage() {
                     <div className="h-px w-full bg-[#E4E4E7]" />
                     <p
                       className="text-[#4F4F4F] font-normal"
-                      style={{ fontSize: "16px", lineHeight: "30px", letterSpacing: "-0.0113em" }}
+                      style={{ fontSize: "17px", lineHeight: "29px", letterSpacing: "-0.0113em" }}
                     >
                       {description}
                     </p>
@@ -312,23 +312,23 @@ export default function PipelineESignPage() {
                 </div>
               ))}
             </div>
-            <div className="mx-auto grid w-full grid-cols-1 gap-6 md:grid-cols-2 md:max-w-[calc(66.67%+8px)]">
+            <div className="grid w-full grid-cols-1 gap-6 md:grid-cols-2">
               {benefitCards.slice(3).map(({ Icon, title, description }) => (
                 <div
                   key={title}
-                  className="flex min-h-[220px] flex-col gap-6 rounded-xl p-8"
+                  className="flex min-h-[241px] flex-col gap-6 rounded-[12px] p-8"
                   style={{ background: "#FFFFFF", border: "1px solid rgba(0,0,0,0.1)" }}
                 >
                   <div className="flex items-center gap-6">
                     <div
                       className="flex flex-shrink-0 items-center justify-center rounded-full bg-[#0063EB]"
-                      style={{ width: "48px", height: "48px", padding: "12px" }}
+                      style={{ width: "58px", height: "58px", padding: "14px" }}
                     >
-                      <Icon size={22} color="#FFE95B" fill="#FFE95B" aria-hidden="true" />
+                      <Icon size={28} color="#FFE95B" strokeWidth={2.6} aria-hidden="true" />
                     </div>
                     <h3
                       className="font-normal text-black"
-                      style={{ fontSize: "18px", lineHeight: "28px", letterSpacing: "-0.0144em" }}
+                      style={{ fontSize: "20px", lineHeight: "28px", letterSpacing: "-0.0144em" }}
                     >
                       {title}
                     </h3>
@@ -337,7 +337,7 @@ export default function PipelineESignPage() {
                     <div className="h-px w-full bg-[#E4E4E7]" />
                     <p
                       className="text-[#4F4F4F] font-normal"
-                      style={{ fontSize: "16px", lineHeight: "30px", letterSpacing: "-0.0113em" }}
+                      style={{ fontSize: "17px", lineHeight: "29px", letterSpacing: "-0.0113em" }}
                     >
                       {description}
                     </p>
@@ -684,14 +684,6 @@ export default function PipelineESignPage() {
         </div>
       </section>
 
-      <CTABanner
-        variant="cta"
-        eyebrow="Ready to simplify your signing process?"
-        heading="Ready to Simplify Your Signing Process?"
-        subtext="Switch to a faster, smarter, and more affordable solution today"
-        buttonText="Start My 14-Day Free Trial →"
-        buttonHref="/signup"
-      />
     </>
   );
 }

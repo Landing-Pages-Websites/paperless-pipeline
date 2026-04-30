@@ -13,7 +13,7 @@ export default function BlogPage() {
   return (
     <>
       {/* Hero */}
-      <section className="relative py-24 md:py-36 bg-[#FDF9EE] overflow-hidden">
+      <section className="relative overflow-hidden bg-[linear-gradient(90deg,#FDF9EE_0%,#F7F3E7_34%,#CFE4F6_68%,#F1EAD0_100%)] py-24 md:py-36">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center text-center gap-8">
           {/* Badge pill */}
           <div className="inline-flex items-center gap-2 bg-white border border-black/10 rounded-full pl-1.5 pr-3 py-1.5">

@@ -277,8 +277,8 @@ export default function TransactionManagementPage() {
       <CTABanner
         variant="cta"
         eyebrow="Get Started"
-        heading="Ready to Simplify Your Transaction Management?"
-        subtext="See how Paperless Pipeline can streamline your workflow and save your team valuable time"
+        heading="Want to see how Paperless Pipeline can improve your workflow?"
+        subtext="Get a quick walkthrough of how Paperless Pipeline can simplify your transaction workflow"
         buttonText="Schedule a Demo →"
         buttonHref="/demo"
       />

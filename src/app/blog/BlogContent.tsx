@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import { blogPosts, type BlogCategory } from "@/data/blog-posts";
@@ -46,6 +47,15 @@ export default function BlogContent() {
 
   const showFeatured = active === ALL;
   const featured = blogPosts[0];
+  const featuredDisplay = {
+    ...featured,
+    title: "How Top Real Estate Teams Stay Organized at Scale",
+    excerpt:
+      "Learn how high-performing teams streamline communication, track deadlines, and manage transactions without the chaos of scattered tools.",
+    author: "John Doe",
+    dateLabel: "21 April 2026",
+    readTime: "5 min read",
+  };
   const gridPosts =
     active === ALL
       ? blogPosts.slice(1)
@@ -56,36 +66,19 @@ export default function BlogContent() {
       {/* Featured post */}
       {showFeatured && (
         <article className="bg-white border border-black/10 rounded-3xl overflow-hidden flex flex-col md:flex-row hover:shadow-md transition-shadow">
-          {/* Placeholder image */}
-          <div
-            className="md:w-[45%] min-h-[280px] md:min-h-[420px] flex-shrink-0 relative overflow-hidden"
-            style={{ background: "linear-gradient(145deg, #0063EB 0%, #004BB5 100%)" }}
-          >
-            {/* Mesh overlay */}
-            <div
-              className="absolute inset-0 pointer-events-none"
-              style={{
-                backgroundImage:
-                  "radial-gradient(circle at 20% 25%, rgba(255,255,255,0.18) 0%, transparent 50%), radial-gradient(circle at 78% 75%, rgba(0,20,80,0.35) 0%, transparent 55%), radial-gradient(circle at 55% 15%, rgba(255,255,255,0.09) 0%, transparent 38%)",
-              }}
+          <div className="md:w-[45%] min-h-[280px] md:min-h-[360px] flex-shrink-0 relative overflow-hidden">
+            <Image
+              src="/images/figma/ready-feature-image.jpg"
+              alt="Real estate team reviewing documents together"
+              fill
+              priority
+              className="object-cover object-[38%_center]"
+              sizes="(max-width: 768px) 100vw, 520px"
             />
-            {/* Diagonal FEATURED watermark */}
-            <span
-              className="absolute inset-0 flex items-center justify-center text-white font-bold leading-none pointer-events-none select-none"
-              style={{
-                fontSize: "68px",
-                opacity: 0.08,
-                transform: "rotate(-35deg)",
-                letterSpacing: "0.12em",
-              }}
-              aria-hidden="true"
-            >
-              FEATURED
-            </span>
           </div>
 
           {/* Content */}
-          <div className="flex flex-col justify-between gap-8 p-6 md:p-8 flex-1">
+          <div className="flex flex-col justify-between gap-7 p-6 md:p-8 flex-1">
             <div className="flex flex-col gap-5">
               <span className="inline-flex items-center bg-[#0063EB] text-white text-sm font-semibold px-3 py-1 rounded-full w-fit">
                 Featured
@@ -93,14 +86,14 @@ export default function BlogContent() {
               <div className="flex flex-col gap-3">
                 <h2 className="text-2xl md:text-[32px] font-semibold text-black leading-[130%]">
                   <Link
-                    href={`/blog/${featured.slug}`}
+                    href={`/blog/${featuredDisplay.slug}`}
                     className="hover:text-[#0063EB] transition-colors"
                   >
-                    {featured.title}
+                    {featuredDisplay.title}
                   </Link>
                 </h2>
                 <p className="text-base text-[#4F4F4F] leading-relaxed">
-                  {featured.excerpt}
+                  {featuredDisplay.excerpt}
                 </p>
               </div>
             </div>
@@ -109,22 +102,22 @@ export default function BlogContent() {
               <div className="flex items-center gap-3">
                 <div className="w-12 h-12 rounded-full bg-[#EEF4FF] flex-shrink-0 flex items-center justify-center">
                   <span className="text-xs font-semibold text-[#0063EB]">
-                    {getInitials(featured.author)}
+                    {getInitials(featuredDisplay.author)}
                   </span>
                 </div>
                 <div>
                   <p className="text-sm font-semibold text-black">
-                    {featured.author}
+                    {featuredDisplay.author}
                   </p>
                   <div className="flex items-center gap-1.5 text-sm text-[#4F4F4F]">
-                    <span>{formatDate(featured.date)}</span>
+                    <span>{featuredDisplay.dateLabel}</span>
                     <span aria-hidden="true">•</span>
-                    <span>{featured.readTime}</span>
+                    <span>{featuredDisplay.readTime}</span>
                   </div>
                 </div>
               </div>
               <Link
-                href={`/blog/${featured.slug}`}
+                href={`/blog/${featuredDisplay.slug}`}
                 className="inline-flex bg-[#0063EB] hover:bg-[#046EFF] text-white text-sm font-medium px-3 py-1.5 rounded-lg whitespace-nowrap transition-colors"
               >
                 Read Article →

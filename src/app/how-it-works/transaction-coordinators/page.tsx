@@ -115,7 +115,7 @@ export default function TransactionCoordinatorsPage() {
             </div>
 
             {/* Right column: TC image + stat card */}
-            <div className="relative w-full justify-self-end pb-[68px]">
+            <div className="relative w-full justify-self-end pb-[68px] lg:pt-10">
               <div className="relative ml-auto aspect-[620/422] w-full max-w-[620px] overflow-hidden rounded-[16px]">
                 <Image
                   src="/images/figma/pages/a0652331378aef12.png"
@@ -250,7 +250,7 @@ export default function TransactionCoordinatorsPage() {
       <CTABanner
         variant="cta"
         eyebrow="Get Started"
-        heading="Ready to run your transactions differently?"
+        heading="Ready to your transactions differently?"
         subtext="Most TCs are up and running in days, not weeks. No migration headaches. No IT required."
         features={[
           "Free account setup",
@@ -265,8 +265,8 @@ export default function TransactionCoordinatorsPage() {
       {/* ─────────────────────────────────────────
           5. BEFORE / AFTER
       ───────────────────────────────────────── */}
-      <section className="bg-white px-6 py-[120px] sm:px-10 lg:px-[80px]">
-        <div className="mx-auto flex max-w-[1280px] flex-col items-center gap-12">
+      <section className="bg-white px-6 py-20 sm:px-10 lg:px-[80px]">
+        <div className="mx-auto flex max-w-[1120px] flex-col items-center gap-10">
 
           {/* Section header */}
           <div className="flex w-full max-w-[820px] flex-col items-center gap-3 text-center">
@@ -291,13 +291,13 @@ export default function TransactionCoordinatorsPage() {
           </div>
 
           {/* Cards row */}
-          <div className="flex w-full flex-col gap-8 lg:flex-row">
+          <div className="flex w-full flex-col gap-6 lg:flex-row">
 
             {/* BEFORE card */}
             <div
-              className="flex flex-1 flex-col gap-6 overflow-hidden rounded-[16px] border border-black/10 bg-[#F3F3F3] p-6"
+              className="flex flex-1 flex-col gap-5 overflow-hidden rounded-[16px] border border-black/10 bg-[#F3F3F3] p-5"
             >
-              <div className="relative h-[336px] w-full overflow-hidden rounded-[8px]">
+              <div className="relative h-[250px] w-full overflow-hidden rounded-[8px]">
                 <Image
                   src="/images/figma/pages/c6e4b9dff5453a34.png"
                   alt="Before Paperless Pipeline — scattered transaction management"
@@ -307,20 +307,20 @@ export default function TransactionCoordinatorsPage() {
                 />
               </div>
               <div className="flex flex-col gap-5">
-                <h3 className="text-[28px] font-medium leading-8 text-[#131315]">
+                <h3 className="text-[24px] font-medium leading-8 text-[#131315]">
                   Before Pipeline
                 </h3>
                 <div className="h-px w-full bg-black/10" />
-                <div className="flex flex-col gap-5">
+                <div className="flex flex-col gap-4">
                   {beforeItems.map((item) => (
-                    <div key={item} className="flex items-start gap-4">
+                    <div key={item} className="flex items-start gap-3">
                       <span className="mt-1 flex-shrink-0">
                         <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
                           <circle cx="10" cy="10" r="9" fill="#E5392D" />
                           <path d="M13 7L7 13M7 7l6 6" stroke="white" strokeWidth="1.7" strokeLinecap="round" />
                         </svg>
                       </span>
-                      <p className="text-[20px] font-normal leading-8 text-[#4F4F4F]">
+                      <p className="text-[17px] font-normal leading-7 text-[#4F4F4F]">
                         {item}
                       </p>
                     </div>
@@ -331,9 +331,9 @@ export default function TransactionCoordinatorsPage() {
 
             {/* AFTER card */}
             <div
-              className="flex flex-1 flex-col gap-6 overflow-hidden rounded-[16px] border border-white/10 bg-[#0063EB] p-6"
+              className="flex flex-1 flex-col gap-5 overflow-hidden rounded-[16px] border border-white/10 bg-[#0063EB] p-5"
             >
-              <div className="relative h-[336px] w-full overflow-hidden rounded-[8px]">
+              <div className="relative h-[250px] w-full overflow-hidden rounded-[8px]">
                 <Image
                   src="/images/figma/pages/7e9f003b00ec2a57.png"
                   alt="After Paperless Pipeline — organized transaction management"
@@ -343,20 +343,20 @@ export default function TransactionCoordinatorsPage() {
                 />
               </div>
               <div className="flex flex-col gap-5">
-                <h3 className="text-[28px] font-medium leading-8 text-white">
+                <h3 className="text-[24px] font-medium leading-8 text-white">
                   After Pipeline
                 </h3>
                 <div className="h-px w-full bg-white/15" />
-                <div className="flex flex-col gap-5">
+                <div className="flex flex-col gap-4">
                   {afterItems.map((item) => (
-                    <div key={item} className="flex items-start gap-4">
+                    <div key={item} className="flex items-start gap-3">
                       <span className="mt-1 flex-shrink-0">
                         <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
                           <circle cx="10" cy="10" r="9" fill="#18B45B" />
                           <path d="M6.5 10l2.5 2.5 4.5-5" stroke="#0063EB" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" />
                         </svg>
                       </span>
-                      <p className="text-[20px] font-normal leading-8 text-white">
+                      <p className="text-[17px] font-normal leading-7 text-white">
                         {item}
                       </p>
                     </div>
@@ -421,7 +421,7 @@ export default function TransactionCoordinatorsPage() {
           <div className="grid items-center gap-14 md:grid-cols-[384px_minmax(0,1fr)]">
             <div className="relative h-[400px] w-full overflow-hidden rounded-[14px] bg-[#F5F5F6]">
               <Image
-                src="/images/figma/ready-feature-image.jpg"
+                src="/images/figma/pages/tc-testimonial.png"
                 alt="Transaction coordinators reviewing a file together"
                 fill
                 className="object-cover object-[44%_center]"

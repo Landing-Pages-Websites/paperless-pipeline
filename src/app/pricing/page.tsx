@@ -585,6 +585,12 @@ export default function PricingPage() {
         eyebrow="Get Started"
         heading="Start With a Free Setup—No Credit Card Required"
         subtext="Get your account fully configured with expert support"
+        features={[
+          "Locations and users",
+          "Transaction statuses",
+          "Labels and workflows",
+          "Company settings",
+        ]}
         buttonText="Start Free Trial →"
         buttonHref="/signup"
       />

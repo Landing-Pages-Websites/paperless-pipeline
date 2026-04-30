@@ -33,12 +33,27 @@ const footerColumns: Record<string, { label: string; href: string }[]> = {
 export default function Footer() {
   const pathname = usePathname();
   const isHomePage = pathname === "/";
+  const isPricingPage = pathname === "/pricing";
   const isTcPage = pathname === "/how-it-works/transaction-coordinators";
   const isTransactionManagementPage =
     pathname === "/features/transaction-management";
   const isPipelineESignPage = pathname === "/features/pipeline-esign";
+  const isCommissionsManagementPage =
+    pathname === "/features/commissions-management";
 
-  const footerCta = isTransactionManagementPage
+  const footerCta = isPricingPage
+    ? {
+        heading: (
+          <>
+            Ready to Simplify Your
+            <br />
+            Transaction Management?
+          </>
+        ),
+        subtext:
+          "See how Paperless Pipeline can streamline your workflow and save your team valuable time",
+      }
+    : isTransactionManagementPage
     ? {
         heading: (
           <>
@@ -62,6 +77,18 @@ export default function Footer() {
           subtext:
             "Switch to a faster, smarter, and more affordable solution today",
         }
+      : isCommissionsManagementPage
+        ? {
+            heading: (
+              <>
+                Ready to Simplify Your
+                <br />
+                Transaction Management?
+              </>
+            ),
+            subtext:
+              "See how Paperless Pipeline can streamline your workflow and save your team valuable time",
+          }
       : isHomePage
         ? {
             heading: (
