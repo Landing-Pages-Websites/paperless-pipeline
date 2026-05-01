@@ -181,7 +181,7 @@ export default function HeroSection() {
   return (
     <section className="overflow-hidden bg-[linear-gradient(90deg,#FDF9EE_0%,#FDF9EE_42%,#DCECFB_67%,#FAF8E9_100%)]">
       <div className="mx-auto max-w-[1280px] px-6 sm:px-10 lg:px-[72px]">
-        <div className="grid grid-cols-1 items-center gap-12 py-14 lg:grid-cols-[590px_440px] lg:gap-[86px] lg:pt-[78px] lg:pb-6">
+        <div className="grid grid-cols-1 items-center gap-12 py-12 lg:grid-cols-[590px_440px] lg:gap-[86px] lg:pt-[52px] lg:pb-6">
           <div className="max-w-[590px]">
             <div className="inline-flex max-w-full items-center gap-2 rounded-full border border-black/10 bg-white py-1.5 pr-4 pl-1.5 shadow-[0_1px_2px_rgba(0,0,0,0.04)]">
               <SparkleIcon />

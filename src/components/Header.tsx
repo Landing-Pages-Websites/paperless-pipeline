@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { navItems, type NavItem } from "@/data/navigation";
 
@@ -31,9 +32,11 @@ function DropdownMenu({ item }: { item: NavItem }) {
 }
 
 export default function Header() {
+  const pathname = usePathname();
   const [mobileOpen, setMobileOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [mobileExpanded, setMobileExpanded] = useState<string | null>(null);
+  const isHomePage = pathname === "/";
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 4);
@@ -71,65 +74,73 @@ export default function Header() {
         </a>
       </div>
 
-      {/* Main nav bar — 96px tall */}
-      <div className="mx-auto w-full max-w-[1720px] px-6 sm:px-10 lg:px-[108px]">
-        <div className="flex h-28 items-center justify-between">
-          {/* Logo */}
-          <Link href="/" className="flex items-center flex-shrink-0">
-            <Image
-              src="/images/figma/logo-full.png"
-              alt="Paperless Pipeline"
-              width={167}
-              height={32}
-              className="object-contain"
-              priority
-            />
-          </Link>
-
-          {/* Desktop nav */}
-          <nav className="hidden items-center gap-9 lg:flex" aria-label="Main navigation">
-            {navItems.map((item) =>
-              item.children ? (
-                <DropdownMenu key={item.href} item={item} />
-              ) : (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  className="py-2 text-[16px] font-normal text-[#000000] transition-colors hover:text-[#0063EB]"
-                >
-                  {item.label}
-                </Link>
-              )
-            )}
-          </nav>
-
-          {/* Desktop CTA buttons */}
-          <div className="hidden items-center gap-2 lg:flex">
-            {/* Try It Free — primary blue, ring shadow */}
-            <Link
-              href="/signup"
-              className="inline-flex h-10 items-center rounded-lg border border-white/40 bg-[#0063EB] px-3 text-[16px] font-medium text-white shadow-[0_0_0_1px_#046EFF,0_1px_2px_rgba(4,110,255,0.56)] transition-colors hover:bg-[#046EFF]"
-            >
-              Try It Free
+      {/* Main nav bar */}
+      <div
+        className={
+          isHomePage
+            ? "bg-[linear-gradient(90deg,#FDF9EE_0%,#FDF9EE_42%,#DCECFB_67%,#FAF8E9_100%)]"
+            : "bg-white"
+        }
+      >
+        <div className="mx-auto w-full max-w-[1720px] px-6 sm:px-10 lg:px-[108px]">
+          <div className="grid h-20 grid-cols-[1fr_auto] items-center lg:h-24 lg:grid-cols-[1fr_auto_1fr]">
+            {/* Logo */}
+            <Link href="/" className="flex flex-shrink-0 items-center justify-self-start">
+              <Image
+                src="/images/figma/logo-full.png"
+                alt="Paperless Pipeline"
+                width={167}
+                height={32}
+                className="object-contain"
+                priority
+              />
             </Link>
-            {/* Log In — white bg, subtle shadow */}
-            <Link
-              href="/login"
-              className="inline-flex h-10 items-center rounded-lg bg-white px-3 text-[16px] font-medium text-[#000000] shadow-[0_0_0_1px_rgba(0,0,0,0.06),0_1px_2px_rgba(0,0,0,0.06)] transition-colors hover:text-[#0063EB]"
+
+            {/* Desktop nav */}
+            <nav className="hidden items-center gap-9 justify-self-center lg:flex" aria-label="Main navigation">
+              {navItems.map((item) =>
+                item.children ? (
+                  <DropdownMenu key={item.href} item={item} />
+                ) : (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    className="py-2 text-[16px] font-normal text-[#000000] transition-colors hover:text-[#0063EB]"
+                  >
+                    {item.label}
+                  </Link>
+                )
+              )}
+            </nav>
+
+            {/* Desktop CTA buttons */}
+            <div className="hidden items-center gap-2 justify-self-end lg:flex">
+              {/* Try It Free — primary blue, ring shadow */}
+              <Link
+                href="/signup"
+                className="inline-flex h-10 items-center rounded-lg border border-white/40 bg-[#0063EB] px-3 text-[16px] font-medium text-white shadow-[0_0_0_1px_#046EFF,0_1px_2px_rgba(4,110,255,0.56)] transition-colors hover:bg-[#046EFF]"
+              >
+                Try It Free
+              </Link>
+              {/* Log In — white bg, subtle shadow */}
+              <Link
+                href="/login"
+                className="inline-flex h-10 items-center rounded-lg bg-white px-3 text-[16px] font-medium text-[#000000] shadow-[0_0_0_1px_rgba(0,0,0,0.06),0_1px_2px_rgba(0,0,0,0.06)] transition-colors hover:text-[#0063EB]"
+              >
+                Log In
+              </Link>
+            </div>
+
+            {/* Mobile hamburger */}
+            <button
+              className="justify-self-end rounded-lg p-2 text-[#030712] transition-colors hover:bg-gray-100 lg:hidden"
+              onClick={() => setMobileOpen(!mobileOpen)}
+              aria-label={mobileOpen ? "Close menu" : "Open menu"}
+              aria-expanded={mobileOpen}
             >
-              Log In
-            </Link>
+              {mobileOpen ? <X size={22} /> : <Menu size={22} />}
+            </button>
           </div>
-
-          {/* Mobile hamburger */}
-          <button
-            className="lg:hidden p-2 text-[#030712] hover:bg-gray-100 rounded-lg transition-colors"
-            onClick={() => setMobileOpen(!mobileOpen)}
-            aria-label={mobileOpen ? "Close menu" : "Open menu"}
-            aria-expanded={mobileOpen}
-          >
-            {mobileOpen ? <X size={22} /> : <Menu size={22} />}
-          </button>
         </div>
       </div>
 
