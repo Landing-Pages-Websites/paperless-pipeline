@@ -51,13 +51,13 @@ export default function RolesSection() {
   const active = roles[activeIndex];
 
   return (
-    <section className="bg-white px-6 py-[94px] sm:px-10 lg:px-[80px]">
+    <section className="bg-white px-6 py-12 sm:px-10 sm:py-16 lg:px-[80px] lg:py-[94px]">
       <div className="mx-auto flex max-w-[1120px] flex-col items-center">
         <div className="max-w-[700px] text-center">
           <p className="text-[12px] font-medium uppercase leading-6 tracking-[0.14em] text-[#0063EB]">
             Built for Every Role
           </p>
-          <h2 className="mt-5 text-[42px] font-semibold leading-[1.28] text-black max-md:text-[34px]">
+          <h2 className="mt-4 text-[26px] font-semibold leading-[1.2] text-black sm:mt-5 sm:text-[34px] lg:text-[42px] lg:leading-[1.28]">
             Built for the people keeping transactions moving
           </h2>
           <p className="mx-auto mt-4 max-w-[650px] text-[15px] font-normal leading-6 text-[#4F4F4F]">
@@ -104,16 +104,12 @@ export default function RolesSection() {
           })}
         </div>
 
-        <div className="relative mt-8 min-h-[458px] w-full overflow-hidden rounded-[18px] border border-[#D5D9E2] bg-[#EEF4FF]">
-          <Image
-            src="/images/figma/dark-gradient-bg.png"
-            alt=""
-            fill
-            className="object-cover opacity-80"
-            aria-hidden="true"
-          />
-          <div className="relative z-10 grid min-h-[458px] grid-cols-1 gap-5 p-4 md:grid-cols-[1.35fr_0.95fr]">
-            <div className="relative hidden overflow-hidden rounded-[12px] md:block">
+        <div
+          className="relative mt-6 w-full overflow-hidden rounded-[18px] border border-[#D5D9E2] sm:mt-8"
+          style={{ background: "linear-gradient(135deg, #040c22 0%, #071840 25%, #0c2660 50%, #071840 75%, #040c22 100%)" }}
+        >
+          <div className="grid grid-cols-1 gap-4 p-3 sm:p-4 md:grid-cols-[1.35fr_0.95fr] md:gap-5">
+            <div className="relative hidden overflow-hidden rounded-[12px] md:block md:min-h-[400px]">
               <Image
                 src="/images/figma/roles-screenshot.png"
                 alt="Overdue and upcoming tasks screen"
@@ -124,19 +120,19 @@ export default function RolesSection() {
               />
             </div>
 
-            <div className="flex flex-col justify-between rounded-[14px] bg-white p-8 shadow-[0_1px_2px_rgba(35,39,46,0.08)] md:p-9">
+            <div className="flex flex-col justify-between rounded-[14px] bg-white p-5 shadow-[0_1px_2px_rgba(35,39,46,0.08)] sm:p-7 md:p-9">
               <div>
-                <active.Icon size={24} className="text-[#0063EB]" />
-                <h3 className="mt-9 text-[24px] font-semibold leading-8 tracking-[-0.02em] text-[#1E1E1E]">
+                <active.Icon size={22} className="text-[#0063EB]" />
+                <h3 className="mt-5 text-[20px] font-semibold leading-7 tracking-[-0.02em] text-[#1E1E1E] sm:mt-9 sm:text-[24px] sm:leading-8">
                   {active.cardHeading}
                 </h3>
-                <p className="mt-4 max-w-[330px] text-[18px] font-normal leading-8 text-[#4F4F4F]">
+                <p className="mt-3 text-[15px] font-normal leading-6 text-[#4F4F4F] sm:mt-4 sm:text-[18px] sm:leading-8">
                   {active.cardDescription}
                 </p>
               </div>
               <Link
                 href={active.href}
-                className="inline-flex h-9 w-fit items-center justify-center rounded-[8px] bg-[#0063EB] px-4 text-[14px] font-medium leading-6 text-white shadow-[0_0_0_1px_#046EFF,0_1px_2px_rgba(4,110,255,0.64)] transition-colors hover:bg-[#046EFF]"
+                className="mt-6 inline-flex h-9 w-fit items-center justify-center rounded-[8px] bg-[#0063EB] px-4 text-[14px] font-medium leading-6 text-white shadow-[0_0_0_1px_#046EFF,0_1px_2px_rgba(4,110,255,0.64)] transition-colors hover:bg-[#046EFF]"
               >
                 Try Now →
               </Link>

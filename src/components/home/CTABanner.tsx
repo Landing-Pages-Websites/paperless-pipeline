@@ -37,17 +37,17 @@ export default function CTABanner({
 }: CTABannerProps) {
   const isQuote = variant === "quote";
   const resolvedHeading = title ?? heading;
-  const ctaMinHeight = compact ? "min-h-[244px] sm:min-h-[304px]" : "min-h-[500px]";
+  const ctaMinHeight = compact ? "min-h-[200px] sm:min-h-[244px] md:min-h-[304px]" : "min-h-[300px] sm:min-h-[400px] lg:min-h-[500px]";
 
   return (
     <section
       className={`bg-white px-6 sm:px-10 lg:px-5 ${
-        isQuote ? "py-8" : compact ? "py-10 md:py-14" : "py-[76px]"
+        isQuote ? "py-5 sm:py-8" : compact ? "py-8 md:py-14" : "py-10 sm:py-[76px]"
       }`}
     >
       <div
         className={`relative mx-auto max-w-[1400px] overflow-hidden rounded-[20px] ${
-          isQuote ? "min-h-[407px]" : ctaMinHeight
+          isQuote ? "min-h-[260px] sm:min-h-[340px] md:min-h-[407px]" : ctaMinHeight
         }`}
       >
         <div
@@ -60,7 +60,7 @@ export default function CTABanner({
           {isQuote ? (
             <div className="max-w-[820px]">
               <WhiteMark />
-              <p className="mt-12 text-[34px] font-semibold leading-[42px] text-white max-md:text-[28px] max-md:leading-9">
+              <p className="mt-8 text-[20px] font-semibold leading-[30px] text-white sm:mt-12 sm:text-[28px] sm:leading-9 md:text-[34px] md:leading-[42px]">
                 {quote}
               </p>
             </div>

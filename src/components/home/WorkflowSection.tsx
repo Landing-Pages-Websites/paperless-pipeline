@@ -44,16 +44,16 @@ function StepNumber({
 
 export default function WorkflowSection() {
   return (
-    <section className="bg-white px-6 py-20 sm:px-10 lg:px-[80px] lg:py-[100px]">
+    <section className="bg-white px-6 py-12 sm:px-10 sm:py-16 lg:px-[80px] lg:py-[100px]">
       <div className="mx-auto grid max-w-[1121px] grid-cols-1 gap-12 lg:grid-cols-[503px_64px_514px] lg:gap-5">
         <div className="lg:pt-1">
           <span className="text-[14px] font-medium uppercase leading-6 tracking-[0.12em] text-[#0063EB]">
             All-in-One Workflow
           </span>
-          <h2 className="mt-6 max-w-[500px] text-[44px] font-semibold leading-[1.22] text-black max-md:text-[34px]">
+          <h2 className="mt-4 max-w-[500px] text-[28px] font-semibold leading-[1.2] text-black sm:mt-6 sm:text-[36px] lg:text-[44px] lg:leading-[1.22]">
             How Paperless Pipeline works
           </h2>
-          <p className="mt-5 max-w-[500px] text-[16px] font-normal leading-6 text-[#4F4F4F]">
+          <p className="mt-4 max-w-[500px] text-[15px] font-normal leading-6 text-[#4F4F4F] sm:mt-5 sm:text-[16px]">
             Streamline your entire transaction process with a connected system designed to
             reduce manual work, eliminate errors, and help you close faster with confidence.
           </p>
@@ -75,14 +75,14 @@ export default function WorkflowSection() {
                 <StepNumber number={step.number} active={index === 0} />
               </div>
               <article
-                className={`rounded-[20px] border border-[#E9ECEF] bg-white px-7 py-7 ${
+                className={`rounded-[20px] border border-[#E9ECEF] bg-white px-4 py-4 sm:px-7 sm:py-7 ${
                   index === 0 ? "shadow-[0_18px_40px_rgba(3,7,18,0.06)]" : ""
                 }`}
               >
-                <h3 className="text-[24px] font-medium leading-[32px] tracking-[-0.02em] text-black">
+                <h3 className="text-[18px] font-medium leading-[26px] tracking-[-0.02em] text-black sm:text-[24px] sm:leading-[32px]">
                   {step.title}
                 </h3>
-                <p className="mt-2 text-[16px] font-normal leading-6 tracking-[-0.02em] text-[#6C757D]">
+                <p className="mt-2 text-[14px] font-normal leading-5 tracking-[-0.02em] text-[#6C757D] sm:text-[16px] sm:leading-6">
                   {step.body}
                 </p>
 

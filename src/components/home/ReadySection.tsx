@@ -16,15 +16,16 @@ const featureCards = [
 
 export default function ReadySection() {
   return (
-    <section className="bg-white px-6 py-[110px] sm:px-10 lg:px-[80px]">
-      <div className="mx-auto grid max-w-[1120px] grid-cols-1 items-start gap-10 md:grid-cols-2">
-        <div className="relative min-h-[418px] overflow-hidden rounded-[18px]">
+    <section className="bg-white px-6 py-12 sm:px-10 sm:py-16 lg:px-[80px] lg:py-[110px]">
+      <div className="mx-auto grid max-w-[1120px] grid-cols-1 items-start gap-8 md:grid-cols-2 md:gap-10">
+        <div className="relative min-h-[240px] overflow-hidden rounded-[18px] sm:min-h-[320px] lg:min-h-[418px]">
           <Image
             src="/images/figma/ready-feature-image.jpg"
             alt="Real estate team reviewing documents"
             fill
             className="object-cover"
             quality={90}
+            sizes="(max-width: 768px) 100vw, 50vw"
           />
           <div className="absolute right-4 bottom-4 left-4 rounded-[12px] bg-white p-4 shadow-[0_8px_24px_rgba(3,7,18,0.10)]">
             <p className="text-[15px] font-medium leading-5 tracking-[-0.005em] text-[#1E1E1E]">
@@ -43,7 +44,7 @@ export default function ReadySection() {
           <p className="text-[12px] font-medium uppercase leading-6 tracking-[0.14em] text-[#0063EB]">
             Ready from Day One
           </p>
-          <h2 className="mt-6 max-w-[520px] text-[42px] font-semibold leading-[1.3] text-black max-md:text-[34px]">
+          <h2 className="mt-4 max-w-[520px] text-[26px] font-semibold leading-[1.2] text-black sm:mt-6 sm:text-[34px] lg:text-[42px] lg:leading-[1.3]">
             Up and running in days, not weeks
           </h2>
           <p className="mt-4 max-w-[550px] text-[15px] font-normal leading-6 text-[#4F4F4F]">
@@ -51,7 +52,7 @@ export default function ReadySection() {
             it easily and start closing deals without missing a beat.
           </p>
 
-          <div className="mt-16 grid grid-cols-1 gap-5 sm:grid-cols-2">
+          <div className="mt-8 grid grid-cols-1 gap-4 sm:mt-16 sm:grid-cols-2 sm:gap-5">
             {featureCards.map(({ title, body, Icon }) => (
               <div key={title} className="min-h-[149px] rounded-[8px] border border-black/10 bg-white p-4">
                 <Icon size={20} className="text-[#0063EB]" />

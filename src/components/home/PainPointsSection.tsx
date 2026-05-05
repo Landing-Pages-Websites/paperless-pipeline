@@ -30,9 +30,9 @@ const stats = [
 
 export default function PainPointsSection() {
   return (
-    <section className="bg-white px-6 py-8 sm:px-10 md:py-12 lg:px-[80px]">
+    <section className="bg-white px-6 py-10 sm:px-10 sm:py-12 lg:px-[80px] lg:py-16">
       <div className="mx-auto max-w-[940px]">
-        <div className="relative min-h-[470px] overflow-hidden rounded-[16px] md:min-h-[500px]">
+        <div className="relative min-h-[360px] overflow-hidden rounded-[16px] sm:min-h-[430px] md:min-h-[500px]">
           <Image
             src="/images/figma/painpoints-image.jpg"
             alt=""
@@ -40,10 +40,10 @@ export default function PainPointsSection() {
             className="object-cover object-center md:object-right"
             aria-hidden="true"
             quality={90}
-            sizes="(min-width: 1280px) 940px, calc(100vw - 48px)"
+            sizes="(max-width: 768px) 100vw, (min-width: 1280px) 940px, calc(100vw - 48px)"
           />
 
-          <div className="relative z-10 m-3 flex min-h-[446px] w-[calc(100%-1.5rem)] max-w-[420px] flex-col rounded-[12px] bg-white p-5 sm:m-4 sm:min-h-[468px] sm:w-[calc(100%-2rem)] md:p-6">
+          <div className="relative z-10 m-3 flex w-[calc(100%-1.5rem)] max-w-[420px] flex-col rounded-[12px] bg-white p-4 sm:m-4 sm:w-[calc(100%-2rem)] sm:p-5 md:p-6">
             <p className="text-[10px] font-medium uppercase leading-4 tracking-[0.16em] text-[#D92D20]">
               When systems fall behind
             </p>
@@ -76,12 +76,12 @@ export default function PainPointsSection() {
           {stats.map((stat) => (
             <div
               key={stat.number}
-              className="flex min-h-[163px] flex-col items-center justify-center rounded-[10px] border border-black/10 bg-white px-5 text-center"
+              className="flex min-h-[130px] flex-col items-center justify-center rounded-[10px] border border-black/10 bg-white px-4 py-5 text-center sm:min-h-[163px] sm:px-5"
             >
-              <div className="text-[56px] font-medium leading-none tracking-[-0.02em] text-[#D92D20]">
+              <div className="text-[40px] font-medium leading-none tracking-[-0.02em] text-[#D92D20] sm:text-[56px]">
                 {stat.number}
               </div>
-              <p className="mt-4 max-w-[275px] text-[18px] font-medium leading-6 text-[#1E1E1E]">
+              <p className="mt-3 max-w-[275px] text-[14px] font-medium leading-5 text-[#1E1E1E] sm:mt-4 sm:text-[18px] sm:leading-6">
                 {stat.label}
               </p>
             </div>

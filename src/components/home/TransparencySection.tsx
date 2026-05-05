@@ -48,13 +48,13 @@ const iconColors = ["#16A34A", "#0063EB", "#7C3AED"];
 
 export default function TransparencySection() {
   return (
-    <section className="bg-white px-6 py-[96px] sm:px-10 lg:px-[80px]">
+    <section className="bg-white px-6 py-12 sm:px-10 sm:py-16 lg:px-[80px] lg:py-[96px]">
       <div className="mx-auto flex max-w-[1120px] flex-col gap-12">
         <div className="mx-auto max-w-[760px] text-center">
           <span className="font-sans text-[12px] font-medium uppercase leading-6 tracking-[0.14em] text-[#0063EB]">
             Built on transparency
           </span>
-          <h2 className="mt-7 font-sans text-[40px] font-semibold leading-tight text-black max-md:text-[32px]">
+          <h2 className="mt-5 font-sans text-[26px] font-semibold leading-tight text-black sm:mt-7 sm:text-[32px] lg:text-[40px]">
             Your data should always be yours
           </h2>
           <p className="mt-5 font-sans text-[15px] font-normal leading-6 text-[#4F4F4F]">

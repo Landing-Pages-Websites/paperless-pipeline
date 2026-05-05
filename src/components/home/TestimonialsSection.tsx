@@ -35,66 +35,66 @@ const testimonials = [
 
 export default function TestimonialsSection() {
   return (
-    <section className="bg-white px-6 py-24 sm:px-10 md:py-32 lg:px-[80px]">
+    <section className="bg-white px-6 py-12 sm:px-10 sm:py-16 md:py-24 lg:px-[80px]">
       <div className="mx-auto max-w-[1440px]">
         <div className="mx-auto flex max-w-[960px] flex-col items-center text-center">
           <span className="text-[14px] font-medium uppercase leading-6 tracking-[0.18em] text-[#0063EB]">
             Trusted by teams like yours
           </span>
-          <h2 className="mt-8 text-[36px] font-semibold leading-[1.18] text-black md:text-[56px]">
+          <h2 className="mt-5 text-[24px] font-semibold leading-[1.18] text-black sm:mt-8 sm:text-[34px] md:text-[48px]">
             For those who have outgrown the &lsquo;all-in-one&rsquo; promise
           </h2>
-          <p className="mt-8 text-[18px] font-normal leading-7 text-[#4F4F4F] md:text-[20px]">
+          <p className="mt-4 text-[15px] font-normal leading-6 text-[#4F4F4F] sm:mt-6 sm:text-[17px] md:text-[20px] md:leading-7">
             Real experiences from professionals who needed more than what
             &ldquo;all-in-one&rdquo; tools could offer.
           </p>
         </div>
 
-        <div className="mt-16 grid grid-cols-1 items-start gap-8 md:mt-20 lg:grid-cols-3 lg:gap-10">
+        <div className="mt-10 grid grid-cols-1 items-start gap-5 sm:mt-16 sm:gap-8 md:mt-20 lg:grid-cols-3 lg:gap-10">
           {testimonials.map((t) => (
             <div
               key={t.name}
-              className={`flex w-full flex-col justify-between rounded-[16px] p-8 sm:p-10 ${
+              className={`flex w-full flex-col justify-between rounded-[16px] p-5 sm:p-8 ${
                 t.featured
-                  ? "min-h-[560px] lg:min-h-[611px]"
-                  : "min-h-[420px] lg:mt-[86px] lg:min-h-[439px]"
+                  ? "sm:min-h-[480px] lg:min-h-[611px]"
+                  : "sm:min-h-[360px] lg:mt-[86px] lg:min-h-[439px]"
               }`}
               style={{ background: CARD_GRADIENT }}
             >
               <div>
-                <div className="flex items-center gap-6">
+                <div className="flex items-center gap-4 sm:gap-6">
                   <Image
                     src={t.logo}
                     alt=""
-                    width={t.featured ? 80 : 56}
-                    height={t.featured ? 80 : 56}
-                    className="rounded-full object-cover"
+                    width={t.featured ? 56 : 44}
+                    height={t.featured ? 56 : 44}
+                    className="rounded-full object-cover sm:w-[80px] sm:h-[80px]"
                   />
                   <div className="flex flex-col gap-1">
-                    <span className="text-[17px] font-semibold leading-6 text-[#1E1E1E]">
+                    <span className="text-[15px] font-semibold leading-5 text-[#1E1E1E] sm:text-[17px] sm:leading-6">
                       {t.name}
                     </span>
-                    <span className="text-[16px] font-normal leading-6 text-[#6C6C6C]">
+                    <span className="text-[13px] font-normal leading-5 text-[#6C6C6C] sm:text-[16px] sm:leading-6">
                       {t.company}
                     </span>
                   </div>
                 </div>
 
-                <span className="mt-10 block select-none text-[24px] font-bold leading-none text-[#1E1E1E]" aria-hidden="true">
+                <span className="mt-6 block select-none text-[20px] font-bold leading-none text-[#1E1E1E] sm:mt-10 sm:text-[24px]" aria-hidden="true">
                   &quot;
                 </span>
                 <p
-                  className={`mt-8 text-[#1E1E1E] ${
+                  className={`mt-4 text-[#1E1E1E] sm:mt-6 sm:mt-8 ${
                     t.featured
-                      ? "text-[30px] font-semibold leading-[1.18] md:text-[36px]"
-                      : "text-[25px] font-normal leading-[1.28] md:text-[28px]"
+                      ? "text-[20px] font-semibold leading-[1.3] sm:text-[26px] md:text-[30px] md:leading-[1.18]"
+                      : "text-[17px] font-normal leading-[1.4] sm:text-[22px] md:text-[25px] md:leading-[1.28]"
                   }`}
                 >
                   {t.quote}
                 </p>
               </div>
 
-              <span className="mt-10 text-[16px] font-normal leading-6 text-[#1E1E1E]">
+              <span className="mt-6 text-[14px] font-normal leading-5 text-[#1E1E1E] sm:mt-10 sm:text-[16px] sm:leading-6">
                 {t.role}
               </span>
             </div>

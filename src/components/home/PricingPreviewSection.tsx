@@ -70,7 +70,7 @@ const commissionFeatures = [
 
 export default function PricingPreviewSection() {
   return (
-    <section className="bg-white px-5 py-[80px] md:px-[80px] md:pt-16 md:pb-[120px]">
+    <section className="bg-white px-5 py-12 sm:py-16 md:px-[80px] md:pt-16 md:pb-[120px]">
       <div className="max-w-[1440px] mx-auto flex flex-col items-center gap-12 md:gap-[55px]">
         {/* Section header */}
         <div className="flex flex-col items-center gap-3 w-full max-w-[836px]">
@@ -104,7 +104,7 @@ export default function PricingPreviewSection() {
                     Pricing Starts at
                   </span>
                   <div className="flex items-end gap-1">
-                    <span className="text-[#000000] font-medium text-[48px] md:text-[64px] leading-[72px] tracking-[-0.03em]">
+                    <span className="text-[#000000] font-medium text-[36px] leading-[1.1] tracking-[-0.03em] md:text-[48px] md:leading-[72px] lg:text-[64px]">
                       $65
                     </span>
                     <span className="text-[#808080] font-normal text-[16px] leading-[24px] pb-3">
@@ -130,7 +130,7 @@ export default function PricingPreviewSection() {
             <div className="flex flex-col flex-1">
               <div className="flex flex-col gap-3 p-4">
                 <div className="flex items-end gap-1">
-                  <span className="text-[#000000] font-medium text-[48px] md:text-[64px] leading-[72px] tracking-[-0.03em]">
+                  <span className="text-[#000000] font-medium text-[36px] leading-[1.1] tracking-[-0.03em] md:text-[48px] md:leading-[72px] lg:text-[64px]">
                     $0.70
                   </span>
                   <span className="text-[#808080] font-normal text-[16px] leading-[24px] pb-3">
@@ -162,7 +162,7 @@ export default function PricingPreviewSection() {
                     Pricing Starts at
                   </span>
                   <div className="flex items-end gap-1">
-                    <span className="text-[#000000] font-medium text-[48px] md:text-[64px] leading-[72px] tracking-[-0.03em]">
+                    <span className="text-[#000000] font-medium text-[36px] leading-[1.1] tracking-[-0.03em] md:text-[48px] md:leading-[72px] lg:text-[64px]">
                       $54
                     </span>
                     <span className="text-[#808080] font-normal text-[16px] leading-[24px] pb-3">
