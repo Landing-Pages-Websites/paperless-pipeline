@@ -209,9 +209,8 @@ export default function Footer() {
         <div
           className="relative mx-auto max-w-[1400px] overflow-hidden rounded-[24px] px-5 pb-16 pt-[132px] text-center sm:px-8 lg:px-[60px] lg:pb-[92px] lg:pt-[148px]"
           style={{
-            backgroundImage: "url('/images/figma/dark-gradient-bg.png')",
-            backgroundSize: "cover",
-            backgroundPosition: "center",
+            background:
+              "linear-gradient(135deg, #040c22 0%, #071840 25%, #0c2660 50%, #071840 75%, #040c22 100%)",
           }}
         >
           <div className="relative z-10 mx-auto flex max-w-[760px] flex-col items-center">
@@ -244,20 +243,15 @@ export default function Footer() {
                   teams.
                 </p>
                 <div className="mt-11 flex items-center gap-3">
-                  {[
-                    { label: "LinkedIn", mark: "in" },
-                    { label: "Instagram", mark: "ig" },
-                    { label: "X", mark: "X" },
-                  ].map(({ label, mark }) => (
-                    <Link
-                      key={label}
-                      href="#"
-                      aria-label={label}
-                      className="flex h-8 w-8 items-center justify-center rounded-full border border-dashed border-[#6C757D] text-[13px] font-medium leading-none text-[#475569] transition-colors hover:border-[#0063EB] hover:text-[#0063EB]"
-                    >
-                      {mark}
-                    </Link>
-                  ))}
+                  <Link href="#" aria-label="LinkedIn" className="flex h-8 w-8 items-center justify-center rounded-full border border-dashed border-[#6C757D] text-[#475569] transition-colors hover:border-[#0063EB] hover:text-[#0063EB]">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+                  </Link>
+                  <Link href="#" aria-label="Instagram" className="flex h-8 w-8 items-center justify-center rounded-full border border-dashed border-[#6C757D] text-[#475569] transition-colors hover:border-[#0063EB] hover:text-[#0063EB]">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+                  </Link>
+                  <Link href="#" aria-label="X (Twitter)" className="flex h-8 w-8 items-center justify-center rounded-full border border-dashed border-[#6C757D] text-[#475569] transition-colors hover:border-[#0063EB] hover:text-[#0063EB]">
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.26 5.632 5.905-5.632zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                  </Link>
                 </div>
               </div>
 
@@ -284,7 +278,7 @@ export default function Footer() {
 
             <div className="mt-16 flex flex-col items-start justify-between gap-6 md:flex-row md:items-center">
               <p className="text-[14px] font-normal leading-5 text-[#4F4F4F]">
-                ©2026; All Rights Reserved
+                © 2026 Paperless Pipeline. All rights reserved.
               </p>
 
               <div className="flex flex-wrap items-center gap-x-16 gap-y-3">

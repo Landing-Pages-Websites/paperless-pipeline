@@ -62,13 +62,13 @@ export default function Header() {
       }`}
     >
       {/* Announcement banner */}
-      <div className="flex items-center justify-center gap-3 bg-[#0063EB] px-4 py-4">
-        <p className="text-center text-[17px] font-normal leading-6 text-white">
+      <div className="flex items-center justify-center gap-2 bg-[#0063EB] px-4 py-2 sm:gap-3 sm:py-3">
+        <p className="text-center text-[12px] font-normal leading-5 text-white sm:text-[15px] sm:leading-6">
           See our AI Roadmap for Transaction Management
         </p>
         <a
           href="#"
-          className="shrink-0 rounded-[6px] bg-[#292929] px-3 py-0.5 text-[15px] font-normal leading-6 text-white transition-colors hover:bg-black/70"
+          className="shrink-0 rounded-[6px] bg-[#292929] px-2.5 py-0.5 text-[11px] font-normal leading-5 text-white transition-colors hover:bg-black/70 sm:px-3 sm:text-[14px] sm:leading-6"
         >
           Learn More
         </a>
@@ -158,11 +158,15 @@ export default function Header() {
         className={`fixed top-0 right-0 h-full w-72 bg-white z-50 shadow-xl transform transition-transform duration-300 ease-in-out lg:hidden flex flex-col ${
           mobileOpen ? "translate-x-0" : "translate-x-full"
         }`}
-        aria-hidden={!mobileOpen}
+        role="dialog"
+        aria-label="Navigation menu"
+        aria-modal="true"
+        {...(!mobileOpen ? { inert: true } : {})}
       >
         <div className="flex items-center justify-between px-5 py-4 border-b border-gray-100">
           <span className="font-semibold text-[#030712]">Menu</span>
           <button
+            type="button"
             onClick={() => setMobileOpen(false)}
             className="p-1.5 text-gray-500 hover:bg-gray-100 rounded-lg transition-colors"
             aria-label="Close menu"
@@ -177,6 +181,7 @@ export default function Header() {
               {item.children ? (
                 <>
                   <button
+                    type="button"
                     className="flex items-center justify-between w-full py-2.5 text-sm font-medium text-[#030712] hover:text-[#0063EB] transition-colors"
                     onClick={() =>
                       setMobileExpanded(

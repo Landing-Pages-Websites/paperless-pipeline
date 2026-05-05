@@ -15,7 +15,7 @@ function HeroButton({ href, children, variant }: ButtonProps) {
   return (
     <Link
       href={href}
-      className={`inline-flex h-11 items-center justify-center rounded-[8px] border px-5 text-[14px] font-medium leading-6 transition-colors ${classes}`}
+      className={`inline-flex h-11 w-full items-center justify-center rounded-[8px] border px-5 text-[14px] font-medium leading-6 transition-colors sm:w-auto ${classes}`}
     >
       {children}
     </Link>
@@ -183,33 +183,33 @@ export default function HeroSection() {
       <div className="mx-auto max-w-[1280px] px-6 sm:px-10 lg:px-[72px]">
         <div className="grid grid-cols-1 items-center gap-12 py-12 lg:grid-cols-[590px_440px] lg:gap-[86px] lg:pt-[52px] lg:pb-6">
           <div className="max-w-[590px]">
-            <div className="inline-flex max-w-full items-center gap-2 rounded-full border border-black/10 bg-white py-1.5 pr-4 pl-1.5 shadow-[0_1px_2px_rgba(0,0,0,0.04)]">
+            <div className="inline-flex max-w-full items-center gap-2 rounded-full border border-black/10 bg-white py-1.5 pr-3 pl-1.5 shadow-[0_1px_2px_rgba(0,0,0,0.04)] sm:pr-4">
               <SparkleIcon />
-              <span className="text-[13px] font-medium leading-5 text-[#1E1E1E] sm:whitespace-nowrap sm:text-[15px]">
+              <span className="text-[13px] font-medium leading-5 text-[#1E1E1E] sm:text-[15px]">
                 No credit card required · Free setup included
               </span>
             </div>
 
-            <h1 className="mt-6 text-[48px] font-semibold leading-[1.08] tracking-normal text-black sm:text-[60px] lg:text-[48px] xl:text-[56px]">
-              <span className="block">Transaction</span>
-              <span className="block whitespace-nowrap">
-                management <span className="text-[#0063EB]">that</span>
-              </span>
-              <span className="block whitespace-nowrap text-[#0063EB]">
-                stays <em className="font-medium italic">out of the way.</em>
+            <h1 className="mt-5 text-[32px] font-semibold leading-[1.1] tracking-tight text-black sm:text-[44px] lg:text-[48px] xl:text-[56px]">
+              <span className="block">Transaction management</span>
+              <span className="block sm:whitespace-nowrap">
+                that{" "}
+                <span className="text-[#0063EB]">
+                  stays <em className="font-medium italic">out of the way.</em>
+                </span>
               </span>
             </h1>
 
-            <p className="mt-7 max-w-[560px] text-[15px] font-medium leading-[26px] text-[#1E1E1E] sm:text-[18px]">
+            <p className="mt-5 max-w-[560px] text-[15px] font-normal leading-[26px] text-[#4F4F4F] sm:mt-7 sm:text-[17px]">
               Built for teams that need clarity, control, and predictable costs as they grow.
             </p>
 
-            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+            <div className="mt-6 flex flex-col gap-3 sm:mt-8 sm:flex-row">
               <HeroButton href="/signup" variant="primary">
                 Start Free Trial →
               </HeroButton>
               <HeroButton href="/demo" variant="secondary">
-                Book A Demo →
+                Book a Demo →
               </HeroButton>
             </div>
 

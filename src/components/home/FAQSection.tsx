@@ -58,41 +58,50 @@ export default function FAQSection() {
 
         {/* Right column – FAQ accordion */}
         <div className="flex flex-col flex-1">
-          {faqItems.map((faq, i) => (
-            <div
-              key={i}
-              className="flex flex-col gap-4 p-6 border-b border-[#E4E4E7]"
-            >
-              {/* Question row */}
-              <div className="flex items-center gap-5">
-                <h3 className="text-[#1E1E1E] font-semibold text-[18px] leading-[32px] flex-1">
-                  {faq.question}
-                </h3>
-                <button
-                  onClick={() => setOpenIndex(openIndex === i ? null : i)}
-                  aria-expanded={openIndex === i}
-                  className={`flex-shrink-0 flex items-center justify-center rounded-full px-2 py-1.5 transition-colors ${
-                    openIndex === i
-                      ? "bg-[#0063EB] text-white"
-                      : "bg-white border border-[#E4E4E7] text-[#6C757D]"
-                  }`}
-                >
-                  {openIndex === i ? (
-                    <ChevronUp size={16} />
-                  ) : (
-                    <ChevronDown size={16} />
-                  )}
-                </button>
-              </div>
+          {faqItems.map((faq, i) => {
+            const answerId = `faq-answer-${i}`;
+            const isOpen = openIndex === i;
+            return (
+              <div
+                key={i}
+                className="flex flex-col gap-4 p-6 border-b border-[#E4E4E7]"
+              >
+                {/* Question row */}
+                <div className="flex items-center gap-5">
+                  <h3 className="text-[#1E1E1E] font-semibold text-[18px] leading-[32px] flex-1">
+                    {faq.question}
+                  </h3>
+                  <button
+                    type="button"
+                    onClick={() => setOpenIndex(isOpen ? null : i)}
+                    aria-expanded={isOpen ? "true" : "false"}
+                    aria-controls={answerId}
+                    aria-label={isOpen ? `Collapse: ${faq.question}` : `Expand: ${faq.question}`}
+                    className={`flex-shrink-0 flex items-center justify-center rounded-full px-2 py-1.5 transition-colors ${
+                      isOpen
+                        ? "bg-[#0063EB] text-white"
+                        : "bg-white border border-[#E4E4E7] text-[#6C757D]"
+                    }`}
+                  >
+                    {isOpen ? (
+                      <ChevronUp size={16} aria-hidden="true" />
+                    ) : (
+                      <ChevronDown size={16} aria-hidden="true" />
+                    )}
+                  </button>
+                </div>
 
-              {/* Answer */}
-              {openIndex === i && (
-                <p className="text-[#4F4F4F] font-normal text-[16px] leading-[28px] whitespace-pre-line">
+                {/* Answer */}
+                <p
+                  id={answerId}
+                  className="text-[#4F4F4F] font-normal text-[16px] leading-[28px] whitespace-pre-line"
+                  hidden={!isOpen}
+                >
                   {faq.answer}
                 </p>
-              )}
-            </div>
-          ))}
+              </div>
+            );
+          })}
         </div>
       </div>
     </section>
