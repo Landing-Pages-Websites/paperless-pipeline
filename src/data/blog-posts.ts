@@ -14,6 +14,8 @@ export type BlogPost = {
   author: string;
   category: BlogCategory;
   readTime: string;
+  image: string;
+  imageAlt: string;
   body: string[];
 };
 
@@ -27,6 +29,8 @@ export const blogPosts: BlogPost[] = [
     author: "Rachel Kim",
     category: "Best Practices",
     readTime: "6 min read",
+    image: "/images/figma/ready-feature-image.jpg",
+    imageAlt: "Real estate team reviewing transaction documents at a meeting",
     body: [
       "The average real estate transaction involves more than 180 distinct tasks — from the initial contract through final disbursement. For most teams, the bottleneck isn't talent or market conditions; it's the administrative overhead that piles up between milestone events. Paperwork sits in email threads. Signatures get chased over text. Deadlines slip because no one has a single view of where each deal stands.",
       "The first step to closing faster is centralizing your transaction record. When every document, task, and communication lives in one place, your team stops spending time hunting for information and starts spending it on the work that actually moves deals forward. A shared transaction dashboard eliminates the 'Where are we on this?' check-ins that fragment everyone's day.",
@@ -43,6 +47,8 @@ export const blogPosts: BlogPost[] = [
     author: "Marcus Webb",
     category: "Team Management",
     readTime: "5 min read",
+    image: "/images/figma/pages/a0652331378aef12.png",
+    imageAlt: "Real estate professionals collaborating on a transaction",
     body: [
       "A decade ago, 'transaction coordinator' was a title you'd find at larger brokerages and RE/MAX franchises. Today, it's one of the most in-demand roles across residential real estate — and for good reason. As agent teams scale and transaction volumes grow, the complexity of managing each deal in parallel has outpaced what any agent can handle alone.",
       "The modern TC isn't just a document processor. They're the operational backbone of a high-performing team. They manage task timelines, coordinate with lenders, title companies, and inspectors, and ensure that every contingency is tracked and cleared on time. A great TC can absorb the administrative overhead of three to five agents, freeing each one to focus on what they do best: building relationships and winning listings.",
@@ -59,6 +65,8 @@ export const blogPosts: BlogPost[] = [
     author: "Sarah Okonkwo",
     category: "Technology",
     readTime: "7 min read",
+    image: "/images/figma/pages/7e9f003b00ec2a57.png",
+    imageAlt: "Two real estate agents reviewing digital transaction documents on a tablet",
     body: [
       "Real estate has historically been one of the last industries to embrace digital transformation — and it shows. In 2015, the average closing still required stacks of physical paper, wet signatures, and in-person presence at a title company's conference table. That world hasn't vanished, but it's changing fast. Remote online notarization is now legal in over 40 states. Electronic signatures are legally recognized on almost every document in a standard real estate transaction. And the number of fully digital closings completed in 2025 grew by over 60 percent year-over-year.",
       "The shift is being driven by both supply and demand. On the demand side, buyers and sellers increasingly expect the same digital experience from their real estate agent that they get from their bank or insurance company. On the supply side, tools that make digital transactions possible have matured significantly. Platforms that once required IT teams and enterprise contracts now work out of the box for a 10-agent team.",
@@ -75,6 +83,8 @@ export const blogPosts: BlogPost[] = [
     author: "David Park",
     category: "Transaction Management",
     readTime: "5 min read",
+    image: "/images/figma/pages/c6e4b9dff5453a34.png",
+    imageAlt: "Real estate agent managing paperwork and commission documents",
     body: [
       "Every broker has a version of the same story. It's a Friday afternoon, a transaction is closing in two hours, and someone realizes the commission split on this deal wasn't entered correctly. Frantic calls, a last-minute spreadsheet edit, and a commission statement that looks different from what the agent was expecting. If you've been in real estate longer than six months, you've lived this scenario.",
       "Manual commission tracking — whether in Excel, Google Sheets, or a back-office accounting system that wasn't designed for real estate — creates three distinct problems. First, it's time-consuming. Someone has to enter every deal manually, apply the right split formula, and account for all the fees, referrals, and adjustments that make each transaction unique. Second, it's error-prone. One wrong formula, one transposed number, and you've got an agent calling you angry about their paycheck. Third, it creates a reconciliation headache at the end of every month.",
@@ -91,6 +101,8 @@ export const blogPosts: BlogPost[] = [
     author: "Angela Torres",
     category: "Compliance",
     readTime: "8 min read",
+    image: "/images/figma/pages/tc-testimonial.png",
+    imageAlt: "Transaction coordinators reviewing compliance documents together",
     body: [
       "The Financial Crimes Enforcement Network (FinCEN) has significantly expanded its Geographic Targeting Orders (GTOs) in 2026, extending reporting requirements to all-cash real estate transactions in major metropolitan areas across the United States. If you're a broker, agent, or transaction coordinator involved in non-financed residential transactions above the applicable threshold, you need to understand what these requirements mean for your business.",
       "At their core, the new GTOs require that certain covered businesses — including title insurance companies, real estate brokers in some jurisdictions, and settlement agents — report the beneficial ownership of legal entities used to purchase residential real estate with cash. This means that if an LLC, trust, or other legal entity is buying a property without a mortgage, the purchasing entity's beneficial owners must be identified and reported to FinCEN using Form 8300 or the specific GTO reporting mechanism.",
@@ -107,6 +119,8 @@ export const blogPosts: BlogPost[] = [
     author: "James Callahan",
     category: "Best Practices",
     readTime: "6 min read",
+    image: "/images/figma/pages/why-it-matters-team.png",
+    imageAlt: "High-performing real estate team celebrating a successful close",
     body: [
       "When you talk to agents closing 10 transactions a month, the conversation is usually about hustle. When you talk to teams closing 50 or more, the conversation shifts entirely to systems. Volume at that level isn't achievable by grinding harder — it requires a workflow so well-engineered that each transaction almost manages itself, with the team focused only on the decisions and conversations that require human judgment.",
       "The foundation of every high-volume operation we've studied is a standardized transaction lifecycle. From the moment a contract is signed, every deal follows the same path: the same checklist, the same roles, the same communication cadence. There's no 'how do we handle this?' because every scenario has already been anticipated and baked into the workflow. New team members can onboard to a transaction in under an hour because the system tells them exactly what to do and when.",

@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { blogPosts, type BlogCategory } from "@/data/blog-posts";
+import { blogPosts } from "@/data/blog-posts";
 import CTABanner from "@/components/home/CTABanner";
 
 export function generateStaticParams() {
@@ -22,14 +23,6 @@ export async function generateMetadata({
   };
 }
 
-const categoryColors: Record<BlogCategory, string> = {
-  "Best Practices": "bg-[#E8F8EF]",
-  "Market Trends": "bg-[#EEF4FF]",
-  Technology: "bg-[#F5F0FF]",
-  "Transaction Management": "bg-[#FDF9EE]",
-  "Team Management": "bg-[#FFF0E6]",
-  Compliance: "bg-[#ECEEF2]",
-};
 
 function formatDate(dateStr: string) {
   return new Date(dateStr).toLocaleDateString("en-US", {
@@ -167,26 +160,15 @@ export default async function BlogPostPage({
             </div>
 
             {/* Hero image */}
-            <div
-              className={`w-full h-[280px] md:h-[500px] rounded-2xl relative overflow-hidden ${categoryColors[post.category]}`}
-              aria-hidden="true"
-            >
-              {/* Gradient overlay */}
-              <div className="absolute inset-0 bg-gradient-to-br from-black/5 via-transparent to-black/15 pointer-events-none" />
-              {/* Large quote mark top-left */}
-              <span
-                className="absolute top-4 left-6 font-serif leading-none pointer-events-none select-none text-black/10"
-                style={{ fontSize: "clamp(100px, 18vw, 200px)", lineHeight: 1 }}
-              >
-                &ldquo;
-              </span>
-              {/* Ghosted category name centered */}
-              <span
-                className="absolute inset-0 flex items-center justify-center font-semibold leading-none pointer-events-none select-none text-center px-8 text-black/10 uppercase"
-                style={{ fontSize: "clamp(36px, 7vw, 100px)", letterSpacing: "0.04em" }}
-              >
-                {post.category}
-              </span>
+            <div className="w-full h-[280px] md:h-[500px] rounded-2xl relative overflow-hidden">
+              <Image
+                src={post.image}
+                alt={post.imageAlt}
+                fill
+                priority
+                className="object-cover"
+                sizes="(max-width: 1280px) 100vw, 1280px"
+              />
             </div>
           </div>
         </div>
@@ -258,9 +240,15 @@ export default async function BlogPostPage({
                   key={rel.slug}
                   className="bg-white border border-black/10 rounded-3xl overflow-hidden flex flex-col hover:shadow-md transition-shadow"
                 >
-                  <div
-                    className={`mx-6 mt-6 h-[220px] rounded-2xl flex-shrink-0 ${categoryColors[rel.category]}`}
-                  />
+                  <div className="mx-6 mt-6 h-[220px] rounded-2xl flex-shrink-0 relative overflow-hidden">
+                    <Image
+                      src={rel.image}
+                      alt={rel.imageAlt}
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 768px) 100vw, 520px"
+                    />
+                  </div>
                   <div className="p-6 flex flex-col flex-1 justify-between gap-5">
                     <div className="flex flex-col gap-3">
                       <span className="inline-flex items-center bg-[#0063EB] text-white text-sm font-semibold px-3 py-1 rounded-full w-fit">
