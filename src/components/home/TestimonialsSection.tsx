@@ -35,29 +35,31 @@ const testimonials = [
 
 export default function TestimonialsSection() {
   return (
-    <section className="bg-white px-6 py-12 sm:px-10 sm:py-16 md:py-24 lg:px-[80px]">
+    <section className="bg-white px-6 py-12 sm:px-10 sm:py-16 lg:px-[80px] lg:py-24">
       <div className="mx-auto max-w-[1440px]">
         <div className="mx-auto flex max-w-[960px] flex-col items-center text-center">
           <span className="text-[14px] font-medium uppercase leading-6 tracking-[0.18em] text-[#0063EB]">
             Trusted by teams like yours
           </span>
-          <h2 className="mt-5 text-[24px] font-semibold leading-[1.18] text-black sm:mt-8 sm:text-[34px] md:text-[48px]">
+          <h2 className="mt-5 text-[24px] font-semibold leading-[1.18] text-black sm:mt-8 sm:text-[34px] lg:text-[48px]">
             For those who have outgrown the &lsquo;all-in-one&rsquo; promise
           </h2>
-          <p className="mt-4 text-[15px] font-normal leading-6 text-[#4F4F4F] sm:mt-6 sm:text-[17px] md:text-[20px] md:leading-7">
+          <p className="mt-4 text-[15px] font-normal leading-6 text-[#4F4F4F] sm:mt-6 sm:text-[17px] lg:text-[20px] lg:leading-7">
             Real experiences from professionals who needed more than what
             &ldquo;all-in-one&rdquo; tools could offer.
           </p>
         </div>
 
-        <div className="mt-10 grid grid-cols-1 items-start gap-5 sm:mt-16 sm:gap-8 md:mt-20 lg:grid-cols-3 lg:gap-10">
-          {testimonials.map((t) => (
+        <div className="mt-10 grid grid-cols-1 items-start gap-5 sm:mt-14 sm:gap-6 md:grid-cols-2 lg:mt-20 lg:grid-cols-3 lg:gap-10">
+          {testimonials.map((t, idx) => (
             <div
               key={t.name}
               className={`flex w-full flex-col justify-between rounded-[16px] p-5 sm:p-8 ${
+                idx === testimonials.length - 1 ? "md:col-span-2 lg:col-span-1" : ""
+              } ${
                 t.featured
-                  ? "sm:min-h-[480px] lg:min-h-[611px]"
-                  : "sm:min-h-[360px] lg:mt-[86px] lg:min-h-[439px]"
+                  ? "sm:min-h-[420px] lg:min-h-[611px]"
+                  : "sm:min-h-[320px] lg:mt-[86px] lg:min-h-[439px]"
               }`}
               style={{ background: CARD_GRADIENT }}
             >
@@ -84,10 +86,10 @@ export default function TestimonialsSection() {
                   &quot;
                 </span>
                 <p
-                  className={`mt-4 text-[#1E1E1E] sm:mt-6 sm:mt-8 ${
+                  className={`mt-4 text-[#1E1E1E] sm:mt-8 ${
                     t.featured
-                      ? "text-[20px] font-semibold leading-[1.3] sm:text-[26px] md:text-[30px] md:leading-[1.18]"
-                      : "text-[17px] font-normal leading-[1.4] sm:text-[22px] md:text-[25px] md:leading-[1.28]"
+                      ? "text-[20px] font-semibold leading-[1.3] sm:text-[24px] lg:text-[30px] lg:leading-[1.18]"
+                      : "text-[17px] font-normal leading-[1.4] sm:text-[20px] lg:text-[25px] lg:leading-[1.28]"
                   }`}
                 >
                   {t.quote}

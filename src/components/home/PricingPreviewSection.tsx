@@ -78,7 +78,7 @@ export default function PricingPreviewSection() {
             Pay for what matters
           </p>
           <div className="flex flex-col items-center gap-6 w-full">
-            <h2 className="text-[#000000] font-semibold text-[32px] md:text-[48px] leading-tight text-center">
+            <h2 className="text-[#000000] font-semibold text-[26px] sm:text-[32px] lg:text-[48px] leading-tight text-center">
               Flexible. Modular. Pay for what you need.
             </h2>
             <p className="text-[#4F4F4F] font-normal text-[16px] leading-[150%] text-center">
@@ -89,7 +89,7 @@ export default function PricingPreviewSection() {
         </div>
 
         {/* Pricing cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full max-w-[1280px]">
+        <div className="grid grid-cols-1 gap-5 w-full max-w-[1280px] sm:gap-6 lg:grid-cols-3">
           {/* Card 1 – Core Product */}
           <div className="bg-white border-2 border-[#F2F2F2] rounded-[24px] p-6 flex flex-col gap-6">
             <div className="self-start bg-[#0063EB] rounded-full px-4 py-2">
@@ -104,7 +104,7 @@ export default function PricingPreviewSection() {
                     Pricing Starts at
                   </span>
                   <div className="flex items-end gap-1">
-                    <span className="text-[#000000] font-medium text-[36px] leading-[1.1] tracking-[-0.03em] md:text-[48px] md:leading-[72px] lg:text-[64px]">
+                    <span className="text-[#000000] font-medium text-[36px] leading-[1.1] tracking-[-0.03em] lg:text-[56px] lg:leading-[1.15]">
                       $65
                     </span>
                     <span className="text-[#808080] font-normal text-[16px] leading-[24px] pb-3">
@@ -130,7 +130,7 @@ export default function PricingPreviewSection() {
             <div className="flex flex-col flex-1">
               <div className="flex flex-col gap-3 p-4">
                 <div className="flex items-end gap-1">
-                  <span className="text-[#000000] font-medium text-[36px] leading-[1.1] tracking-[-0.03em] md:text-[48px] md:leading-[72px] lg:text-[64px]">
+                  <span className="text-[#000000] font-medium text-[36px] leading-[1.1] tracking-[-0.03em] lg:text-[56px] lg:leading-[1.15]">
                     $0.70
                   </span>
                   <span className="text-[#808080] font-normal text-[16px] leading-[24px] pb-3">
@@ -162,7 +162,7 @@ export default function PricingPreviewSection() {
                     Pricing Starts at
                   </span>
                   <div className="flex items-end gap-1">
-                    <span className="text-[#000000] font-medium text-[36px] leading-[1.1] tracking-[-0.03em] md:text-[48px] md:leading-[72px] lg:text-[64px]">
+                    <span className="text-[#000000] font-medium text-[36px] leading-[1.1] tracking-[-0.03em] lg:text-[56px] lg:leading-[1.15]">
                       $54
                     </span>
                     <span className="text-[#808080] font-normal text-[16px] leading-[24px] pb-3">
