@@ -190,9 +190,9 @@ export default function HeroSection() {
               </span>
             </div>
 
-            <h1 className="mt-5 text-[32px] font-semibold leading-[1.1] tracking-tight text-black sm:text-[44px] lg:text-[48px] xl:text-[56px]">
+            <h1 className="mt-5 text-[32px] font-semibold leading-[1.1] tracking-tight text-black sm:text-[40px] lg:text-[44px] xl:text-[50px]">
               <span className="block">Transaction management</span>
-              <span className="block sm:whitespace-nowrap">
+              <span className="block">
                 that{" "}
                 <span className="text-[#0063EB]">
                   stays <em className="font-medium italic">out of the way.</em>
