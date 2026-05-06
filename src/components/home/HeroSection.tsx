@@ -84,15 +84,15 @@ function AwardBadge({
 
 function ProofStrip() {
   return (
-    <div className="mt-5 flex flex-wrap items-end gap-4 sm:mt-[30px] sm:gap-7">
-      <div className="flex h-[96px] w-[180px] flex-col justify-center rounded-[8px] border border-black/10 bg-[#FDF9EE] px-4 shadow-[0_1px_1px_rgba(0,0,0,0.03)] sm:h-[122px] sm:w-[242px] sm:px-5">
-        <div className="font-display text-[30px] font-medium leading-none text-[#23272E] sm:text-[38px]">
+    <div className="mt-5 flex items-end gap-3 sm:mt-[30px] sm:gap-7">
+      <div className="flex h-[96px] min-w-0 flex-1 flex-col justify-center rounded-[8px] border border-black/10 bg-[#FDF9EE] px-3 shadow-[0_1px_1px_rgba(0,0,0,0.03)] sm:h-[122px] sm:flex-none sm:w-[242px] sm:px-5">
+        <div className="font-display text-[28px] font-medium leading-none text-[#23272E] sm:text-[38px]">
           4.6<span className="text-[#0063EB]">+</span>
         </div>
-        <div className="mt-2 text-[13px] font-medium leading-5 text-[#23272E] sm:mt-3 sm:text-[15px]">by users on G2</div>
+        <div className="mt-2 text-[12px] font-medium leading-5 text-[#23272E] sm:mt-3 sm:text-[15px]">by users on G2</div>
       </div>
 
-      <div className="flex h-[80px] items-end gap-4 border-b border-[#D5D9E2] px-1 pb-4 sm:h-[96px] sm:gap-7 sm:pb-5">
+      <div className="flex h-[80px] shrink-0 items-end gap-2 border-b border-[#D5D9E2] px-1 pb-4 sm:h-[96px] sm:gap-7 sm:pb-5">
         <AwardBadge title="Easiest Setup" accent="blue" />
         <AwardBadge title="Easiest To Do Business With" accent="teal" />
         <AwardBadge title="Users Love Us" accent="gray" />
@@ -190,7 +190,7 @@ export default function HeroSection() {
               </span>
             </div>
 
-            <h1 className="mt-5 text-[32px] font-semibold leading-[1.1] tracking-tight text-black sm:text-[40px] lg:text-[44px] xl:text-[50px]">
+            <h1 className="mt-5 text-[32px] font-semibold leading-[1.1] tracking-tight text-black sm:text-[40px] lg:text-[44px]">
               <span className="block">Transaction management</span>
               <span className="block">
                 that{" "}
