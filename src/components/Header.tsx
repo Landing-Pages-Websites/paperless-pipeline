@@ -3,7 +3,6 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { usePathname } from "next/navigation";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { navItems, type NavItem } from "@/data/navigation";
 
@@ -32,11 +31,9 @@ function DropdownMenu({ item }: { item: NavItem }) {
 }
 
 export default function Header() {
-  const pathname = usePathname();
   const [mobileOpen, setMobileOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [mobileExpanded, setMobileExpanded] = useState<string | null>(null);
-  const isHomePage = pathname === "/";
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 4);
@@ -62,26 +59,20 @@ export default function Header() {
       }`}
     >
       {/* Announcement banner */}
-      <div className="flex items-center justify-center gap-2 bg-[#0063EB] px-4 py-2 sm:gap-3 sm:py-3">
-        <p className="text-center text-[12px] font-normal leading-5 text-white sm:text-[15px] sm:leading-6">
+      <div className="flex min-h-12 items-center justify-center gap-2 bg-[#0063EB] px-4 py-2 sm:gap-3 lg:min-h-[56px]">
+        <p className="text-center text-[12px] font-normal leading-5 text-white sm:text-[16px] sm:leading-6">
           See our AI Roadmap for Transaction Management
         </p>
         <a
           href="#"
-          className="shrink-0 rounded-[6px] bg-[#292929] px-2.5 py-0.5 text-[11px] font-normal leading-5 text-white transition-colors hover:bg-black/70 sm:px-3 sm:text-[14px] sm:leading-6"
+          className="shrink-0 rounded-[8px] bg-[#292929] px-2.5 py-0.5 text-[11px] font-normal leading-5 text-white transition-colors hover:bg-black/70 sm:px-3.5 sm:py-1 sm:text-[16px] sm:leading-6"
         >
           Learn More
         </a>
       </div>
 
       {/* Main nav bar */}
-      <div
-        className={
-          isHomePage
-            ? "bg-[linear-gradient(90deg,#FDF9EE_0%,#FDF9EE_42%,#DCECFB_67%,#FAF8E9_100%)]"
-            : "bg-white"
-        }
-      >
+      <div className="bg-white">
         <div className="mx-auto w-full max-w-[1720px] px-6 sm:px-10 lg:px-[108px]">
           <div className="grid h-20 grid-cols-[1fr_auto] items-center lg:h-24 lg:grid-cols-[1fr_auto_1fr]">
             {/* Logo */}
@@ -97,7 +88,7 @@ export default function Header() {
             </Link>
 
             {/* Desktop nav */}
-            <nav className="hidden items-center gap-9 justify-self-center lg:flex" aria-label="Main navigation">
+            <nav className="hidden items-center gap-10 justify-self-center lg:flex" aria-label="Main navigation">
               {navItems.map((item) =>
                 item.children ? (
                   <DropdownMenu key={item.href} item={item} />
@@ -118,14 +109,14 @@ export default function Header() {
               {/* Try It Free — primary blue, ring shadow */}
               <Link
                 href="/signup"
-                className="inline-flex h-10 items-center rounded-lg border border-white/40 bg-[#0063EB] px-3 text-[16px] font-medium text-white shadow-[0_0_0_1px_#046EFF,0_1px_2px_rgba(4,110,255,0.56)] transition-colors hover:bg-[#046EFF]"
+                className="inline-flex h-11 items-center rounded-lg border border-white/40 bg-[#0063EB] px-3.5 text-[16px] font-medium text-white shadow-[0_0_0_1px_#046EFF,0_1px_2px_rgba(4,110,255,0.56)] transition-colors hover:bg-[#046EFF]"
               >
                 Try It Free
               </Link>
               {/* Log In — white bg, subtle shadow */}
               <Link
                 href="/login"
-                className="inline-flex h-10 items-center rounded-lg bg-white px-3 text-[16px] font-medium text-[#000000] shadow-[0_0_0_1px_rgba(0,0,0,0.06),0_1px_2px_rgba(0,0,0,0.06)] transition-colors hover:text-[#0063EB]"
+                className="inline-flex h-11 items-center rounded-lg bg-white px-4 text-[16px] font-medium text-[#000000] shadow-[0_0_0_1px_rgba(0,0,0,0.06),0_1px_2px_rgba(0,0,0,0.06)] transition-colors hover:text-[#0063EB]"
               >
                 Log In
               </Link>
