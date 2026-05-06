@@ -26,19 +26,19 @@ export default function FAQSection() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
-    <section className="bg-white py-[80px] md:py-[120px] px-5 md:px-[80px]">
-      <div className="max-w-[1440px] mx-auto flex flex-col md:flex-row gap-5">
+    <section className="bg-white px-5 py-[80px] sm:px-8 md:py-[100px] lg:px-[80px] lg:py-[120px]">
+      <div className="mx-auto flex max-w-[1440px] flex-col gap-10 lg:flex-row lg:gap-5">
         {/* Left column – header + CTA */}
-        <div className="flex flex-col justify-between gap-8 md:gap-0 md:w-[574px] flex-shrink-0">
+        <div className="flex flex-col gap-8 lg:w-[500px] lg:flex-shrink-0 lg:justify-between lg:gap-0 xl:w-[574px]">
           <div className="flex flex-col gap-3">
             <p className="text-[#0063EB] font-medium text-[14px] leading-[24px] tracking-[0.0893em] uppercase">
               FAQs
             </p>
             <div className="flex flex-col gap-2">
-              <h2 className="text-[#000000] font-semibold text-[32px] md:text-[48px] leading-tight">
+              <h2 className="text-[#000000] font-semibold text-[32px] leading-tight md:text-[44px] lg:text-[48px]">
                 Questions? We&apos;ve Got Answers.
               </h2>
-              <p className="text-[#4F4F4F] font-normal text-[16px] leading-[150%]">
+              <p className="max-w-[760px] text-[#4F4F4F] font-normal text-[16px] leading-[150%] lg:max-w-none">
                 Everything you need to know about getting started, using the
                 platform, and making the most of it.
               </p>
@@ -57,7 +57,7 @@ export default function FAQSection() {
         </div>
 
         {/* Right column – FAQ accordion */}
-        <div className="flex flex-col flex-1">
+        <div className="flex min-w-0 flex-1 flex-col">
           {faqItems.map((faq, i) => {
             const answerId = `faq-answer-${i}`;
             const isOpen = openIndex === i;
