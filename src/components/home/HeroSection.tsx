@@ -115,16 +115,16 @@ function StatCard({
   valueClassName?: string;
 }) {
   return (
-    <div className={`flex min-h-[148px] flex-col justify-between p-4 sm:min-h-[216px] sm:p-8 ${className}`}>
-      <div className={`text-[14px] font-medium leading-[1.2] sm:text-[21px] sm:leading-[1.18] ${labelClassName}`}>{label}</div>
-      <div className={`font-display text-[40px] font-medium leading-none sm:text-[56px] ${valueClassName}`}>{value}</div>
+    <div className={`flex min-h-[148px] flex-col justify-between p-4 sm:min-h-[216px] sm:p-8 md:min-h-[200px] md:p-8 lg:min-h-[280px] lg:p-10 ${className}`}>
+      <div className={`text-[14px] font-medium leading-[1.2] sm:text-[21px] sm:leading-[1.18] md:text-[20px] lg:text-[26px] ${labelClassName}`}>{label}</div>
+      <div className={`font-display text-[40px] font-medium leading-none sm:text-[56px] md:text-[52px] lg:text-[76px] ${valueClassName}`}>{value}</div>
     </div>
   );
 }
 
 function HeroStats() {
   return (
-    <div className="grid w-full max-w-[390px] grid-cols-2 gap-0 sm:max-w-[440px]">
+    <div className="grid w-full max-w-[390px] grid-cols-2 gap-0 sm:max-w-[440px] md:max-w-[680px]">
       <StatCard
         label={
           <>
@@ -139,13 +139,13 @@ function HeroStats() {
         valueClassName="text-[#FFE95B]"
       />
 
-      <div className="flex min-h-[148px] flex-col items-center justify-center rounded-[14px] bg-white px-3 py-5 text-center sm:min-h-[216px] sm:px-5 sm:py-8">
-        <Stars className="text-[13px] sm:text-[15px]" />
-        <p className="mt-2 max-w-[160px] text-[10px] font-normal leading-[15px] text-[#393837] sm:mt-3 sm:max-w-[180px] sm:text-[11px] sm:leading-[16px]">
+      <div className="flex min-h-[148px] flex-col items-center justify-center rounded-[14px] bg-white px-3 py-5 text-center sm:min-h-[216px] sm:px-5 sm:py-8 md:min-h-[200px] md:px-6 md:py-6 lg:min-h-[280px] lg:px-8 lg:py-10">
+        <Stars className="text-[13px] sm:text-[15px] md:text-[18px]" />
+        <p className="mt-2 max-w-[160px] text-[10px] font-normal leading-[15px] text-[#393837] sm:mt-3 sm:max-w-[180px] sm:text-[11px] sm:leading-[16px] md:mt-4 md:max-w-[220px] md:text-[13px] md:leading-[20px]">
           &quot;I saved $470,000 over 14 years with flawless service and zero issues.&quot;
         </p>
-        <p className="mt-3 text-[10px] font-semibold leading-4 text-[#1E1E1E] sm:mt-5 sm:text-[11px]">— Tony Garrant</p>
-        <p className="mt-0.5 text-[9px] font-normal leading-4 text-[#393837]">
+        <p className="mt-3 text-[10px] font-semibold leading-4 text-[#1E1E1E] sm:mt-5 sm:text-[11px] md:mt-5 md:text-[13px]">— Tony Garrant</p>
+        <p className="mt-0.5 text-[9px] font-normal leading-4 text-[#393837] md:text-[11px]">
           Broker/Owner, Abundant Realty
         </p>
       </div>

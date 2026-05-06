@@ -229,8 +229,8 @@ export default function Footer() {
           </div>
 
           <div className="relative z-10 mx-auto mt-[78px] flex min-h-[520px] max-w-[1280px] flex-col justify-between rounded-[14px] bg-white/80 p-6 text-left shadow-[0_1px_2px_rgba(0,0,0,0.03)] backdrop-blur-md sm:p-10">
-            <div className="grid grid-cols-1 gap-10 md:grid-cols-[1.4fr_repeat(4,1fr)] md:gap-12 lg:gap-16">
-              <div className="flex flex-col">
+            <div className="grid grid-cols-1 gap-10 md:grid-cols-2 md:gap-x-8 md:gap-y-10 lg:grid-cols-[1.4fr_repeat(4,1fr)] lg:gap-16">
+              <div className="flex flex-col md:col-span-2 lg:col-span-1">
                 <Image
                   src="/images/figma/logo-full.png"
                   alt="Paperless Pipeline"
