@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 
 type ButtonProps = {
@@ -47,55 +48,25 @@ function Stars({ className = "text-[22px]" }: { className?: string }) {
   );
 }
 
-function AwardBadge({
-  title,
-  accent,
-}: {
-  title: string;
-  accent: "blue" | "teal" | "gray";
-}) {
-  const accentClass =
-    accent === "blue"
-      ? "border-b-[#0063EB]"
-      : accent === "teal"
-        ? "border-b-[#10BFA7]"
-        : "border-b-[#23272E]";
-
-  return (
-    <div className="relative h-[76px] w-[58px] bg-white text-center shadow-[0_0_0_1px_rgba(0,0,0,0.18)]">
-      <div className="flex h-3 items-center justify-between bg-[#F2F4F7] px-1 text-[4px] font-semibold uppercase leading-none text-[#1E1E1E]">
-        <span>Spring 2025</span>
-        <span className="rounded-[1px] bg-[#FF492C] px-0.5 text-white">G2</span>
-      </div>
-      <div className="flex h-[48px] items-center justify-center px-1 text-[7px] font-semibold leading-[9px] text-[#111827]">
-        {title}
-      </div>
-      <div
-        className={`mx-auto h-0 w-0 border-x-[29px] border-b-[13px] border-x-transparent ${accentClass}`}
-      />
-      {accent === "gray" && (
-        <div className="absolute bottom-2 left-1/2 -translate-x-1/2 text-[8px] leading-none text-[#FF492C]">
-          ★
-        </div>
-      )}
-    </div>
-  );
-}
-
 function ProofStrip() {
   return (
-    <div className="mt-8 flex items-end gap-3 sm:mt-10 sm:gap-7 lg:mt-12">
-      <div className="flex h-[96px] min-w-0 flex-1 flex-col justify-center rounded-[8px] border border-black/10 bg-[#FDF9EE] px-3 shadow-[0_1px_1px_rgba(0,0,0,0.03)] sm:h-[122px] sm:flex-none sm:w-[264px] sm:px-5">
-        <div className="font-display text-[28px] font-medium leading-none text-[#23272E] sm:text-[38px]">
+    <div className="mt-8 flex flex-col gap-5 sm:mt-9 sm:flex-row sm:items-end sm:gap-7">
+      <div className="flex h-[110px] w-full flex-col justify-center rounded-[8px] border border-black/10 bg-[#FDF9EE] px-5 shadow-[0_1px_1px_rgba(0,0,0,0.03)] sm:h-[126px] sm:w-[230px] sm:flex-none sm:px-6">
+        <div className="font-display text-[44px] font-medium leading-none text-[#23272E] sm:text-[48px]">
           4.6<span className="text-[#0063EB]">+</span>
         </div>
-        <div className="mt-2 text-[12px] font-medium leading-5 text-[#23272E] sm:mt-3 sm:text-[15px]">by users on G2</div>
+        <div className="mt-3 text-[14px] font-medium leading-5 text-[#23272E] sm:text-[16px]">by users on G2</div>
       </div>
 
-      <div className="flex h-[80px] shrink-0 items-end gap-2 border-b border-[#D5D9E2] px-1 pb-4 sm:h-[96px] sm:gap-7 sm:pb-5">
-        <AwardBadge title="Easiest Setup" accent="blue" />
-        <AwardBadge title="Easiest To Do Business With" accent="teal" />
-        <AwardBadge title="Users Love Us" accent="gray" />
+      <div className="flex w-full max-w-[284px] justify-center border-b border-[#D9DDE3] pb-3">
+        <Image
+          src="/images/figma/homepage 3 icon.webp"
+          alt="G2 Spring 2025 awards for easiest setup, easiest to do business with, and users love us"
+          width={1481}
+          height={579}
+          className="h-auto w-full"
+          sizes="754px"
+        />
       </div>
     </div>
   );
@@ -190,13 +161,10 @@ export default function HeroSection() {
               </span>
             </div>
 
-            <h1 className="mt-6 text-[36px] font-semibold leading-[1.12] tracking-normal text-black sm:text-[52px] lg:text-[58px] lg:leading-[1.14] xl:text-[64px] 2xl:text-[70px]">
+            <h1 className="mt-6 text-[36px] font-semibold leading-[1.12] tracking-normal text-black sm:text-[52px] lg:text-[58px] xl:text-[64px] 2xl:text-[70px]">
               <span className="block">Transaction management</span>
               <span className="block">
-                that{" "}
-                <span className="text-[#0063EB]">
-                  stays <em className="font-medium italic">out of the way.</em>
-                </span>
+                 <span className="text-[#0063EB]">that stays <em className="font-small italic">out of the way.</em></span>
               </span>
             </h1>
 
