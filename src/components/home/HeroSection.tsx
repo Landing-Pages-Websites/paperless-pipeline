@@ -95,7 +95,7 @@ function StatCard({
 
 function HeroStats() {
   return (
-    <div className="grid w-full grid-cols-2 gap-0">
+    <div className="grid w-full max-w-[650px] grid-cols-2 gap-0 2xl:max-w-[550px]">
       <StatCard
         label={
           <>
@@ -105,7 +105,7 @@ function HeroStats() {
           </>
         }
         value="33K+"
-        className="rounded-tl-[14px] rounded-tr-[78px] rounded-br-[78px] rounded-bl-[14px] bg-[#0063EB] 2xl:rounded-tr-[116px] 2xl:rounded-br-[116px]"
+        className="rounded-tl-[14px] rounded-tr-[110px] rounded-br-[110px] rounded-bl-[14px] bg-[#0063EB] 2xl:rounded-tr-[140px] 2xl:rounded-br-[140px]"
         labelClassName="text-white"
         valueClassName="text-[#FFE95B]"
       />
@@ -142,7 +142,7 @@ function HeroStats() {
           </>
         }
         value="90K+"
-        className="rounded-tl-[14px] rounded-tr-[78px] rounded-br-[14px] rounded-bl-[14px] bg-[#FFE95B] 2xl:rounded-tr-[116px]"
+        className="rounded-tl-[14px] rounded-tr-[110px] rounded-br-[14px] rounded-bl-[14px] bg-[#FFE95B] 2xl:rounded-tr-[140px]"
       />
     </div>
   );
@@ -161,14 +161,16 @@ export default function HeroSection() {
               </span>
             </div>
 
-            <h1 className="mt-5 text-[34px] font-semibold leading-[1.12] tracking-normal text-black sm:text-[48px] lg:text-[54px] xl:text-[58px] 2xl:text-[64px]">
-              <span className="block">Transaction management</span>
+            <h1 className="mt-5 text-[34px] font-semibold leading-[1.12] tracking-normal text-black sm:text-[48px] lg:text-[54px] xl:text-[58px] 2xl:text-[60px]">
               <span className="block">
-                 <span className="text-[#0063EB]">that stays <em className="font-small italic">out of the way.</em></span>
+                Transaction management <span className="text-[#0063EB]">that</span>
+              </span>
+              <span className="block">
+                 <span className="text-[#0063EB]">stays <em className="font-small italic">out of the way.</em></span>
               </span>
             </h1>
 
-            <p className="mt-5 max-w-[680px] text-[15px] font-medium leading-[26px] text-black sm:mt-6 sm:text-[18px] sm:leading-[30px] lg:text-[19px] lg:leading-[32px]">
+            <p className="mt-5 max-w-[680px] text-[15px] font-medium leading-[26px] text-black sm:mt-6 sm:text-[18px] sm:leading-[30px] lg:text-[18px] lg:leading-[32px]">
               Built for teams that need clarity, control, and predictable costs as they grow.
             </p>
 
