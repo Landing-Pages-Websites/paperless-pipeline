@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 
 type CTABannerProps = {
@@ -12,16 +13,6 @@ type CTABannerProps = {
   buttonHref?: string;
   compact?: boolean;
 };
-
-function WhiteMark() {
-  return (
-    <svg width="48" height="48" viewBox="0 0 48 48" fill="none" className="mx-auto" aria-hidden="true">
-      <path d="M20 9L34 21.5C37.8 24.9 36.5 31.1 31.7 32.7L25.9 34.6L30 24L18 18L20 9Z" fill="white" />
-      <path d="M16.5 20.5L27.5 26L22.5 39L12 31.5L16.5 20.5Z" fill="white" />
-      <circle cx="27.5" cy="23.5" r="3.5" fill="#9DB4E5" />
-    </svg>
-  );
-}
 
 export default function CTABanner({
   variant = "quote",
@@ -59,7 +50,13 @@ export default function CTABanner({
         <div className="relative z-10 flex min-h-[inherit] flex-col items-center justify-center px-6 text-center">
           {isQuote ? (
             <div className="max-w-[820px]">
-              <WhiteMark />
+              <Image
+                src="/images/figma/logo banner.webp"
+                alt="Paperless Pipeline"
+                width={358}
+                height={341}
+                className="mx-auto h-12 w-auto"
+              />
               <p className="mt-8 text-[20px] font-semibold leading-[30px] text-white sm:mt-12 sm:text-[28px] sm:leading-9 md:text-[34px] md:leading-[42px]">
                 {quote}
               </p>

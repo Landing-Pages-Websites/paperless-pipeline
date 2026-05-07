@@ -44,14 +44,14 @@ function StepNumber({
 
 export default function WorkflowSection() {
   return (
-    <section className="bg-white px-6 py-12 sm:px-10 sm:py-16 lg:px-[80px] lg:py-[100px]">
-      <div className="mx-auto grid max-w-[1621px] grid-cols-1 gap-12 lg:grid-cols-[503px_64px_minmax(0,1fr)] lg:gap-5">
+    <section className="bg-white px-6 py-12 sm:px-10 sm:py-16 lg:px-10 lg:py-[100px] xl:px-[60px]">
+      <div className="mx-auto grid max-w-[1121px] grid-cols-1 gap-12 lg:grid-cols-[minmax(0,430px)_56px_minmax(0,460px)] lg:gap-5 xl:grid-cols-[503px_64px_514px]">
         <div className="lg:pt-1">
           <span className="text-[14px] font-medium uppercase leading-6 tracking-[0.12em] text-[#0063EB]">
             All-in-One Workflow
           </span>
           <h2 className="mt-4 max-w-[500px] text-[28px] font-semibold leading-[1.2] text-black sm:mt-6 sm:text-[36px] lg:text-[44px] lg:leading-[1.22]">
-            <span className="whitespace-nowrap">How Paperless Pipeline</span> works
+           <span className="whitespace-nowrap">  How Paperless Pipeline</span> works
           </h2>
           <p className="mt-4 max-w-[500px] text-[15px] font-normal leading-6 text-[#4F4F4F] sm:mt-5 sm:text-[16px]">
             Streamline your entire transaction process with a connected system designed to

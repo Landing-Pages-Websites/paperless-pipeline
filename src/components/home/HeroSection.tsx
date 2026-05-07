@@ -143,6 +143,8 @@ function HeroStats() {
         }
         value="90K+"
         className="rounded-tl-[14px] rounded-tr-[110px] rounded-br-[14px] rounded-bl-[14px] bg-[#FFE95B] 2xl:rounded-tr-[140px]"
+        labelClassName="text-[#1E1E1E] lg:text-[19px] 2xl:text-[21px]"
+        valueClassName="text-[#0063EB] lg:text-[54px] 2xl:text-[60px]"
       />
     </div>
   );
@@ -151,8 +153,8 @@ function HeroStats() {
 export default function HeroSection() {
   return (
     <section className="overflow-hidden bg-[linear-gradient(90deg,#FDF9EE_0%,#FDF9EE_42%,#DCECFB_67%,#FAF8E9_100%)]">
-      <div className="mx-auto w-full max-w-[1720px] px-6 sm:px-10 lg:px-[108px]">
-        <div className="grid grid-cols-1 items-center gap-8 py-9 sm:gap-10 sm:py-12 lg:grid-cols-[minmax(0,620px)_minmax(410px,1fr)] lg:gap-12 lg:pt-12 lg:pb-12 xl:grid-cols-[minmax(0,680px)_minmax(480px,1fr)] 2xl:grid-cols-[minmax(0,720px)_minmax(520px,1fr)] 2xl:gap-14">
+      <div className="mx-auto w-full max-w-[1280px] px-6 sm:px-10 lg:px-10 xl:px-14">
+        <div className="grid grid-cols-1 items-center gap-8 py-9 sm:gap-10 sm:py-12 lg:grid-cols-[minmax(0,520px)_minmax(340px,1fr)] lg:gap-8 lg:pt-12 lg:pb-12 xl:grid-cols-[minmax(0,580px)_minmax(430px,1fr)] xl:gap-10">
           <div className="max-w-[760px]">
             <div className="inline-flex max-w-full items-center gap-2 rounded-full border border-black/10 bg-white py-1.5 pr-3 pl-1.5 shadow-[0_1px_2px_rgba(0,0,0,0.04)] sm:pr-4">
               <SparkleIcon />
